@@ -7,6 +7,7 @@
 #include "core/xr/graphics_plugin/OpenGLESGraphicsPlugin.h"
 #include "core/Loader.h"
 #include "core/GameLoop.h"
+#include "core/SceneManager.h"
 #include "OptionsManager.h"
 #include "AndroidAppManager.h"
 
@@ -15,9 +16,9 @@ namespace nar {
   void Game::Run(android_app *app) {
     try {
       AndroidAppManager::Get()->set_app(app);
-      Initialize();
+      InitializeGame();
       GameLoop::Get()->Run();
-      Cleanup();
+      CleanupGame();
     } catch (const std::exception &ex) {
       Log::Write(Log::Level::Error, ex.what());
     } catch (...) {
@@ -26,18 +27,19 @@ namespace nar {
   }
 
   /// Do all initialization before entering game loop
-  bool Game::Initialize() {
+  bool Game::InitializeGame() {
     AndroidAppManager::Get()->Initialize();
     Loader::Get()->Initialize();
     OpenXrProgram::Get()->Initialize();
     if (!OptionsManager::Get()->Initialize())
       return false;
     OpenGLESGraphicsPlugin::Get()->UpdateOptions();
+    SceneManager::Get()->InitializeScenes();
     return true;
   }
 
   /// Cleanup after exiting game loop
-  void Game::Cleanup() {
+  void Game::CleanupGame() {
     AndroidAppManager::Get()->Cleanup();
     nar::DisposeAllSingletons();
   }

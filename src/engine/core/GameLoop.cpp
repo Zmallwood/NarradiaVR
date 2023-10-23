@@ -20,7 +20,9 @@ namespace nar {
         continue;
 
       OpenXrProgram::Get()->PollActions();
-      OpenXrProgram::Get()->RenderFrame();
+
+      SceneManager::Get()->UpdateCurrentScene();
+      SceneManager::Get()->RenderCurrentScene();
     }
   }
 

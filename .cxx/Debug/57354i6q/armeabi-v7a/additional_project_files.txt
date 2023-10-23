@@ -72,7 +72,10 @@
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/VRApp.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/AndroidAppState.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/GameLoop.h
+/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/IScene.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/Loader.h
+/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/SceneManager.h
+/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/SceneNames.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/SystemEventPoller.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/SystemEventReader.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/assets/CubeData.h
@@ -97,6 +100,7 @@
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/matter/Cube.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/matter/Point.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/matter/Vertex.h
+/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/scenes/intro/scene_IntroScene.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/world/Player.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/CMakeFiles/android_native_app_glue.dir/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue/android_native_app_glue.c.o
 /home/andreas/Code/C++/VR/OpenXR/src/common/gfxwrapper_opengl.h

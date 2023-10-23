@@ -2,57 +2,58 @@ C/C++ Structured Log3
 1
 //home/andreas/Code/C++/VR/OpenXR/CMakeLists.txtC
 A
-?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	Ä¸ïµ1µ) ­ªã–µ1;
+?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	ÊïÂïµ1µ) ­ªã–µ1;
 9
-7/home/andreas/Code/C++/VR/OpenXR/include/CMakeLists.txt	Ä¸ïµ1 µªã–µ1B
+7/home/andreas/Code/C++/VR/OpenXR/include/CMakeLists.txt	ÊïÂïµ1 µªã–µ1B
 @
->/home/andreas/Code/C++/VR/OpenXR/include/openxr/CMakeLists.txt	Ä¸ïµ1õ µªã–µ17
+>/home/andreas/Code/C++/VR/OpenXR/include/openxr/CMakeLists.txt	ÊïÂïµ1õ µªã–µ17
 5
-3/home/andreas/Code/C++/VR/OpenXR/src/CMakeLists.txt	Ä¸ïµ1À ¿ªã–µ1<
+3/home/andreas/Code/C++/VR/OpenXR/src/CMakeLists.txt	ÊïÂïµ1À ¿ªã–µ1<
 :
-8/home/andreas/Code/C++/VR/OpenXR/src/cmake/FindEGL.cmake	Ä¸ïµ1§/ Äªã–µ1@
+8/home/andreas/Code/C++/VR/OpenXR/src/cmake/FindEGL.cmake	ÊïÂïµ1§/ Äªã–µ1@
 >
-</home/andreas/Code/C++/VR/OpenXR/src/cmake/FindJsonCpp.cmake	Ä¸ïµ1€ Äªã–µ1A
+</home/andreas/Code/C++/VR/OpenXR/src/cmake/FindJsonCpp.cmake	ÊïÂïµ1€ Äªã–µ1A
 ?
-=/home/andreas/Code/C++/VR/OpenXR/src/cmake/FindOpenGLES.cmake	Ä¸ïµ1ùA Åªã–µ1G
+=/home/andreas/Code/C++/VR/OpenXR/src/cmake/FindOpenGLES.cmake	ÊïÂïµ1ùA Åªã–µ1G
 E
-C/home/andreas/Code/C++/VR/OpenXR/src/cmake/StdFilesystemFlags.cmake	Ä¸ïµ1	ó7 Åªã–µ1G
+C/home/andreas/Code/C++/VR/OpenXR/src/cmake/StdFilesystemFlags.cmake	ÊïÂïµ1	ó7 Åªã–µ1G
 E
-C/home/andreas/Code/C++/VR/OpenXR/src/cmake/cmake_uninstall.cmake.in	Ä¸ïµ1
+C/home/andreas/Code/C++/VR/OpenXR/src/cmake/cmake_uninstall.cmake.in	ÊïÂïµ1
 ß Åªã–µ1>
 <
-:/home/andreas/Code/C++/VR/OpenXR/src/loader/CMakeLists.txt	Ä¸ïµ1•| Òªã–µ1E
+:/home/andreas/Code/C++/VR/OpenXR/src/loader/CMakeLists.txt	ÊïÂïµ1•| Òªã–µ1E
 C
-A/home/andreas/Code/C++/VR/OpenXR/src/loader/OpenXRConfig.cmake.in	Ä¸ïµ1÷ Òªã–µ1=
+A/home/andreas/Code/C++/VR/OpenXR/src/loader/OpenXRConfig.cmake.in	ÊïÂïµ1÷ Òªã–µ1=
 ;
-9/home/andreas/Code/C++/VR/OpenXR/src/tests/CMakeLists.txt	Ä¸ïµ1ï ­›˜µ1q
+9/home/andreas/Code/C++/VR/OpenXR/src/tests/CMakeLists.txt	ÊïÂïµ1ï ­›˜µ1q
 o
-m/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/x86_64/additional_project_files.txt	Ä¸ïµ1Ùe ›Êñîµ1n
+m/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/x86_64/additional_project_files.txt	ÊïÂïµ1ªh âŠºïµ1n
 l
-j/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/x86_64/android_gradle_build.json	Ä¸ïµ1êE œÊñîµ1s
+j/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/x86_64/android_gradle_build.json	ÊïÂïµ1êE ãŠºïµ1s
 q
-o/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/x86_64/android_gradle_build_mini.json	Ä¸ïµ1¡@ ¢Êñîµ1`
+o/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/x86_64/android_gradle_build_mini.json	ÊïÂïµ1¡@ êŠºïµ1`
 ^
-\/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/x86_64/build.ninja	Ä¸ïµ1ò	 Êñîµ1d
+\/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/x86_64/build.ninja	ÊïÂïµ1™•
+ ËŠºïµ1d
 b
-`/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/x86_64/build.ninja.txt	Ä¸ïµ1i
+`/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/x86_64/build.ninja.txt	ÊïÂïµ1i
 g
-e/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/x86_64/build_file_index.txt	Ä¸ïµ1Ò ¢Êñîµ1j
+e/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/x86_64/build_file_index.txt	ÊïÂïµ1Ò êŠºïµ1j
 h
-f/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/x86_64/compile_commands.json	Ä¸ïµ1Ö Êñîµ1n
+f/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/x86_64/compile_commands.json	ÊïÂïµ1‡ü ËŠºïµ1n
 l
-j/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/x86_64/compile_commands.json.bin	Ä¸ïµ1œY Êñîµ1t
+j/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/x86_64/compile_commands.json.bin	ÊïÂïµ1¼] ËŠºïµ1t
 r
-p/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/x86_64/metadata_generation_command.txt	Ä¸ïµ1İ ¢Êñîµ1g
+p/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/x86_64/metadata_generation_command.txt	ÊïÂïµ1İ êŠºïµ1g
 e
-c/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/x86_64/prefab_config.json	Ä¸ïµ1( ¢Êñîµ1l
+c/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/x86_64/prefab_config.json	ÊïÂïµ1( êŠºïµ1l
 j
-h/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/x86_64/symbol_folder_index.txt	Ä¸ïµ1g ¢Êñîµ1H
+h/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/x86_64/symbol_folder_index.txt	ÊïÂïµ1g êŠºïµ1H
 F
-D/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/CMakeLists.txt	Ä¸ïµ1Ç  ÛßÅÊµ1L
+D/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/CMakeLists.txt	ÊïÂïµ1Ç  ÛßÅÊµ1L
 J
-H/home/andreas/Code/C++/VR/OpenXR/src/tests/c_compile_test/CMakeLists.txt	Ä¸ïµ1Ë Õªã–µ1G
+H/home/andreas/Code/C++/VR/OpenXR/src/tests/c_compile_test/CMakeLists.txt	ÊïÂïµ1Ë Õªã–µ1G
 E
-C/home/andreas/Code/C++/VR/OpenXR/src/tests/list_json/CMakeLists.txt	Ä¸ïµ1¿ Ùªã–µ16
+C/home/andreas/Code/C++/VR/OpenXR/src/tests/list_json/CMakeLists.txt	ÊïÂïµ1¿ Ùªã–µ16
 4
-2/home/andreas/Code/C++/VR/OpenXR/src/version.cmake	Ä¸ïµ1» Úªã–µ1
+2/home/andreas/Code/C++/VR/OpenXR/src/version.cmake	ÊïÂïµ1» Úªã–µ1
