@@ -7,5 +7,4 @@
 /// event loop for receiving input events and doing other things.
 void android_main(struct android_app *app) {
   nar::Game::Get()->Run(app); // Run new game instance
-  nar::DisposeAllSingletons();
 }

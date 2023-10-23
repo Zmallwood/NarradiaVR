@@ -11,7 +11,7 @@ namespace nar {
     static void Create() {
       if (!instance_) { // Create new instance_ if none exists
         std::string str = "Creating " + std::string(typeid(T).name());
-        __android_log_print(ANDROID_LOG_ERROR, "Narradia", str.c_str());
+        __android_log_print(ANDROID_LOG_ERROR, "Narradia", "%s", str.c_str());
         instance_ = std::make_shared<T>();
         AddSingletonDisposeAction([&] { instance_.reset(); });
       }
@@ -25,7 +25,7 @@ namespace nar {
 
     static void Dispose() {
       std::string str = "Disposing " + std::string(typeid(T).name());
-      __android_log_print(ANDROID_LOG_ERROR, "Narradia", str.c_str());
+      __android_log_print(ANDROID_LOG_ERROR, "Narradia", "%s", str.c_str());
       instance_.reset(); // Delete instance_ if want to force it
     }
 

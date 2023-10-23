@@ -65,6 +65,54 @@ namespace nar {
     Renderer::Get()->RenderFrame();
   }
 
+  void OpenXrProgram::HandleSessionStateChangedEvent(
+      const XrEventDataSessionStateChanged &state_changed_event) {
+    const XrSessionState old_state = session_state_;
+    session_state_ = state_changed_event.state;
+
+    Log::Write(
+        Log::Level::Info, Fmt("XrEventDataSessionStateChanged: state %s->%s session=%lld time=%lld",
+                              to_string(old_state), to_string(session_state_),
+                              state_changed_event.session, state_changed_event.time));
+
+    if ((state_changed_event.session != XR_NULL_HANDLE) &&
+        (state_changed_event.session != session_)) {
+      Log::Write(Log::Level::Error, "XrEventDataSessionStateChanged for unknown session");
+      return;
+    }
+
+    switch (session_state_) {
+    case XR_SESSION_STATE_READY: {
+      CHECK(session_ != XR_NULL_HANDLE);
+      XrSessionBeginInfo session_begin_info = {XR_TYPE_SESSION_BEGIN_INFO};
+      session_begin_info.primaryViewConfigurationType = options_->Parsed.view_config_type;
+      CHECK_XRCMD(xrBeginSession(session_, &session_begin_info));
+      session_running_ = true;
+      break;
+    }
+    case XR_SESSION_STATE_STOPPING: {
+      CHECK(session_ != XR_NULL_HANDLE);
+      session_running_ = false;
+      CHECK_XRCMD(xrEndSession(session_))
+      break;
+    }
+    case XR_SESSION_STATE_EXITING: {
+      GameLoop::Get()->set_exit_render_loop(true);
+      // Do not attempt to restart because user closed this session.
+      GameLoop::Get()->set_request_restart(false);
+      break;
+    }
+    case XR_SESSION_STATE_LOSS_PENDING: {
+      GameLoop::Get()->set_exit_render_loop(true);
+      // Poll for a new instance.
+      GameLoop::Get()->set_request_restart(true);
+      break;
+    }
+    default:
+      break;
+    }
+  }
+
   void OpenXrProgram::CreateInstanceInternal() {
     CHECK(instance_ == XR_NULL_HANDLE);
 
@@ -554,172 +602,60 @@ namespace nar {
     }
   }
 
-  // Return event if one is available, otherwise return null.
-  const XrEventDataBaseHeader *OpenXrProgram::TryReadNextEvent() {
-    // It is sufficient to clear the just the XrEventDataBuffer header to
-    // XR_TYPE_EVENT_DATA_BUFFER
-    XrEventDataBaseHeader *base_header =
-        reinterpret_cast<XrEventDataBaseHeader *>(&event_data_buffer_);
-    *base_header = {XR_TYPE_EVENT_DATA_BUFFER};
-    const XrResult xr = xrPollEvent(instance_, &event_data_buffer_);
+  void OpenXrProgram::PollActions() {
+    input_.hand_active = {XR_FALSE, XR_FALSE};
 
-    if (xr == XR_SUCCESS) {
-      if (base_header->type == XR_TYPE_EVENT_DATA_EVENTS_LOST) {
-        const XrEventDataEventsLost *const eventsLost =
-            reinterpret_cast<const XrEventDataEventsLost *>(base_header);
-        Log::Write(Log::Level::Warning, Fmt("%d events lost", eventsLost->lostEventCount));
-      }
+    // Sync actions
+    const XrActiveActionSet active_action_set = {input_.action_set, XR_NULL_PATH};
+    XrActionsSyncInfo sync_info = {XR_TYPE_ACTIONS_SYNC_INFO};
+    sync_info.countActiveActionSets = 1;
+    sync_info.activeActionSets = &active_action_set;
+    CHECK_XRCMD(xrSyncActions(session_, &sync_info));
 
-      return base_header;
-    }
+    // Get pose and grab action state and start haptic vibrate when hand is 90%
+    // squeezed.
+    for (auto hand : {Side::kLeft, Side::kRight}) {
+      XrActionStateGetInfo get_info = {XR_TYPE_ACTION_STATE_GET_INFO};
+      get_info.action = input_.grab_action;
+      get_info.subactionPath = input_.hand_subaction_path[hand];
 
-    if (xr == XR_EVENT_UNAVAILABLE)
-      return nullptr;
+      XrActionStateFloat grab_value = {XR_TYPE_ACTION_STATE_FLOAT};
+      CHECK_XRCMD(xrGetActionStateFloat(session_, &get_info, &grab_value));
 
-    THROW_XR(xr, "xrPollEvent");
-  }
+      if (grab_value.isActive == XR_TRUE) {
+        // Scale the rendered hand by 1.0f (open) to 0.5f (fully squeezed).
+        input_.hand_scale[hand] = 1.0f - 0.5f * grab_value.currentState;
 
-  void OpenXrProgram::PollEvents() {
-    GameLoop::Get()->set_exit_render_loop(false);
-    GameLoop::Get()->set_request_restart(false);
+        if (grab_value.currentState > 0.9f) {
+          XrHapticVibration vibration = {XR_TYPE_HAPTIC_VIBRATION};
+          vibration.amplitude = 0.5;
+          vibration.duration = XR_MIN_HAPTIC_DURATION;
+          vibration.frequency = XR_FREQUENCY_UNSPECIFIED;
 
-    // Process all pending messages.
-    while (const XrEventDataBaseHeader *event = TryReadNextEvent()) {
-      switch (event->type) {
-      case XR_TYPE_EVENT_DATA_INSTANCE_LOSS_PENDING: {
-        const auto &instance_loss_pending =
-            *reinterpret_cast<const XrEventDataInstanceLossPending *>(event);
-        Log::Write(
-            Log::Level::Warning,
-            Fmt("XrEventDataInstanceLossPending by %lld", instance_loss_pending.lossTime));
-
-        GameLoop::Get()->set_exit_render_loop(true);
-        GameLoop::Get()->set_request_restart(true);
-        return;
-      }
-      case XR_TYPE_EVENT_DATA_SESSION_STATE_CHANGED: {
-        auto session_state_changed_event =
-            *reinterpret_cast<const XrEventDataSessionStateChanged *>(event);
-        HandleSessionStateChangedEvent(session_state_changed_event);
-        break;
-      }
-      case XR_TYPE_EVENT_DATA_INTERACTION_PROFILE_CHANGED:
-        ProgramLogger::Get()->LogActionSourceName(input_.grab_action, "Grab");
-        ProgramLogger::Get()->LogActionSourceName(input_.quit_action, "Quit");
-        ProgramLogger::Get()->LogActionSourceName(input_.pose_action, "Pose");
-        ProgramLogger::Get()->LogActionSourceName(input_.vibrate_action, "Vibrate");
-        break;
-      case XR_TYPE_EVENT_DATA_REFERENCE_SPACE_CHANGE_PENDING:
-      default: {
-        Log::Write(Log::Level::Verbose, Fmt("Ignoring event type %d", event->type));
-        break;
-      }
-      }
-    }
-  }
-
-  void OpenXrProgram::HandleSessionStateChangedEvent(
-      const XrEventDataSessionStateChanged &state_changed_event) {
-    const XrSessionState old_state = session_state_;
-    session_state_ = state_changed_event.state;
-
-    Log::Write(
-        Log::Level::Info, Fmt("XrEventDataSessionStateChanged: state %s->%s session=%lld time=%lld",
-                              to_string(old_state), to_string(session_state_),
-                              state_changed_event.session, state_changed_event.time));
-
-    if ((state_changed_event.session != XR_NULL_HANDLE) &&
-        (state_changed_event.session != session_)) {
-      Log::Write(Log::Level::Error, "XrEventDataSessionStateChanged for unknown session");
-      return;
-    }
-
-    switch (session_state_) {
-    case XR_SESSION_STATE_READY: {
-      CHECK(session_ != XR_NULL_HANDLE);
-      XrSessionBeginInfo session_begin_info = {XR_TYPE_SESSION_BEGIN_INFO};
-      session_begin_info.primaryViewConfigurationType = options_->Parsed.view_config_type;
-      CHECK_XRCMD(xrBeginSession(session_, &session_begin_info));
-      session_running_ = true;
-      break;
-    }
-    case XR_SESSION_STATE_STOPPING: {
-      CHECK(session_ != XR_NULL_HANDLE);
-      session_running_ = false;
-      CHECK_XRCMD(xrEndSession(session_))
-      break;
-    }
-    case XR_SESSION_STATE_EXITING: {
-      GameLoop::Get()->set_exit_render_loop(true);
-      // Do not attempt to restart because user closed this session.
-      GameLoop::Get()->set_request_restart(false);
-      break;
-    }
-    case XR_SESSION_STATE_LOSS_PENDING: {
-      GameLoop::Get()->set_exit_render_loop(true);
-      // Poll for a new instance.
-      GameLoop::Get()->set_request_restart(true);
-      break;
-    }
-    default:
-      break;
-    }
-    }
-
-    void OpenXrProgram::PollActions() {
-      input_.hand_active = {XR_FALSE, XR_FALSE};
-
-      // Sync actions
-      const XrActiveActionSet active_action_set = {input_.action_set, XR_NULL_PATH};
-      XrActionsSyncInfo sync_info = {XR_TYPE_ACTIONS_SYNC_INFO};
-      sync_info.countActiveActionSets = 1;
-      sync_info.activeActionSets = &active_action_set;
-      CHECK_XRCMD(xrSyncActions(session_, &sync_info));
-
-      // Get pose and grab action state and start haptic vibrate when hand is 90%
-      // squeezed.
-      for (auto hand : {Side::kLeft, Side::kRight}) {
-        XrActionStateGetInfo get_info = {XR_TYPE_ACTION_STATE_GET_INFO};
-        get_info.action = input_.grab_action;
-        get_info.subactionPath = input_.hand_subaction_path[hand];
-
-        XrActionStateFloat grab_value = {XR_TYPE_ACTION_STATE_FLOAT};
-        CHECK_XRCMD(xrGetActionStateFloat(session_, &get_info, &grab_value));
-
-        if (grab_value.isActive == XR_TRUE) {
-          // Scale the rendered hand by 1.0f (open) to 0.5f (fully squeezed).
-          input_.hand_scale[hand] = 1.0f - 0.5f * grab_value.currentState;
-
-          if (grab_value.currentState > 0.9f) {
-            XrHapticVibration vibration = {XR_TYPE_HAPTIC_VIBRATION};
-            vibration.amplitude = 0.5;
-            vibration.duration = XR_MIN_HAPTIC_DURATION;
-            vibration.frequency = XR_FREQUENCY_UNSPECIFIED;
-
-            XrHapticActionInfo haptic_action_info = {XR_TYPE_HAPTIC_ACTION_INFO};
-            haptic_action_info.action = input_.vibrate_action;
-            haptic_action_info.subactionPath = input_.hand_subaction_path[hand];
-            CHECK_XRCMD(xrApplyHapticFeedback(
-                session_, &haptic_action_info, (XrHapticBaseHeader *)&vibration));
-          }
+          XrHapticActionInfo haptic_action_info = {XR_TYPE_HAPTIC_ACTION_INFO};
+          haptic_action_info.action = input_.vibrate_action;
+          haptic_action_info.subactionPath = input_.hand_subaction_path[hand];
+          CHECK_XRCMD(xrApplyHapticFeedback(
+              session_, &haptic_action_info, (XrHapticBaseHeader *)&vibration));
         }
-
-        get_info.action = input_.pose_action;
-        XrActionStatePose pose_state = {XR_TYPE_ACTION_STATE_POSE};
-        CHECK_XRCMD(xrGetActionStatePose(session_, &get_info, &pose_state));
-        input_.hand_active[hand] = pose_state.isActive;
       }
 
-      // There were no subaction paths specified for the quit action, because we don't
-      // care which hand did it.
-      XrActionStateGetInfo get_info = {
-          XR_TYPE_ACTION_STATE_GET_INFO, nullptr, input_.quit_action, XR_NULL_PATH};
-      XrActionStateBoolean quit_value = {XR_TYPE_ACTION_STATE_BOOLEAN};
-      CHECK_XRCMD(xrGetActionStateBoolean(session_, &get_info, &quit_value));
+      get_info.action = input_.pose_action;
+      XrActionStatePose pose_state = {XR_TYPE_ACTION_STATE_POSE};
+      CHECK_XRCMD(xrGetActionStatePose(session_, &get_info, &pose_state));
+      input_.hand_active[hand] = pose_state.isActive;
+    }
 
-      if ((quit_value.isActive == XR_TRUE) && (quit_value.changedSinceLastSync == XR_TRUE) &&
-          (quit_value.currentState == XR_TRUE)) {
-        CHECK_XRCMD(xrRequestExitSession(session_));
-      }
+    // There were no subaction paths specified for the quit action, because we don't
+    // care which hand did it.
+    XrActionStateGetInfo get_info = {
+        XR_TYPE_ACTION_STATE_GET_INFO, nullptr, input_.quit_action, XR_NULL_PATH};
+    XrActionStateBoolean quit_value = {XR_TYPE_ACTION_STATE_BOOLEAN};
+    CHECK_XRCMD(xrGetActionStateBoolean(session_, &get_info, &quit_value));
+
+    if ((quit_value.isActive == XR_TRUE) && (quit_value.changedSinceLastSync == XR_TRUE) &&
+        (quit_value.currentState == XR_TRUE)) {
+      CHECK_XRCMD(xrRequestExitSession(session_));
     }
   }
+}

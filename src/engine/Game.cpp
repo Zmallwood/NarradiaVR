@@ -39,5 +39,6 @@ namespace nar {
   /// Cleanup after exiting game loop
   void Game::Cleanup() {
     AndroidAppManager::Get()->Cleanup();
+    nar::DisposeAllSingletons();
   }
 }

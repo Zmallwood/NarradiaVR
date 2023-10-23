@@ -14,8 +14,8 @@ namespace nar {
     void Initialize();
     void RenderFrame();
     XrEnvironmentBlendMode GetPreferredBlendMode() const;
-    void PollEvents();
     void PollActions();
+    void HandleSessionStateChangedEvent(const XrEventDataSessionStateChanged &state_changed_event);
 
     bool IsSessionRunning() const {
       return session_running_;
@@ -73,6 +73,14 @@ namespace nar {
       return system_id_;
     }
 
+    XrEventDataBuffer event_data_buffer() {
+      return event_data_buffer_;
+    }
+
+    XrSessionState session_state() {
+      return session_state_;
+    }
+
    private:
     void CreateInstanceInternal();
     void CreateInstance();
@@ -82,8 +90,6 @@ namespace nar {
     void CreateVisualizedSpaces();
     void InitializeSession();
     void CreateSwapchains();
-    const XrEventDataBaseHeader *TryReadNextEvent();
-    void HandleSessionStateChangedEvent(const XrEventDataSessionStateChanged &state_changed_event);
 
     const std::shared_ptr<const Options> options_;
     std::shared_ptr<AndroidPlatformPlugin> platform_plugin_;
