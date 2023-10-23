@@ -1,11 +1,11 @@
 #include "Pch.h"
-#include "EventReader.h"
+#include "SystemEventReader.h"
 #include "xr/program/OpenXrProgram.h"
 #include "engine/AndroidAppManager.h"
 #include "AndroidAppState.h"
 
 namespace nar {
-  void EventReader::ReadEvents() {
+  void SystemEventReader::ReadSystemEvents() {
     auto app = AndroidAppManager::Get()->app();
     auto app_state = static_cast<AndroidAppState *>(app->userData);
 

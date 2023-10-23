@@ -2,33 +2,42 @@
 #include "GameLoop.h"
 #include "xr/program/OpenXrProgram.h"
 #include "engine/AndroidAppManager.h"
-#include "EventReader.h"
-#include "EventPoller.h"
+#include "SystemEventPoller.h"
+#include "SceneManager.h"
 
 namespace nar {
   ///
   /// Enter the main game loop and stay there until game exit.
   ///
   void GameLoop::Run() {
-    auto app = AndroidAppManager::Get()->app();
+    while (AndroidAppManager::Get()->app()->destroyRequested == 0) {
+      SystemEventPoller::Get()->ReadAndPollSystemEvents();
 
-    while (app->destroyRequested == 0) {
-      EventReader::Get()->ReadEvents();
-      EventPoller::Get()->PollEvents();
-
-      if (exit_render_loop_) {
-        ANativeActivity_finish(app->activity);
+      if (QuittingGameIfRequested())
         continue;
-      }
 
-      if (!OpenXrProgram::Get()->IsSessionRunning()) {
-        // Throttle loop since xrWaitFrame won't be called.
-        std::this_thread::sleep_for(std::chrono::milliseconds(250));
+      if (ThrottlingGameIfSessionNotRunning())
         continue;
-      }
 
       OpenXrProgram::Get()->PollActions();
       OpenXrProgram::Get()->RenderFrame();
     }
+  }
+
+  bool GameLoop::QuittingGameIfRequested() {
+    if (exit_render_loop_) {
+      ANativeActivity_finish(AndroidAppManager::Get()->app()->activity);
+      return true;
+    }
+    return false;
+  }
+
+  bool GameLoop::ThrottlingGameIfSessionNotRunning() {
+    if (!OpenXrProgram::Get()->IsSessionRunning()) {
+      // Throttle loop since xrWaitFrame won't be called.
+      std::this_thread::sleep_for(std::chrono::milliseconds(250));
+      return true;
+    }
+    return false;
   }
 }

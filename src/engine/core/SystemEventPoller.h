@@ -1,9 +1,9 @@
 #pragma once
 
 namespace nar {
-  class EventPoller : public Singleton<EventPoller> {
+  class SystemEventPoller : public Singleton<SystemEventPoller> {
    public:
-    void PollEvents();
+    void ReadAndPollSystemEvents();
 
    private:
     const XrEventDataBaseHeader *TryReadNextEvent();

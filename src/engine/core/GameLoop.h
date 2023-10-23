@@ -17,6 +17,9 @@ namespace nar {
     }
 
    private:
+    bool QuittingGameIfRequested();
+    bool ThrottlingGameIfSessionNotRunning();
+
     bool request_restart_ = false;
     bool exit_render_loop_ = false;
   };

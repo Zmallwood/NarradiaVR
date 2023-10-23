@@ -1,14 +1,17 @@
 #include "Pch.h"
-#include "EventPoller.h"
+#include "SystemEventPoller.h"
 #include "xr/program/OpenXrProgram.h"
 #include "GameLoop.h"
 #include "xr/common/Common.h"
 #include "xr/program/logging/ProgramLogger.h"
 #include "xr/program/OpenXrProgram.h"
+#include "SystemEventReader.h"
 
 namespace nar {
-  void EventPoller::PollEvents() {
+  void SystemEventPoller::ReadAndPollSystemEvents() {
     auto input = OpenXrProgram::Get()->input();
+
+    SystemEventReader::Get()->ReadSystemEvents();
 
     GameLoop::Get()->set_exit_render_loop(false);
     GameLoop::Get()->set_request_restart(false);
@@ -49,7 +52,7 @@ namespace nar {
   }
 
   // Return event if one is available, otherwise return null.
-  const XrEventDataBaseHeader *EventPoller::TryReadNextEvent() {
+  const XrEventDataBaseHeader *SystemEventPoller::TryReadNextEvent() {
     auto instance = OpenXrProgram::Get()->instance();
     auto event_data_buffer = OpenXrProgram::Get()->event_data_buffer();
 
