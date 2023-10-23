@@ -12,9 +12,8 @@ namespace nar {
     OpenXrProgram();
     ~OpenXrProgram();
     void Initialize();
-    void RenderFrame();
     XrEnvironmentBlendMode GetPreferredBlendMode() const;
-    void PollActions();
+    void PollInputActions();
     void HandleSessionStateChangedEvent(const XrEventDataSessionStateChanged &state_changed_event);
 
     bool IsSessionRunning() const {

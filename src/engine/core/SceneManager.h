@@ -9,6 +9,7 @@ namespace nar {
     void InitializeScenes();
     void UpdateCurrentScene();
     void RenderCurrentScene();
+    void ChangeScene(SceneNames new_scene);
 
    private:
     std::map<SceneNames, std::shared_ptr<IScene>> scenes_;

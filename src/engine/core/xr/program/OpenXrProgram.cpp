@@ -5,9 +5,9 @@
 #include "engine/core/xr/options/Options.h"
 #include "engine/core/xr/graphics_plugin/OpenGLESGraphicsPlugin.h"
 #include "engine/core/xr/platform_plugin/AndroidPlatformPlugin.h"
+#include "engine/core/input/ControllerInput.h"
 #include "func_GetXrReferenceSpaceCreateInfo.h"
 #include "func_GetXrReferenceSpaceCreateInfoTiles.h"
-#include "rendering/Renderer.h"
 #include "logging/ProgramLogger.h"
 #include "engine/core/GameLoop.h"
 #include <common/xr_linear.h>
@@ -59,10 +59,6 @@ namespace nar {
     InitializeDevice();
     InitializeSession();
     CreateSwapchains();
-  }
-
-  void OpenXrProgram::RenderFrame() {
-    Renderer::Get()->RenderFrame();
   }
 
   void OpenXrProgram::HandleSessionStateChangedEvent(
@@ -602,7 +598,7 @@ namespace nar {
     }
   }
 
-  void OpenXrProgram::PollActions() {
+  void OpenXrProgram::PollInputActions() {
     input_.hand_active = {XR_FALSE, XR_FALSE};
 
     // Sync actions
@@ -627,6 +623,13 @@ namespace nar {
         input_.hand_scale[hand] = 1.0f - 0.5f * grab_value.currentState;
 
         if (grab_value.currentState > 0.9f) {
+
+          if (hand == Side::kRight)
+            ControllerInput::Get()->right_input_controller()->set_is_grabbed(true);
+
+          if (hand == Side::kLeft)
+            ControllerInput::Get()->left_input_controller()->set_is_grabbed(true);
+
           XrHapticVibration vibration = {XR_TYPE_HAPTIC_VIBRATION};
           vibration.amplitude = 0.5;
           vibration.duration = XR_MIN_HAPTIC_DURATION;

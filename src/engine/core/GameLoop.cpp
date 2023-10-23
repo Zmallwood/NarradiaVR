@@ -4,6 +4,7 @@
 #include "engine/AndroidAppManager.h"
 #include "SystemEventPoller.h"
 #include "SceneManager.h"
+#include "input/ControllerInput.h"
 
 namespace nar {
   ///
@@ -19,7 +20,9 @@ namespace nar {
       if (ThrottlingGameIfSessionNotRunning())
         continue;
 
-      OpenXrProgram::Get()->PollActions();
+      ControllerInput::Get()->Reset();
+
+      OpenXrProgram::Get()->PollInputActions();
 
       SceneManager::Get()->UpdateCurrentScene();
       SceneManager::Get()->RenderCurrentScene();

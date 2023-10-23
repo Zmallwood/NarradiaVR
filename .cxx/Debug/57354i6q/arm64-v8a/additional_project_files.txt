@@ -78,6 +78,8 @@
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/SceneNames.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/SystemEventPoller.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/SystemEventReader.h
+/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/input/ControllerInput.h
+/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/input/InputController.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/assets/CubeData.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/common/Check.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/common/Common.h
@@ -96,11 +98,14 @@
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/program/func_GetXrVersionString.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/program/logging/ProgramLogger.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/program/rendering/Renderer.h
+/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/program/rendering/layers/CubeLayer.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/matter/Colors.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/matter/Cube.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/matter/Point.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/matter/Vertex.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/scenes/intro/scene_IntroScene.h
+/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/scenes/main/scene_MainScene.h
+/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/scenes/main_menu/scene_MainMenuScene.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/world/Player.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/CMakeFiles/android_native_app_glue.dir/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue/android_native_app_glue.c.o
 /home/andreas/Code/C++/VR/OpenXR/src/common/gfxwrapper_opengl.h
