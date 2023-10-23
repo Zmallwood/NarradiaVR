@@ -2,13 +2,19 @@
 #include "InputController.h"
 
 namespace nar {
-  void InputController::Reset() {
-    is_grabbed_ = false;
+  bool InputController::HasBeenGrabbedPickResult() {
+    auto result = has_been_grabbed_;
+    has_been_grabbed_ = false;
+    return result;
   }
 
-  bool InputController::IsGrabbedPickResult() {
-    auto result = is_grabbed_;
+  void InputController::RegisterBeenGrabbed(bool value) {
+    if (!is_grabbed_)
+      has_been_grabbed_ = true;
+    is_grabbed_ = value;
+  }
+
+  void InputController::RegisterNotGrabbed() {
     is_grabbed_ = false;
-    return result;
   }
 }

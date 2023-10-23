@@ -8,7 +8,7 @@
 #include "layers/CubeLayer.h"
 
 namespace nar {
-  void Renderer::RenderFrame() {
+  void Renderer::RenderFrame(std::vector<Cube> cubes_data) {
     auto session = OpenXrProgram::Get()->session();
 
     CHECK(session != XR_NULL_HANDLE);
@@ -23,9 +23,11 @@ namespace nar {
     std::vector<XrCompositionLayerBaseHeader *> layers;
     std::vector<XrCompositionLayerProjectionView> projection_layer_views;
 
+    predicted_display_time_ = frame_state.predictedDisplayTime;
+
     if (frame_state.shouldRender == XR_TRUE) {
       CubeLayer cube_layer;
-      if (cube_layer.Render(frame_state.predictedDisplayTime, projection_layer_views))
+      if (cube_layer.Render(frame_state.predictedDisplayTime, projection_layer_views, cubes_data))
         layers.push_back(
             reinterpret_cast<XrCompositionLayerBaseHeader *>(cube_layer.layer().get()));
     }

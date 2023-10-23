@@ -625,10 +625,10 @@ namespace nar {
         if (grab_value.currentState > 0.9f) {
 
           if (hand == Side::kRight)
-            ControllerInput::Get()->right_input_controller()->set_is_grabbed(true);
+            ControllerInput::Get()->right_input_controller()->RegisterBeenGrabbed(true);
 
           if (hand == Side::kLeft)
-            ControllerInput::Get()->left_input_controller()->set_is_grabbed(true);
+            ControllerInput::Get()->left_input_controller()->RegisterBeenGrabbed(true);
 
           XrHapticVibration vibration = {XR_TYPE_HAPTIC_VIBRATION};
           vibration.amplitude = 0.5;
@@ -640,6 +640,13 @@ namespace nar {
           haptic_action_info.subactionPath = input_.hand_subaction_path[hand];
           CHECK_XRCMD(xrApplyHapticFeedback(
               session_, &haptic_action_info, (XrHapticBaseHeader *)&vibration));
+        }
+        else {
+          if (hand == Side::kRight)
+            ControllerInput::Get()->right_input_controller()->RegisterNotGrabbed();
+
+          if (hand == Side::kLeft)
+            ControllerInput::Get()->left_input_controller()->RegisterNotGrabbed();
         }
       }
 

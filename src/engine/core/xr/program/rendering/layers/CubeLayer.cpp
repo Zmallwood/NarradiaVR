@@ -9,7 +9,8 @@
 namespace nar {
   bool CubeLayer::Render(
       XrTime predicted_display_time,
-      std::vector<XrCompositionLayerProjectionView> &projection_layer_views) {
+      std::vector<XrCompositionLayerProjectionView> &projection_layer_views,
+      std::vector<Cube> cubes_data) {
     *layer_ = {XR_TYPE_COMPOSITION_LAYER_PROJECTION};
 
     XrResult res;
@@ -44,57 +45,6 @@ namespace nar {
 
     projection_layer_views.resize(view_count_output);
 
-    // For each locatable space that we want to visualize, render a 25cm cube.
-    std::vector<Cube> cubes;
-
-    for (XrSpace visualized_space : OpenXrProgram::Get()->visualized_spaces()) {
-      XrSpaceLocation space_location = {XR_TYPE_SPACE_LOCATION};
-      res = xrLocateSpace(
-          visualized_space, OpenXrProgram::Get()->app_space(), predicted_display_time,
-          &space_location);
-      CHECK_XRRESULT(res, "xrLocateSpace");
-
-      if (XR_UNQUALIFIED_SUCCESS(res)) {
-        if ((space_location.locationFlags & XR_SPACE_LOCATION_POSITION_VALID_BIT) != 0 &&
-            (space_location.locationFlags & XR_SPACE_LOCATION_ORIENTATION_VALID_BIT) != 0) {
-          cubes.push_back(Cube{space_location.pose, {0.25f, 0.25f, 0.25f}});
-        }
-      }
-      else {
-        Log::Write(
-            Log::Level::Verbose,
-            Fmt("Unable to locate a visualized reference space in app space: %d", res));
-      }
-    }
-
-    // Render a 10cm cube scaled by grab_action for each hand. Note renderHand will only
-    // be true when the application has focus.
-    for (auto hand : {Side::kLeft, Side::kRight}) {
-      XrSpaceLocation space_location = {XR_TYPE_SPACE_LOCATION};
-      res = xrLocateSpace(
-          OpenXrProgram::Get()->input().hand_space[hand], OpenXrProgram::Get()->app_space(),
-          predicted_display_time, &space_location);
-      CHECK_XRRESULT(res, "xrLocateSpace");
-
-      if (XR_UNQUALIFIED_SUCCESS(res)) {
-        if ((space_location.locationFlags & XR_SPACE_LOCATION_POSITION_VALID_BIT) != 0 &&
-            (space_location.locationFlags & XR_SPACE_LOCATION_ORIENTATION_VALID_BIT) != 0) {
-          float scale = 0.1f * OpenXrProgram::Get()->input().hand_scale[hand];
-          cubes.push_back(Cube{space_location.pose, {scale, scale, scale}});
-        }
-      }
-      else {
-        // Tracking loss is expected when the hand is not active so only log a
-        // message if the hand is active.
-        if (OpenXrProgram::Get()->input().hand_active[hand] == XR_TRUE) {
-          const char *hand_name[] = {"left", "right"};
-          Log::Write(
-              Log::Level::Verbose,
-              Fmt("Unable to locate %s hand action space in app space: %d", hand_name[hand], res));
-        }
-      }
-    }
-
     // Render view to the appropriate part of the swapchain image.
     for (uint32_t i = 0; i < view_count_output; i++) {
       // Each view has a separate swapchain which is acquired, rendered to, and
@@ -123,7 +73,7 @@ namespace nar {
           OpenXrProgram::Get()->swapchain_images()[view_swapchain.handle][swapchain_image_index];
       OpenGLESGraphicsPlugin::Get()->RenderView(
           projection_layer_views[i], swapchain_image,
-          OpenXrProgram::Get()->color_swapchain_format(), cubes);
+          OpenXrProgram::Get()->color_swapchain_format(), cubes_data);
 
       XrSwapchainImageReleaseInfo release_info = {XR_TYPE_SWAPCHAIN_IMAGE_RELEASE_INFO};
       CHECK_XRCMD(xrReleaseSwapchainImage(view_swapchain.handle, &release_info));

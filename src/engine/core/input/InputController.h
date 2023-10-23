@@ -3,14 +3,12 @@
 namespace nar {
   class InputController {
    public:
-    void Reset();
-    bool IsGrabbedPickResult();
-
-    void set_is_grabbed(bool value) {
-      is_grabbed_ = value;
-    }
+    bool HasBeenGrabbedPickResult();
+    void RegisterBeenGrabbed(bool value);
+    void RegisterNotGrabbed();
 
    private:
     bool is_grabbed_ = false;
+    bool has_been_grabbed_ = false;
   };
 }

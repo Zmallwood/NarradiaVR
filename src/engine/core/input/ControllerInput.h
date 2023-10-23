@@ -5,8 +5,6 @@ namespace nar {
 
   class ControllerInput : public Singleton<ControllerInput> {
    public:
-    void Reset();
-
     std::shared_ptr<InputController> right_input_controller() {
       return right_input_controller_;
     }
