@@ -1,0 +1,237 @@
+{
+  "buildFiles": [
+    "/home/andreas/Code/C++/VR/OpenXR/CMakeLists.txt",
+    "/home/andreas/Code/C++/VR/OpenXR/include/CMakeLists.txt",
+    "/home/andreas/Code/C++/VR/OpenXR/include/openxr/CMakeLists.txt",
+    "/home/andreas/Code/C++/VR/OpenXR/src/CMakeLists.txt",
+    "/home/andreas/Code/C++/VR/OpenXR/src/cmake/FindEGL.cmake",
+    "/home/andreas/Code/C++/VR/OpenXR/src/cmake/FindJsonCpp.cmake",
+    "/home/andreas/Code/C++/VR/OpenXR/src/cmake/FindOpenGLES.cmake",
+    "/home/andreas/Code/C++/VR/OpenXR/src/cmake/StdFilesystemFlags.cmake",
+    "/home/andreas/Code/C++/VR/OpenXR/src/cmake/cmake_uninstall.cmake.in",
+    "/home/andreas/Code/C++/VR/OpenXR/src/loader/CMakeLists.txt",
+    "/home/andreas/Code/C++/VR/OpenXR/src/loader/OpenXRConfig.cmake.in",
+    "/home/andreas/Code/C++/VR/OpenXR/src/tests/CMakeLists.txt",
+    "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/CMakeLists.txt",
+    "/home/andreas/Code/C++/VR/OpenXR/src/tests/c_compile_test/CMakeLists.txt",
+    "/home/andreas/Code/C++/VR/OpenXR/src/tests/list_json/CMakeLists.txt",
+    "/home/andreas/Code/C++/VR/OpenXR/src/version.cmake"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/usr/bin/ninja",
+      "-C",
+      "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/usr/bin/ninja",
+    "-C",
+    "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "ContinuousStart::@6890427a1f51a3e7e1df": {
+      "artifactName": "ContinuousStart",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "NightlySubmit::@6890427a1f51a3e7e1df": {
+      "artifactName": "NightlySubmit",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "Nightly::@6890427a1f51a3e7e1df": {
+      "artifactName": "Nightly",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "NightlyMemCheck::@6890427a1f51a3e7e1df": {
+      "artifactName": "NightlyMemCheck",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "openxr_runtime_list_json::@58825178801ae69964d9": {
+      "artifactName": "openxr_runtime_list_json",
+      "abi": "x86",
+      "output": "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/build/intermediates/cxx/Debug/57354i6q/obj/x86/libopenxr_runtime_list_json.so",
+      "runtimeFiles": [
+        "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/build/intermediates/cxx/Debug/57354i6q/obj/x86/libopenxr_loader.so"
+      ]
+    },
+    "ContinuousSubmit::@6890427a1f51a3e7e1df": {
+      "artifactName": "ContinuousSubmit",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "openxr_loader::@21fec11f189f167a3127": {
+      "artifactName": "openxr_loader",
+      "abi": "x86",
+      "output": "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/build/intermediates/cxx/Debug/57354i6q/obj/x86/libopenxr_loader.so",
+      "runtimeFiles": []
+    },
+    "xr_global_generated_files::@145eef247bfb46b6828c": {
+      "artifactName": "xr_global_generated_files",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "NightlyUpdate::@6890427a1f51a3e7e1df": {
+      "artifactName": "NightlyUpdate",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "openxr-gfxwrapper::@145eef247bfb46b6828c": {
+      "artifactName": "openxr-gfxwrapper",
+      "abi": "x86",
+      "output": "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/x86/src/libopenxr-gfxwrapper.a",
+      "runtimeFiles": []
+    },
+    "ExperimentalMemCheck::@6890427a1f51a3e7e1df": {
+      "artifactName": "ExperimentalMemCheck",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "NightlyBuild::@6890427a1f51a3e7e1df": {
+      "artifactName": "NightlyBuild",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "ExperimentalCoverage::@6890427a1f51a3e7e1df": {
+      "artifactName": "ExperimentalCoverage",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "NightlyMemoryCheck::@6890427a1f51a3e7e1df": {
+      "artifactName": "NightlyMemoryCheck",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "ExperimentalTest::@6890427a1f51a3e7e1df": {
+      "artifactName": "ExperimentalTest",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "ContinuousMemCheck::@6890427a1f51a3e7e1df": {
+      "artifactName": "ContinuousMemCheck",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "Continuous::@6890427a1f51a3e7e1df": {
+      "artifactName": "Continuous",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "ContinuousBuild::@6890427a1f51a3e7e1df": {
+      "artifactName": "ContinuousBuild",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "ContinuousTest::@6890427a1f51a3e7e1df": {
+      "artifactName": "ContinuousTest",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "ExperimentalUpdate::@6890427a1f51a3e7e1df": {
+      "artifactName": "ExperimentalUpdate",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "NightlyTest::@6890427a1f51a3e7e1df": {
+      "artifactName": "NightlyTest",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "ExperimentalStart::@6890427a1f51a3e7e1df": {
+      "artifactName": "ExperimentalStart",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "xr_common_generated_files::@145eef247bfb46b6828c": {
+      "artifactName": "xr_common_generated_files",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "ContinuousUpdate::@6890427a1f51a3e7e1df": {
+      "artifactName": "ContinuousUpdate",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "android_native_app_glue::@145eef247bfb46b6828c": {
+      "artifactName": "android_native_app_glue",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "ExperimentalConfigure::@6890427a1f51a3e7e1df": {
+      "artifactName": "ExperimentalConfigure",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "openxr_c_compile_test::@52a05342714295927950": {
+      "artifactName": "openxr_c_compile_test",
+      "abi": "x86",
+      "output": "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/build/intermediates/cxx/Debug/57354i6q/obj/x86/libopenxr_c_compile_test.so",
+      "runtimeFiles": [
+        "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/build/intermediates/cxx/Debug/57354i6q/obj/x86/libopenxr_loader.so"
+      ]
+    },
+    "ContinuousConfigure::@6890427a1f51a3e7e1df": {
+      "artifactName": "ContinuousConfigure",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "ExperimentalSubmit::@6890427a1f51a3e7e1df": {
+      "artifactName": "ExperimentalSubmit",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "ContinuousCoverage::@6890427a1f51a3e7e1df": {
+      "artifactName": "ContinuousCoverage",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "generate_openxr_header::@84bd3215b0dd4650b711": {
+      "artifactName": "generate_openxr_header",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "ExperimentalBuild::@6890427a1f51a3e7e1df": {
+      "artifactName": "ExperimentalBuild",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "NightlyStart::@6890427a1f51a3e7e1df": {
+      "artifactName": "NightlyStart",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "NightlyConfigure::@6890427a1f51a3e7e1df": {
+      "artifactName": "NightlyConfigure",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "Experimental::@6890427a1f51a3e7e1df": {
+      "artifactName": "Experimental",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "NightlyCoverage::@6890427a1f51a3e7e1df": {
+      "artifactName": "NightlyCoverage",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "uninstall::@6890427a1f51a3e7e1df": {
+      "artifactName": "uninstall",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "hello_xr::@425a1243c231e3e9cf5b": {
+      "artifactName": "hello_xr",
+      "abi": "x86",
+      "output": "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/build/intermediates/cxx/Debug/57354i6q/obj/x86/libhello_xr.so",
+      "runtimeFiles": [
+        "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/build/intermediates/cxx/Debug/57354i6q/obj/x86/libopenxr_loader.so"
+      ]
+    }
+  }
+}

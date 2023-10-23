@@ -1,0 +1,298 @@
+Performing C++ SOURCE FILE Test HAVE_FILESYSTEM_IN_STD failed with the following output:
+Change Dir: /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_42a3d && [1/2] Building CXX object CMakeFiles/cmTC_42a3d.dir/src.cxx.o
+FAILED: CMakeFiles/cmTC_42a3d.dir/src.cxx.o 
+/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=armv7-none-linux-androideabi24 --gcc-toolchain=/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DHAVE_FILESYSTEM_IN_STD -I/home/andreas/Code/C++/VR/OpenXR/src/common -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security   -DCMAKE_CXX_STANDARD=14 -DCMAKE_CXX_STANDARD_REQUIRED=TRUE -fPIC -MD -MT CMakeFiles/cmTC_42a3d.dir/src.cxx.o -MF CMakeFiles/cmTC_42a3d.dir/src.cxx.o.d -o CMakeFiles/cmTC_42a3d.dir/src.cxx.o -c /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/CMakeFiles/CMakeTmp/src.cxx
+/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/CMakeFiles/CMakeTmp/src.cxx:8:15: error: use of undeclared identifier 'is_regular_file'
+        (void)is_regular_file("/");
+              ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+#include <stdfs_conditions.h>
+    
+    #if defined(USE_FINAL_FS) && USE_FINAL_FS
+    #include <filesystem>
+    using namespace std::filesystem;
+    #endif
+    int main() {
+        (void)is_regular_file("/");
+        return 0;
+    }
+    
+    
+Performing C++ SOURCE FILE Test HAVE_FILESYSTEM_IN_STDEXPERIMENTAL failed with the following output:
+Change Dir: /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_beeb8 && [1/2] Building CXX object CMakeFiles/cmTC_beeb8.dir/src.cxx.o
+FAILED: CMakeFiles/cmTC_beeb8.dir/src.cxx.o 
+/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=armv7-none-linux-androideabi24 --gcc-toolchain=/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DHAVE_FILESYSTEM_IN_STDEXPERIMENTAL -I/home/andreas/Code/C++/VR/OpenXR/src/common -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security   -DCMAKE_CXX_STANDARD=14 -DCMAKE_CXX_STANDARD_REQUIRED=TRUE -fPIC -MD -MT CMakeFiles/cmTC_beeb8.dir/src.cxx.o -MF CMakeFiles/cmTC_beeb8.dir/src.cxx.o.d -o CMakeFiles/cmTC_beeb8.dir/src.cxx.o -c /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/CMakeFiles/CMakeTmp/src.cxx
+/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/CMakeFiles/CMakeTmp/src.cxx:8:15: error: use of undeclared identifier 'is_regular_file'
+        (void)is_regular_file("/");
+              ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+#include <stdfs_conditions.h>
+    
+    #if defined(USE_EXPERIMENTAL_FS) && USE_EXPERIMENTAL_FS
+    #include <experimental/filesystem>
+    using namespace std::experimental::filesystem;
+    #endif
+    int main() {
+        (void)is_regular_file("/");
+        return 0;
+    }
+    
+    
+Performing C++ SOURCE FILE Test HAVE_FILESYSTEM_IN_STD_17 failed with the following output:
+Change Dir: /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_f93bd && [1/2] Building CXX object CMakeFiles/cmTC_f93bd.dir/src.cxx.o
+FAILED: CMakeFiles/cmTC_f93bd.dir/src.cxx.o 
+/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=armv7-none-linux-androideabi24 --gcc-toolchain=/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DHAVE_FILESYSTEM_IN_STD_17 -I/home/andreas/Code/C++/VR/OpenXR/src/common -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security   -DCMAKE_CXX_STANDARD=17 -DCMAKE_CXX_STANDARD_REQUIRED=TRUE -fPIC -MD -MT CMakeFiles/cmTC_f93bd.dir/src.cxx.o -MF CMakeFiles/cmTC_f93bd.dir/src.cxx.o.d -o CMakeFiles/cmTC_f93bd.dir/src.cxx.o -c /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/CMakeFiles/CMakeTmp/src.cxx
+/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/CMakeFiles/CMakeTmp/src.cxx:8:15: error: use of undeclared identifier 'is_regular_file'
+        (void)is_regular_file("/");
+              ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+#include <stdfs_conditions.h>
+    
+    #if defined(USE_FINAL_FS) && USE_FINAL_FS
+    #include <filesystem>
+    using namespace std::filesystem;
+    #endif
+    int main() {
+        (void)is_regular_file("/");
+        return 0;
+    }
+    
+    
+Performing C++ SOURCE FILE Test HAVE_FILESYSTEM_WITHOUT_LIB failed with the following output:
+Change Dir: /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_b2515 && [1/2] Building CXX object CMakeFiles/cmTC_b2515.dir/src.cxx.o
+FAILED: CMakeFiles/cmTC_b2515.dir/src.cxx.o 
+/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=armv7-none-linux-androideabi24 --gcc-toolchain=/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DHAVE_FILESYSTEM_WITHOUT_LIB -I/home/andreas/Code/C++/VR/OpenXR/src/common -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security    -fPIE -MD -MT CMakeFiles/cmTC_b2515.dir/src.cxx.o -MF CMakeFiles/cmTC_b2515.dir/src.cxx.o.d -o CMakeFiles/cmTC_b2515.dir/src.cxx.o -c /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/CMakeFiles/CMakeTmp/src.cxx
+/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/CMakeFiles/CMakeTmp/src.cxx:12:15: error: use of undeclared identifier 'is_regular_file'
+        (void)is_regular_file("/");
+              ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+#include <stdfs_conditions.h>
+    
+    #if defined(USE_FINAL_FS) && USE_FINAL_FS
+    #include <filesystem>
+    using namespace std::filesystem;
+    #endif
+    #if defined(USE_EXPERIMENTAL_FS) && USE_EXPERIMENTAL_FS
+    #include <experimental/filesystem>
+    using namespace std::experimental::filesystem;
+    #endif
+    int main() {
+        (void)is_regular_file("/");
+        return 0;
+    }
+    
+    
+Performing C++ SOURCE FILE Test HAVE_FILESYSTEM_NEEDING_LIBSTDCXXFS failed with the following output:
+Change Dir: /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_fab43 && [1/2] Building CXX object CMakeFiles/cmTC_fab43.dir/src.cxx.o
+FAILED: CMakeFiles/cmTC_fab43.dir/src.cxx.o 
+/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=armv7-none-linux-androideabi24 --gcc-toolchain=/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DHAVE_FILESYSTEM_NEEDING_LIBSTDCXXFS -I/home/andreas/Code/C++/VR/OpenXR/src/common -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security    -fPIE -MD -MT CMakeFiles/cmTC_fab43.dir/src.cxx.o -MF CMakeFiles/cmTC_fab43.dir/src.cxx.o.d -o CMakeFiles/cmTC_fab43.dir/src.cxx.o -c /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/CMakeFiles/CMakeTmp/src.cxx
+/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/CMakeFiles/CMakeTmp/src.cxx:12:15: error: use of undeclared identifier 'is_regular_file'
+        (void)is_regular_file("/");
+              ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+#include <stdfs_conditions.h>
+    
+    #if defined(USE_FINAL_FS) && USE_FINAL_FS
+    #include <filesystem>
+    using namespace std::filesystem;
+    #endif
+    #if defined(USE_EXPERIMENTAL_FS) && USE_EXPERIMENTAL_FS
+    #include <experimental/filesystem>
+    using namespace std::experimental::filesystem;
+    #endif
+    int main() {
+        (void)is_regular_file("/");
+        return 0;
+    }
+    
+    
+Performing C++ SOURCE FILE Test HAVE_FILESYSTEM_NEEDING_LIBCXXFS failed with the following output:
+Change Dir: /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_15946 && [1/2] Building CXX object CMakeFiles/cmTC_15946.dir/src.cxx.o
+FAILED: CMakeFiles/cmTC_15946.dir/src.cxx.o 
+/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=armv7-none-linux-androideabi24 --gcc-toolchain=/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DHAVE_FILESYSTEM_NEEDING_LIBCXXFS -I/home/andreas/Code/C++/VR/OpenXR/src/common -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security    -fPIE -MD -MT CMakeFiles/cmTC_15946.dir/src.cxx.o -MF CMakeFiles/cmTC_15946.dir/src.cxx.o.d -o CMakeFiles/cmTC_15946.dir/src.cxx.o -c /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/CMakeFiles/CMakeTmp/src.cxx
+/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/CMakeFiles/CMakeTmp/src.cxx:12:15: error: use of undeclared identifier 'is_regular_file'
+        (void)is_regular_file("/");
+              ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+#include <stdfs_conditions.h>
+    
+    #if defined(USE_FINAL_FS) && USE_FINAL_FS
+    #include <filesystem>
+    using namespace std::filesystem;
+    #endif
+    #if defined(USE_EXPERIMENTAL_FS) && USE_EXPERIMENTAL_FS
+    #include <experimental/filesystem>
+    using namespace std::experimental::filesystem;
+    #endif
+    int main() {
+        (void)is_regular_file("/");
+        return 0;
+    }
+    
+    
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_676cf && [1/2] Building C object CMakeFiles/cmTC_676cf.dir/src.c.o
+/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/CMakeFiles/CMakeTmp/src.c:13:3: warning: implicit declaration of function 'pthread_cancel' is invalid in C99 [-Wimplicit-function-declaration]
+  pthread_cancel(thread);
+  ^
+1 warning generated.
+[2/2] Linking C executable cmTC_676cf
+FAILED: cmTC_676cf 
+: && /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=armv7-none-linux-androideabi24 --gcc-toolchain=/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security -Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libgcc_real.a -Wl,--exclude-libs,libatomic.a -static-libstdc++ -Wl,--build-id -Wl,--fatal-warnings -Wl,--exclude-libs,libunwind.a -Wl,--no-undefined -Qunused-arguments -Wl,--gc-sections CMakeFiles/cmTC_676cf.dir/src.c.o -o cmTC_676cf  -latomic -lm && :
+src.c:13: error: undefined reference to 'pthread_cancel'
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_b27a4 && [1/2] Building C object CMakeFiles/cmTC_b27a4.dir/CheckFunctionExists.c.o
+/usr/share/cmake-3.22/Modules/CheckFunctionExists.c:7:3: warning: declaration of built-in function 'pthread_create' requires inclusion of the header <pthread.h> [-Wbuiltin-requires-header]
+  CHECK_FUNCTION_EXISTS(void);
+  ^
+<command line>:3:31: note: expanded from here
+#define CHECK_FUNCTION_EXISTS pthread_create
+                              ^
+1 warning generated.
+[2/2] Linking C executable cmTC_b27a4
+FAILED: cmTC_b27a4 
+: && /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=armv7-none-linux-androideabi24 --gcc-toolchain=/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -DCHECK_FUNCTION_EXISTS=pthread_create -Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libgcc_real.a -Wl,--exclude-libs,libatomic.a -static-libstdc++ -Wl,--build-id -Wl,--fatal-warnings -Wl,--exclude-libs,libunwind.a -Wl,--no-undefined -Qunused-arguments -Wl,--gc-sections CMakeFiles/cmTC_b27a4.dir/CheckFunctionExists.c.o -o cmTC_b27a4  -lpthreads  -latomic -lm && :
+/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/bin/ld: error: cannot find -lpthreads
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Determining if the function pthread_create exists in the pthread failed with the following output:
+Change Dir: /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_84de7 && [1/2] Building C object CMakeFiles/cmTC_84de7.dir/CheckFunctionExists.c.o
+/usr/share/cmake-3.22/Modules/CheckFunctionExists.c:7:3: warning: declaration of built-in function 'pthread_create' requires inclusion of the header <pthread.h> [-Wbuiltin-requires-header]
+  CHECK_FUNCTION_EXISTS(void);
+  ^
+<command line>:3:31: note: expanded from here
+#define CHECK_FUNCTION_EXISTS pthread_create
+                              ^
+1 warning generated.
+[2/2] Linking C executable cmTC_84de7
+FAILED: cmTC_84de7 
+: && /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=armv7-none-linux-androideabi24 --gcc-toolchain=/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -DCHECK_FUNCTION_EXISTS=pthread_create -Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libgcc_real.a -Wl,--exclude-libs,libatomic.a -static-libstdc++ -Wl,--build-id -Wl,--fatal-warnings -Wl,--exclude-libs,libunwind.a -Wl,--no-undefined -Qunused-arguments -Wl,--gc-sections CMakeFiles/cmTC_84de7.dir/CheckFunctionExists.c.o -o cmTC_84de7  -lpthread  -latomic -lm && :
+/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/bin/ld: error: cannot find -lpthread
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Determining if the function secure_getenv exists failed with the following output:
+Change Dir: /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_99431 && [1/2] Building C object CMakeFiles/cmTC_99431.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_99431
+FAILED: cmTC_99431 
+: && /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=armv7-none-linux-androideabi24 --gcc-toolchain=/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -DCHECK_FUNCTION_EXISTS=secure_getenv -Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libgcc_real.a -Wl,--exclude-libs,libatomic.a -static-libstdc++ -Wl,--build-id -Wl,--fatal-warnings -Wl,--exclude-libs,libunwind.a -Wl,--no-undefined -Qunused-arguments -Wl,--gc-sections CMakeFiles/cmTC_99431.dir/CheckFunctionExists.c.o -o cmTC_99431  -latomic -lm && :
+/usr/share/cmake-3.22/Modules/CheckFunctionExists.c:17: error: undefined reference to 'secure_getenv'
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Determining if the function __secure_getenv exists failed with the following output:
+Change Dir: /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_0e96f && [1/2] Building C object CMakeFiles/cmTC_0e96f.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_0e96f
+FAILED: cmTC_0e96f 
+: && /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=armv7-none-linux-androideabi24 --gcc-toolchain=/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -DCHECK_FUNCTION_EXISTS=__secure_getenv -Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libgcc_real.a -Wl,--exclude-libs,libatomic.a -static-libstdc++ -Wl,--build-id -Wl,--fatal-warnings -Wl,--exclude-libs,libunwind.a -Wl,--no-undefined -Qunused-arguments -Wl,--gc-sections CMakeFiles/cmTC_0e96f.dir/CheckFunctionExists.c.o -o cmTC_0e96f  -latomic -lm && :
+/usr/share/cmake-3.22/Modules/CheckFunctionExists.c:17: error: undefined reference to '__secure_getenv'
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Determining if the timespec_get exist failed with the following output:
+Change Dir: /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_e248b && [1/2] Building C object CMakeFiles/cmTC_e248b.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_e248b.dir/CheckSymbolExists.c.o 
+/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=armv7-none-linux-androideabi24 --gcc-toolchain=/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat   -fPIE -MD -MT CMakeFiles/cmTC_e248b.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_e248b.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_e248b.dir/CheckSymbolExists.c.o -c /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: use of undeclared identifier 'timespec_get'
+  return ((int*)(&timespec_get))[argc];
+                  ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <time.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef timespec_get
+  return ((int*)(&timespec_get))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}

@@ -1,0 +1,106 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"src/loader/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 253,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 306,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 329,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"src/tests/NarradiaVR/.cxx/Debug/57354i6q/x86/src/loader/openxr.pc"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Loader",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/build/intermediates/cxx/Debug/57354i6q/obj/x86/libopenxr_loader.so"
+			],
+			"targetId" : "openxr_loader::@21fec11f189f167a3127",
+			"targetIndex" : 33,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "CMakeConfigs",
+			"destination" : "lib/cmake/openxr",
+			"exportName" : "openxr_loader_export",
+			"exportTargets" : 
+			[
+				{
+					"id" : "openxr_loader::@21fec11f189f167a3127",
+					"index" : 33
+				},
+				{
+					"id" : "headers::@21fec11f189f167a3127",
+					"index" : 0
+				}
+			],
+			"paths" : 
+			[
+				"src/loader/CMakeFiles/Export/lib/cmake/openxr/OpenXRTargets.cmake"
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "CMakeConfigs",
+			"destination" : "lib/cmake/openxr",
+			"paths" : 
+			[
+				"src/tests/NarradiaVR/.cxx/Debug/57354i6q/x86/src/loader/OpenXRConfig.cmake",
+				"src/tests/NarradiaVR/.cxx/Debug/57354i6q/x86/src/loader/OpenXRConfigVersion.cmake"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "src/loader",
+		"source" : "src/loader"
+	}
+}
