@@ -4,9 +4,11 @@
 #include "matter/Cube.h"
 #include "engine/core/xr/program/OpenXrProgram.h"
 #include "engine/core/xr/common/Common.h"
+#include "modules/module_JoystickMovementModule.h"
 
 namespace nar {
   void MainScene::UpdateDerived() {
+    GET(JoystickMovementModule)->Update();
   }
 
   void MainScene::RenderDerived() {
@@ -19,7 +21,7 @@ namespace nar {
       auto res = xrLocateSpace(
           visualized_space, OpenXrProgram::Get()->app_space(), predicted_display_time,
           &space_location);
-      //CHECK_XRRESULT(res, "xrLocateSpace");
+      // CHECK_XRRESULT(res, "xrLocateSpace");
 
       if (XR_UNQUALIFIED_SUCCESS(res)) {
         if ((space_location.locationFlags & XR_SPACE_LOCATION_POSITION_VALID_BIT) != 0 &&
@@ -41,7 +43,7 @@ namespace nar {
       auto res = xrLocateSpace(
           OpenXrProgram::Get()->input().hand_space[hand], OpenXrProgram::Get()->app_space(),
           predicted_display_time, &space_location);
-      //CHECK_XRRESULT(res, "xrLocateSpace");
+      // CHECK_XRRESULT(res, "xrLocateSpace");
 
       if (XR_UNQUALIFIED_SUCCESS(res)) {
         if ((space_location.locationFlags & XR_SPACE_LOCATION_POSITION_VALID_BIT) != 0 &&

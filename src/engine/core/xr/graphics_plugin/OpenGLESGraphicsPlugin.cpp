@@ -1,10 +1,10 @@
 #include "Pch.h"
 #include "OpenGLESGraphicsPlugin.h"
 #include "engine/core/xr/common/Common.h"
-#include "engine/core/xr/assets/CubeData.h"
 #include "engine/core/xr/options/Options.h"
 #include "engine/OptionsManager.h"
 #include <common/xr_linear.h>
+#include "engine/core/xr/assets/ModelBank.h"
 
 namespace nar {
   namespace {
@@ -26,19 +26,18 @@ namespace nar {
   OpenGLESGraphicsPlugin::~OpenGLESGraphicsPlugin() {
     if (swapchain_framebuffer_ != 0)
       glDeleteFramebuffers(1, &swapchain_framebuffer_);
-    
+
     if (program_ != 0)
       glDeleteProgram(program_);
-    
+
     if (vao_ != 0)
       glDeleteVertexArrays(1, &vao_);
-    
+
     if (cube_vertex_buffer_ != 0)
       glDeleteBuffers(1, &cube_vertex_buffer_);
-    
+
     if (cube_index_buffer_ != 0)
       glDeleteBuffers(1, &cube_index_buffer_);
-    
 
     for (auto &colorToDepth : color_to_depth_map_) {
       if (colorToDepth.second != 0)
@@ -117,6 +116,8 @@ namespace nar {
   }
 
   void OpenGLESGraphicsPlugin::InitializeResources() {
+    auto vertex_cube = GET(ModelBank)->vertex_cube();
+
     glGenFramebuffers(1, &swapchain_framebuffer_);
 
     GLuint vertex_shader = glCreateShader(GL_VERTEX_SHADER);
@@ -146,14 +147,14 @@ namespace nar {
     glGenBuffers(1, &cube_vertex_buffer_);
     glBindBuffer(GL_ARRAY_BUFFER, cube_vertex_buffer_);
     glBufferData(
-        GL_ARRAY_BUFFER, sizeof(Geometry::c_cube_vertices), Geometry::c_cube_vertices,
-        GL_STATIC_DRAW);
+        GL_ARRAY_BUFFER, 6 * sizeof(float) * vertex_cube.vertices().size(),
+        vertex_cube.vertices().data(), GL_STATIC_DRAW);
 
     glGenBuffers(1, &cube_index_buffer_);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, cube_index_buffer_);
     glBufferData(
-        GL_ELEMENT_ARRAY_BUFFER, sizeof(Geometry::c_cube_indices), Geometry::c_cube_indices,
-        GL_STATIC_DRAW);
+        GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned short) * vertex_cube.indices().size(),
+        vertex_cube.indices().data(), GL_STATIC_DRAW);
 
     glGenVertexArrays(1, &vao_);
     glBindVertexArray(vao_);
@@ -269,6 +270,8 @@ namespace nar {
       const XrCompositionLayerProjectionView &layer_view,
       const XrSwapchainImageBaseHeader *swapchain_image, int64_t swapchain_format,
       const std::vector<Cube> &cubes) {
+    auto vertex_cube = GET(ModelBank)->vertex_cube();
+
     CHECK(layer_view.subImage.imageArrayIndex == 0); // Texture arrays not supported.
     UNUSED_PARM(swapchain_format);                   // Not used in this function for now.
 
@@ -330,8 +333,8 @@ namespace nar {
 
       // Draw the cube.
       glDrawElements(
-          GL_TRIANGLES, static_cast<GLsizei>(ArraySize(Geometry::c_cube_indices)),
-          GL_UNSIGNED_SHORT, nullptr);
+          GL_TRIANGLES, static_cast<GLsizei>(vertex_cube.indices().size()), GL_UNSIGNED_SHORT,
+          nullptr);
     }
 
     glBindVertexArray(0);

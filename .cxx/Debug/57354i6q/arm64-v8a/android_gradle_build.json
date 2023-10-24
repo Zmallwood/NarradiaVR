@@ -5,7 +5,6 @@
     "/home/andreas/Code/C++/VR/OpenXR/include/openxr/CMakeLists.txt",
     "/home/andreas/Code/C++/VR/OpenXR/src/CMakeLists.txt",
     "/home/andreas/Code/C++/VR/OpenXR/src/cmake/FindEGL.cmake",
-    "/home/andreas/Code/C++/VR/OpenXR/src/cmake/FindJsonCpp.cmake",
     "/home/andreas/Code/C++/VR/OpenXR/src/cmake/FindOpenGLES.cmake",
     "/home/andreas/Code/C++/VR/OpenXR/src/cmake/StdFilesystemFlags.cmake",
     "/home/andreas/Code/C++/VR/OpenXR/src/cmake/cmake_uninstall.cmake.in",
@@ -13,8 +12,6 @@
     "/home/andreas/Code/C++/VR/OpenXR/src/loader/OpenXRConfig.cmake.in",
     "/home/andreas/Code/C++/VR/OpenXR/src/tests/CMakeLists.txt",
     "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/CMakeLists.txt",
-    "/home/andreas/Code/C++/VR/OpenXR/src/tests/c_compile_test/CMakeLists.txt",
-    "/home/andreas/Code/C++/VR/OpenXR/src/tests/list_json/CMakeLists.txt",
     "/home/andreas/Code/C++/VR/OpenXR/src/version.cmake"
   ],
   "cleanCommandsComponents": [
@@ -197,30 +194,12 @@
       "artifactName": "openxr-gfxwrapper",
       "output": "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/libopenxr-gfxwrapper.a"
     },
-    "openxr_c_compile_test::@52a05342714295927950": {
-      "toolchain": "toolchain",
-      "abi": "arm64-v8a",
-      "artifactName": "openxr_c_compile_test",
-      "output": "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_c_compile_test.so",
-      "runtimeFiles": [
-        "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_loader.so"
-      ]
-    },
     "openxr_loader::@21fec11f189f167a3127": {
       "toolchain": "toolchain",
       "abi": "arm64-v8a",
       "artifactName": "openxr_loader",
       "output": "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_loader.so",
       "runtimeFiles": []
-    },
-    "openxr_runtime_list_json::@58825178801ae69964d9": {
-      "toolchain": "toolchain",
-      "abi": "arm64-v8a",
-      "artifactName": "openxr_runtime_list_json",
-      "output": "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_runtime_list_json.so",
-      "runtimeFiles": [
-        "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_loader.so"
-      ]
     },
     "uninstall::@6890427a1f51a3e7e1df": {
       "toolchain": "toolchain",

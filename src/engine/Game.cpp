@@ -12,35 +12,43 @@
 #include "AndroidAppManager.h"
 
 namespace nar {
-  /// Start new game instance.
+  /**
+   * Start new game instance.
+   */
   void Game::Run(android_app *app) {
     try {
-      AndroidAppManager::Get()->set_app(app);
-      InitializeGame();
-      GameLoop::Get()->Run();
+      GET(AndroidAppManager)->set_app(app);
+      InitGame();
+      GET(GameLoop)->Run();
       CleanupGame();
-    } catch (const std::exception &ex) {
+    }
+    catch (const std::exception &ex) {
       Log::Write(Log::Level::Error, ex.what());
-    } catch (...) {
+    }
+    catch (...) {
       Log::Write(Log::Level::Error, "Unknown Error");
     }
   }
 
-  /// Do all initialization before entering game loop
-  bool Game::InitializeGame() {
-    AndroidAppManager::Get()->Initialize();
-    Loader::Get()->Initialize();
-    OpenXrProgram::Get()->Initialize();
-    if (!OptionsManager::Get()->Initialize())
+  /**
+   * Do all initialization before entering game loop
+   */
+  bool Game::InitGame() {
+    GET(AndroidAppManager)->Init();
+    GET(Loader)->Init();
+    GET(OpenXrProgram)->Init();
+    if (!GET(OptionsManager)->Init())
       return false;
-    OpenGLESGraphicsPlugin::Get()->UpdateOptions();
-    SceneManager::Get()->InitializeScenes();
+    GET(OpenGLESGraphicsPlugin)->UpdateOptions();
+    GET(SceneManager)->InitScenes();
     return true;
   }
 
-  /// Cleanup after exiting game loop
+  /**
+   * Cleanup after exiting game loop
+   */
   void Game::CleanupGame() {
-    AndroidAppManager::Get()->Cleanup();
+    GET(AndroidAppManager)->Cleanup();
     nar::DisposeAllSingletons();
   }
 }

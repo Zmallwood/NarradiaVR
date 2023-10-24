@@ -3,7 +3,7 @@
 #include "VRApp.h"
 
 namespace nar {
-  void AndroidAppManager::Initialize() {
+  void AndroidAppManager::Init() {
     JNIEnv *env;
     app_->activity->vm->AttachCurrentThread(&env, nullptr);
     app_->userData = &appState_;

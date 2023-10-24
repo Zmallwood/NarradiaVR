@@ -28,11 +28,5 @@ namespace nar {
       const std::string &s1, const std::string &s2, const std::locale &loc = std::locale());
 
   std::string Fmt(const char *fmt, ...);
-
-  // The equivalent of C++17 std::size. A helper to get the dimension for an array.
-  template <typename T, size_t Size> constexpr size_t ArraySize(const T (&unused)[Size]) noexcept {
-    (void)unused;
-    return Size;
-  }
 }
 #include "Check.h"

@@ -3,7 +3,7 @@
 #include "core/xr/options/Options.h"
 
 namespace nar {
-  bool OptionsManager::Initialize() {
+  bool OptionsManager::Init() {
     options_->SetEnvironmentBlendMode();
     return UpdateOptionsFromSystemProperties();
   }

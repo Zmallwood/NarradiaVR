@@ -38,6 +38,10 @@ android {
                 targets "openxr_loader", "hello_xr"
             }
         }
+
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a"
+        }
     }
     sourceSets {
         main {

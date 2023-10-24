@@ -9,7 +9,7 @@ namespace nar {
     void Run(android_app *app);
 
    private:
-    bool InitializeGame();
+    bool InitGame();
     void CleanupGame();
   };
 }

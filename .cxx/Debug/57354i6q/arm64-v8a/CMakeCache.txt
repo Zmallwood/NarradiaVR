@@ -32,14 +32,11 @@ ANDROID_NDK:UNINITIALIZED=/home/andreas/Android/Sdk/ndk/21.4.7075529
 //No help, variable specified on the command line.
 ANDROID_PLATFORM:UNINITIALIZED=android-24
 
-//Path to a program.
-BASH_COMMAND:FILEPATH=/usr/bin/bash
-
 //Build loader and layers with all extensions
 BUILD_ALL_EXTENSIONS:BOOL=ON
 
-//Build API layers
-BUILD_API_LAYERS:BOOL=OFF
+//No help, variable specified on the command line.
+BUILD_API_LAYERS:UNINITIALIZED=OFF
 
 //No help, variable specified on the command line.
 BUILD_CONFORMANCE_TESTS:UNINITIALIZED=OFF
@@ -54,10 +51,6 @@ BUILD_LOADER:BOOL=ON
 //Enable exception handling in the loader. Leave this on unless
 // your standard library is built to not throw.
 BUILD_LOADER_WITH_EXCEPTION_HANDLING:BOOL=ON
-
-//Run './makeAllExts all' in the specification directory as part
-// of the build - intended for one-step checking of spec changes
-BUILD_SPECIFICATION:BOOL=OFF
 
 //Build the testing tree.
 BUILD_TESTING:BOOL=ON
@@ -355,13 +348,7 @@ EGL_INCLUDE_DIR:PATH=/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/
 EGL_LIBRARY:FILEPATH=/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/libEGL.so
 
 //Path to a program.
-GITCOMMAND:FILEPATH=/usr/bin/git
-
-//Path to a program.
 GLSLANG_VALIDATOR:FILEPATH=GLSLANG_VALIDATOR-NOTFOUND
-
-//Path to a program.
-GLSL_COMPILER:FILEPATH=/home/andreas/Android/Sdk/ndk/21.4.7075529/shader-tools/linux-x86_64/glslc
 
 //Which graphics plugin should be used by default for Hello XR
 // artifacts?
@@ -370,12 +357,6 @@ HELLOXR_DEFAULT_GRAPHICS_PLUGIN:STRING=OpenGLES
 //Install platform-specific files to architecture-specific directories,
 // for packaging
 INSTALL_TO_ARCHITECTURE_PREFIXES:BOOL=OFF
-
-//Path to a file.
-JsonCpp_INCLUDE_DIR:PATH=JsonCpp_INCLUDE_DIR-NOTFOUND
-
-//Path to a library.
-JsonCpp_LIBRARY:FILEPATH=JsonCpp_LIBRARY-NOTFOUND
 
 //Command to build the project
 MAKECOMMAND:STRING=/usr/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
@@ -439,21 +420,6 @@ PYTHON_EXECUTABLE:FILEPATH=/usr/bin/python3
 
 //Name of the computer/site where compile is being run
 SITE:STRING=andreas-kubuntu
-
-//Path to a program.
-Vulkan_GLSLANG_VALIDATOR_EXECUTABLE:FILEPATH=Vulkan_GLSLANG_VALIDATOR_EXECUTABLE-NOTFOUND
-
-//Path to a program.
-Vulkan_GLSLC_EXECUTABLE:FILEPATH=/usr/local/bin/glslc
-
-//Path to a file.
-Vulkan_INCLUDE_DIR:PATH=/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include
-
-//Path to a library.
-Vulkan_LIBRARY:FILEPATH=/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/libvulkan.so
-
-//The directory containing a CMake configuration file for jsoncpp.
-jsoncpp_DIR:PATH=jsoncpp_DIR-NOTFOUND
 
 //Path to a library.
 pkgcfg_lib_PC_glesv1_cm_GLESv1_CM:FILEPATH=/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/libGLESv1_CM.so
@@ -603,7 +569,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=9
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=7
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -670,10 +636,6 @@ FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v0.29.2()]
 FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/usr/bin/python3][v3.10.12(3)]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
-//Details about finding Vulkan
-FIND_PACKAGE_MESSAGE_DETAILS_Vulkan:INTERNAL=[/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/libvulkan.so][/home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include][v()]
-//ADVANCED property for variable: GITCOMMAND
-GITCOMMAND-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: HAVE_EGL
 HAVE_EGL-ADVANCED:INTERNAL=1
 //Test HAVE_EGL
@@ -854,48 +816,14 @@ SUPPORTS_Werrorunusedparameter:INTERNAL=1
 SUPPORTS_Wpointerarith:INTERNAL=1
 //Result of TRY_COMPILE
 THREADS_HAVE_PTHREAD_ARG:INTERNAL=TRUE
-//ADVANCED property for variable: Vulkan_GLSLANG_VALIDATOR_EXECUTABLE
-Vulkan_GLSLANG_VALIDATOR_EXECUTABLE-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: Vulkan_GLSLC_EXECUTABLE
-Vulkan_GLSLC_EXECUTABLE-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: Vulkan_INCLUDE_DIR
-Vulkan_INCLUDE_DIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: Vulkan_LIBRARY
-Vulkan_LIBRARY-ADVANCED:INTERNAL=1
 //CMAKE_INSTALL_PREFIX during last run
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=/usr/local
-_JSONCPP_PC_CFLAGS:INTERNAL=
-_JSONCPP_PC_CFLAGS_I:INTERNAL=
-_JSONCPP_PC_CFLAGS_OTHER:INTERNAL=
-_JSONCPP_PC_FOUND:INTERNAL=
-_JSONCPP_PC_INCLUDEDIR:INTERNAL=
-_JSONCPP_PC_LIBDIR:INTERNAL=
-_JSONCPP_PC_LIBS:INTERNAL=
-_JSONCPP_PC_LIBS_L:INTERNAL=
-_JSONCPP_PC_LIBS_OTHER:INTERNAL=
-_JSONCPP_PC_LIBS_PATHS:INTERNAL=
-_JSONCPP_PC_MODULE_NAME:INTERNAL=
-_JSONCPP_PC_PREFIX:INTERNAL=
-_JSONCPP_PC_STATIC_CFLAGS:INTERNAL=
-_JSONCPP_PC_STATIC_CFLAGS_I:INTERNAL=
-_JSONCPP_PC_STATIC_CFLAGS_OTHER:INTERNAL=
-_JSONCPP_PC_STATIC_LIBDIR:INTERNAL=
-_JSONCPP_PC_STATIC_LIBS:INTERNAL=
-_JSONCPP_PC_STATIC_LIBS_L:INTERNAL=
-_JSONCPP_PC_STATIC_LIBS_OTHER:INTERNAL=
-_JSONCPP_PC_STATIC_LIBS_PATHS:INTERNAL=
-_JSONCPP_PC_VERSION:INTERNAL=
-_JSONCPP_PC_jsoncpp_INCLUDEDIR:INTERNAL=
-_JSONCPP_PC_jsoncpp_LIBDIR:INTERNAL=
-_JSONCPP_PC_jsoncpp_PREFIX:INTERNAL=
-_JSONCPP_PC_jsoncpp_VERSION:INTERNAL=
 __pkg_config_arguments_PC_glesv1_cm:INTERNAL=QUIET;glesv1_cm
 __pkg_config_arguments_PC_glesv2:INTERNAL=QUIET;glesv2
 __pkg_config_arguments_PKG_EGL:INTERNAL=QUIET;egl
 __pkg_config_checked_PC_glesv1_cm:INTERNAL=1
 __pkg_config_checked_PC_glesv2:INTERNAL=1
 __pkg_config_checked_PKG_EGL:INTERNAL=1
-__pkg_config_checked__JSONCPP_PC:INTERNAL=1
 //ADVANCED property for variable: pkgcfg_lib_PC_glesv1_cm_GLESv1_CM
 pkgcfg_lib_PC_glesv1_cm_GLESv1_CM-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: pkgcfg_lib_PC_glesv2_GLESv2

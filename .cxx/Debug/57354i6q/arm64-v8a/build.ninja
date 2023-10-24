@@ -758,7 +758,7 @@ build include/openxr/openxr_reflection_structs.h | ${cmake_ninja_workdir}include
 build cmake_object_order_depends_target_openxr-gfxwrapper: phony || src/CMakeFiles/openxr-gfxwrapper.dir
 
 build src/CMakeFiles/openxr-gfxwrapper.dir/common/gfxwrapper_opengl.c.o: C_COMPILER__openxr-gfxwrapper_Debug /home/andreas/Code/C++/VR/OpenXR/src/common/gfxwrapper_opengl.c || cmake_object_order_depends_target_openxr-gfxwrapper
-  DEFINES = -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID
+  DEFINES = -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID
   DEP_FILE = src/CMakeFiles/openxr-gfxwrapper.dir/common/gfxwrapper_opengl.c.o.d
   FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Werror=unused-parameter -Werror=unused-argument -Wpointer-arith -O0 -fno-limit-debug-info  -fPIC
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src
@@ -791,7 +791,7 @@ build src/libopenxr-gfxwrapper.a: C_STATIC_LIBRARY_LINKER__openxr-gfxwrapper_Deb
 build cmake_object_order_depends_target_android_native_app_glue: phony || src/CMakeFiles/android_native_app_glue.dir
 
 build src/CMakeFiles/android_native_app_glue.dir/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue/android_native_app_glue.c.o: C_COMPILER__android_native_app_glue_Debug /home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue/android_native_app_glue.c || cmake_object_order_depends_target_android_native_app_glue
-  DEFINES = -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID
+  DEFINES = -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID
   DEP_FILE = src/CMakeFiles/android_native_app_glue.dir/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue/android_native_app_glue.c.o.d
   FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Werror=unused-parameter -Werror=unused-argument -Wpointer-arith -O0 -fno-limit-debug-info  -fPIC -Wno-unused-parameter
   INCLUDES = -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src
@@ -815,7 +815,7 @@ build src/xr_global_generated_files: phony src/CMakeFiles/xr_global_generated_fi
 #############################################
 # Utility command for xr_common_generated_files
 
-build src/xr_common_generated_files: phony src/CMakeFiles/xr_common_generated_files src/xr_generated_dispatch_table.c src/xr_generated_dispatch_table.h
+build src/xr_common_generated_files: phony
 
 
 #############################################
@@ -918,30 +918,6 @@ build src/xr_generated_dispatch_table_core.h | ${cmake_ninja_workdir}src/xr_gene
   DESC = Generating xr_generated_dispatch_table_core.h using /usr/bin/python3 on utility_source_generator.py
   restat = 1
 
-
-#############################################
-# Phony custom command for src/CMakeFiles/xr_common_generated_files
-
-build src/CMakeFiles/xr_common_generated_files | ${cmake_ninja_workdir}src/CMakeFiles/xr_common_generated_files: phony src/xr_generated_dispatch_table.h src/xr_generated_dispatch_table.c
-
-
-#############################################
-# Custom command for src/xr_generated_dispatch_table.c
-
-build src/xr_generated_dispatch_table.c | ${cmake_ninja_workdir}src/xr_generated_dispatch_table.c: CUSTOM_COMMAND ../../../../../../../specification/registry/xr.xml ../../../../../../../specification/scripts/generator.py ../../../../../../../specification/scripts/reg.py ../../../../../../scripts/utility_source_generator.py ../../../../../../scripts/src_genxr.py
-  COMMAND = cd /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src && /usr/bin/cmake -E env PYTHONPATH=/home/andreas/Code/C++/VR/OpenXR/specification/scripts:/home/andreas/Code/C++/VR/OpenXR/src/scripts: /usr/bin/python3 /home/andreas/Code/C++/VR/OpenXR/src/scripts/src_genxr.py -registry /home/andreas/Code/C++/VR/OpenXR/specification/registry/xr.xml xr_generated_dispatch_table.c
-  DESC = Generating xr_generated_dispatch_table.c using /usr/bin/python3 on utility_source_generator.py
-  restat = 1
-
-
-#############################################
-# Custom command for src/xr_generated_dispatch_table.h
-
-build src/xr_generated_dispatch_table.h | ${cmake_ninja_workdir}src/xr_generated_dispatch_table.h: CUSTOM_COMMAND ../../../../../../../specification/registry/xr.xml ../../../../../../../specification/scripts/generator.py ../../../../../../../specification/scripts/reg.py ../../../../../../scripts/utility_source_generator.py ../../../../../../scripts/src_genxr.py
-  COMMAND = cd /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src && /usr/bin/cmake -E env PYTHONPATH=/home/andreas/Code/C++/VR/OpenXR/specification/scripts:/home/andreas/Code/C++/VR/OpenXR/src/scripts: /usr/bin/python3 /home/andreas/Code/C++/VR/OpenXR/src/scripts/src_genxr.py -registry /home/andreas/Code/C++/VR/OpenXR/specification/registry/xr.xml xr_generated_dispatch_table.h
-  DESC = Generating xr_generated_dispatch_table.h using /usr/bin/python3 on utility_source_generator.py
-  restat = 1
-
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
 # /home/andreas/Code/C++/VR/OpenXR/src/CMakeLists.txt
@@ -957,7 +933,7 @@ build src/xr_generated_dispatch_table.h | ${cmake_ninja_workdir}src/xr_generated
 build cmake_object_order_depends_target_openxr_loader: phony || include/openxr/generate_openxr_header src/loader/xr_generated_loader.cpp src/loader/xr_generated_loader.hpp src/xr_global_generated_files
 
 build src/loader/CMakeFiles/openxr_loader.dir/android_utilities.cpp.o: CXX_COMPILER__openxr_loader_Debug /home/andreas/Code/C++/VR/OpenXR/src/loader/android_utilities.cpp || cmake_object_order_depends_target_openxr_loader
-  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
+  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
   DEP_FILE = src/loader/CMakeFiles/openxr_loader.dir/android_utilities.cpp.o.d
   FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -Wall -Werror=unused-parameter -Werror=unused-argument -Wpointer-arith -O0 -fno-limit-debug-info  -fPIC -fvisibility=hidden -Wno-unused-parameter -fno-rtti -ffunction-sections -fdata-sections -Wextra -fno-strict-aliasing -fno-builtin-memcmp -pthread -std=gnu++17
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/external/jsoncpp/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/jnipp -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/android-jni-wrappers
@@ -965,7 +941,7 @@ build src/loader/CMakeFiles/openxr_loader.dir/android_utilities.cpp.o: CXX_COMPI
   OBJECT_FILE_DIR = src/loader/CMakeFiles/openxr_loader.dir
 
 build src/loader/CMakeFiles/openxr_loader.dir/api_layer_interface.cpp.o: CXX_COMPILER__openxr_loader_Debug /home/andreas/Code/C++/VR/OpenXR/src/loader/api_layer_interface.cpp || cmake_object_order_depends_target_openxr_loader
-  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
+  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
   DEP_FILE = src/loader/CMakeFiles/openxr_loader.dir/api_layer_interface.cpp.o.d
   FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -Wall -Werror=unused-parameter -Werror=unused-argument -Wpointer-arith -O0 -fno-limit-debug-info  -fPIC -fvisibility=hidden -Wno-unused-parameter -fno-rtti -ffunction-sections -fdata-sections -Wextra -fno-strict-aliasing -fno-builtin-memcmp -pthread -std=gnu++17
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/external/jsoncpp/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/jnipp -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/android-jni-wrappers
@@ -973,7 +949,7 @@ build src/loader/CMakeFiles/openxr_loader.dir/api_layer_interface.cpp.o: CXX_COM
   OBJECT_FILE_DIR = src/loader/CMakeFiles/openxr_loader.dir
 
 build src/loader/CMakeFiles/openxr_loader.dir/loader_core.cpp.o: CXX_COMPILER__openxr_loader_Debug /home/andreas/Code/C++/VR/OpenXR/src/loader/loader_core.cpp || cmake_object_order_depends_target_openxr_loader
-  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
+  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
   DEP_FILE = src/loader/CMakeFiles/openxr_loader.dir/loader_core.cpp.o.d
   FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -Wall -Werror=unused-parameter -Werror=unused-argument -Wpointer-arith -O0 -fno-limit-debug-info  -fPIC -fvisibility=hidden -Wno-unused-parameter -fno-rtti -ffunction-sections -fdata-sections -Wextra -fno-strict-aliasing -fno-builtin-memcmp -pthread -std=gnu++17
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/external/jsoncpp/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/jnipp -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/android-jni-wrappers
@@ -981,7 +957,7 @@ build src/loader/CMakeFiles/openxr_loader.dir/loader_core.cpp.o: CXX_COMPILER__o
   OBJECT_FILE_DIR = src/loader/CMakeFiles/openxr_loader.dir
 
 build src/loader/CMakeFiles/openxr_loader.dir/loader_instance.cpp.o: CXX_COMPILER__openxr_loader_Debug /home/andreas/Code/C++/VR/OpenXR/src/loader/loader_instance.cpp || cmake_object_order_depends_target_openxr_loader
-  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
+  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
   DEP_FILE = src/loader/CMakeFiles/openxr_loader.dir/loader_instance.cpp.o.d
   FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -Wall -Werror=unused-parameter -Werror=unused-argument -Wpointer-arith -O0 -fno-limit-debug-info  -fPIC -fvisibility=hidden -Wno-unused-parameter -fno-rtti -ffunction-sections -fdata-sections -Wextra -fno-strict-aliasing -fno-builtin-memcmp -pthread -std=gnu++17
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/external/jsoncpp/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/jnipp -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/android-jni-wrappers
@@ -989,7 +965,7 @@ build src/loader/CMakeFiles/openxr_loader.dir/loader_instance.cpp.o: CXX_COMPILE
   OBJECT_FILE_DIR = src/loader/CMakeFiles/openxr_loader.dir
 
 build src/loader/CMakeFiles/openxr_loader.dir/loader_logger.cpp.o: CXX_COMPILER__openxr_loader_Debug /home/andreas/Code/C++/VR/OpenXR/src/loader/loader_logger.cpp || cmake_object_order_depends_target_openxr_loader
-  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
+  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
   DEP_FILE = src/loader/CMakeFiles/openxr_loader.dir/loader_logger.cpp.o.d
   FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -Wall -Werror=unused-parameter -Werror=unused-argument -Wpointer-arith -O0 -fno-limit-debug-info  -fPIC -fvisibility=hidden -Wno-unused-parameter -fno-rtti -ffunction-sections -fdata-sections -Wextra -fno-strict-aliasing -fno-builtin-memcmp -pthread -std=gnu++17
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/external/jsoncpp/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/jnipp -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/android-jni-wrappers
@@ -997,7 +973,7 @@ build src/loader/CMakeFiles/openxr_loader.dir/loader_logger.cpp.o: CXX_COMPILER_
   OBJECT_FILE_DIR = src/loader/CMakeFiles/openxr_loader.dir
 
 build src/loader/CMakeFiles/openxr_loader.dir/loader_logger_recorders.cpp.o: CXX_COMPILER__openxr_loader_Debug /home/andreas/Code/C++/VR/OpenXR/src/loader/loader_logger_recorders.cpp || cmake_object_order_depends_target_openxr_loader
-  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
+  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
   DEP_FILE = src/loader/CMakeFiles/openxr_loader.dir/loader_logger_recorders.cpp.o.d
   FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -Wall -Werror=unused-parameter -Werror=unused-argument -Wpointer-arith -O0 -fno-limit-debug-info  -fPIC -fvisibility=hidden -Wno-unused-parameter -fno-rtti -ffunction-sections -fdata-sections -Wextra -fno-strict-aliasing -fno-builtin-memcmp -pthread -std=gnu++17
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/external/jsoncpp/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/jnipp -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/android-jni-wrappers
@@ -1005,7 +981,7 @@ build src/loader/CMakeFiles/openxr_loader.dir/loader_logger_recorders.cpp.o: CXX
   OBJECT_FILE_DIR = src/loader/CMakeFiles/openxr_loader.dir
 
 build src/loader/CMakeFiles/openxr_loader.dir/manifest_file.cpp.o: CXX_COMPILER__openxr_loader_Debug /home/andreas/Code/C++/VR/OpenXR/src/loader/manifest_file.cpp || cmake_object_order_depends_target_openxr_loader
-  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
+  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
   DEP_FILE = src/loader/CMakeFiles/openxr_loader.dir/manifest_file.cpp.o.d
   FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -Wall -Werror=unused-parameter -Werror=unused-argument -Wpointer-arith -O0 -fno-limit-debug-info  -fPIC -fvisibility=hidden -Wno-unused-parameter -fno-rtti -ffunction-sections -fdata-sections -Wextra -fno-strict-aliasing -fno-builtin-memcmp -pthread -std=gnu++17
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/external/jsoncpp/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/jnipp -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/android-jni-wrappers
@@ -1013,7 +989,7 @@ build src/loader/CMakeFiles/openxr_loader.dir/manifest_file.cpp.o: CXX_COMPILER_
   OBJECT_FILE_DIR = src/loader/CMakeFiles/openxr_loader.dir
 
 build src/loader/CMakeFiles/openxr_loader.dir/runtime_interface.cpp.o: CXX_COMPILER__openxr_loader_Debug /home/andreas/Code/C++/VR/OpenXR/src/loader/runtime_interface.cpp || cmake_object_order_depends_target_openxr_loader
-  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
+  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
   DEP_FILE = src/loader/CMakeFiles/openxr_loader.dir/runtime_interface.cpp.o.d
   FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -Wall -Werror=unused-parameter -Werror=unused-argument -Wpointer-arith -O0 -fno-limit-debug-info  -fPIC -fvisibility=hidden -Wno-unused-parameter -fno-rtti -ffunction-sections -fdata-sections -Wextra -fno-strict-aliasing -fno-builtin-memcmp -pthread -std=gnu++17
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/external/jsoncpp/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/jnipp -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/android-jni-wrappers
@@ -1021,7 +997,7 @@ build src/loader/CMakeFiles/openxr_loader.dir/runtime_interface.cpp.o: CXX_COMPI
   OBJECT_FILE_DIR = src/loader/CMakeFiles/openxr_loader.dir
 
 build src/loader/CMakeFiles/openxr_loader.dir/xr_generated_loader.cpp.o: CXX_COMPILER__openxr_loader_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader/xr_generated_loader.cpp || cmake_object_order_depends_target_openxr_loader
-  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
+  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
   DEP_FILE = src/loader/CMakeFiles/openxr_loader.dir/xr_generated_loader.cpp.o.d
   FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -Wall -Werror=unused-parameter -Werror=unused-argument -Wpointer-arith -O0 -fno-limit-debug-info  -fPIC -fvisibility=hidden -Wno-unused-parameter -fno-rtti -ffunction-sections -fdata-sections -Wextra -fno-strict-aliasing -fno-builtin-memcmp -pthread -std=gnu++17
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/external/jsoncpp/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/jnipp -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/android-jni-wrappers
@@ -1029,7 +1005,7 @@ build src/loader/CMakeFiles/openxr_loader.dir/xr_generated_loader.cpp.o: CXX_COM
   OBJECT_FILE_DIR = src/loader/CMakeFiles/openxr_loader.dir
 
 build src/loader/CMakeFiles/openxr_loader.dir/__/common/object_info.cpp.o: CXX_COMPILER__openxr_loader_Debug /home/andreas/Code/C++/VR/OpenXR/src/common/object_info.cpp || cmake_object_order_depends_target_openxr_loader
-  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
+  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
   DEP_FILE = src/loader/CMakeFiles/openxr_loader.dir/__/common/object_info.cpp.o.d
   FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -Wall -Werror=unused-parameter -Werror=unused-argument -Wpointer-arith -O0 -fno-limit-debug-info  -fPIC -fvisibility=hidden -Wno-unused-parameter -fno-rtti -ffunction-sections -fdata-sections -Wextra -fno-strict-aliasing -fno-builtin-memcmp -pthread -std=gnu++17
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/external/jsoncpp/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/jnipp -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/android-jni-wrappers
@@ -1037,7 +1013,7 @@ build src/loader/CMakeFiles/openxr_loader.dir/__/common/object_info.cpp.o: CXX_C
   OBJECT_FILE_DIR = src/loader/CMakeFiles/openxr_loader.dir/__/common
 
 build src/loader/CMakeFiles/openxr_loader.dir/__/xr_generated_dispatch_table_core.c.o: C_COMPILER__openxr_loader_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/xr_generated_dispatch_table_core.c || cmake_object_order_depends_target_openxr_loader
-  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
+  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
   DEP_FILE = src/loader/CMakeFiles/openxr_loader.dir/__/xr_generated_dispatch_table_core.c.o.d
   FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Werror=unused-parameter -Werror=unused-argument -Wpointer-arith -O0 -fno-limit-debug-info  -fPIC -fvisibility=hidden -Wno-unused-parameter -ffunction-sections -fdata-sections -Wextra -fno-strict-aliasing -fno-builtin-memcmp -pthread
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/external/jsoncpp/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/jnipp -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/android-jni-wrappers
@@ -1045,7 +1021,7 @@ build src/loader/CMakeFiles/openxr_loader.dir/__/xr_generated_dispatch_table_cor
   OBJECT_FILE_DIR = src/loader/CMakeFiles/openxr_loader.dir/__
 
 build src/loader/CMakeFiles/openxr_loader.dir/__/external/jsoncpp/src/lib_json/json_reader.cpp.o: CXX_COMPILER__openxr_loader_Debug /home/andreas/Code/C++/VR/OpenXR/src/external/jsoncpp/src/lib_json/json_reader.cpp || cmake_object_order_depends_target_openxr_loader
-  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
+  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
   DEP_FILE = src/loader/CMakeFiles/openxr_loader.dir/__/external/jsoncpp/src/lib_json/json_reader.cpp.o.d
   FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -Wall -Werror=unused-parameter -Werror=unused-argument -Wpointer-arith -O0 -fno-limit-debug-info  -fPIC -fvisibility=hidden -Wno-unused-parameter -fno-rtti -ffunction-sections -fdata-sections -Wextra -fno-strict-aliasing -fno-builtin-memcmp -pthread -std=gnu++17
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/external/jsoncpp/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/jnipp -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/android-jni-wrappers
@@ -1053,7 +1029,7 @@ build src/loader/CMakeFiles/openxr_loader.dir/__/external/jsoncpp/src/lib_json/j
   OBJECT_FILE_DIR = src/loader/CMakeFiles/openxr_loader.dir/__/external/jsoncpp/src/lib_json
 
 build src/loader/CMakeFiles/openxr_loader.dir/__/external/jsoncpp/src/lib_json/json_value.cpp.o: CXX_COMPILER__openxr_loader_Debug /home/andreas/Code/C++/VR/OpenXR/src/external/jsoncpp/src/lib_json/json_value.cpp || cmake_object_order_depends_target_openxr_loader
-  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
+  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
   DEP_FILE = src/loader/CMakeFiles/openxr_loader.dir/__/external/jsoncpp/src/lib_json/json_value.cpp.o.d
   FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -Wall -Werror=unused-parameter -Werror=unused-argument -Wpointer-arith -O0 -fno-limit-debug-info  -fPIC -fvisibility=hidden -Wno-unused-parameter -fno-rtti -ffunction-sections -fdata-sections -Wextra -fno-strict-aliasing -fno-builtin-memcmp -pthread -std=gnu++17
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/external/jsoncpp/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/jnipp -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/android-jni-wrappers
@@ -1061,7 +1037,7 @@ build src/loader/CMakeFiles/openxr_loader.dir/__/external/jsoncpp/src/lib_json/j
   OBJECT_FILE_DIR = src/loader/CMakeFiles/openxr_loader.dir/__/external/jsoncpp/src/lib_json
 
 build src/loader/CMakeFiles/openxr_loader.dir/__/external/jsoncpp/src/lib_json/json_writer.cpp.o: CXX_COMPILER__openxr_loader_Debug /home/andreas/Code/C++/VR/OpenXR/src/external/jsoncpp/src/lib_json/json_writer.cpp || cmake_object_order_depends_target_openxr_loader
-  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
+  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
   DEP_FILE = src/loader/CMakeFiles/openxr_loader.dir/__/external/jsoncpp/src/lib_json/json_writer.cpp.o.d
   FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -Wall -Werror=unused-parameter -Werror=unused-argument -Wpointer-arith -O0 -fno-limit-debug-info  -fPIC -fvisibility=hidden -Wno-unused-parameter -fno-rtti -ffunction-sections -fdata-sections -Wextra -fno-strict-aliasing -fno-builtin-memcmp -pthread -std=gnu++17
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/external/jsoncpp/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/jnipp -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/android-jni-wrappers
@@ -1069,7 +1045,7 @@ build src/loader/CMakeFiles/openxr_loader.dir/__/external/jsoncpp/src/lib_json/j
   OBJECT_FILE_DIR = src/loader/CMakeFiles/openxr_loader.dir/__/external/jsoncpp/src/lib_json
 
 build src/loader/CMakeFiles/openxr_loader.dir/__/common/filesystem_utils.cpp.o: CXX_COMPILER__openxr_loader_Debug /home/andreas/Code/C++/VR/OpenXR/src/common/filesystem_utils.cpp || cmake_object_order_depends_target_openxr_loader
-  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
+  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
   DEP_FILE = src/loader/CMakeFiles/openxr_loader.dir/__/common/filesystem_utils.cpp.o.d
   FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -Wall -Werror=unused-parameter -Werror=unused-argument -Wpointer-arith -O0 -fno-limit-debug-info  -fPIC -fvisibility=hidden -Wno-unused-parameter -fno-rtti -ffunction-sections -fdata-sections -Wextra -fno-strict-aliasing -fno-builtin-memcmp -pthread -std=gnu++17
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/external/jsoncpp/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/jnipp -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/android-jni-wrappers
@@ -1077,7 +1053,7 @@ build src/loader/CMakeFiles/openxr_loader.dir/__/common/filesystem_utils.cpp.o: 
   OBJECT_FILE_DIR = src/loader/CMakeFiles/openxr_loader.dir/__/common
 
 build src/loader/CMakeFiles/openxr_loader.dir/__/external/android-jni-wrappers/wrap/android.content.cpp.o: CXX_COMPILER__openxr_loader_Debug /home/andreas/Code/C++/VR/OpenXR/src/external/android-jni-wrappers/wrap/android.content.cpp || cmake_object_order_depends_target_openxr_loader
-  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
+  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
   DEP_FILE = src/loader/CMakeFiles/openxr_loader.dir/__/external/android-jni-wrappers/wrap/android.content.cpp.o.d
   FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -Wall -Werror=unused-parameter -Werror=unused-argument -Wpointer-arith -O0 -fno-limit-debug-info  -fPIC -fvisibility=hidden -Wno-unused-parameter -fno-rtti -ffunction-sections -fdata-sections -Wextra -fno-strict-aliasing -fno-builtin-memcmp -pthread -std=gnu++17
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/external/jsoncpp/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/jnipp -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/android-jni-wrappers
@@ -1085,7 +1061,7 @@ build src/loader/CMakeFiles/openxr_loader.dir/__/external/android-jni-wrappers/w
   OBJECT_FILE_DIR = src/loader/CMakeFiles/openxr_loader.dir/__/external/android-jni-wrappers/wrap
 
 build src/loader/CMakeFiles/openxr_loader.dir/__/external/android-jni-wrappers/wrap/android.database.cpp.o: CXX_COMPILER__openxr_loader_Debug /home/andreas/Code/C++/VR/OpenXR/src/external/android-jni-wrappers/wrap/android.database.cpp || cmake_object_order_depends_target_openxr_loader
-  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
+  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
   DEP_FILE = src/loader/CMakeFiles/openxr_loader.dir/__/external/android-jni-wrappers/wrap/android.database.cpp.o.d
   FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -Wall -Werror=unused-parameter -Werror=unused-argument -Wpointer-arith -O0 -fno-limit-debug-info  -fPIC -fvisibility=hidden -Wno-unused-parameter -fno-rtti -ffunction-sections -fdata-sections -Wextra -fno-strict-aliasing -fno-builtin-memcmp -pthread -std=gnu++17
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/external/jsoncpp/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/jnipp -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/android-jni-wrappers
@@ -1093,7 +1069,7 @@ build src/loader/CMakeFiles/openxr_loader.dir/__/external/android-jni-wrappers/w
   OBJECT_FILE_DIR = src/loader/CMakeFiles/openxr_loader.dir/__/external/android-jni-wrappers/wrap
 
 build src/loader/CMakeFiles/openxr_loader.dir/__/external/android-jni-wrappers/wrap/android.net.cpp.o: CXX_COMPILER__openxr_loader_Debug /home/andreas/Code/C++/VR/OpenXR/src/external/android-jni-wrappers/wrap/android.net.cpp || cmake_object_order_depends_target_openxr_loader
-  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
+  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
   DEP_FILE = src/loader/CMakeFiles/openxr_loader.dir/__/external/android-jni-wrappers/wrap/android.net.cpp.o.d
   FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -Wall -Werror=unused-parameter -Werror=unused-argument -Wpointer-arith -O0 -fno-limit-debug-info  -fPIC -fvisibility=hidden -Wno-unused-parameter -fno-rtti -ffunction-sections -fdata-sections -Wextra -fno-strict-aliasing -fno-builtin-memcmp -pthread -std=gnu++17
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/external/jsoncpp/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/jnipp -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/android-jni-wrappers
@@ -1101,7 +1077,7 @@ build src/loader/CMakeFiles/openxr_loader.dir/__/external/android-jni-wrappers/w
   OBJECT_FILE_DIR = src/loader/CMakeFiles/openxr_loader.dir/__/external/android-jni-wrappers/wrap
 
 build src/loader/CMakeFiles/openxr_loader.dir/__/external/jnipp/jnipp.cpp.o: CXX_COMPILER__openxr_loader_Debug /home/andreas/Code/C++/VR/OpenXR/src/external/jnipp/jnipp.cpp || cmake_object_order_depends_target_openxr_loader
-  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
+  DEFINES = -DAPI_NAME=\"OpenXR\" -DDISABLE_STD_FILESYSTEM -DOPENXR_HAVE_COMMON_CONFIG -DXRAPI_DLL_EXPORT -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dopenxr_loader_EXPORTS
   DEP_FILE = src/loader/CMakeFiles/openxr_loader.dir/__/external/jnipp/jnipp.cpp.o.d
   FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -Wall -Werror=unused-parameter -Werror=unused-argument -Wpointer-arith -O0 -fno-limit-debug-info  -fPIC -fvisibility=hidden -Wno-unused-parameter -fno-rtti -ffunction-sections -fdata-sections -Wextra -fno-strict-aliasing -fno-builtin-memcmp -pthread -std=gnu++17
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/external/jsoncpp/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader/.. -I/home/andreas/Code/C++/VR/OpenXR/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/jnipp -I/home/andreas/Code/C++/VR/OpenXR/src/loader/../external/android-jni-wrappers
@@ -1311,123 +1287,6 @@ build src/tests/install/strip: phony src/tests/CMakeFiles/install/strip.util
 # =============================================================================
 
 # =============================================================================
-# Object build statements for MODULE_LIBRARY target openxr_c_compile_test
-
-
-#############################################
-# Order-only phony target for openxr_c_compile_test
-
-build cmake_object_order_depends_target_openxr_c_compile_test: phony || cmake_object_order_depends_target_android_native_app_glue cmake_object_order_depends_target_openxr_loader include/openxr/generate_openxr_header
-
-build src/tests/c_compile_test/CMakeFiles/openxr_c_compile_test.dir/main.c.o: C_COMPILER__openxr_c_compile_test_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/c_compile_test/main.c || cmake_object_order_depends_target_openxr_c_compile_test
-  DEFINES = -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dopenxr_c_compile_test_EXPORTS
-  DEP_FILE = src/tests/c_compile_test/CMakeFiles/openxr_c_compile_test.dir/main.c.o.d
-  FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Werror=unused-parameter -Werror=unused-argument -Wpointer-arith -O0 -fno-limit-debug-info  -fPIC -pthread
-  INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include
-  OBJECT_DIR = src/tests/c_compile_test/CMakeFiles/openxr_c_compile_test.dir
-  OBJECT_FILE_DIR = src/tests/c_compile_test/CMakeFiles/openxr_c_compile_test.dir
-
-
-# =============================================================================
-# Link build statements for MODULE_LIBRARY target openxr_c_compile_test
-
-
-#############################################
-# Link the shared module ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_c_compile_test.so
-
-build ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_c_compile_test.so: C_MODULE_LIBRARY_LINKER__openxr_c_compile_test_Debug src/CMakeFiles/android_native_app_glue.dir/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue/android_native_app_glue.c.o src/tests/c_compile_test/CMakeFiles/openxr_c_compile_test.dir/main.c.o | /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/libandroid.so /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/liblog.so ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_loader.so || ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_loader.so include/openxr/generate_openxr_header src/android_native_app_glue
-  LANGUAGE_COMPILE_FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Werror=unused-parameter -Werror=unused-argument -Wpointer-arith -O0 -fno-limit-debug-info
-  LINK_FLAGS = -Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libgcc_real.a -Wl,--exclude-libs,libatomic.a -static-libstdc++ -Wl,--build-id -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments
-  LINK_LIBRARIES = /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/libandroid.so  /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/liblog.so  ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_loader.so  -pthread  -latomic -lm
-  OBJECT_DIR = src/tests/c_compile_test/CMakeFiles/openxr_c_compile_test.dir
-  POST_BUILD = :
-  PRE_LINK = :
-  TARGET_FILE = ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_c_compile_test.so
-  TARGET_PDB = openxr_c_compile_test.so.dbg
-
-
-#############################################
-# Utility command for test
-
-build src/tests/c_compile_test/CMakeFiles/test.util: CUSTOM_COMMAND
-  COMMAND = cd /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/c_compile_test && /usr/bin/ctest --force-new-ctest-process
-  DESC = Running tests...
-  pool = console
-  restat = 1
-
-build src/tests/c_compile_test/test: phony src/tests/c_compile_test/CMakeFiles/test.util
-
-
-#############################################
-# Utility command for edit_cache
-
-build src/tests/c_compile_test/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/c_compile_test && /usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-  DESC = No interactive CMake dialog available...
-  restat = 1
-
-build src/tests/c_compile_test/edit_cache: phony src/tests/c_compile_test/CMakeFiles/edit_cache.util
-
-
-#############################################
-# Utility command for rebuild_cache
-
-build src/tests/c_compile_test/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/c_compile_test && /usr/bin/cmake --regenerate-during-build -S/home/andreas/Code/C++/VR/OpenXR -B/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a
-  DESC = Running CMake to regenerate build system...
-  pool = console
-  restat = 1
-
-build src/tests/c_compile_test/rebuild_cache: phony src/tests/c_compile_test/CMakeFiles/rebuild_cache.util
-
-
-#############################################
-# Utility command for list_install_components
-
-build src/tests/c_compile_test/list_install_components: phony
-
-
-#############################################
-# Utility command for install
-
-build src/tests/c_compile_test/CMakeFiles/install.util: CUSTOM_COMMAND src/tests/c_compile_test/all
-  COMMAND = cd /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/c_compile_test && /usr/bin/cmake -P cmake_install.cmake
-  DESC = Install the project...
-  pool = console
-  restat = 1
-
-build src/tests/c_compile_test/install: phony src/tests/c_compile_test/CMakeFiles/install.util
-
-
-#############################################
-# Utility command for install/local
-
-build src/tests/c_compile_test/CMakeFiles/install/local.util: CUSTOM_COMMAND src/tests/c_compile_test/all
-  COMMAND = cd /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/c_compile_test && /usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-  DESC = Installing only the local directory...
-  pool = console
-  restat = 1
-
-build src/tests/c_compile_test/install/local: phony src/tests/c_compile_test/CMakeFiles/install/local.util
-
-
-#############################################
-# Utility command for install/strip
-
-build src/tests/c_compile_test/CMakeFiles/install/strip.util: CUSTOM_COMMAND src/tests/c_compile_test/all
-  COMMAND = cd /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/c_compile_test && /usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-  DESC = Installing the project stripped...
-  pool = console
-  restat = 1
-
-build src/tests/c_compile_test/install/strip: phony src/tests/c_compile_test/CMakeFiles/install/strip.util
-
-# =============================================================================
-# Write statements declared in CMakeLists.txt:
-# /home/andreas/Code/C++/VR/OpenXR/src/tests/CMakeLists.txt
-# =============================================================================
-
-# =============================================================================
 # Object build statements for MODULE_LIBRARY target hello_xr
 
 
@@ -1437,7 +1296,7 @@ build src/tests/c_compile_test/install/strip: phony src/tests/c_compile_test/CMa
 build cmake_object_order_depends_target_hello_xr: phony || cmake_object_order_depends_target_android_native_app_glue cmake_object_order_depends_target_openxr-gfxwrapper cmake_object_order_depends_target_openxr_loader include/openxr/generate_openxr_header
 
 build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/Main.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/Main.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
   DEP_FILE = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/Main.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/NarradiaVR -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
@@ -1445,7 +1304,7 @@ build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/Main.cpp.o: CXX_COMPILER_
   OBJECT_FILE_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src
 
 build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/Pch.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/Pch.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
   DEP_FILE = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/Pch.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/NarradiaVR -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
@@ -1453,7 +1312,7 @@ build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/Pch.cpp.o: CXX_COMPILER__
   OBJECT_FILE_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src
 
 build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/common/SingletonManager.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/common/SingletonManager.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
   DEP_FILE = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/common/SingletonManager.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/NarradiaVR -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
@@ -1461,7 +1320,7 @@ build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/common/SingletonManager.c
   OBJECT_FILE_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/common
 
 build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/AndroidAppManager.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/AndroidAppManager.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
   DEP_FILE = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/AndroidAppManager.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/NarradiaVR -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
@@ -1469,7 +1328,7 @@ build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/AndroidAppManager.
   OBJECT_FILE_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine
 
 build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/Game.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/Game.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
   DEP_FILE = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/Game.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/NarradiaVR -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
@@ -1477,7 +1336,7 @@ build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/Game.cpp.o: CXX_CO
   OBJECT_FILE_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine
 
 build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/OptionsManager.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/OptionsManager.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
   DEP_FILE = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/OptionsManager.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/NarradiaVR -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
@@ -1485,7 +1344,7 @@ build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/OptionsManager.cpp
   OBJECT_FILE_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine
 
 build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/VRApp.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/VRApp.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
   DEP_FILE = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/VRApp.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/NarradiaVR -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
@@ -1493,7 +1352,7 @@ build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/VRApp.cpp.o: CXX_C
   OBJECT_FILE_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine
 
 build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/GameLoop.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/GameLoop.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
   DEP_FILE = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/GameLoop.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/NarradiaVR -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
@@ -1501,7 +1360,7 @@ build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/GameLoop.cpp.
   OBJECT_FILE_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core
 
 build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/IScene.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/IScene.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
   DEP_FILE = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/IScene.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/NarradiaVR -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
@@ -1509,7 +1368,7 @@ build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/IScene.cpp.o:
   OBJECT_FILE_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core
 
 build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/Loader.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/Loader.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
   DEP_FILE = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/Loader.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/NarradiaVR -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
@@ -1517,7 +1376,7 @@ build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/Loader.cpp.o:
   OBJECT_FILE_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core
 
 build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/SceneManager.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/SceneManager.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
   DEP_FILE = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/SceneManager.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/NarradiaVR -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
@@ -1525,7 +1384,7 @@ build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/SceneManager.
   OBJECT_FILE_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core
 
 build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/SystemEventPoller.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/SystemEventPoller.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
   DEP_FILE = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/SystemEventPoller.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/NarradiaVR -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
@@ -1533,31 +1392,31 @@ build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/SystemEventPo
   OBJECT_FILE_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core
 
 build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/SystemEventReader.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/SystemEventReader.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
   DEP_FILE = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/SystemEventReader.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/NarradiaVR -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
   OBJECT_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir
   OBJECT_FILE_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core
 
-build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/input/ControllerInput.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/input/ControllerInput.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
-  DEP_FILE = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/input/ControllerInput.cpp.o.d
-  FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
-  INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/NarradiaVR -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
-  OBJECT_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir
-  OBJECT_FILE_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/input
-
 build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/input/InputController.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/input/InputController.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
   DEP_FILE = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/input/InputController.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/NarradiaVR -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
   OBJECT_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir
   OBJECT_FILE_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/input
 
+build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/assets/ModelBank.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/assets/ModelBank.cpp || cmake_object_order_depends_target_hello_xr
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEP_FILE = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/assets/ModelBank.cpp.o.d
+  FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
+  INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/NarradiaVR -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
+  OBJECT_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir
+  OBJECT_FILE_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/assets
+
 build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/common/Common.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/common/Common.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
   DEP_FILE = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/common/Common.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/NarradiaVR -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
@@ -1565,7 +1424,7 @@ build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/common/Com
   OBJECT_FILE_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/common
 
 build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/common/Logger.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/common/Logger.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
   DEP_FILE = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/common/Logger.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/NarradiaVR -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
@@ -1573,7 +1432,7 @@ build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/common/Log
   OBJECT_FILE_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/common
 
 build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/graphics_plugin/OpenGLESGraphicsPlugin.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/graphics_plugin/OpenGLESGraphicsPlugin.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
   DEP_FILE = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/graphics_plugin/OpenGLESGraphicsPlugin.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/NarradiaVR -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
@@ -1581,7 +1440,7 @@ build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/graphics_p
   OBJECT_FILE_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/graphics_plugin
 
 build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/options/Options.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/options/Options.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
   DEP_FILE = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/options/Options.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/NarradiaVR -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
@@ -1589,7 +1448,7 @@ build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/options/Op
   OBJECT_FILE_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/options
 
 build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/platform_plugin/AndroidPlatformPlugin.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/platform_plugin/AndroidPlatformPlugin.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
   DEP_FILE = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/platform_plugin/AndroidPlatformPlugin.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/NarradiaVR -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
@@ -1597,7 +1456,7 @@ build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/platform_p
   OBJECT_FILE_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/platform_plugin
 
 build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/OpenXrProgram.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/program/OpenXrProgram.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
   DEP_FILE = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/OpenXrProgram.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/NarradiaVR -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
@@ -1605,7 +1464,7 @@ build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/Op
   OBJECT_FILE_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/program
 
 build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/logging/ProgramLogger.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/program/logging/ProgramLogger.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
   DEP_FILE = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/logging/ProgramLogger.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/NarradiaVR -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
@@ -1613,7 +1472,7 @@ build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/lo
   OBJECT_FILE_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/logging
 
 build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/rendering/Renderer.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/program/rendering/Renderer.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
   DEP_FILE = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/rendering/Renderer.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/NarradiaVR -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
@@ -1621,23 +1480,39 @@ build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/re
   OBJECT_FILE_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/rendering
 
 build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/rendering/layers/CubeLayer.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/program/rendering/layers/CubeLayer.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
   DEP_FILE = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/rendering/layers/CubeLayer.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/NarradiaVR -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
   OBJECT_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir
   OBJECT_FILE_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/rendering/layers
 
+build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/matter/VertexCube.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/matter/VertexCube.cpp || cmake_object_order_depends_target_hello_xr
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEP_FILE = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/matter/VertexCube.cpp.o.d
+  FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
+  INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/NarradiaVR -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
+  OBJECT_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir
+  OBJECT_FILE_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/matter
+
 build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/scenes/intro/scene_IntroScene.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/scenes/intro/scene_IntroScene.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
   DEP_FILE = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/scenes/intro/scene_IntroScene.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/NarradiaVR -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
   OBJECT_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir
   OBJECT_FILE_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/scenes/intro
 
+build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/scenes/main/modules/module_JoystickMovementModule.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/scenes/main/modules/module_JoystickMovementModule.cpp || cmake_object_order_depends_target_hello_xr
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEP_FILE = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/scenes/main/modules/module_JoystickMovementModule.cpp.o.d
+  FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
+  INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/NarradiaVR -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
+  OBJECT_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir
+  OBJECT_FILE_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/scenes/main/modules
+
 build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/scenes/main/scene_MainScene.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/scenes/main/scene_MainScene.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
   DEP_FILE = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/scenes/main/scene_MainScene.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/NarradiaVR -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
@@ -1645,7 +1520,7 @@ build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/scenes/main/scene_MainSce
   OBJECT_FILE_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/scenes/main
 
 build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/scenes/main_menu/scene_MainMenuScene.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/scenes/main_menu/scene_MainMenuScene.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
   DEP_FILE = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/scenes/main_menu/scene_MainMenuScene.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/NarradiaVR -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
@@ -1660,10 +1535,10 @@ build src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/scenes/main_menu/scene_Ma
 #############################################
 # Link the shared module ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libhello_xr.so
 
-build ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libhello_xr.so: CXX_MODULE_LIBRARY_LINKER__hello_xr_Debug src/CMakeFiles/android_native_app_glue.dir/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue/android_native_app_glue.c.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/Main.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/Pch.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/common/SingletonManager.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/AndroidAppManager.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/Game.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/OptionsManager.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/VRApp.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/GameLoop.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/IScene.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/Loader.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/SceneManager.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/SystemEventPoller.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/SystemEventReader.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/input/ControllerInput.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/input/InputController.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/common/Common.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/common/Logger.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/graphics_plugin/OpenGLESGraphicsPlugin.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/options/Options.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/platform_plugin/AndroidPlatformPlugin.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/OpenXrProgram.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/logging/ProgramLogger.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/rendering/Renderer.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/rendering/layers/CubeLayer.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/scenes/intro/scene_IntroScene.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/scenes/main/scene_MainScene.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/scenes/main_menu/scene_MainMenuScene.cpp.o | /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/libandroid.so /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/liblog.so ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_loader.so src/libopenxr-gfxwrapper.a /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/libvulkan.so /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/libGLESv3.so /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/libEGL.so || ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_loader.so include/openxr/generate_openxr_header src/android_native_app_glue src/libopenxr-gfxwrapper.a
+build ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libhello_xr.so: CXX_MODULE_LIBRARY_LINKER__hello_xr_Debug src/CMakeFiles/android_native_app_glue.dir/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue/android_native_app_glue.c.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/Main.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/Pch.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/common/SingletonManager.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/AndroidAppManager.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/Game.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/OptionsManager.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/VRApp.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/GameLoop.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/IScene.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/Loader.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/SceneManager.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/SystemEventPoller.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/SystemEventReader.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/input/InputController.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/assets/ModelBank.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/common/Common.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/common/Logger.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/graphics_plugin/OpenGLESGraphicsPlugin.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/options/Options.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/platform_plugin/AndroidPlatformPlugin.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/OpenXrProgram.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/logging/ProgramLogger.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/rendering/Renderer.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/rendering/layers/CubeLayer.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/matter/VertexCube.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/scenes/intro/scene_IntroScene.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/scenes/main/modules/module_JoystickMovementModule.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/scenes/main/scene_MainScene.cpp.o src/tests/NarradiaVR/CMakeFiles/hello_xr.dir/src/scenes/main_menu/scene_MainMenuScene.cpp.o | /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/libandroid.so /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/liblog.so ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_loader.so src/libopenxr-gfxwrapper.a /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/libGLESv3.so /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/libEGL.so || ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_loader.so include/openxr/generate_openxr_header src/android_native_app_glue src/libopenxr-gfxwrapper.a
   LANGUAGE_COMPILE_FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info
   LINK_FLAGS = -Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libgcc_real.a -Wl,--exclude-libs,libatomic.a -static-libstdc++ -Wl,--build-id -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments
-  LINK_LIBRARIES = /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/libandroid.so  /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/liblog.so  ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_loader.so  src/libopenxr-gfxwrapper.a  /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/libvulkan.so  -pthread  /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/libGLESv3.so  /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/libEGL.so  -latomic -lm
+  LINK_LIBRARIES = /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/libandroid.so  /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/liblog.so  ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_loader.so  src/libopenxr-gfxwrapper.a  -pthread  /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/libGLESv3.so  /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/libEGL.so  -latomic -lm
   OBJECT_DIR = src/tests/NarradiaVR/CMakeFiles/hello_xr.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -1748,123 +1623,6 @@ build src/tests/NarradiaVR/CMakeFiles/install/strip.util: CUSTOM_COMMAND src/tes
 build src/tests/NarradiaVR/install/strip: phony src/tests/NarradiaVR/CMakeFiles/install/strip.util
 
 # =============================================================================
-# Write statements declared in CMakeLists.txt:
-# /home/andreas/Code/C++/VR/OpenXR/src/tests/CMakeLists.txt
-# =============================================================================
-
-# =============================================================================
-# Object build statements for MODULE_LIBRARY target openxr_runtime_list_json
-
-
-#############################################
-# Order-only phony target for openxr_runtime_list_json
-
-build cmake_object_order_depends_target_openxr_runtime_list_json: phony || cmake_object_order_depends_target_android_native_app_glue cmake_object_order_depends_target_openxr_loader
-
-build src/tests/list_json/CMakeFiles/openxr_runtime_list_json.dir/list_json.cpp.o: CXX_COMPILER__openxr_runtime_list_json_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/list_json/list_json.cpp || cmake_object_order_depends_target_openxr_runtime_list_json
-  DEFINES = -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_GRAPHICS_API_VULKAN -DXR_USE_PLATFORM_ANDROID -Dopenxr_runtime_list_json_EXPORTS
-  DEP_FILE = src/tests/list_json/CMakeFiles/openxr_runtime_list_json.dir/list_json.cpp.o.d
-  FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -Wall -Werror=unused-parameter -Werror=unused-argument -Wpointer-arith -O0 -fno-limit-debug-info  -fPIC -pthread
-  INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/include
-  OBJECT_DIR = src/tests/list_json/CMakeFiles/openxr_runtime_list_json.dir
-  OBJECT_FILE_DIR = src/tests/list_json/CMakeFiles/openxr_runtime_list_json.dir
-
-
-# =============================================================================
-# Link build statements for MODULE_LIBRARY target openxr_runtime_list_json
-
-
-#############################################
-# Link the shared module ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_runtime_list_json.so
-
-build ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_runtime_list_json.so: CXX_MODULE_LIBRARY_LINKER__openxr_runtime_list_json_Debug src/CMakeFiles/android_native_app_glue.dir/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue/android_native_app_glue.c.o src/tests/list_json/CMakeFiles/openxr_runtime_list_json.dir/list_json.cpp.o | /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/libandroid.so /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/liblog.so ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_loader.so /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/libvulkan.so || ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_loader.so src/android_native_app_glue
-  LANGUAGE_COMPILE_FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -Wall -Werror=unused-parameter -Werror=unused-argument -Wpointer-arith -O0 -fno-limit-debug-info
-  LINK_FLAGS = -Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libgcc_real.a -Wl,--exclude-libs,libatomic.a -static-libstdc++ -Wl,--build-id -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments
-  LINK_LIBRARIES = /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/libandroid.so  /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/liblog.so  ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_loader.so  /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/libvulkan.so  -pthread  -latomic -lm
-  OBJECT_DIR = src/tests/list_json/CMakeFiles/openxr_runtime_list_json.dir
-  POST_BUILD = :
-  PRE_LINK = :
-  TARGET_FILE = ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_runtime_list_json.so
-  TARGET_PDB = openxr_runtime_list_json.so.dbg
-
-
-#############################################
-# Utility command for test
-
-build src/tests/list_json/CMakeFiles/test.util: CUSTOM_COMMAND
-  COMMAND = cd /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/list_json && /usr/bin/ctest --force-new-ctest-process
-  DESC = Running tests...
-  pool = console
-  restat = 1
-
-build src/tests/list_json/test: phony src/tests/list_json/CMakeFiles/test.util
-
-
-#############################################
-# Utility command for edit_cache
-
-build src/tests/list_json/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/list_json && /usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-  DESC = No interactive CMake dialog available...
-  restat = 1
-
-build src/tests/list_json/edit_cache: phony src/tests/list_json/CMakeFiles/edit_cache.util
-
-
-#############################################
-# Utility command for rebuild_cache
-
-build src/tests/list_json/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/list_json && /usr/bin/cmake --regenerate-during-build -S/home/andreas/Code/C++/VR/OpenXR -B/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a
-  DESC = Running CMake to regenerate build system...
-  pool = console
-  restat = 1
-
-build src/tests/list_json/rebuild_cache: phony src/tests/list_json/CMakeFiles/rebuild_cache.util
-
-
-#############################################
-# Utility command for list_install_components
-
-build src/tests/list_json/list_install_components: phony
-
-
-#############################################
-# Utility command for install
-
-build src/tests/list_json/CMakeFiles/install.util: CUSTOM_COMMAND src/tests/list_json/all
-  COMMAND = cd /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/list_json && /usr/bin/cmake -P cmake_install.cmake
-  DESC = Install the project...
-  pool = console
-  restat = 1
-
-build src/tests/list_json/install: phony src/tests/list_json/CMakeFiles/install.util
-
-
-#############################################
-# Utility command for install/local
-
-build src/tests/list_json/CMakeFiles/install/local.util: CUSTOM_COMMAND src/tests/list_json/all
-  COMMAND = cd /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/list_json && /usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-  DESC = Installing only the local directory...
-  pool = console
-  restat = 1
-
-build src/tests/list_json/install/local: phony src/tests/list_json/CMakeFiles/install/local.util
-
-
-#############################################
-# Utility command for install/strip
-
-build src/tests/list_json/CMakeFiles/install/strip.util: CUSTOM_COMMAND src/tests/list_json/all
-  COMMAND = cd /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/list_json && /usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-  DESC = Installing the project stripped...
-  pool = console
-  restat = 1
-
-build src/tests/list_json/install/strip: phony src/tests/list_json/CMakeFiles/install/strip.util
-
-# =============================================================================
 # Target aliases.
 
 build android_native_app_glue: phony src/android_native_app_glue
@@ -1877,19 +1635,11 @@ build libhello_xr.so: phony ../../../../build/intermediates/cxx/Debug/57354i6q/o
 
 build libopenxr-gfxwrapper.a: phony src/libopenxr-gfxwrapper.a
 
-build libopenxr_c_compile_test.so: phony ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_c_compile_test.so
-
 build libopenxr_loader.so: phony ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_loader.so
-
-build libopenxr_runtime_list_json.so: phony ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_runtime_list_json.so
 
 build openxr-gfxwrapper: phony src/libopenxr-gfxwrapper.a
 
-build openxr_c_compile_test: phony ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_c_compile_test.so
-
 build openxr_loader: phony ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_loader.so
-
-build openxr_runtime_list_json: phony ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_runtime_list_json.so
 
 build xr_common_generated_files: phony src/xr_common_generated_files
 
@@ -1938,7 +1688,7 @@ build src/loader/all: phony ../../../../build/intermediates/cxx/Debug/57354i6q/o
 #############################################
 # Folder: /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests
 
-build src/tests/all: phony src/tests/c_compile_test/all src/tests/NarradiaVR/all src/tests/list_json/all
+build src/tests/all: phony src/tests/NarradiaVR/all
 
 # =============================================================================
 
@@ -1946,20 +1696,6 @@ build src/tests/all: phony src/tests/c_compile_test/all src/tests/NarradiaVR/all
 # Folder: /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/NarradiaVR
 
 build src/tests/NarradiaVR/all: phony ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libhello_xr.so
-
-# =============================================================================
-
-#############################################
-# Folder: /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/c_compile_test
-
-build src/tests/c_compile_test/all: phony ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_c_compile_test.so
-
-# =============================================================================
-
-#############################################
-# Folder: /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/tests/list_json
-
-build src/tests/list_json/all: phony ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_runtime_list_json.so
 
 # =============================================================================
 # Built-in targets
@@ -1982,14 +1718,14 @@ build /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/CMakeFiles/cmake.verify_globs | ../../../../../../../CMakeLists.txt ../../../../../../../include/CMakeLists.txt ../../../../../../../include/openxr/CMakeLists.txt ../../../../../../../include/openxr/openxr_platform_defines.h ../../../../../../CMakeLists.txt ../../../../../../cmake/FindEGL.cmake ../../../../../../cmake/FindJsonCpp.cmake ../../../../../../cmake/FindOpenGLES.cmake ../../../../../../cmake/StdFilesystemFlags.cmake ../../../../../../cmake/cmake_uninstall.cmake.in ../../../../../../common_config.h.in ../../../../../../loader/CMakeLists.txt ../../../../../../loader/OpenXRConfig.cmake.in ../../../../../../loader/openxr.pc.in ../../../../../../version.cmake ../../../../../CMakeLists.txt ../../../../../c_compile_test/CMakeLists.txt ../../../../../list_json/CMakeLists.txt ../../../../CMakeLists.txt /home/andreas/Android/Sdk/ndk/21.4.7075529/build/cmake/android.toolchain.cmake /home/andreas/Android/Sdk/ndk/21.4.7075529/build/cmake/platforms.cmake /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/CMakeFiles/VerifyGlobs.cmake /usr/share/cmake-3.22/Modules/BasicConfigVersion-SameMajorVersion.cmake.in /usr/share/cmake-3.22/Modules/CMakeCCompiler.cmake.in /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c /usr/share/cmake-3.22/Modules/CMakeCInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCXXCompiler.cmake.in /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp /usr/share/cmake-3.22/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake /usr/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.22/Modules/CMakeConfigurableFile.in /usr/share/cmake-3.22/Modules/CMakeDependentOption.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCXXCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCompileFeatures.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCompilerABI.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineSystem.cmake /usr/share/cmake-3.22/Modules/CMakeFindBinUtils.cmake /usr/share/cmake-3.22/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.22/Modules/CMakePackageConfigHelpers.cmake /usr/share/cmake-3.22/Modules/CMakeParseImplicitIncludeInfo.cmake /usr/share/cmake-3.22/Modules/CMakeParseImplicitLinkInfo.cmake /usr/share/cmake-3.22/Modules/CMakeParseLibraryArchitecture.cmake /usr/share/cmake-3.22/Modules/CMakePushCheckState.cmake /usr/share/cmake-3.22/Modules/CMakeSystem.cmake.in /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.22/Modules/CMakeTestCCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeTestCXXCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeTestCompilerCommon.cmake /usr/share/cmake-3.22/Modules/CTest.cmake /usr/share/cmake-3.22/Modules/CTestTargets.cmake /usr/share/cmake-3.22/Modules/CTestUseLaunchers.cmake /usr/share/cmake-3.22/Modules/CheckCCompilerFlag.cmake /usr/share/cmake-3.22/Modules/CheckCSourceCompiles.cmake /usr/share/cmake-3.22/Modules/CheckCXXCompilerFlag.cmake /usr/share/cmake-3.22/Modules/CheckCXXSourceCompiles.cmake /usr/share/cmake-3.22/Modules/CheckForPthreads.c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c /usr/share/cmake-3.22/Modules/CheckFunctionExists.cmake /usr/share/cmake-3.22/Modules/CheckIncludeFile.c.in /usr/share/cmake-3.22/Modules/CheckIncludeFile.cmake /usr/share/cmake-3.22/Modules/CheckLibraryExists.cmake /usr/share/cmake-3.22/Modules/CheckSymbolExists.cmake /usr/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang-C.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang-CXX.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang-FindBinUtils.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU.cmake /usr/share/cmake-3.22/Modules/DartConfiguration.tcl.in /usr/share/cmake-3.22/Modules/FeatureSummary.cmake /usr/share/cmake-3.22/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.22/Modules/FindPackageMessage.cmake /usr/share/cmake-3.22/Modules/FindPkgConfig.cmake /usr/share/cmake-3.22/Modules/FindPythonInterp.cmake /usr/share/cmake-3.22/Modules/FindThreads.cmake /usr/share/cmake-3.22/Modules/FindVulkan.cmake /usr/share/cmake-3.22/Modules/GNUInstallDirs.cmake /usr/share/cmake-3.22/Modules/Internal/CheckCompilerFlag.cmake /usr/share/cmake-3.22/Modules/Internal/CheckSourceCompiles.cmake /usr/share/cmake-3.22/Modules/Internal/FeatureTesting.cmake /usr/share/cmake-3.22/Modules/Platform/Android-Clang-C.cmake /usr/share/cmake-3.22/Modules/Platform/Android-Clang-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Android-Clang.cmake /usr/share/cmake-3.22/Modules/Platform/Android-Determine-C.cmake /usr/share/cmake-3.22/Modules/Platform/Android-Determine-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Android-Determine.cmake /usr/share/cmake-3.22/Modules/Platform/Android-Initialize.cmake /usr/share/cmake-3.22/Modules/Platform/Android.cmake /usr/share/cmake-3.22/Modules/Platform/Android/Determine-Compiler.cmake /usr/share/cmake-3.22/Modules/Platform/Linux.cmake /usr/share/cmake-3.22/Modules/Platform/UnixPaths.cmake /usr/share/cmake-3.22/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.22.1/CMakeCCompiler.cmake CMakeFiles/3.22.1/CMakeCXXCompiler.cmake CMakeFiles/3.22.1/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/CMakeFiles/cmake.verify_globs | ../../../../../../../CMakeLists.txt ../../../../../../../include/CMakeLists.txt ../../../../../../../include/openxr/CMakeLists.txt ../../../../../../../include/openxr/openxr_platform_defines.h ../../../../../../CMakeLists.txt ../../../../../../cmake/FindEGL.cmake ../../../../../../cmake/FindOpenGLES.cmake ../../../../../../cmake/StdFilesystemFlags.cmake ../../../../../../cmake/cmake_uninstall.cmake.in ../../../../../../common_config.h.in ../../../../../../loader/CMakeLists.txt ../../../../../../loader/OpenXRConfig.cmake.in ../../../../../../loader/openxr.pc.in ../../../../../../version.cmake ../../../../../CMakeLists.txt ../../../../CMakeLists.txt /home/andreas/Android/Sdk/ndk/21.4.7075529/build/cmake/android.toolchain.cmake /home/andreas/Android/Sdk/ndk/21.4.7075529/build/cmake/platforms.cmake /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/CMakeFiles/VerifyGlobs.cmake /usr/share/cmake-3.22/Modules/BasicConfigVersion-SameMajorVersion.cmake.in /usr/share/cmake-3.22/Modules/CMakeCCompiler.cmake.in /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c /usr/share/cmake-3.22/Modules/CMakeCInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCXXCompiler.cmake.in /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp /usr/share/cmake-3.22/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake /usr/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.22/Modules/CMakeConfigurableFile.in /usr/share/cmake-3.22/Modules/CMakeDependentOption.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCXXCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCompileFeatures.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCompilerABI.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineSystem.cmake /usr/share/cmake-3.22/Modules/CMakeFindBinUtils.cmake /usr/share/cmake-3.22/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.22/Modules/CMakePackageConfigHelpers.cmake /usr/share/cmake-3.22/Modules/CMakeParseImplicitIncludeInfo.cmake /usr/share/cmake-3.22/Modules/CMakeParseImplicitLinkInfo.cmake /usr/share/cmake-3.22/Modules/CMakeParseLibraryArchitecture.cmake /usr/share/cmake-3.22/Modules/CMakePushCheckState.cmake /usr/share/cmake-3.22/Modules/CMakeSystem.cmake.in /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.22/Modules/CMakeTestCCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeTestCXXCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeTestCompilerCommon.cmake /usr/share/cmake-3.22/Modules/CTest.cmake /usr/share/cmake-3.22/Modules/CTestTargets.cmake /usr/share/cmake-3.22/Modules/CTestUseLaunchers.cmake /usr/share/cmake-3.22/Modules/CheckCCompilerFlag.cmake /usr/share/cmake-3.22/Modules/CheckCSourceCompiles.cmake /usr/share/cmake-3.22/Modules/CheckCXXCompilerFlag.cmake /usr/share/cmake-3.22/Modules/CheckCXXSourceCompiles.cmake /usr/share/cmake-3.22/Modules/CheckForPthreads.c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c /usr/share/cmake-3.22/Modules/CheckFunctionExists.cmake /usr/share/cmake-3.22/Modules/CheckIncludeFile.c.in /usr/share/cmake-3.22/Modules/CheckIncludeFile.cmake /usr/share/cmake-3.22/Modules/CheckLibraryExists.cmake /usr/share/cmake-3.22/Modules/CheckSymbolExists.cmake /usr/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang-C.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang-CXX.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang-FindBinUtils.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU.cmake /usr/share/cmake-3.22/Modules/DartConfiguration.tcl.in /usr/share/cmake-3.22/Modules/FeatureSummary.cmake /usr/share/cmake-3.22/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.22/Modules/FindPackageMessage.cmake /usr/share/cmake-3.22/Modules/FindPkgConfig.cmake /usr/share/cmake-3.22/Modules/FindPythonInterp.cmake /usr/share/cmake-3.22/Modules/FindThreads.cmake /usr/share/cmake-3.22/Modules/GNUInstallDirs.cmake /usr/share/cmake-3.22/Modules/Internal/CheckCompilerFlag.cmake /usr/share/cmake-3.22/Modules/Internal/CheckSourceCompiles.cmake /usr/share/cmake-3.22/Modules/Internal/FeatureTesting.cmake /usr/share/cmake-3.22/Modules/Platform/Android-Clang-C.cmake /usr/share/cmake-3.22/Modules/Platform/Android-Clang-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Android-Clang.cmake /usr/share/cmake-3.22/Modules/Platform/Android-Determine-C.cmake /usr/share/cmake-3.22/Modules/Platform/Android-Determine-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Android-Determine.cmake /usr/share/cmake-3.22/Modules/Platform/Android-Initialize.cmake /usr/share/cmake-3.22/Modules/Platform/Android.cmake /usr/share/cmake-3.22/Modules/Platform/Android/Determine-Compiler.cmake /usr/share/cmake-3.22/Modules/Platform/Linux.cmake /usr/share/cmake-3.22/Modules/Platform/UnixPaths.cmake /usr/share/cmake-3.22/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.22.1/CMakeCCompiler.cmake CMakeFiles/3.22.1/CMakeCXXCompiler.cmake CMakeFiles/3.22.1/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ../../../../../../../CMakeLists.txt ../../../../../../../include/CMakeLists.txt ../../../../../../../include/openxr/CMakeLists.txt ../../../../../../../include/openxr/openxr_platform_defines.h ../../../../../../CMakeLists.txt ../../../../../../cmake/FindEGL.cmake ../../../../../../cmake/FindJsonCpp.cmake ../../../../../../cmake/FindOpenGLES.cmake ../../../../../../cmake/StdFilesystemFlags.cmake ../../../../../../cmake/cmake_uninstall.cmake.in ../../../../../../common_config.h.in ../../../../../../loader/CMakeLists.txt ../../../../../../loader/OpenXRConfig.cmake.in ../../../../../../loader/openxr.pc.in ../../../../../../version.cmake ../../../../../CMakeLists.txt ../../../../../c_compile_test/CMakeLists.txt ../../../../../list_json/CMakeLists.txt ../../../../CMakeLists.txt /home/andreas/Android/Sdk/ndk/21.4.7075529/build/cmake/android.toolchain.cmake /home/andreas/Android/Sdk/ndk/21.4.7075529/build/cmake/platforms.cmake /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/CMakeFiles/VerifyGlobs.cmake /usr/share/cmake-3.22/Modules/BasicConfigVersion-SameMajorVersion.cmake.in /usr/share/cmake-3.22/Modules/CMakeCCompiler.cmake.in /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c /usr/share/cmake-3.22/Modules/CMakeCInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCXXCompiler.cmake.in /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp /usr/share/cmake-3.22/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake /usr/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.22/Modules/CMakeConfigurableFile.in /usr/share/cmake-3.22/Modules/CMakeDependentOption.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCXXCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCompileFeatures.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCompilerABI.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineSystem.cmake /usr/share/cmake-3.22/Modules/CMakeFindBinUtils.cmake /usr/share/cmake-3.22/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.22/Modules/CMakePackageConfigHelpers.cmake /usr/share/cmake-3.22/Modules/CMakeParseImplicitIncludeInfo.cmake /usr/share/cmake-3.22/Modules/CMakeParseImplicitLinkInfo.cmake /usr/share/cmake-3.22/Modules/CMakeParseLibraryArchitecture.cmake /usr/share/cmake-3.22/Modules/CMakePushCheckState.cmake /usr/share/cmake-3.22/Modules/CMakeSystem.cmake.in /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.22/Modules/CMakeTestCCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeTestCXXCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeTestCompilerCommon.cmake /usr/share/cmake-3.22/Modules/CTest.cmake /usr/share/cmake-3.22/Modules/CTestTargets.cmake /usr/share/cmake-3.22/Modules/CTestUseLaunchers.cmake /usr/share/cmake-3.22/Modules/CheckCCompilerFlag.cmake /usr/share/cmake-3.22/Modules/CheckCSourceCompiles.cmake /usr/share/cmake-3.22/Modules/CheckCXXCompilerFlag.cmake /usr/share/cmake-3.22/Modules/CheckCXXSourceCompiles.cmake /usr/share/cmake-3.22/Modules/CheckForPthreads.c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c /usr/share/cmake-3.22/Modules/CheckFunctionExists.cmake /usr/share/cmake-3.22/Modules/CheckIncludeFile.c.in /usr/share/cmake-3.22/Modules/CheckIncludeFile.cmake /usr/share/cmake-3.22/Modules/CheckLibraryExists.cmake /usr/share/cmake-3.22/Modules/CheckSymbolExists.cmake /usr/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang-C.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang-CXX.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang-FindBinUtils.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU.cmake /usr/share/cmake-3.22/Modules/DartConfiguration.tcl.in /usr/share/cmake-3.22/Modules/FeatureSummary.cmake /usr/share/cmake-3.22/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.22/Modules/FindPackageMessage.cmake /usr/share/cmake-3.22/Modules/FindPkgConfig.cmake /usr/share/cmake-3.22/Modules/FindPythonInterp.cmake /usr/share/cmake-3.22/Modules/FindThreads.cmake /usr/share/cmake-3.22/Modules/FindVulkan.cmake /usr/share/cmake-3.22/Modules/GNUInstallDirs.cmake /usr/share/cmake-3.22/Modules/Internal/CheckCompilerFlag.cmake /usr/share/cmake-3.22/Modules/Internal/CheckSourceCompiles.cmake /usr/share/cmake-3.22/Modules/Internal/FeatureTesting.cmake /usr/share/cmake-3.22/Modules/Platform/Android-Clang-C.cmake /usr/share/cmake-3.22/Modules/Platform/Android-Clang-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Android-Clang.cmake /usr/share/cmake-3.22/Modules/Platform/Android-Determine-C.cmake /usr/share/cmake-3.22/Modules/Platform/Android-Determine-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Android-Determine.cmake /usr/share/cmake-3.22/Modules/Platform/Android-Initialize.cmake /usr/share/cmake-3.22/Modules/Platform/Android.cmake /usr/share/cmake-3.22/Modules/Platform/Android/Determine-Compiler.cmake /usr/share/cmake-3.22/Modules/Platform/Linux.cmake /usr/share/cmake-3.22/Modules/Platform/UnixPaths.cmake /usr/share/cmake-3.22/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.22.1/CMakeCCompiler.cmake CMakeFiles/3.22.1/CMakeCXXCompiler.cmake CMakeFiles/3.22.1/CMakeSystem.cmake: phony
+build ../../../../../../../CMakeLists.txt ../../../../../../../include/CMakeLists.txt ../../../../../../../include/openxr/CMakeLists.txt ../../../../../../../include/openxr/openxr_platform_defines.h ../../../../../../CMakeLists.txt ../../../../../../cmake/FindEGL.cmake ../../../../../../cmake/FindOpenGLES.cmake ../../../../../../cmake/StdFilesystemFlags.cmake ../../../../../../cmake/cmake_uninstall.cmake.in ../../../../../../common_config.h.in ../../../../../../loader/CMakeLists.txt ../../../../../../loader/OpenXRConfig.cmake.in ../../../../../../loader/openxr.pc.in ../../../../../../version.cmake ../../../../../CMakeLists.txt ../../../../CMakeLists.txt /home/andreas/Android/Sdk/ndk/21.4.7075529/build/cmake/android.toolchain.cmake /home/andreas/Android/Sdk/ndk/21.4.7075529/build/cmake/platforms.cmake /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/CMakeFiles/VerifyGlobs.cmake /usr/share/cmake-3.22/Modules/BasicConfigVersion-SameMajorVersion.cmake.in /usr/share/cmake-3.22/Modules/CMakeCCompiler.cmake.in /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c /usr/share/cmake-3.22/Modules/CMakeCInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCXXCompiler.cmake.in /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp /usr/share/cmake-3.22/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.22/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake /usr/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.22/Modules/CMakeConfigurableFile.in /usr/share/cmake-3.22/Modules/CMakeDependentOption.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCXXCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCompileFeatures.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineCompilerABI.cmake /usr/share/cmake-3.22/Modules/CMakeDetermineSystem.cmake /usr/share/cmake-3.22/Modules/CMakeFindBinUtils.cmake /usr/share/cmake-3.22/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.22/Modules/CMakePackageConfigHelpers.cmake /usr/share/cmake-3.22/Modules/CMakeParseImplicitIncludeInfo.cmake /usr/share/cmake-3.22/Modules/CMakeParseImplicitLinkInfo.cmake /usr/share/cmake-3.22/Modules/CMakeParseLibraryArchitecture.cmake /usr/share/cmake-3.22/Modules/CMakePushCheckState.cmake /usr/share/cmake-3.22/Modules/CMakeSystem.cmake.in /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.22/Modules/CMakeTestCCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeTestCXXCompiler.cmake /usr/share/cmake-3.22/Modules/CMakeTestCompilerCommon.cmake /usr/share/cmake-3.22/Modules/CTest.cmake /usr/share/cmake-3.22/Modules/CTestTargets.cmake /usr/share/cmake-3.22/Modules/CTestUseLaunchers.cmake /usr/share/cmake-3.22/Modules/CheckCCompilerFlag.cmake /usr/share/cmake-3.22/Modules/CheckCSourceCompiles.cmake /usr/share/cmake-3.22/Modules/CheckCXXCompilerFlag.cmake /usr/share/cmake-3.22/Modules/CheckCXXSourceCompiles.cmake /usr/share/cmake-3.22/Modules/CheckForPthreads.c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c /usr/share/cmake-3.22/Modules/CheckFunctionExists.cmake /usr/share/cmake-3.22/Modules/CheckIncludeFile.c.in /usr/share/cmake-3.22/Modules/CheckIncludeFile.cmake /usr/share/cmake-3.22/Modules/CheckLibraryExists.cmake /usr/share/cmake-3.22/Modules/CheckSymbolExists.cmake /usr/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang-C.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang-CXX.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang-FindBinUtils.cmake /usr/share/cmake-3.22/Modules/Compiler/Clang.cmake /usr/share/cmake-3.22/Modules/Compiler/GNU.cmake /usr/share/cmake-3.22/Modules/DartConfiguration.tcl.in /usr/share/cmake-3.22/Modules/FeatureSummary.cmake /usr/share/cmake-3.22/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.22/Modules/FindPackageMessage.cmake /usr/share/cmake-3.22/Modules/FindPkgConfig.cmake /usr/share/cmake-3.22/Modules/FindPythonInterp.cmake /usr/share/cmake-3.22/Modules/FindThreads.cmake /usr/share/cmake-3.22/Modules/GNUInstallDirs.cmake /usr/share/cmake-3.22/Modules/Internal/CheckCompilerFlag.cmake /usr/share/cmake-3.22/Modules/Internal/CheckSourceCompiles.cmake /usr/share/cmake-3.22/Modules/Internal/FeatureTesting.cmake /usr/share/cmake-3.22/Modules/Platform/Android-Clang-C.cmake /usr/share/cmake-3.22/Modules/Platform/Android-Clang-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Android-Clang.cmake /usr/share/cmake-3.22/Modules/Platform/Android-Determine-C.cmake /usr/share/cmake-3.22/Modules/Platform/Android-Determine-CXX.cmake /usr/share/cmake-3.22/Modules/Platform/Android-Determine.cmake /usr/share/cmake-3.22/Modules/Platform/Android-Initialize.cmake /usr/share/cmake-3.22/Modules/Platform/Android.cmake /usr/share/cmake-3.22/Modules/Platform/Android/Determine-Compiler.cmake /usr/share/cmake-3.22/Modules/Platform/Linux.cmake /usr/share/cmake-3.22/Modules/Platform/UnixPaths.cmake /usr/share/cmake-3.22/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.22.1/CMakeCCompiler.cmake CMakeFiles/3.22.1/CMakeCXXCompiler.cmake CMakeFiles/3.22.1/CMakeSystem.cmake: phony
 
 
 #############################################

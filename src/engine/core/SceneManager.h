@@ -6,7 +6,7 @@ namespace nar {
 
   class SceneManager : public Singleton<SceneManager> {
    public:
-    void InitializeScenes();
+    void InitScenes();
     void UpdateCurrentScene();
     void RenderCurrentScene();
     void ChangeScene(SceneNames new_scene);

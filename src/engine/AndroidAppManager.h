@@ -4,7 +4,7 @@
 namespace nar {
   class AndroidAppManager : public Singleton<AndroidAppManager> {
    public:
-    void Initialize();
+    void Init();
     void Cleanup();
 
     android_app *app() {

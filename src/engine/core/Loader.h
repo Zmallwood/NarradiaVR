@@ -3,6 +3,6 @@
 namespace nar {
   class Loader : public Singleton<Loader> {
    public:
-    void Initialize();
+    void Init();
   };
 }

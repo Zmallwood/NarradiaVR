@@ -63,7 +63,6 @@
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/include/openxr/openxr_reflection_parent_structs.h.rule
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/include/openxr/openxr_reflection_structs.h.rule
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/Pch.h
-/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/Win32CompileSpecific.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/common/Singleton.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/common/SingletonManager.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/AndroidAppManager.h
@@ -80,7 +79,7 @@
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/SystemEventReader.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/input/ControllerInput.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/input/InputController.h
-/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/assets/CubeData.h
+/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/assets/ModelBank.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/common/Check.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/common/Common.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/common/Level.h
@@ -103,7 +102,9 @@
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/matter/Cube.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/matter/Point.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/matter/Vertex.h
+/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/matter/VertexCube.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/scenes/intro/scene_IntroScene.h
+/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/scenes/main/modules/module_JoystickMovementModule.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/scenes/main/scene_MainScene.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/scenes/main_menu/scene_MainMenuScene.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/world/Player.h
@@ -126,10 +127,6 @@
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/loader/xr_generated_loader.cpp.rule
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/CMakeFiles/uninstall
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/CMakeFiles/uninstall.rule
-/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/CMakeFiles/xr_common_generated_files
-/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/CMakeFiles/xr_common_generated_files.rule
-/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/xr_generated_dispatch_table.c.rule
-/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/xr_generated_dispatch_table.h.rule
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/CMakeFiles/xr_global_generated_files
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/CMakeFiles/xr_global_generated_files.rule
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/xr_generated_dispatch_table_core.c.rule

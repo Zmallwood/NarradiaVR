@@ -2,11 +2,6 @@
 #include "Pch.h"
 
 namespace nar {
-  XrFormFactor GetXrFormFactor(const std::string &form_factor_str);
-  XrViewConfigurationType GetXrViewConfigurationType(const std::string &view_configuration_str);
-  XrEnvironmentBlendMode GetXrEnvironmentBlendMode(const std::string &environment_blend_mode_str);
-  const char *GetXrEnvironmentBlendModeStr(XrEnvironmentBlendMode environment_blend_mode);
-
   class Options {
    public:
     std::string graphics_plugin;
@@ -24,5 +19,11 @@ namespace nar {
     void ParseStrings();
     std::array<float, 4> GetBackgroundClearColor() const;
     void SetEnvironmentBlendMode();
+
+   private:
+    XrFormFactor GetXrFormFactor(const std::string &form_factor_str);
+    XrViewConfigurationType GetXrViewConfigurationType(const std::string &view_configuration_str);
+    XrEnvironmentBlendMode GetXrEnvironmentBlendMode(const std::string &environment_blend_mode_str);
+    const char *GetXrEnvironmentBlendModeStr(XrEnvironmentBlendMode environment_blend_mode);
   };
 }

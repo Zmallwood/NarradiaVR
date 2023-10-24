@@ -6,7 +6,7 @@ namespace nar {
 
   class OptionsManager : public Singleton<OptionsManager> {
    public:
-    bool Initialize();
+    bool Init();
 
     std::shared_ptr<Options> options() {
       return options_;

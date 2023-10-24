@@ -53,7 +53,7 @@ namespace nar {
       xrDestroyInstance(instance_);
   }
 
-  void OpenXrProgram::Initialize() {
+  void OpenXrProgram::Init() {
     CreateInstance();
     InitializeSystem();
     InitializeDevice();
@@ -220,6 +220,26 @@ namespace nar {
       action_info.subactionPaths = input_.hand_subaction_path.data();
       CHECK_XRCMD(xrCreateAction(input_.action_set, &action_info, &input_.pose_action));
 
+      // Create an input action getting the left and right joystick orientations.
+
+      action_info = {
+          .type = XR_TYPE_ACTION_CREATE_INFO,
+          .next = NULL,
+          .actionType = XR_ACTION_TYPE_FLOAT_INPUT,
+          .countSubactionPaths = Side::kCount,
+          .subactionPaths = input_.hand_subaction_path.data()};
+      strcpy(action_info.actionName, "throttle");
+      strcpy(action_info.localizedActionName, "Use Throttle forward/backward");
+
+      CHECK_XRCMD(xrCreateAction(input_.action_set, &action_info, &input_.joystick_action));
+
+      // action_info.actionType = XR_ACTION_TYPE_POSE_INPUT;
+      // strcpy_s(action_info.actionName, "primary");
+      // strcpy_s(action_info.localizedActionName, "Joystick Orientation");
+      // action_info.countSubactionPaths = uint32_t(input_.hand_subaction_path.size());
+      // action_info.subactionPaths = input_.hand_subaction_path.data();
+      // CHECK_XRCMD(xrCreateAction(input_.action_set, &action_info, &input_.joystick_action));
+
       // Create output actions for vibrating the left and right controller.
       action_info.actionType = XR_ACTION_TYPE_VIBRATION_OUTPUT;
       strcpy_s(action_info.actionName, "vibrate_hand");
@@ -249,6 +269,13 @@ namespace nar {
     std::array<XrPath, Side::kCount> menu_click_path;
     std::array<XrPath, Side::kCount> b_click_path;
     std::array<XrPath, Side::kCount> trigger_value_path;
+    std::array<XrPath, Side::kCount> thumbstick_y_path;
+
+    xrStringToPath(
+        instance_, "/user/hand/left/input/thumbstick/y", &thumbstick_y_path[Side::kLeft]);
+    xrStringToPath(
+        instance_, "/user/hand/right/input/thumbstick/y", &thumbstick_y_path[Side::kRight]);
+
     CHECK_XRCMD(
         xrStringToPath(instance_, "/user/hand/left/input/select/click", &select_path[Side::kLeft]));
     CHECK_XRCMD(xrStringToPath(
@@ -319,6 +346,8 @@ namespace nar {
            {input_.grab_action, squeeze_value_path[Side::kRight]},
            {input_.pose_action, pose_path[Side::kLeft]},
            {input_.pose_action, pose_path[Side::kRight]},
+           {input_.joystick_action, thumbstick_y_path[Side::kLeft]},
+           {input_.joystick_action, thumbstick_y_path[Side::kRight]},
            {input_.quit_action, menu_click_path[Side::kLeft]},
            {input_.vibrate_action, haptic_path[Side::kLeft]},
            {input_.vibrate_action, haptic_path[Side::kRight]}}};
@@ -654,6 +683,22 @@ namespace nar {
       XrActionStatePose pose_state = {XR_TYPE_ACTION_STATE_POSE};
       CHECK_XRCMD(xrGetActionStatePose(session_, &get_info, &pose_state));
       input_.hand_active[hand] = pose_state.isActive;
+
+      /////////////// JOYSTICK /////////////////////////
+
+      get_info.action = input_.joystick_action;
+      get_info.subactionPath = input_.hand_subaction_path[hand];
+
+      XrActionStateFloat joystick_value = {XR_TYPE_ACTION_STATE_FLOAT};
+      CHECK_XRCMD(xrGetActionStateFloat(session_, &get_info, &joystick_value));
+
+      if (joystick_value.isActive == XR_TRUE) {
+        if (joystick_value.currentState > 0.9f) {
+          __android_log_print(ANDROID_LOG_VERBOSE, "Narradia", "JOYSTICK");
+        }
+      }
+
+      //////////////////////////////////////////////////
     }
 
     // There were no subaction paths specified for the quit action, because we don't

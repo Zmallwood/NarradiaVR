@@ -75,14 +75,6 @@
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/tests/CMakeFiles/install.dir
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/tests/CMakeFiles/install/local.dir
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/tests/CMakeFiles/install/strip.dir
-/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/tests/c_compile_test/CMakeFiles/openxr_c_compile_test.dir
-/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/tests/c_compile_test/CMakeFiles/test.dir
-/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/tests/c_compile_test/CMakeFiles/edit_cache.dir
-/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/tests/c_compile_test/CMakeFiles/rebuild_cache.dir
-/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/tests/c_compile_test/CMakeFiles/list_install_components.dir
-/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/tests/c_compile_test/CMakeFiles/install.dir
-/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/tests/c_compile_test/CMakeFiles/install/local.dir
-/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/tests/c_compile_test/CMakeFiles/install/strip.dir
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/tests/NarradiaVR/CMakeFiles/hello_xr.dir
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/tests/NarradiaVR/CMakeFiles/test.dir
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/tests/NarradiaVR/CMakeFiles/edit_cache.dir
@@ -91,11 +83,3 @@
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/tests/NarradiaVR/CMakeFiles/install.dir
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/tests/NarradiaVR/CMakeFiles/install/local.dir
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/tests/NarradiaVR/CMakeFiles/install/strip.dir
-/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/tests/list_json/CMakeFiles/openxr_runtime_list_json.dir
-/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/tests/list_json/CMakeFiles/test.dir
-/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/tests/list_json/CMakeFiles/edit_cache.dir
-/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/tests/list_json/CMakeFiles/rebuild_cache.dir
-/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/tests/list_json/CMakeFiles/list_install_components.dir
-/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/tests/list_json/CMakeFiles/install.dir
-/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/tests/list_json/CMakeFiles/install/local.dir
-/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/src/tests/list_json/CMakeFiles/install/strip.dir

@@ -2,7 +2,9 @@
 #include "InputController.h"
 
 namespace nar {
-
+  /**
+   * Stores input state from the player for the left and right controllers.
+   */
   class ControllerInput : public Singleton<ControllerInput> {
    public:
     std::shared_ptr<InputController> right_input_controller() {

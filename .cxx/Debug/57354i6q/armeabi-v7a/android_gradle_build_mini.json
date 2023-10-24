@@ -5,7 +5,6 @@
     "/home/andreas/Code/C++/VR/OpenXR/include/openxr/CMakeLists.txt",
     "/home/andreas/Code/C++/VR/OpenXR/src/CMakeLists.txt",
     "/home/andreas/Code/C++/VR/OpenXR/src/cmake/FindEGL.cmake",
-    "/home/andreas/Code/C++/VR/OpenXR/src/cmake/FindJsonCpp.cmake",
     "/home/andreas/Code/C++/VR/OpenXR/src/cmake/FindOpenGLES.cmake",
     "/home/andreas/Code/C++/VR/OpenXR/src/cmake/StdFilesystemFlags.cmake",
     "/home/andreas/Code/C++/VR/OpenXR/src/cmake/cmake_uninstall.cmake.in",
@@ -13,8 +12,6 @@
     "/home/andreas/Code/C++/VR/OpenXR/src/loader/OpenXRConfig.cmake.in",
     "/home/andreas/Code/C++/VR/OpenXR/src/tests/CMakeLists.txt",
     "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/CMakeLists.txt",
-    "/home/andreas/Code/C++/VR/OpenXR/src/tests/c_compile_test/CMakeLists.txt",
-    "/home/andreas/Code/C++/VR/OpenXR/src/tests/list_json/CMakeLists.txt",
     "/home/andreas/Code/C++/VR/OpenXR/src/version.cmake"
   ],
   "cleanCommandsComponents": [
@@ -51,14 +48,6 @@
       "artifactName": "NightlyMemCheck",
       "abi": "armeabi-v7a",
       "runtimeFiles": []
-    },
-    "openxr_runtime_list_json::@58825178801ae69964d9": {
-      "artifactName": "openxr_runtime_list_json",
-      "abi": "armeabi-v7a",
-      "output": "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/build/intermediates/cxx/Debug/57354i6q/obj/armeabi-v7a/libopenxr_runtime_list_json.so",
-      "runtimeFiles": [
-        "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/build/intermediates/cxx/Debug/57354i6q/obj/armeabi-v7a/libopenxr_loader.so"
-      ]
     },
     "ContinuousSubmit::@6890427a1f51a3e7e1df": {
       "artifactName": "ContinuousSubmit",
@@ -166,14 +155,6 @@
       "artifactName": "ExperimentalConfigure",
       "abi": "armeabi-v7a",
       "runtimeFiles": []
-    },
-    "openxr_c_compile_test::@52a05342714295927950": {
-      "artifactName": "openxr_c_compile_test",
-      "abi": "armeabi-v7a",
-      "output": "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/build/intermediates/cxx/Debug/57354i6q/obj/armeabi-v7a/libopenxr_c_compile_test.so",
-      "runtimeFiles": [
-        "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/build/intermediates/cxx/Debug/57354i6q/obj/armeabi-v7a/libopenxr_loader.so"
-      ]
     },
     "ContinuousConfigure::@6890427a1f51a3e7e1df": {
       "artifactName": "ContinuousConfigure",

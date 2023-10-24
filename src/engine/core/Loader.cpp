@@ -3,7 +3,7 @@
 #include "engine/AndroidAppManager.h"
 
 namespace nar {
-  void Loader::Initialize() {
+  void Loader::Init() {
     PFN_xrInitializeLoaderKHR initialize_loader = // Initialize the loader for this platform
         nullptr;
 

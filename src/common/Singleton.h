@@ -1,12 +1,14 @@
 #pragma once
 #include "SingletonManager.h"
 
+#define GET(x)(x::Get())
+
 namespace nar {
 
-  ///
-  /// Used for all classes that only need to be called once.
-  ///
   template <class T> class Singleton {
+    //
+    // Used for all classes that only need to be called once.
+    //
    public:
     static void Create() {
       if (!instance_) { // Create new instance_ if none exists
@@ -16,15 +18,9 @@ namespace nar {
     }
 
     static std::shared_ptr<T> Get() {
-      if (!instance_) // Create new instance_ if none exists
+      if (!instance_) // Create new instance if none exists
         Create();
       return std::weak_ptr<T>(instance_).lock(); // Return weak_ptr to not increase ref count
-    }
-
-    static void Dispose() {
-      std::string str = "Disposing " + std::string(typeid(T).name());
-      __android_log_print(ANDROID_LOG_ERROR, "Narradia", "%s", str.c_str());
-      instance_.reset(); // Delete instance_ if want to force it
     }
 
    private:
