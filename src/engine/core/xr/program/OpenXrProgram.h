@@ -4,8 +4,8 @@
 
 namespace nar {
   struct Options;
-  class AndroidPlatformPlugin;
-  class OpenGLESGraphicsPlugin;
+  class AndroidPlatform;
+  class GraphicsGL;
 
   class OpenXrProgram : public Singleton<OpenXrProgram> {
    public:
@@ -13,7 +13,6 @@ namespace nar {
     ~OpenXrProgram();
     void Init();
     XrEnvironmentBlendMode GetPreferredBlendMode() const;
-    void PollInputActions();
     void HandleSessionStateChangedEvent(const XrEventDataSessionStateChanged &state_changed_event);
 
     bool IsSessionRunning() const {
@@ -56,6 +55,10 @@ namespace nar {
       return input_;
     }
 
+    void set_input(InputState value) {
+      input_ = value;
+    }
+
     std::map<XrSwapchain, std::vector<XrSwapchainImageBaseHeader *>> swapchain_images() {
       return swapchain_images_;
     }
@@ -83,16 +86,15 @@ namespace nar {
    private:
     void CreateInstanceInternal();
     void CreateInstance();
-    void InitializeSystem();
-    void InitializeDevice();
-    void InitializeActions();
+    void InitSystem();
+    void InitDevice();
     void CreateVisualizedSpaces();
-    void InitializeSession();
+    void InitSession();
     void CreateSwapchains();
 
     const std::shared_ptr<const Options> options_;
-    std::shared_ptr<AndroidPlatformPlugin> platform_plugin_;
-    std::shared_ptr<OpenGLESGraphicsPlugin> graphics_plugin_;
+    std::shared_ptr<AndroidPlatform> platform_plugin_;
+    std::shared_ptr<GraphicsGL> graphics_plugin_;
     XrInstance instance_ = {XR_NULL_HANDLE};
     XrSession session_ = {XR_NULL_HANDLE};
     XrSpace app_space_ = {XR_NULL_HANDLE};

@@ -15,10 +15,6 @@ namespace nar {
   }
 
   namespace Log {
-    void SetLevel(Level min_severity) {
-      gMinSeverity = min_severity;
-    }
-
     void Write(Level severity, const std::string &msg) {
       if (severity < gMinSeverity)
         return;

@@ -1,9 +1,5 @@
 #include "Pch.h"
 #include "Common.h"
-#include <algorithm>
-#include <memory>
-#include <stdarg.h>
-#include <stddef.h>
 
 namespace nar {
   bool EqualsIgnoreCase(const std::string &s1, const std::string &s2, const std::locale &loc) {

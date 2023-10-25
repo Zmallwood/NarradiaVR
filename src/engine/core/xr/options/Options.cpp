@@ -11,19 +11,19 @@ namespace nar {
   }
 
   std::array<float, 4> Options::GetBackgroundClearColor() const {
-    static const std::array<float, 4> kSlateGrey{0.184313729f, 0.309803933f, 0.309803933f, 1.0f};
+    static const std::array<float, 4> kMediumBlue{0.0f, 0.5f, 1.0, 1.0f};
     static const std::array<float, 4> kTransparentBlack{0.0f, 0.0f, 0.0f, 0.0f};
     static const std::array<float, 4> kBlack{0.0f, 0.0f, 0.0f, 1.0f};
 
     switch (Parsed.environment_blend_mode) {
     case XR_ENVIRONMENT_BLEND_MODE_OPAQUE:
-      return kSlateGrey;
+      return kMediumBlue;
     case XR_ENVIRONMENT_BLEND_MODE_ADDITIVE:
       return kBlack;
     case XR_ENVIRONMENT_BLEND_MODE_ALPHA_BLEND:
       return kTransparentBlack;
     default:
-      return kSlateGrey;
+      return kMediumBlue;
     }
   }
 

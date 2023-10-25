@@ -4,7 +4,7 @@
 #include "engine/OptionsManager.h"
 #include "engine/core/xr/common/Common.h"
 #include "matter/Cube.h"
-#include "engine/core/xr/graphics_plugin/OpenGLESGraphicsPlugin.h"
+#include "engine/core/xr/graphics/GraphicsGL.h"
 
 namespace nar {
   bool CubeLayer::Render(
@@ -71,7 +71,7 @@ namespace nar {
 
       const XrSwapchainImageBaseHeader *const swapchain_image =
           OpenXrProgram::Get()->swapchain_images()[view_swapchain.handle][swapchain_image_index];
-      OpenGLESGraphicsPlugin::Get()->RenderView(
+      GraphicsGL::Get()->RenderView(
           projection_layer_views[i], swapchain_image,
           OpenXrProgram::Get()->color_swapchain_format(), cubes_data);
 

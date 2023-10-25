@@ -1,5 +1,5 @@
 #include "Pch.h"
-#include "OpenGLESGraphicsPlugin.h"
+#include "GraphicsGL.h"
 #include "engine/core/xr/common/Common.h"
 #include "engine/core/xr/options/Options.h"
 #include "engine/OptionsManager.h"
@@ -8,22 +8,20 @@
 
 namespace nar {
   namespace {
-    // The version statement has come on first line.
-    static const char *vertex_shader_glsl =
+    static const char *vertex_shader_glsl = // The version statement has to come on first line.
 #include "shaders/VertexShader.inc.cpp"
         ;
 
-    // The version statement has come on first line.
-    static const char *fragment_shader_glsl =
+    static const char *fragment_shader_glsl = // The version statement has to come on first line.
 #include "shaders/FragmentShader.inc.cpp"
         ;
   }
 
-  OpenGLESGraphicsPlugin::OpenGLESGraphicsPlugin()
+  GraphicsGL::GraphicsGL()
       : clear_color_(OptionsManager::Get()->options()->GetBackgroundClearColor()) {
   }
 
-  OpenGLESGraphicsPlugin::~OpenGLESGraphicsPlugin() {
+  GraphicsGL::~GraphicsGL() {
     if (swapchain_framebuffer_ != 0)
       glDeleteFramebuffers(1, &swapchain_framebuffer_);
 
@@ -47,11 +45,11 @@ namespace nar {
     ksGpuWindow_Destroy(&window);
   }
 
-  std::vector<std::string> OpenGLESGraphicsPlugin::GetInstanceExtensions() const {
+  std::vector<std::string> GraphicsGL::GetInstanceExtensions() const {
     return {XR_KHR_OPENGL_ES_ENABLE_EXTENSION_NAME};
   }
 
-  void OpenGLESGraphicsPlugin::DebugMessageCallback(
+  void GraphicsGL::DebugMessageCallback(
       GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length,
       const GLchar *message) {
     (void)source;
@@ -61,7 +59,7 @@ namespace nar {
     Log::Write(Log::Level::Info, "GLES Debug: " + std::string(message, 0, length));
   }
 
-  void OpenGLESGraphicsPlugin::InitializeDevice(XrInstance instance, XrSystemId system_id) {
+  void GraphicsGL::InitializeDevice(XrInstance instance, XrSystemId system_id) {
     // Extension function must be loaded by name
     PFN_xrGetOpenGLESGraphicsRequirementsKHR pfn_get_open_gles_graphics_requirements_khr = nullptr;
     CHECK_XRCMD(xrGetInstanceProcAddr(
@@ -97,17 +95,15 @@ namespace nar {
 
     context_api_major_version_ = major;
 
-#if defined(XR_USE_PLATFORM_ANDROID)
     graphics_binding_.display = window.display;
     graphics_binding_.config = (EGLConfig)0;
     graphics_binding_.context = window.context.context;
-#endif
 
     glEnable(GL_DEBUG_OUTPUT);
     glDebugMessageCallback(
         [](GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length,
            const GLchar *message, const void *userParam) {
-          ((OpenGLESGraphicsPlugin *)userParam)
+          ((GraphicsGL *)userParam)
               ->DebugMessageCallback(source, type, id, severity, length, message);
         },
         this);
@@ -115,7 +111,7 @@ namespace nar {
     InitializeResources();
   }
 
-  void OpenGLESGraphicsPlugin::InitializeResources() {
+  void GraphicsGL::InitializeResources() {
     auto vertex_cube = GET(ModelBank)->vertex_cube();
 
     glGenFramebuffers(1, &swapchain_framebuffer_);
@@ -168,7 +164,7 @@ namespace nar {
         reinterpret_cast<const void *>(sizeof(XrVector3f)));
   }
 
-  void OpenGLESGraphicsPlugin::CheckShader(GLuint shader) {
+  void GraphicsGL::CheckShader(GLuint shader) {
     GLint r = 0;
     glGetShaderiv(shader, GL_COMPILE_STATUS, &r);
 
@@ -180,7 +176,7 @@ namespace nar {
     }
   }
 
-  void OpenGLESGraphicsPlugin::CheckProgram(GLuint prog) {
+  void GraphicsGL::CheckProgram(GLuint prog) {
     GLint r = 0;
     glGetProgramiv(prog, GL_LINK_STATUS, &r);
 
@@ -192,7 +188,7 @@ namespace nar {
     }
   }
 
-  int64_t OpenGLESGraphicsPlugin::SelectColorSwapchainFormat(
+  int64_t GraphicsGL::SelectColorSwapchainFormat(
       const std::vector<int64_t> &runtime_formats) const {
     // List of supported color swapchain formats.
     std::vector<int64_t> supported_color_swapchain_formats = {GL_RGBA8, GL_RGBA8_SNORM};
@@ -212,11 +208,11 @@ namespace nar {
     return *swapchain_format_it;
   }
 
-  const XrBaseInStructure *OpenGLESGraphicsPlugin::GetGraphicsBinding() const {
+  const XrBaseInStructure *GraphicsGL::GetGraphicsBinding() const {
     return reinterpret_cast<const XrBaseInStructure *>(&graphics_binding_);
   }
 
-  std::vector<XrSwapchainImageBaseHeader *> OpenGLESGraphicsPlugin::AllocateSwapchainImageStructs(
+  std::vector<XrSwapchainImageBaseHeader *> GraphicsGL::AllocateSwapchainImageStructs(
       uint32_t capacity, const XrSwapchainCreateInfo & /*swapchainCreateInfo*/) {
     // Allocate and initialize the buffer of image structs (must be sequential in memory
     // for xrEnumerateSwapchainImages). Return back an array of pointers to each
@@ -234,7 +230,7 @@ namespace nar {
     return swapchain_image_base;
   }
 
-  uint32_t OpenGLESGraphicsPlugin::GetDepthTexture(uint32_t color_texture) {
+  uint32_t GraphicsGL::GetDepthTexture(uint32_t color_texture) {
     // If a depth-stencil view has already been created for this back-buffer, use it.
     auto depth_buffer_it = color_to_depth_map_.find(color_texture);
 
@@ -266,7 +262,7 @@ namespace nar {
     return depth_texture;
   }
 
-  void OpenGLESGraphicsPlugin::RenderView(
+  void GraphicsGL::RenderView(
       const XrCompositionLayerProjectionView &layer_view,
       const XrSwapchainImageBaseHeader *swapchain_image, int64_t swapchain_format,
       const std::vector<Cube> &cubes) {
@@ -343,11 +339,11 @@ namespace nar {
   }
 
   uint32_t
-  OpenGLESGraphicsPlugin::GetSupportedSwapchainSampleCount(const XrViewConfigurationView &) {
+  GraphicsGL::GetSupportedSwapchainSampleCount(const XrViewConfigurationView &) {
     return 1;
   }
 
-  void OpenGLESGraphicsPlugin::UpdateOptions() {
+  void GraphicsGL::UpdateOptions() {
     clear_color_ = OptionsManager::Get()->options()->GetBackgroundClearColor();
   }
 }

@@ -2,7 +2,7 @@
 #include "Renderer.h"
 #include "engine/core/xr/program/OpenXrProgram.h"
 #include "engine/core/xr/common/Common.h"
-#include "engine/core/xr/graphics_plugin/OpenGLESGraphicsPlugin.h"
+#include "engine/core/xr/graphics/GraphicsGL.h"
 #include "engine/OptionsManager.h"
 #include "matter/Cube.h"
 #include "layers/CubeLayer.h"

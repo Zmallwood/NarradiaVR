@@ -1,6 +1,7 @@
 #include "Pch.h"
 #include "GameLoop.h"
 #include "xr/program/OpenXrProgram.h"
+#include "xr/program/input_actions/InputActionsHandler.h"
 #include "engine/AndroidAppManager.h"
 #include "SystemEventPoller.h"
 #include "SceneManager.h"
@@ -19,7 +20,7 @@ namespace nar {
       if (ThrottlingGameIfSessionNotRunning())
         continue;
 
-      GET(OpenXrProgram)->PollInputActions();
+      GET(InputActionsHandler)->PollInputActions();
 
       GET(SceneManager)->UpdateCurrentScene();
       GET(SceneManager)->RenderCurrentScene();

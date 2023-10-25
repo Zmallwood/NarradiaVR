@@ -4,16 +4,16 @@
 
 namespace nar {
   struct Options;
-  class AndroidPlatformPlugin;
+  class AndroidPlatform;
 
-  class OpenGLESGraphicsPlugin : public Singleton<OpenGLESGraphicsPlugin> {
+  class GraphicsGL : public Singleton<GraphicsGL> {
    public:
-    OpenGLESGraphicsPlugin();
-    OpenGLESGraphicsPlugin(const OpenGLESGraphicsPlugin &) = delete;
-    OpenGLESGraphicsPlugin &operator=(const OpenGLESGraphicsPlugin &) = delete;
-    OpenGLESGraphicsPlugin(OpenGLESGraphicsPlugin &&) = delete;
-    OpenGLESGraphicsPlugin &operator=(OpenGLESGraphicsPlugin &&) = delete;
-    ~OpenGLESGraphicsPlugin();
+    GraphicsGL();
+    GraphicsGL(const GraphicsGL &) = delete;
+    GraphicsGL &operator=(const GraphicsGL &) = delete;
+    GraphicsGL(GraphicsGL &&) = delete;
+    GraphicsGL &operator=(GraphicsGL &&) = delete;
+    ~GraphicsGL();
     std::vector<std::string> GetInstanceExtensions() const;
     void DebugMessageCallback(
         GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length,

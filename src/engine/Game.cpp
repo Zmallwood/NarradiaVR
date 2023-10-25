@@ -3,8 +3,8 @@
 #include "core/xr/common/Common.h"
 #include "core/xr/options/Options.h"
 #include "core/xr/program/OpenXrProgram.h"
-#include "core/xr/platform_plugin/AndroidPlatformPlugin.h"
-#include "core/xr/graphics_plugin/OpenGLESGraphicsPlugin.h"
+#include "core/xr/platform/AndroidPlatform.h"
+#include "core/xr/graphics/GraphicsGL.h"
 #include "core/Loader.h"
 #include "core/GameLoop.h"
 #include "core/SceneManager.h"
@@ -39,7 +39,7 @@ namespace nar {
     GET(OpenXrProgram)->Init();
     if (!GET(OptionsManager)->Init())
       return false;
-    GET(OpenGLESGraphicsPlugin)->UpdateOptions();
+    GET(GraphicsGL)->UpdateOptions();
     GET(SceneManager)->InitScenes();
     return true;
   }

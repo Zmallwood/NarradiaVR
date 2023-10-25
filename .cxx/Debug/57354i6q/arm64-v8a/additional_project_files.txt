@@ -81,12 +81,13 @@
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/input/InputController.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/assets/ModelBank.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/common/Check.h
+/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/common/CheckMacros.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/common/Common.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/common/Level.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/common/Logger.h
-/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/graphics_plugin/OpenGLESGraphicsPlugin.h
+/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/graphics/GraphicsGL.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/options/Options.h
-/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/platform_plugin/AndroidPlatformPlugin.h
+/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/platform/AndroidPlatform.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/program/InputState.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/program/Math.Pose.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/program/OpenXrProgram.h
@@ -95,6 +96,7 @@
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/program/func_GetXrReferenceSpaceCreateInfo.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/program/func_GetXrReferenceSpaceCreateInfoTiles.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/program/func_GetXrVersionString.h
+/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/program/input_actions/InputActionsHandler.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/program/logging/ProgramLogger.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/program/rendering/Renderer.h
 /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/src/engine/core/xr/program/rendering/layers/CubeLayer.h

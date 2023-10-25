@@ -3,9 +3,9 @@
 namespace nar {
   struct Options;
 
-  class AndroidPlatformPlugin : public Singleton<AndroidPlatformPlugin> {
+  class AndroidPlatform : public Singleton<AndroidPlatform> {
    public:
-    AndroidPlatformPlugin();
+    AndroidPlatform();
     std::vector<std::string> GetInstanceExtensions() const;
     XrBaseInStructure *GetInstanceCreateExtension() const;
 

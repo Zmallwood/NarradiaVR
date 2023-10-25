@@ -14,6 +14,9 @@
 #include <string>
 #include <thread>
 #include <vector>
+#include <algorithm>
+#include <stdarg.h>
+#include <stddef.h>
 
 /**
  * Platform Headers
