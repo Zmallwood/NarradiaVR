@@ -11,21 +11,21 @@
     "/home/andreas/Code/C++/VR/OpenXR/src/loader/CMakeLists.txt",
     "/home/andreas/Code/C++/VR/OpenXR/src/loader/OpenXRConfig.cmake.in",
     "/home/andreas/Code/C++/VR/OpenXR/src/tests/CMakeLists.txt",
-    "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/CMakeLists.txt",
+    "/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/CMakeLists.txt",
     "/home/andreas/Code/C++/VR/OpenXR/src/version.cmake"
   ],
   "cleanCommandsComponents": [
     [
       "/usr/bin/ninja",
       "-C",
-      "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a",
+      "/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a",
       "clean"
     ]
   ],
   "buildTargetsCommandComponents": [
     "/usr/bin/ninja",
     "-C",
-    "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a",
+    "/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a",
     "{LIST_OF_TARGETS_TO_BUILD}"
   ],
   "libraries": {
@@ -57,7 +57,7 @@
     "openxr_loader::@21fec11f189f167a3127": {
       "artifactName": "openxr_loader",
       "abi": "arm64-v8a",
-      "output": "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_loader.so",
+      "output": "/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_loader.so",
       "runtimeFiles": []
     },
     "xr_global_generated_files::@145eef247bfb46b6828c": {
@@ -73,7 +73,7 @@
     "openxr-gfxwrapper::@145eef247bfb46b6828c": {
       "artifactName": "openxr-gfxwrapper",
       "abi": "arm64-v8a",
-      "output": "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/libopenxr-gfxwrapper.a",
+      "output": "/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/libopenxr-gfxwrapper.a",
       "runtimeFiles": []
     },
     "ExperimentalMemCheck::@6890427a1f51a3e7e1df": {
@@ -125,6 +125,14 @@
       "artifactName": "ExperimentalUpdate",
       "abi": "arm64-v8a",
       "runtimeFiles": []
+    },
+    "hello_xr::@9189eb8bade190178b53": {
+      "artifactName": "hello_xr",
+      "abi": "arm64-v8a",
+      "output": "/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libhello_xr.so",
+      "runtimeFiles": [
+        "/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_loader.so"
+      ]
     },
     "NightlyTest::@6890427a1f51a3e7e1df": {
       "artifactName": "NightlyTest",
@@ -205,14 +213,6 @@
       "artifactName": "uninstall",
       "abi": "arm64-v8a",
       "runtimeFiles": []
-    },
-    "hello_xr::@425a1243c231e3e9cf5b": {
-      "artifactName": "hello_xr",
-      "abi": "arm64-v8a",
-      "output": "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libhello_xr.so",
-      "runtimeFiles": [
-        "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_loader.so"
-      ]
     }
   }
 }

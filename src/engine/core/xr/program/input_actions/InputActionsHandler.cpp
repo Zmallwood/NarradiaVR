@@ -57,10 +57,21 @@ namespace nar {
           .actionType = XR_ACTION_TYPE_FLOAT_INPUT,
           .countSubactionPaths = Side::kCount,
           .subactionPaths = input.hand_subaction_path.data()};
-      strcpy(action_info.actionName, "throttle");
+      strcpy(action_info.actionName, "throttle_x");
+      strcpy(action_info.localizedActionName, "Use Throttle left/right");
+
+      CHECK_XRCMD(xrCreateAction(input.action_set, &action_info, &input.thumbstick_action_x));
+
+      action_info = {
+          .type = XR_TYPE_ACTION_CREATE_INFO,
+          .next = NULL,
+          .actionType = XR_ACTION_TYPE_FLOAT_INPUT,
+          .countSubactionPaths = Side::kCount,
+          .subactionPaths = input.hand_subaction_path.data()};
+      strcpy(action_info.actionName, "throttle_y");
       strcpy(action_info.localizedActionName, "Use Throttle forward/backward");
 
-      CHECK_XRCMD(xrCreateAction(input.action_set, &action_info, &input.thumbstick_action));
+      CHECK_XRCMD(xrCreateAction(input.action_set, &action_info, &input.thumbstick_action_y));
 
       // action_info.actionType = XR_ACTION_TYPE_POSE_INPUT;
       // strcpy_s(action_info.actionName, "primary");
@@ -98,7 +109,12 @@ namespace nar {
     std::array<XrPath, Side::kCount> menu_click_path;
     std::array<XrPath, Side::kCount> b_click_path;
     std::array<XrPath, Side::kCount> trigger_value_path;
+    std::array<XrPath, Side::kCount> thumbstick_x_path;
     std::array<XrPath, Side::kCount> thumbstick_y_path;
+
+    xrStringToPath(instance, "/user/hand/left/input/thumbstick/x", &thumbstick_x_path[Side::kLeft]);
+    xrStringToPath(
+        instance, "/user/hand/right/input/thumbstick/x", &thumbstick_x_path[Side::kRight]);
 
     xrStringToPath(instance, "/user/hand/left/input/thumbstick/y", &thumbstick_y_path[Side::kLeft]);
     xrStringToPath(
@@ -152,8 +168,10 @@ namespace nar {
            {input.grab_action, squeeze_value_path[Side::kRight]},
            {input.pose_action, pose_path[Side::kLeft]},
            {input.pose_action, pose_path[Side::kRight]},
-           {input.thumbstick_action, thumbstick_y_path[Side::kLeft]},
-           {input.thumbstick_action, thumbstick_y_path[Side::kRight]},
+           {input.thumbstick_action_x, thumbstick_x_path[Side::kLeft]},
+           {input.thumbstick_action_x, thumbstick_x_path[Side::kRight]},
+           {input.thumbstick_action_y, thumbstick_y_path[Side::kLeft]},
+           {input.thumbstick_action_y, thumbstick_y_path[Side::kRight]},
            {input.quit_action, menu_click_path[Side::kLeft]},
            {input.vibrate_action, haptic_path[Side::kLeft]},
            {input.vibrate_action, haptic_path[Side::kRight]}}};
@@ -243,16 +261,36 @@ namespace nar {
 
       /////////////// JOYSTICK /////////////////////////
 
-      get_info.action = input.thumbstick_action;
+      get_info.action = input.thumbstick_action_x;
       get_info.subactionPath = input.hand_subaction_path[hand];
 
-      XrActionStateFloat joystick_value = {XR_TYPE_ACTION_STATE_FLOAT};
-      CHECK_XRCMD(xrGetActionStateFloat(session, &get_info, &joystick_value));
+      XrActionStateFloat thumbstick_x = {XR_TYPE_ACTION_STATE_FLOAT};
+      CHECK_XRCMD(xrGetActionStateFloat(session, &get_info, &thumbstick_x));
 
-      if (joystick_value.isActive == XR_TRUE) {
-        if (joystick_value.currentState > 0.9f) {
-          __android_log_print(ANDROID_LOG_VERBOSE, "Narradia", "JOYSTICK");
-        }
+      if (thumbstick_x.isActive == XR_TRUE) {
+        if (hand == Side::kRight)
+          ControllerInput::Get()->right_input_controller()->RegisterThumbstickX(
+              thumbstick_x.currentState);
+
+        if (hand == Side::kLeft)
+          ControllerInput::Get()->left_input_controller()->RegisterThumbstickX(
+              thumbstick_x.currentState);
+      }
+
+      get_info.action = input.thumbstick_action_y;
+      get_info.subactionPath = input.hand_subaction_path[hand];
+
+      XrActionStateFloat thumbstick_y = {XR_TYPE_ACTION_STATE_FLOAT};
+      CHECK_XRCMD(xrGetActionStateFloat(session, &get_info, &thumbstick_y));
+
+      if (thumbstick_y.isActive == XR_TRUE) {
+        if (hand == Side::kRight)
+          ControllerInput::Get()->right_input_controller()->RegisterThumbstickY(
+              thumbstick_x.currentState);
+
+        if (hand == Side::kLeft)
+          ControllerInput::Get()->left_input_controller()->RegisterThumbstickY(
+              thumbstick_x.currentState);
       }
 
       //////////////////////////////////////////////////

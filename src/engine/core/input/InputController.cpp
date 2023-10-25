@@ -26,4 +26,12 @@ namespace nar {
   void InputController::RegisterNotGrabbed() {
     is_grabbed_ = false;
   }
+
+  void InputController::RegisterThumbstickX(float x) {
+    thumbstick_x_ = x;
+  }
+
+  void InputController::RegisterThumbstickY(float y) {
+    thumbstick_y_ = y;
+  }
 }

@@ -43,11 +43,11 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader/openxr.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/loader/openxr.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xLoaderx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_loader.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_loader.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libopenxr_loader.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libopenxr_loader.so")
     if(CMAKE_INSTALL_DO_STRIP)
@@ -63,7 +63,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xCMakeConfigsx" OR NOT CMAKE_INSTALL
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/openxr/OpenXRTargets.cmake")
     file(DIFFERENT EXPORT_FILE_CHANGED FILES
          "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/openxr/OpenXRTargets.cmake"
-         "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader/CMakeFiles/Export/lib/cmake/openxr/OpenXRTargets.cmake")
+         "/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/loader/CMakeFiles/Export/lib/cmake/openxr/OpenXRTargets.cmake")
     if(EXPORT_FILE_CHANGED)
       file(GLOB OLD_CONFIG_FILES "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/openxr/OpenXRTargets-*.cmake")
       if(OLD_CONFIG_FILES)
@@ -72,16 +72,16 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xCMakeConfigsx" OR NOT CMAKE_INSTALL
       endif()
     endif()
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/openxr" TYPE FILE FILES "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader/CMakeFiles/Export/lib/cmake/openxr/OpenXRTargets.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/openxr" TYPE FILE FILES "/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/loader/CMakeFiles/Export/lib/cmake/openxr/OpenXRTargets.cmake")
   if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Dd][Ee][Bb][Uu][Gg])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/openxr" TYPE FILE FILES "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader/CMakeFiles/Export/lib/cmake/openxr/OpenXRTargets-debug.cmake")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/openxr" TYPE FILE FILES "/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/loader/CMakeFiles/Export/lib/cmake/openxr/OpenXRTargets-debug.cmake")
   endif()
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xCMakeConfigsx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/openxr" TYPE FILE FILES
-    "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader/OpenXRConfig.cmake"
-    "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a/src/loader/OpenXRConfigVersion.cmake"
+    "/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/loader/OpenXRConfig.cmake"
+    "/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/loader/OpenXRConfigVersion.cmake"
     )
 endif()
 

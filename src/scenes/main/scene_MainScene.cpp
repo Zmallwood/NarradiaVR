@@ -4,11 +4,13 @@
 #include "matter/Cube.h"
 #include "engine/core/xr/program/OpenXrProgram.h"
 #include "engine/core/xr/common/Common.h"
-#include "modules/module_JoystickMovementModule.h"
+#include "modules/module_ThumbstickMovementModule.h"
+#include "engine/core/xr/program/Math.Pose.h"
+#include "world/Player.h"
 
 namespace nar {
   void MainScene::UpdateDerived() {
-    GET(JoystickMovementModule)->Update();
+    GET(ThumbstickMovementModule)->Update();
   }
 
   void MainScene::RenderDerived() {
@@ -26,7 +28,18 @@ namespace nar {
       if (XR_UNQUALIFIED_SUCCESS(res)) {
         if ((space_location.locationFlags & XR_SPACE_LOCATION_POSITION_VALID_BIT) != 0 &&
             (space_location.locationFlags & XR_SPACE_LOCATION_ORIENTATION_VALID_BIT) != 0) {
-          cubes.push_back(Cube{space_location.pose, {1.0f, 1.0f, 1.0f}});
+
+          for (auto y = -5; y <= 5; y++) {
+            for (auto x = -5; x <= 5; x++) {
+              cubes.push_back(Cube{
+                  Math::Pose::Translation(
+                      {static_cast<float>(x) - GET(Player)->x, -2.0f,
+                       static_cast<float>(y) - GET(Player)->y}),
+                  {1.0f, 1.0f, 1.0f}});
+            }
+          }
+
+          // cubes.push_back(Cube{space_location.pose, {1.0f, 1.0f, 1.0f}});
         }
       }
       else {

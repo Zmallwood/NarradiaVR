@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
 # Source directory: /home/andreas/Code/C++/VR/OpenXR
-# Build directory: /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a
+# Build directory: /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/armeabi-v7a
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

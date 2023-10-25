@@ -49,7 +49,7 @@ unset(_expectedTargets)
 add_library(OpenXR::openxr_loader SHARED IMPORTED)
 
 set_target_properties(OpenXR::openxr_loader PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "/home/andreas/Code/C++/VR/OpenXR/include;/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/include"
+  INTERFACE_INCLUDE_DIRECTORIES "/home/andreas/Code/C++/VR/OpenXR/include;/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/armeabi-v7a/include"
   INTERFACE_LINK_LIBRARIES "Threads::Threads"
 )
 
@@ -57,13 +57,13 @@ set_target_properties(OpenXR::openxr_loader PROPERTIES
 add_library(OpenXR::headers INTERFACE IMPORTED)
 
 set_target_properties(OpenXR::headers PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "/home/andreas/Code/C++/VR/OpenXR/include;/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/armeabi-v7a/include"
+  INTERFACE_INCLUDE_DIRECTORIES "/home/andreas/Code/C++/VR/OpenXR/include;/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/armeabi-v7a/include"
 )
 
 # Import target "OpenXR::openxr_loader" for configuration "Debug"
 set_property(TARGET OpenXR::openxr_loader APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
 set_target_properties(OpenXR::openxr_loader PROPERTIES
-  IMPORTED_LOCATION_DEBUG "/home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/build/intermediates/cxx/Debug/57354i6q/obj/armeabi-v7a/libopenxr_loader.so"
+  IMPORTED_LOCATION_DEBUG "/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/build/intermediates/cxx/Debug/57354i6q/obj/armeabi-v7a/libopenxr_loader.so"
   IMPORTED_SONAME_DEBUG "libopenxr_loader.so"
   )
 

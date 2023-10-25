@@ -1,6 +1,9 @@
 #pragma once
 
 namespace nar {
+  /**
+   * Loads and provides 3D models used in the rendering.
+   */
   class ModelBank : public Singleton<ModelBank> {
    public:
     VertexCube vertex_cube() {

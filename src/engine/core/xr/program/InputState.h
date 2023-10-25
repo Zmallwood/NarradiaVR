@@ -6,7 +6,8 @@ namespace nar {
     XrActionSet action_set = {XR_NULL_HANDLE};
     XrAction grab_action = {XR_NULL_HANDLE};
     XrAction pose_action = {XR_NULL_HANDLE};
-    XrAction thumbstick_action = {XR_NULL_HANDLE};
+    XrAction thumbstick_action_x = {XR_NULL_HANDLE};
+    XrAction thumbstick_action_y = {XR_NULL_HANDLE};
     XrAction vibrate_action = {XR_NULL_HANDLE};
     XrAction quit_action = {XR_NULL_HANDLE};
     std::array<XrPath, Side::kCount> hand_subaction_path;

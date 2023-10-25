@@ -5,7 +5,7 @@
 
 # Configuration directories and files
 SourceDirectory: /home/andreas/Code/C++/VR/OpenXR
-BuildDirectory: /home/andreas/Code/C++/VR/OpenXR/src/tests/NarradiaVR/.cxx/Debug/57354i6q/arm64-v8a
+BuildDirectory: /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a
 
 # Where to place the cost data store
 CostDataFile: 
