@@ -2,51 +2,51 @@ C/C++ Structured Log3
 1
 //home/andreas/Code/C++/VR/OpenXR/CMakeLists.txtC
 A
-?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	ïÑ´¶1Á" ˆ–Ó˜¶1;
+?com.android.build.gradle.internal.cxx.io.EncodedFileFingerPrint	ã¢µß¶1Á" ˆ–Ó˜¶1;
 9
-7/home/andreas/Code/C++/VR/OpenXR/include/CMakeLists.txt	ïÑ´¶1 Ø¢ã–µ1B
+7/home/andreas/Code/C++/VR/OpenXR/include/CMakeLists.txt	ã¢µß¶1 Ø¢ã–µ1B
 @
->/home/andreas/Code/C++/VR/OpenXR/include/openxr/CMakeLists.txt	ïÑ´¶1õ Ø¢ã–µ17
+>/home/andreas/Code/C++/VR/OpenXR/include/openxr/CMakeLists.txt	ã¢µß¶1õ Ø¢ã–µ17
 5
-3/home/andreas/Code/C++/VR/OpenXR/src/CMakeLists.txt	ïÑ´¶1‹ ÜòÓ¡¶1<
+3/home/andreas/Code/C++/VR/OpenXR/src/CMakeLists.txt	ã¢µß¶1‹ ÜòÓ¡¶1<
 :
-8/home/andreas/Code/C++/VR/OpenXR/src/cmake/FindEGL.cmake	ïÑ´¶1§/ Àªã–µ1A
+8/home/andreas/Code/C++/VR/OpenXR/src/cmake/FindEGL.cmake	ã¢µß¶1§/ Àªã–µ1A
 ?
-=/home/andreas/Code/C++/VR/OpenXR/src/cmake/FindOpenGLES.cmake	ïÑ´¶1ùA Àªã–µ1G
+=/home/andreas/Code/C++/VR/OpenXR/src/cmake/FindOpenGLES.cmake	ã¢µß¶1ùA Àªã–µ1G
 E
-C/home/andreas/Code/C++/VR/OpenXR/src/cmake/StdFilesystemFlags.cmake	ïÑ´¶1ó7 Àªã–µ1G
+C/home/andreas/Code/C++/VR/OpenXR/src/cmake/StdFilesystemFlags.cmake	ã¢µß¶1ó7 Àªã–µ1G
 E
-C/home/andreas/Code/C++/VR/OpenXR/src/cmake/cmake_uninstall.cmake.in	ïÑ´¶1	ß Àªã–µ1>
+C/home/andreas/Code/C++/VR/OpenXR/src/cmake/cmake_uninstall.cmake.in	ã¢µß¶1	ß Àªã–µ1>
 <
-:/home/andreas/Code/C++/VR/OpenXR/src/loader/CMakeLists.txt	ïÑ´¶1
+:/home/andreas/Code/C++/VR/OpenXR/src/loader/CMakeLists.txt	ã¢µß¶1
 •| Àó’˜¶1E
 C
-A/home/andreas/Code/C++/VR/OpenXR/src/loader/OpenXRConfig.cmake.in	ïÑ´¶1÷ Àªã–µ1=
+A/home/andreas/Code/C++/VR/OpenXR/src/loader/OpenXRConfig.cmake.in	ã¢µß¶1÷ Àªã–µ1=
 ;
-9/home/andreas/Code/C++/VR/OpenXR/src/tests/CMakeLists.txt	ïÑ´¶1 çÛˆ³¶1t
+9/home/andreas/Code/C++/VR/OpenXR/src/tests/CMakeLists.txt	ã¢µß¶1 çÛˆ³¶1t
 r
-p/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/armeabi-v7a/additional_project_files.txt	ïÑ´¶1Êk Á¹Õ³¶1q
+p/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/armeabi-v7a/additional_project_files.txt	ã¢µß¶1Ím ù™Šß¶1q
 o
-m/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/armeabi-v7a/android_gradle_build.json	ïÑ´¶1†> Ã¹Õ³¶1v
+m/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/armeabi-v7a/android_gradle_build.json	ã¢µß¶1†> û™Šß¶1v
 t
-r/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/armeabi-v7a/android_gradle_build_mini.json	ïÑ´¶1ı8 Ø¹Õ³¶1c
+r/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/armeabi-v7a/android_gradle_build_mini.json	ã¢µß¶1ı8 ‡šŠß¶1c
 a
-_/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/armeabi-v7a/build.ninja	ïÑ´¶1àß	 ‰¹Õ³¶1g
+_/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/armeabi-v7a/build.ninja	ã¢µß¶1ğä	 Î™Šß¶1g
 e
-c/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/armeabi-v7a/build.ninja.txt	ïÑ´¶1l
+c/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/armeabi-v7a/build.ninja.txt	ã¢µß¶1l
 j
-h/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/armeabi-v7a/build_file_index.txt	ïÑ´¶1† Ù¹Õ³¶1m
+h/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/armeabi-v7a/build_file_index.txt	ã¢µß¶1† ‡šŠß¶1m
 k
-i/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/armeabi-v7a/compile_commands.json	ïÑ´¶1§Ó ‰¹Õ³¶1q
+i/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/armeabi-v7a/compile_commands.json	ã¢µß¶1“× Î™Šß¶1q
 o
-m/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/armeabi-v7a/compile_commands.json.bin	ïÑ´¶1†e ‰¹Õ³¶1w
+m/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/armeabi-v7a/compile_commands.json.bin	ã¢µß¶1Îg Î™Šß¶1w
 u
-s/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/armeabi-v7a/metadata_generation_command.txt	ïÑ´¶1ğ Ù¹Õ³¶1j
+s/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/armeabi-v7a/metadata_generation_command.txt	ã¢µß¶1ğ ‡šŠß¶1j
 h
-f/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/armeabi-v7a/prefab_config.json	ïÑ´¶1( Ù¹Õ³¶1o
+f/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/armeabi-v7a/prefab_config.json	ã¢µß¶1( ‡šŠß¶1o
 m
-k/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/armeabi-v7a/symbol_folder_index.txt	ïÑ´¶1j Ù¹Õ³¶1F
+k/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/armeabi-v7a/symbol_folder_index.txt	ã¢µß¶1j ‡šŠß¶1F
 D
-B/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/CMakeLists.txt	ïÑ´¶1Ç  ˜ŞÅÊµ16
+B/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/CMakeLists.txt	ã¢µß¶1Ç  ˜ŞÅÊµ16
 4
-2/home/andreas/Code/C++/VR/OpenXR/src/version.cmake	ïÑ´¶1» Àªã–µ1
+2/home/andreas/Code/C++/VR/OpenXR/src/version.cmake	ã¢µß¶1» Àªã–µ1

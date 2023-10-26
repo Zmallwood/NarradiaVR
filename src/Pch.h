@@ -44,9 +44,9 @@
 /**
  * Narradia Headers
  */
-#include "common/Singleton.h"
-#include "engine/core/xr/common/Logger.h"
-#include "matter/Vertex.h"
-#include "matter/VertexCube.h"
-#include "matter/Point.h"
-#include "matter/Colors.h"
+#include "common/class_Singleton.h"
+#include "engine/core/xr/common/func_Logger.h"
+#include "matter/struct_Vertex.h"
+#include "matter/class_VertexCube.h"
+#include "matter/struct_Point.h"
+#include "matter/const_Colors.h"

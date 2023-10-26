@@ -71,7 +71,7 @@
       "locale": "cpp",
       "source_location": "cpp"
     },
-    "editor.padding.top": 1000,
+    //"editor.padding.top": 1000,
     "workbench.colorCustomizations": {
         "editorError.foreground": "#00000000",
         "editorWarning.foreground": "#00000000",
@@ -88,5 +88,6 @@
             }
           ]
         }
-      }
+      },
+      "editor.guides.indentation": false
 }

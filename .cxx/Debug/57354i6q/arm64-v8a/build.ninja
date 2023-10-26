@@ -1311,201 +1311,201 @@ build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/Pch.cpp.o: CXX_COMPILER__he
   OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
   OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src
 
-build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/common/SingletonManager.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/common/SingletonManager.cpp || cmake_object_order_depends_target_hello_xr
+build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/common/system_SingletonManager.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/common/system_SingletonManager.cpp || cmake_object_order_depends_target_hello_xr
   DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
-  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/common/SingletonManager.cpp.o.d
+  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/common/system_SingletonManager.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
   OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
   OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/common
 
-build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/AddmajaGame.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/AddmajaGame.cpp || cmake_object_order_depends_target_hello_xr
+build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/class_IScene.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/class_IScene.cpp || cmake_object_order_depends_target_hello_xr
   DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
-  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/AddmajaGame.cpp.o.d
-  FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
-  INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
-  OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
-  OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine
-
-build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/AndroidAppManager.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/AndroidAppManager.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
-  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/AndroidAppManager.cpp.o.d
-  FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
-  INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
-  OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
-  OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine
-
-build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/OptionsManager.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/OptionsManager.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
-  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/OptionsManager.cpp.o.d
-  FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
-  INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
-  OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
-  OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine
-
-build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/VRApp.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/VRApp.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
-  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/VRApp.cpp.o.d
-  FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
-  INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
-  OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
-  OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine
-
-build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/GameLoop.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/GameLoop.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
-  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/GameLoop.cpp.o.d
+  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/class_IScene.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
   OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
   OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core
 
-build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/IScene.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/IScene.cpp || cmake_object_order_depends_target_hello_xr
+build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/input/class_InputController.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/input/class_InputController.cpp || cmake_object_order_depends_target_hello_xr
   DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
-  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/IScene.cpp.o.d
-  FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
-  INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
-  OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
-  OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core
-
-build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/Loader.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/Loader.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
-  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/Loader.cpp.o.d
-  FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
-  INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
-  OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
-  OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core
-
-build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/SceneManager.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/SceneManager.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
-  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/SceneManager.cpp.o.d
-  FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
-  INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
-  OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
-  OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core
-
-build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/SystemEventPoller.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/SystemEventPoller.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
-  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/SystemEventPoller.cpp.o.d
-  FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
-  INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
-  OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
-  OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core
-
-build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/SystemEventReader.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/SystemEventReader.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
-  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/SystemEventReader.cpp.o.d
-  FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
-  INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
-  OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
-  OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core
-
-build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/input/InputController.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/input/InputController.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
-  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/input/InputController.cpp.o.d
+  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/input/class_InputController.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
   OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
   OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/input
 
-build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/assets/ModelBank.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/xr/assets/ModelBank.cpp || cmake_object_order_depends_target_hello_xr
+build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/system_GameLoop.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/system_GameLoop.cpp || cmake_object_order_depends_target_hello_xr
   DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
-  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/assets/ModelBank.cpp.o.d
+  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/system_GameLoop.cpp.o.d
+  FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
+  INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
+  OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
+  OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core
+
+build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/system_Loader.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/system_Loader.cpp || cmake_object_order_depends_target_hello_xr
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/system_Loader.cpp.o.d
+  FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
+  INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
+  OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
+  OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core
+
+build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/system_SceneManager.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/system_SceneManager.cpp || cmake_object_order_depends_target_hello_xr
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/system_SceneManager.cpp.o.d
+  FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
+  INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
+  OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
+  OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core
+
+build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/system_SystemEventPoller.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/system_SystemEventPoller.cpp || cmake_object_order_depends_target_hello_xr
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/system_SystemEventPoller.cpp.o.d
+  FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
+  INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
+  OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
+  OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core
+
+build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/system_SystemEventReader.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/system_SystemEventReader.cpp || cmake_object_order_depends_target_hello_xr
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/system_SystemEventReader.cpp.o.d
+  FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
+  INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
+  OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
+  OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core
+
+build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/assets/bank_ModelBank.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/xr/assets/bank_ModelBank.cpp || cmake_object_order_depends_target_hello_xr
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/assets/bank_ModelBank.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
   OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
   OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/assets
 
-build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/common/Check.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/xr/common/Check.cpp || cmake_object_order_depends_target_hello_xr
+build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/common/func_Check.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/xr/common/func_Check.cpp || cmake_object_order_depends_target_hello_xr
   DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
-  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/common/Check.cpp.o.d
+  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/common/func_Check.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
   OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
   OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/common
 
-build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/common/Common.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/xr/common/Common.cpp || cmake_object_order_depends_target_hello_xr
+build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/common/func_Common.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/xr/common/func_Common.cpp || cmake_object_order_depends_target_hello_xr
   DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
-  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/common/Common.cpp.o.d
+  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/common/func_Common.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
   OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
   OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/common
 
-build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/common/Logger.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/xr/common/Logger.cpp || cmake_object_order_depends_target_hello_xr
+build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/common/func_Logger.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/xr/common/func_Logger.cpp || cmake_object_order_depends_target_hello_xr
   DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
-  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/common/Logger.cpp.o.d
+  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/common/func_Logger.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
   OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
   OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/common
 
-build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/graphics/GraphicsGL.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/xr/graphics/GraphicsGL.cpp || cmake_object_order_depends_target_hello_xr
+build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/graphics/system_GraphicsGL.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/xr/graphics/system_GraphicsGL.cpp || cmake_object_order_depends_target_hello_xr
   DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
-  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/graphics/GraphicsGL.cpp.o.d
+  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/graphics/system_GraphicsGL.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
   OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
   OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/graphics
 
-build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/options/Options.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/xr/options/Options.cpp || cmake_object_order_depends_target_hello_xr
+build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/options/system_Options.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/xr/options/system_Options.cpp || cmake_object_order_depends_target_hello_xr
   DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
-  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/options/Options.cpp.o.d
+  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/options/system_Options.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
   OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
   OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/options
 
-build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/platform/AndroidPlatform.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/xr/platform/AndroidPlatform.cpp || cmake_object_order_depends_target_hello_xr
+build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/platform/system_AndroidPlatform.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/xr/platform/system_AndroidPlatform.cpp || cmake_object_order_depends_target_hello_xr
   DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
-  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/platform/AndroidPlatform.cpp.o.d
+  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/platform/system_AndroidPlatform.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
   OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
   OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/platform
 
-build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/OpenXrProgram.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/xr/program/OpenXrProgram.cpp || cmake_object_order_depends_target_hello_xr
+build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/input_actions/system_InputActionsHandler.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/xr/program/input_actions/system_InputActionsHandler.cpp || cmake_object_order_depends_target_hello_xr
   DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
-  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/OpenXrProgram.cpp.o.d
-  FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
-  INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
-  OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
-  OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program
-
-build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/input_actions/InputActionsHandler.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/xr/program/input_actions/InputActionsHandler.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
-  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/input_actions/InputActionsHandler.cpp.o.d
+  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/input_actions/system_InputActionsHandler.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
   OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
   OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/input_actions
 
-build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/logging/ProgramLogger.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/xr/program/logging/ProgramLogger.cpp || cmake_object_order_depends_target_hello_xr
+build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/logging/system_ProgramLogger.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/xr/program/logging/system_ProgramLogger.cpp || cmake_object_order_depends_target_hello_xr
   DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
-  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/logging/ProgramLogger.cpp.o.d
+  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/logging/system_ProgramLogger.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
   OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
   OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/logging
 
-build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/rendering/Renderer.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/xr/program/rendering/Renderer.cpp || cmake_object_order_depends_target_hello_xr
+build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/rendering/layers/system_CubeLayer.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/xr/program/rendering/layers/system_CubeLayer.cpp || cmake_object_order_depends_target_hello_xr
   DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
-  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/rendering/Renderer.cpp.o.d
-  FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
-  INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
-  OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
-  OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/rendering
-
-build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/rendering/layers/CubeLayer.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/xr/program/rendering/layers/CubeLayer.cpp || cmake_object_order_depends_target_hello_xr
-  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
-  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/rendering/layers/CubeLayer.cpp.o.d
+  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/rendering/layers/system_CubeLayer.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
   OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
   OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/rendering/layers
 
-build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/matter/VertexCube.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/matter/VertexCube.cpp || cmake_object_order_depends_target_hello_xr
+build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/rendering/system_Renderer.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/xr/program/rendering/system_Renderer.cpp || cmake_object_order_depends_target_hello_xr
   DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
-  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/matter/VertexCube.cpp.o.d
+  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/rendering/system_Renderer.cpp.o.d
+  FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
+  INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
+  OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
+  OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/rendering
+
+build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/system_OpenXrProgram.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/core/xr/program/system_OpenXrProgram.cpp || cmake_object_order_depends_target_hello_xr
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/system_OpenXrProgram.cpp.o.d
+  FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
+  INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
+  OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
+  OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program
+
+build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/system_AddmajaGame.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/system_AddmajaGame.cpp || cmake_object_order_depends_target_hello_xr
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/system_AddmajaGame.cpp.o.d
+  FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
+  INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
+  OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
+  OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine
+
+build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/system_AndroidAppManager.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/system_AndroidAppManager.cpp || cmake_object_order_depends_target_hello_xr
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/system_AndroidAppManager.cpp.o.d
+  FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
+  INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
+  OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
+  OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine
+
+build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/system_OptionsManager.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/system_OptionsManager.cpp || cmake_object_order_depends_target_hello_xr
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/system_OptionsManager.cpp.o.d
+  FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
+  INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
+  OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
+  OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine
+
+build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/system_VRApp.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/engine/system_VRApp.cpp || cmake_object_order_depends_target_hello_xr
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/system_VRApp.cpp.o.d
+  FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
+  INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
+  OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
+  OBJECT_FILE_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine
+
+build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/matter/class_VertexCube.cpp.o: CXX_COMPILER__hello_xr_Debug /home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src/matter/class_VertexCube.cpp || cmake_object_order_depends_target_hello_xr
+  DEFINES = -DDEFAULT_GRAPHICS_PLUGIN_OPENGLES -DOPENXR_HAVE_COMMON_CONFIG -DXR_OS_ANDROID -DXR_USE_GRAPHICS_API_OPENGL_ES -DXR_USE_PLATFORM_ANDROID -Dhello_xr_EXPORTS
+  DEP_FILE = src/tests/Forradia/CMakeFiles/hello_xr.dir/src/matter/class_VertexCube.cpp.o.d
   FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info  -fPIC -pthread -std=gnu++2a
   INCLUDES = -I/home/andreas/Code/C++/VR/OpenXR/src/../include -I/home/andreas/Code/C++/VR/OpenXR/src -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/src/tests/Forradia -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/src -I/home/andreas/Code/C++/VR/OpenXR/src/common -I/home/andreas/Code/C++/VR/OpenXR/src/tests/hello_xr/vulkan_shaders -I/home/andreas/Code/C++/VR/OpenXR/external/include -I/home/andreas/Code/C++/VR/OpenXR/include -I/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/.cxx/Debug/57354i6q/arm64-v8a/include -I/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue
   OBJECT_DIR = src/tests/Forradia/CMakeFiles/hello_xr.dir
@@ -1551,7 +1551,7 @@ build src/tests/Forradia/CMakeFiles/hello_xr.dir/src/scenes/main_menu/scene_Main
 #############################################
 # Link the shared module ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libhello_xr.so
 
-build ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libhello_xr.so: CXX_MODULE_LIBRARY_LINKER__hello_xr_Debug src/CMakeFiles/android_native_app_glue.dir/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue/android_native_app_glue.c.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/Main.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/Pch.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/common/SingletonManager.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/AddmajaGame.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/AndroidAppManager.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/OptionsManager.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/VRApp.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/GameLoop.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/IScene.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/Loader.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/SceneManager.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/SystemEventPoller.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/SystemEventReader.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/input/InputController.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/assets/ModelBank.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/common/Check.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/common/Common.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/common/Logger.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/graphics/GraphicsGL.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/options/Options.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/platform/AndroidPlatform.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/OpenXrProgram.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/input_actions/InputActionsHandler.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/logging/ProgramLogger.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/rendering/Renderer.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/rendering/layers/CubeLayer.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/matter/VertexCube.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/scenes/intro/scene_IntroScene.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/scenes/main/modules/module_ThumbstickMovementModule.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/scenes/main/scene_MainScene.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/scenes/main_menu/scene_MainMenuScene.cpp.o | /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/libandroid.so /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/liblog.so ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_loader.so src/libopenxr-gfxwrapper.a /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/libGLESv3.so /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/libEGL.so || ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_loader.so include/openxr/generate_openxr_header src/android_native_app_glue src/libopenxr-gfxwrapper.a
+build ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libhello_xr.so: CXX_MODULE_LIBRARY_LINKER__hello_xr_Debug src/CMakeFiles/android_native_app_glue.dir/home/andreas/Android/Sdk/ndk/21.4.7075529/sources/android/native_app_glue/android_native_app_glue.c.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/Main.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/Pch.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/common/system_SingletonManager.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/class_IScene.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/input/class_InputController.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/system_GameLoop.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/system_Loader.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/system_SceneManager.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/system_SystemEventPoller.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/system_SystemEventReader.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/assets/bank_ModelBank.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/common/func_Check.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/common/func_Common.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/common/func_Logger.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/graphics/system_GraphicsGL.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/options/system_Options.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/platform/system_AndroidPlatform.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/input_actions/system_InputActionsHandler.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/logging/system_ProgramLogger.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/rendering/layers/system_CubeLayer.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/rendering/system_Renderer.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/core/xr/program/system_OpenXrProgram.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/system_AddmajaGame.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/system_AndroidAppManager.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/system_OptionsManager.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/engine/system_VRApp.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/matter/class_VertexCube.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/scenes/intro/scene_IntroScene.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/scenes/main/modules/module_ThumbstickMovementModule.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/scenes/main/scene_MainScene.cpp.o src/tests/Forradia/CMakeFiles/hello_xr.dir/src/scenes/main_menu/scene_MainMenuScene.cpp.o | /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/libandroid.so /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/liblog.so ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_loader.so src/libopenxr-gfxwrapper.a /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/libGLESv3.so /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/libEGL.so || ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_loader.so include/openxr/generate_openxr_header src/android_native_app_glue src/libopenxr-gfxwrapper.a
   LANGUAGE_COMPILE_FLAGS = -Wfatal-errors -std=c++20 -O0 -fno-limit-debug-info
   LINK_FLAGS = -Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libgcc_real.a -Wl,--exclude-libs,libatomic.a -static-libstdc++ -Wl,--build-id -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments
   LINK_LIBRARIES = /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/libandroid.so  /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/liblog.so  ../../../../build/intermediates/cxx/Debug/57354i6q/obj/arm64-v8a/libopenxr_loader.so  src/libopenxr-gfxwrapper.a  -pthread  /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/libGLESv3.so  /home/andreas/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/aarch64-linux-android/24/libEGL.so  -latomic -lm
