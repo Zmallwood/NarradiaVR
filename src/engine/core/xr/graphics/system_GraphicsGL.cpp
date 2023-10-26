@@ -1,6 +1,13 @@
+/* Copyright (c) 2017-2023, The Khronos Group Inc.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * THIS FILE WAS MODIFIED FROM ITS ORIGINAL VERSION BY Zmallwood FOR Narradia. THE ORIGINAL
+ * LICENSE IS STATED IN LICENSE FILE.
+ */
+
 #include "Pch.h"
 #include "system_GraphicsGL.h"
-#include "engine/core/xr/common/func_Common.h"
 #include "engine/core/xr/assets/bank_ModelBank.h"
 #include "engine/core/xr/options/system_Options.h"
 #include "engine/system_OptionsManager.h"
@@ -8,13 +15,10 @@
 
 namespace nar {
    namespace {
-      // The version statement has come on first line.
-      static const char *vertex_shader_glsl =
+      static const char *vertex_shader_glsl = // The version statement has come on first line.
 #include "shaders/shader_VertexShader.inc.cpp"
           ;
-
-      // The version statement has come on first line.
-      static const char *fragment_shader_glsl =
+      static const char *fragment_shader_glsl = // The version statement has come on first line.
 #include "shaders/shader_FragmentShader.inc.cpp"
           ;
    }
@@ -44,21 +48,11 @@ namespace nar {
             glDeleteTextures(1, &colorToDepth.second);
       }
 
-      ksGpuWindow_Destroy(&window);
+      ksGpuWindow_Destroy(&window_);
    }
 
    std::vector<std::string> GraphicsGL::GetInstanceExtensions() const {
       return {XR_KHR_OPENGL_ES_ENABLE_EXTENSION_NAME};
-   }
-
-   void GraphicsGL::DebugMessageCallback(
-       GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length,
-       const GLchar *message) {
-      (void)source;
-      (void)type;
-      (void)id;
-      (void)severity;
-      Log::Write(Log::Level::Info, "GLES Debug: " + std::string(message, 0, length));
    }
 
    void GraphicsGL::InitializeDevice(XrInstance instance, XrSystemId system_id) {
@@ -81,7 +75,7 @@ namespace nar {
       ksGpuSampleCount sample_count = {KS_GPU_SAMPLE_COUNT_1};
 
       if (!ksGpuWindow_Create(
-              &window, &driver_instance, &queue_info, 0, color_format, depth_format, sample_count,
+              &window_, &driver_instance, &queue_info, 0, color_format, depth_format, sample_count,
               640, 480, false)) {
          __android_log_print(ANDROID_LOG_ERROR, "Narradia", "Unable to create GL context.");
          return;
@@ -103,18 +97,11 @@ namespace nar {
 
       context_api_major_version_ = major;
 
-      graphics_binding_.display = window.display;
+      graphics_binding_.display = window_.display;
       graphics_binding_.config = (EGLConfig)0;
-      graphics_binding_.context = window.context.context;
+      graphics_binding_.context = window_.context.context;
 
       glEnable(GL_DEBUG_OUTPUT);
-      glDebugMessageCallback(
-          [](GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length,
-             const GLchar *message, const void *userParam) {
-             ((GraphicsGL *)userParam)
-                 ->DebugMessageCallback(source, type, id, severity, length, message);
-          },
-          this);
 
       InitializeResources();
    }
@@ -282,8 +269,12 @@ namespace nar {
        const std::vector<Cube> &cubes) {
       auto vertex_cube = GET(ModelBank)->vertex_cube();
 
-      CHECK(layer_view.subImage.imageArrayIndex == 0); // Texture arrays not supported.
-      UNUSED_PARM(swapchain_format);                   // Not used in this function for now.
+      if (layer_view.subImage.imageArrayIndex != 0) {
+         __android_log_print(ANDROID_LOG_ERROR, "Narradia", "Texture arrays not supported.");
+         return;
+      }
+
+      UNUSED_PARM(swapchain_format); // Not used in this function for now.
 
       glBindFramebuffer(GL_FRAMEBUFFER, swapchain_framebuffer_);
 

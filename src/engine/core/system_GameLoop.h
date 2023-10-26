@@ -1,3 +1,11 @@
+/* Copyright (c) 2017-2023, The Khronos Group Inc.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * THIS FILE WAS MODIFIED FROM ITS ORIGINAL VERSION BY Zmallwood FOR Narradia. THE ORIGINAL
+ * LICENSE IS STATED IN LICENSE FILE.
+ */
+
 #pragma once
 #include "xr/program/system_OpenXrProgram.h"
 
@@ -6,9 +14,6 @@ namespace nar {
 
    class GameLoop : public Singleton<GameLoop> {
      public:
-      /**
-       * Enter the main game loop and stay there until game exit.
-       */
       void Run();
 
       void set_request_restart(bool value) {

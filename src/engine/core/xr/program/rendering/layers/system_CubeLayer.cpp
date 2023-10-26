@@ -1,8 +1,15 @@
+/* Copyright (c) 2017-2023, The Khronos Group Inc.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * THIS FILE WAS MODIFIED FROM ITS ORIGINAL VERSION BY Zmallwood FOR Narradia. THE ORIGINAL
+ * LICENSE IS STATED IN LICENSE FILE.
+ */
+
 #include "Pch.h"
 #include "system_CubeLayer.h"
 #include "engine/core/xr/program/system_OpenXrProgram.h"
 #include "engine/system_OptionsManager.h"
-#include "engine/core/xr/common/func_Common.h"
 #include "matter/struct_Cube.h"
 #include "engine/core/xr/graphics/system_GraphicsGL.h"
 
@@ -31,7 +38,11 @@ namespace nar {
           OpenXrProgram::Get()->session(), &view_locate_info, &view_state, view_capacity_input,
           &view_count_output, views.data());
 
-      CheckXrResult(res, "xrLocateViews", FILE_AND_LINE);
+      if (XR_FAILED(res)) {
+         __android_log_print(
+             ANDROID_LOG_ERROR, "Narradia", "XrResult failure: xrLocateViews in CubeLayer::Render");
+         return false;
+      }
 
       OpenXrProgram::Get()->set_views(views);
 
@@ -39,10 +50,6 @@ namespace nar {
           (view_state.viewStateFlags & XR_VIEW_STATE_ORIENTATION_VALID_BIT) == 0) {
          return false; // There is no valid tracking poses for the views.
       }
-
-      CHECK(view_count_output == view_capacity_input);
-      CHECK(view_count_output == OpenXrProgram::Get()->config_views().size());
-      CHECK(view_count_output == OpenXrProgram::Get()->swapchains().size());
 
       projection_layer_views.resize(view_count_output);
 
@@ -55,12 +62,12 @@ namespace nar {
          XrSwapchainImageAcquireInfo acquire_info = {XR_TYPE_SWAPCHAIN_IMAGE_ACQUIRE_INFO};
 
          uint32_t swapchain_image_index;
-         CHECK_XRCMD(
-             xrAcquireSwapchainImage(view_swapchain.handle, &acquire_info, &swapchain_image_index));
+
+         xrAcquireSwapchainImage(view_swapchain.handle, &acquire_info, &swapchain_image_index);
 
          XrSwapchainImageWaitInfo wait_info = {XR_TYPE_SWAPCHAIN_IMAGE_WAIT_INFO};
          wait_info.timeout = XR_INFINITE_DURATION;
-         CHECK_XRCMD(xrWaitSwapchainImage(view_swapchain.handle, &wait_info));
+         xrWaitSwapchainImage(view_swapchain.handle, &wait_info);
 
          projection_layer_views[i] = {XR_TYPE_COMPOSITION_LAYER_PROJECTION_VIEW};
          projection_layer_views[i].pose = OpenXrProgram::Get()->views()[i].pose;
@@ -77,7 +84,7 @@ namespace nar {
              OpenXrProgram::Get()->color_swapchain_format(), cubes_data);
 
          XrSwapchainImageReleaseInfo release_info = {XR_TYPE_SWAPCHAIN_IMAGE_RELEASE_INFO};
-         CHECK_XRCMD(xrReleaseSwapchainImage(view_swapchain.handle, &release_info));
+         xrReleaseSwapchainImage(view_swapchain.handle, &release_info);
       }
 
       layer_->space = OpenXrProgram::Get()->app_space();

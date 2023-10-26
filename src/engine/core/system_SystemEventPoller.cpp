@@ -1,8 +1,15 @@
+/* Copyright (c) 2017-2023, The Khronos Group Inc.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * THIS FILE WAS MODIFIED FROM ITS ORIGINAL VERSION BY Zmallwood FOR Narradia. THE ORIGINAL
+ * LICENSE IS STATED IN LICENSE FILE.
+ */
+
 #include "Pch.h"
 #include "system_SystemEventPoller.h"
 #include "xr/program/system_OpenXrProgram.h"
 #include "system_GameLoop.h"
-#include "xr/common/func_Common.h"
 #include "xr/program/logging/system_ProgramLogger.h"
 #include "xr/program/system_OpenXrProgram.h"
 #include "system_SystemEventReader.h"
@@ -16,15 +23,17 @@ namespace nar {
       GameLoop::Get()->set_exit_render_loop(false);
       GameLoop::Get()->set_request_restart(false);
 
-      // Process all pending messages.
+      /* Process all pending messages.
+       */
       while (const XrEventDataBaseHeader *event = TryReadNextEvent()) {
          switch (event->type) {
          case XR_TYPE_EVENT_DATA_INSTANCE_LOSS_PENDING: {
             const auto &instance_loss_pending =
                 *reinterpret_cast<const XrEventDataInstanceLossPending *>(event);
-            Log::Write(
-                Log::Level::Warning,
-                Fmt("XrEventDataInstanceLossPending by %lld", instance_loss_pending.lossTime));
+
+            __android_log_print(
+                ANDROID_LOG_WARN, "hello_xr", "XrEventDataInstanceLossPending by %lld",
+                instance_loss_pending.lossTime);
 
             GameLoop::Get()->set_exit_render_loop(true);
             GameLoop::Get()->set_request_restart(true);
@@ -44,14 +53,14 @@ namespace nar {
             break;
          case XR_TYPE_EVENT_DATA_REFERENCE_SPACE_CHANGE_PENDING:
          default: {
-            Log::Write(Log::Level::Verbose, Fmt("Ignoring event type %d", event->type));
             break;
          }
          }
       }
    }
 
-   // Return event if one is available, otherwise return null.
+   /** Return event if one is available, otherwise return null.
+    */
    const XrEventDataBaseHeader *SystemEventPoller::TryReadNextEvent() {
       auto instance = OpenXrProgram::Get()->instance();
       auto event_data_buffer = OpenXrProgram::Get()->event_data_buffer();
@@ -67,7 +76,8 @@ namespace nar {
          if (base_header->type == XR_TYPE_EVENT_DATA_EVENTS_LOST) {
             const XrEventDataEventsLost *const eventsLost =
                 reinterpret_cast<const XrEventDataEventsLost *>(base_header);
-            Log::Write(Log::Level::Warning, Fmt("%d events lost", eventsLost->lostEventCount));
+            __android_log_print(
+                ANDROID_LOG_WARN, "Narradia", "%d events lost", eventsLost->lostEventCount);
          }
 
          return base_header;

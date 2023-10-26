@@ -1,3 +1,11 @@
+/* Copyright (c) 2017-2023, The Khronos Group Inc.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * THIS FILE WAS MODIFIED FROM ITS ORIGINAL VERSION BY Zmallwood FOR Narradia. THE ORIGINAL
+ * LICENSE IS STATED IN LICENSE FILE.
+ */
+
 #include "Pch.h"
 #include "system_SystemEventReader.h"
 #include "xr/program/system_OpenXrProgram.h"
@@ -9,7 +17,8 @@ namespace nar {
       auto app = AndroidAppManager::Get()->app();
       auto app_state = static_cast<AndroidAppState *>(app->userData);
 
-      // Read all pending events.
+      /* Read all pending events.
+       */
       for (;;) {
          int events;
          struct android_poll_source *source;

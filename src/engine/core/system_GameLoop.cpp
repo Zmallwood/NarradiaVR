@@ -1,3 +1,11 @@
+/* Copyright (c) 2017-2023, The Khronos Group Inc.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * THIS FILE WAS MODIFIED FROM ITS ORIGINAL VERSION BY Zmallwood FOR Narradia. THE ORIGINAL
+ * LICENSE IS STATED IN LICENSE FILE.
+ */
+
 #include "Pch.h"
 #include "system_GameLoop.h"
 #include "xr/program/system_OpenXrProgram.h"
@@ -7,6 +15,8 @@
 #include "system_SceneManager.h"
 
 namespace nar {
+   /** Enter the main game loop and stay there until game exit.
+    */
    void GameLoop::Run() {
       while (GET(AndroidAppManager)->app()->destroyRequested == 0) {
          GET(SystemEventPoller)->ReadAndPollSystemEvents();

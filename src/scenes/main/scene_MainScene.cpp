@@ -1,9 +1,16 @@
+/* Copyright (c) 2017-2023, The Khronos Group Inc.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * THIS FILE WAS MODIFIED FROM ITS ORIGINAL VERSION BY Zmallwood FOR Narradia. THE ORIGINAL
+ * LICENSE IS STATED IN LICENSE FILE.
+ */
+
 #include "Pch.h"
 #include "scene_MainScene.h"
 #include "engine/core/xr/program/rendering/system_Renderer.h"
 #include "matter/struct_Cube.h"
 #include "engine/core/xr/program/system_OpenXrProgram.h"
-#include "engine/core/xr/common/func_Common.h"
 #include "modules/module_ThumbstickMovementModule.h"
 #include "engine/core/xr/program/func_Math.Pose.h"
 #include "world/world_Player.h"
@@ -42,9 +49,6 @@ namespace nar {
             }
          }
          else {
-            Log::Write(
-                Log::Level::Verbose,
-                Fmt("Unable to locate a visualized reference space in app space: %d", res));
          }
       }
 
@@ -68,10 +72,6 @@ namespace nar {
             // message if the hand is active.
             if (OpenXrProgram::Get()->input().hand_active[hand] == XR_TRUE) {
                const char *hand_name[] = {"left", "right"};
-               Log::Write(
-                   Log::Level::Verbose,
-                   Fmt("Unable to locate %s hand action space in app space: %d", hand_name[hand],
-                       res));
             }
          }
       }

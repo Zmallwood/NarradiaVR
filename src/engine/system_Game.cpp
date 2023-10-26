@@ -1,6 +1,13 @@
+/* Copyright (c) 2017-2023, The Khronos Group Inc.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * THIS FILE WAS MODIFIED FROM ITS ORIGINAL VERSION BY Zmallwood FOR Narradia. THE ORIGINAL
+ * LICENSE IS STATED IN LICENSE FILE.
+ */
+
 #include "Pch.h"
-#include "system_AddmajaGame.h"
-#include "core/xr/common/func_Common.h"
+#include "system_Game.h"
 #include "core/xr/options/system_Options.h"
 #include "core/xr/program/system_OpenXrProgram.h"
 #include "core/xr/platform/system_AndroidPlatform.h"
@@ -12,14 +19,18 @@
 #include "system_AndroidAppManager.h"
 
 namespace nar {
-   void AddmajaGame::Run(android_app *app) {
+   /** Start new game instance.
+    */
+   void Game::Run(android_app *app) {
       GET(AndroidAppManager)->set_app(app);
       InitGame();
       GET(GameLoop)->Run();
       CleanupGame();
    }
 
-   bool AddmajaGame::InitGame() {
+   /** Do all initialization before entering game loop
+    */
+   bool Game::InitGame() {
       GET(AndroidAppManager)->Init();
       GET(Loader)->Init();
       GET(OpenXrProgram)->Init();
@@ -30,7 +41,9 @@ namespace nar {
       return true;
    }
 
-   void AddmajaGame::CleanupGame() {
+   /** Cleanup after exiting game loop
+    */
+   void Game::CleanupGame() {
       GET(AndroidAppManager)->Cleanup();
       nar::DisposeAllSingletons();
    }

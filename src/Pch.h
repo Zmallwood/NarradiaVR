@@ -1,3 +1,11 @@
+/* Copyright (c) 2017-2023, The Khronos Group Inc.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * THIS FILE WAS MODIFIED FROM ITS ORIGINAL VERSION BY Zmallwood FOR Narradia. THE ORIGINAL
+ * LICENSE IS STATED IN LICENSE FILE.
+ */
+
 #pragma once
 
 #include <array>
@@ -17,6 +25,7 @@
 #include <algorithm>
 #include <stdarg.h>
 #include <stddef.h>
+#include <cmath>
 
 /**
  * Platform Headers
@@ -45,7 +54,7 @@
  * Narradia Headers
  */
 #include "common/class_Singleton.h"
-#include "engine/core/xr/common/func_Logger.h"
+#include "engine/func_Utilities.h"
 #include "matter/struct_Vertex.h"
 #include "matter/class_VertexCube.h"
 #include "matter/struct_Point.h"

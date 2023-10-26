@@ -1,3 +1,11 @@
+/* Copyright (c) 2017-2023, The Khronos Group Inc.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * THIS FILE WAS MODIFIED FROM ITS ORIGINAL VERSION BY Zmallwood FOR Narradia. THE ORIGINAL
+ * LICENSE IS STATED IN LICENSE FILE.
+ */
+
 #include "Pch.h"
 #include "system_OptionsManager.h"
 #include "core/xr/options/system_Options.h"
@@ -28,7 +36,7 @@ namespace nar {
          options_->ParseStrings();
       }
       catch (std::invalid_argument &ia) {
-         Log::Write(Log::Level::Error, ia.what());
+         __android_log_print(ANDROID_LOG_ERROR, "hello_xr", "%s", ia.what());
          return false;
       }
       return true;

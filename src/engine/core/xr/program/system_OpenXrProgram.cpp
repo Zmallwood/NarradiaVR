@@ -1,7 +1,14 @@
+/* Copyright (c) 2017-2023, The Khronos Group Inc.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * THIS FILE WAS MODIFIED FROM ITS ORIGINAL VERSION BY Zmallwood FOR Narradia. THE ORIGINAL
+ * LICENSE IS STATED IN LICENSE FILE.
+ */
+
 #include "Pch.h"
 #include "system_OpenXrProgram.h"
 #include "engine/system_OptionsManager.h"
-#include "engine/core/xr/common/func_Common.h"
 #include "engine/core/xr/options/system_Options.h"
 #include "engine/core/xr/graphics/system_GraphicsGL.h"
 #include "engine/core/xr/platform/system_AndroidPlatform.h"
@@ -12,9 +19,6 @@
 #include "engine/core/system_GameLoop.h"
 #include "input_actions/system_InputActionsHandler.h"
 #include <common/xr_linear.h>
-#include <array>
-#include <cmath>
-#include <set>
 
 namespace nar {
    OpenXrProgram::OpenXrProgram()
@@ -63,31 +67,24 @@ namespace nar {
       const XrSessionState old_state = session_state_;
       session_state_ = state_changed_event.state;
 
-      Log::Write(
-          Log::Level::Info,
-          Fmt("XrEventDataSessionStateChanged: state %s->%s session=%lld time=%lld",
-              to_string(old_state), to_string(session_state_), state_changed_event.session,
-              state_changed_event.time));
-
       if ((state_changed_event.session != XR_NULL_HANDLE) &&
           (state_changed_event.session != session_)) {
-         Log::Write(Log::Level::Error, "XrEventDataSessionStateChanged for unknown session");
+         __android_log_print(
+             ANDROID_LOG_ERROR, "Narradia", "XrEventDataSessionStateChanged for unknown session");
          return;
       }
 
       switch (session_state_) {
       case XR_SESSION_STATE_READY: {
-         CHECK(session_ != XR_NULL_HANDLE);
          XrSessionBeginInfo session_begin_info = {XR_TYPE_SESSION_BEGIN_INFO};
          session_begin_info.primaryViewConfigurationType = options_->Parsed.view_config_type;
-         CHECK_XRCMD(xrBeginSession(session_, &session_begin_info));
+         xrBeginSession(session_, &session_begin_info);
          session_running_ = true;
          break;
       }
       case XR_SESSION_STATE_STOPPING: {
-         CHECK(session_ != XR_NULL_HANDLE);
          session_running_ = false;
-         CHECK_XRCMD(xrEndSession(session_))
+         xrEndSession(session_);
          break;
       }
       case XR_SESSION_STATE_EXITING: {
@@ -108,8 +105,6 @@ namespace nar {
    }
 
    void OpenXrProgram::CreateInstanceInternal() {
-      CHECK(instance_ == XR_NULL_HANDLE);
-
       // Create union of extensions required by platform and graphics plugins.
       std::vector<const char *> extensions;
 
@@ -133,7 +128,7 @@ namespace nar {
       strcpy(create_info.applicationInfo.applicationName, "HelloXR");
       create_info.applicationInfo.apiVersion = XR_CURRENT_API_VERSION;
 
-      CHECK_XRCMD(xrCreateInstance(&create_info, &instance_));
+      xrCreateInstance(&create_info, &instance_);
    }
 
    void OpenXrProgram::CreateInstance() {
@@ -144,14 +139,13 @@ namespace nar {
 
    XrEnvironmentBlendMode OpenXrProgram::GetPreferredBlendMode() const {
       uint32_t count;
-      CHECK_XRCMD(xrEnumerateEnvironmentBlendModes(
-          instance_, system_id_, options_->Parsed.view_config_type, 0, &count, nullptr));
-      CHECK(count > 0);
+      xrEnumerateEnvironmentBlendModes(
+          instance_, system_id_, options_->Parsed.view_config_type, 0, &count, nullptr);
 
       std::vector<XrEnvironmentBlendMode> blend_modes(count);
-      CHECK_XRCMD(xrEnumerateEnvironmentBlendModes(
+      xrEnumerateEnvironmentBlendModes(
           instance_, system_id_, options_->Parsed.view_config_type, count, &count,
-          blend_modes.data()));
+          blend_modes.data());
 
       for (const auto &blend_mode : blend_modes) {
          if (kAcceptableBlendModes.count(blend_mode))
@@ -164,18 +158,9 @@ namespace nar {
    }
 
    void OpenXrProgram::InitSystem() {
-      CHECK(instance_ != XR_NULL_HANDLE);
-      CHECK(system_id_ == XR_NULL_SYSTEM_ID);
-
       XrSystemGetInfo system_info = {XR_TYPE_SYSTEM_GET_INFO};
       system_info.formFactor = options_->Parsed.form_factor;
-      CHECK_XRCMD(xrGetSystem(instance_, &system_info, &system_id_));
-
-      Log::Write(
-          Log::Level::Verbose, Fmt("Using system %d for form factor %s", system_id_,
-                                   to_string(options_->Parsed.form_factor)));
-      CHECK(instance_ != XR_NULL_HANDLE);
-      CHECK(system_id_ != XR_NULL_SYSTEM_ID);
+      xrGetSystem(instance_, &system_info, &system_id_);
    }
 
    void OpenXrProgram::InitDevice() {
@@ -187,8 +172,6 @@ namespace nar {
    }
 
    void OpenXrProgram::CreateVisualizedSpaces() {
-      CHECK(session_ != XR_NULL_HANDLE);
-
       std::vector<Point> tiles;
 
       for (auto x = -5; x <= 5; x++) {
@@ -206,9 +189,9 @@ namespace nar {
             visualized_spaces_.push_back(space);
          }
          else {
-            Log::Write(
-                Log::Level::Warning,
-                Fmt("Failed to create reference space for a tile with error %d", res));
+            __android_log_print(
+                ANDROID_LOG_WARN, "Narradia",
+                "Failed to create reference space for a tile with error %d", res);
          }
       }
 
@@ -225,24 +208,19 @@ namespace nar {
       //         visualized_spaces_.push_back(space);
       //     }
       //     else {
-      //         Log::Write(
-      //             Log::Level::Warning, Fmt("Failed to create reference space %s with error %d",
-      //                                      visualized_space.c_str(), res));
+      //      __android_log_print(
+      //          ANDROID_LOG_WARN, "Narradia",
+      //          "Failed to create reference space for a tile with error %d", res);
       //     }
       // }
    }
 
    void OpenXrProgram::InitSession() {
-      CHECK(instance_ != XR_NULL_HANDLE);
-      CHECK(session_ == XR_NULL_HANDLE);
-
       {
-         Log::Write(Log::Level::Verbose, Fmt("Creating session..."));
-
          XrSessionCreateInfo create_info = {XR_TYPE_SESSION_CREATE_INFO};
          create_info.next = graphics_plugin_->GetGraphicsBinding();
          create_info.systemId = system_id_;
-         CHECK_XRCMD(xrCreateSession(instance_, &create_info, &session_));
+         xrCreateSession(instance_, &create_info, &session_);
       }
 
       ProgramLogger::Get()->LogReferenceSpaces();
@@ -252,34 +230,14 @@ namespace nar {
       {
          XrReferenceSpaceCreateInfo reference_space_create_info =
              GetXrReferenceSpaceCreateInfo(options_->app_space);
-         CHECK_XRCMD(xrCreateReferenceSpace(session_, &reference_space_create_info, &app_space_));
+         xrCreateReferenceSpace(session_, &reference_space_create_info, &app_space_);
       }
    }
 
    void OpenXrProgram::CreateSwapchains() {
-      CHECK(session_ != XR_NULL_HANDLE);
-      CHECK(swapchains_.empty());
-      CHECK(config_views_.empty());
-
       // Read graphics properties for preferred swapchain length and logging.
       XrSystemProperties system_properties = {XR_TYPE_SYSTEM_PROPERTIES};
-      CHECK_XRCMD(xrGetSystemProperties(instance_, system_id_, &system_properties));
-
-      // Log system properties.
-      Log::Write(
-          Log::Level::Info, Fmt("System Properties: Name=%s VendorId=%d",
-                                system_properties.systemName, system_properties.vendorId));
-      Log::Write(
-          Log::Level::Info, Fmt("System Graphics Properties: MaxWidth=%d MaxHeight=%d MaxLayers=%d",
-                                system_properties.graphicsProperties.maxSwapchainImageWidth,
-                                system_properties.graphicsProperties.maxSwapchainImageHeight,
-                                system_properties.graphicsProperties.maxLayerCount));
-      Log::Write(
-          Log::Level::Info,
-          Fmt("System Tracking Properties: OrientationTracking=%s PositionTracking=%s",
-              system_properties.trackingProperties.orientationTracking == XR_TRUE ? "True"
-                                                                                  : "False",
-              system_properties.trackingProperties.positionTracking == XR_TRUE ? "True" : "False"));
+      xrGetSystemProperties(instance_, system_id_, &system_properties);
 
       // Note: No other view configurations exist at the time this code was written. If
       // this condition is not met, the project will need to be audited to see how support
@@ -291,12 +249,12 @@ namespace nar {
 
       // Query and cache view configuration views.
       uint32_t view_count;
-      CHECK_XRCMD(xrEnumerateViewConfigurationViews(
-          instance_, system_id_, options_->Parsed.view_config_type, 0, &view_count, nullptr));
+      xrEnumerateViewConfigurationViews(
+          instance_, system_id_, options_->Parsed.view_config_type, 0, &view_count, nullptr);
       config_views_.resize(view_count, {XR_TYPE_VIEW_CONFIGURATION_VIEW});
-      CHECK_XRCMD(xrEnumerateViewConfigurationViews(
+      xrEnumerateViewConfigurationViews(
           instance_, system_id_, options_->Parsed.view_config_type, view_count, &view_count,
-          config_views_.data()));
+          config_views_.data());
 
       // Create and cache view buffer for xrLocateViews later.
       views_.resize(view_count, {XR_TYPE_VIEW});
@@ -305,12 +263,11 @@ namespace nar {
       if (view_count > 0) {
          // Select a swapchain format.
          uint32_t swapchain_format_count;
-         CHECK_XRCMD(xrEnumerateSwapchainFormats(session_, 0, &swapchain_format_count, nullptr));
+         xrEnumerateSwapchainFormats(session_, 0, &swapchain_format_count, nullptr);
          std::vector<int64_t> swapchain_formats(swapchain_format_count);
-         CHECK_XRCMD(xrEnumerateSwapchainFormats(
+         xrEnumerateSwapchainFormats(
              session_, (uint32_t)swapchain_formats.size(), &swapchain_format_count,
-             swapchain_formats.data()));
-         CHECK(swapchain_format_count == swapchain_formats.size());
+             swapchain_formats.data());
          color_swapchain_format_ = graphics_plugin_->SelectColorSwapchainFormat(swapchain_formats);
 
          // Print swapchain formats and the selected one.
@@ -329,20 +286,11 @@ namespace nar {
                if (selected)
                   swapchain_formats_string += "]";
             }
-            Log::Write(
-                Log::Level::Verbose,
-                Fmt("Swapchain Formats: %s", swapchain_formats_string.c_str()));
          }
 
          // Create a swapchain for each view.
          for (uint32_t i = 0; i < view_count; i++) {
             const XrViewConfigurationView &vp = config_views_[i];
-            Log::Write(
-                Log::Level::Info,
-                Fmt("Creating swapchain for view %d with dimensions Width=%d Height=%d "
-                    "SampleCount=%d",
-                    i, vp.recommendedImageRectWidth, vp.recommendedImageRectHeight,
-                    vp.recommendedSwapchainSampleCount));
 
             // Create the swapchain.
             XrSwapchainCreateInfo swapchain_create_info = {XR_TYPE_SWAPCHAIN_CREATE_INFO};
@@ -359,17 +307,17 @@ namespace nar {
             Swapchain swapchain;
             swapchain.width = swapchain_create_info.width;
             swapchain.height = swapchain_create_info.height;
-            CHECK_XRCMD(xrCreateSwapchain(session_, &swapchain_create_info, &swapchain.handle));
+            xrCreateSwapchain(session_, &swapchain_create_info, &swapchain.handle);
 
             swapchains_.push_back(swapchain);
 
             uint32_t image_count;
-            CHECK_XRCMD(xrEnumerateSwapchainImages(swapchain.handle, 0, &image_count, nullptr));
+            xrEnumerateSwapchainImages(swapchain.handle, 0, &image_count, nullptr);
             // XXX This should really just return XrSwapchainImageBaseHeader*
             std::vector<XrSwapchainImageBaseHeader *> swapchain_images =
                 graphics_plugin_->AllocateSwapchainImageStructs(image_count, swapchain_create_info);
-            CHECK_XRCMD(xrEnumerateSwapchainImages(
-                swapchain.handle, image_count, &image_count, swapchain_images[0]));
+            xrEnumerateSwapchainImages(
+                swapchain.handle, image_count, &image_count, swapchain_images[0]);
 
             swapchain_images_.insert(std::make_pair(swapchain.handle, std::move(swapchain_images)));
          }

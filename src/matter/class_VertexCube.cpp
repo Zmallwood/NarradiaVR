@@ -1,3 +1,11 @@
+/* Copyright (c) 2017-2023, The Khronos Group Inc.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * THIS FILE WAS MODIFIED FROM ITS ORIGINAL VERSION BY Zmallwood FOR Narradia. THE ORIGINAL
+ * LICENSE IS STATED IN LICENSE FILE.
+ */
+
 #include "Pch.h"
 #include "class_VertexCube.h"
 
@@ -20,7 +28,8 @@ namespace nar {
       XrVector3f kCornerRTF = {half_length, half_length, half_length};    // Right-top-front
 
       vertices_ = std::vector<Vertex>{
-          // A single side is specified as two triangles = 6 vertices
+          /* A single side is specified as two triangles = 6 vertices, and one color.
+           */
           CUBE_SIDE(
               kCornerLTB, kCornerLBF, kCornerLBB, kCornerLTB, kCornerLTF, kCornerLBF,
               kDarkRed), // -X

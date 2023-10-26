@@ -1,3 +1,11 @@
+/* Copyright (c) 2017-2023, The Khronos Group Inc.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * THIS FILE WAS MODIFIED FROM ITS ORIGINAL VERSION BY Zmallwood FOR Narradia. THE ORIGINAL
+ * LICENSE IS STATED IN LICENSE FILE.
+ */
+
 #pragma once
 #include "func_Math.Pose.h"
 
@@ -44,8 +52,7 @@ namespace nar {
          reference_space_create_info.referenceSpaceType = XR_REFERENCE_SPACE_TYPE_STAGE;
       }
       else {
-         throw std::invalid_argument(
-             Fmt("Unknown reference space type '%s'", referenceSpaceTypeStr.c_str()));
+         throw std::invalid_argument("Unknown reference space type: " + referenceSpaceTypeStr);
       }
 
       return reference_space_create_info;

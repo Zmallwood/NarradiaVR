@@ -1,6 +1,13 @@
+/* Copyright (c) 2017-2023, The Khronos Group Inc.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * THIS FILE WAS MODIFIED FROM ITS ORIGINAL VERSION BY Zmallwood FOR Narradia. THE ORIGINAL
+ * LICENSE IS STATED IN LICENSE FILE.
+ */
+
 #include "Pch.h"
 #include "system_Options.h"
-#include "engine/core/xr/common/func_Common.h"
 #include "engine/core/xr/program/system_OpenXrProgram.h"
 
 namespace nar {
@@ -40,7 +47,7 @@ namespace nar {
       if (EqualsIgnoreCase(form_factor_str, "Handheld"))
          return XR_FORM_FACTOR_HANDHELD_DISPLAY;
 
-      throw std::invalid_argument(Fmt("Unknown form factor '%s'", form_factor_str.c_str()));
+      throw std::invalid_argument("Unknown form factor: " + form_factor_str);
    }
 
    XrViewConfigurationType
@@ -51,8 +58,7 @@ namespace nar {
       if (EqualsIgnoreCase(view_configuration_str, "Stereo"))
          return XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO;
 
-      throw std::invalid_argument(
-          Fmt("Unknown view configuration '%s'", view_configuration_str.c_str()));
+      throw std::invalid_argument("Unknown view configuration: " + view_configuration_str);
    }
 
    XrEnvironmentBlendMode
@@ -66,8 +72,7 @@ namespace nar {
       if (EqualsIgnoreCase(environment_blend_mode_str, "AlphaBlend"))
          return XR_ENVIRONMENT_BLEND_MODE_ALPHA_BLEND;
 
-      throw std::invalid_argument(
-          Fmt("Unknown environment blend mode '%s'", environment_blend_mode_str.c_str()));
+      throw std::invalid_argument("Unknown environment blend mode: " + environment_blend_mode_str);
    }
 
    const char *
@@ -80,8 +85,7 @@ namespace nar {
       case XR_ENVIRONMENT_BLEND_MODE_ALPHA_BLEND:
          return "AlphaBlend";
       default:
-         throw std::invalid_argument(
-             Fmt("Unknown environment blend mode '%s'", to_string(environment_blend_mode)));
+         throw std::invalid_argument("Unknown environment blend mode.");
       }
    }
 }

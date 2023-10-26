@@ -1,7 +1,14 @@
+/* Copyright (c) 2017-2023, The Khronos Group Inc.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * THIS FILE WAS MODIFIED FROM ITS ORIGINAL VERSION BY Zmallwood FOR Narradia. THE ORIGINAL
+ * LICENSE IS STATED IN LICENSE FILE.
+ */
+
 #include "Pch.h"
 #include "system_Renderer.h"
 #include "engine/core/xr/program/system_OpenXrProgram.h"
-#include "engine/core/xr/common/func_Common.h"
 #include "engine/core/xr/graphics/system_GraphicsGL.h"
 #include "engine/system_OptionsManager.h"
 #include "matter/struct_Cube.h"
@@ -11,14 +18,12 @@ namespace nar {
    void Renderer::RenderFrame(std::vector<Cube> cubes_data) {
       auto session = OpenXrProgram::Get()->session();
 
-      CHECK(session != XR_NULL_HANDLE);
-
       XrFrameWaitInfo frame_wait_info = {XR_TYPE_FRAME_WAIT_INFO};
       XrFrameState frame_state = {XR_TYPE_FRAME_STATE};
-      CHECK_XRCMD(xrWaitFrame(session, &frame_wait_info, &frame_state));
+      xrWaitFrame(session, &frame_wait_info, &frame_state);
 
       XrFrameBeginInfo frame_begin_info = {XR_TYPE_FRAME_BEGIN_INFO};
-      CHECK_XRCMD(xrBeginFrame(session, &frame_begin_info));
+      xrBeginFrame(session, &frame_begin_info);
 
       std::vector<XrCompositionLayerBaseHeader *> layers;
       std::vector<XrCompositionLayerProjectionView> projection_layer_views;
@@ -39,6 +44,6 @@ namespace nar {
           OptionsManager::Get()->options()->Parsed.environment_blend_mode;
       frame_end_info.layerCount = (uint32_t)layers.size();
       frame_end_info.layers = layers.data();
-      CHECK_XRCMD(xrEndFrame(session, &frame_end_info));
+      xrEndFrame(session, &frame_end_info);
    }
 }

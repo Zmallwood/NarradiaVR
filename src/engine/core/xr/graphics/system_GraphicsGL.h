@@ -1,3 +1,11 @@
+/* Copyright (c) 2017-2023, The Khronos Group Inc.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * THIS FILE WAS MODIFIED FROM ITS ORIGINAL VERSION BY Zmallwood FOR Narradia. THE ORIGINAL
+ * LICENSE IS STATED IN LICENSE FILE.
+ */
+
 #pragma once
 #include "common/gfxwrapper_opengl.h"
 #include "matter/struct_Cube.h"
@@ -9,24 +17,15 @@ namespace nar {
    class GraphicsGL : public Singleton<GraphicsGL> {
      public:
       GraphicsGL();
-      GraphicsGL(const GraphicsGL &) = delete;
-      GraphicsGL &operator=(const GraphicsGL &) = delete;
-      GraphicsGL(GraphicsGL &&) = delete;
-      GraphicsGL &operator=(GraphicsGL &&) = delete;
       ~GraphicsGL();
       std::vector<std::string> GetInstanceExtensions() const;
-      void DebugMessageCallback(
-          GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length,
-          const GLchar *message);
       void InitializeDevice(XrInstance instance, XrSystemId system_id);
-      void InitializeResources();
       void CheckShader(GLuint shader);
       void CheckProgram(GLuint prog);
       int64_t SelectColorSwapchainFormat(const std::vector<int64_t> &runtime_formats) const;
       const XrBaseInStructure *GetGraphicsBinding() const;
       std::vector<XrSwapchainImageBaseHeader *> AllocateSwapchainImageStructs(
           uint32_t capacity, const XrSwapchainCreateInfo & /*swapchainCreateInfo*/);
-      uint32_t GetDepthTexture(uint32_t color_texture);
       void RenderView(
           const XrCompositionLayerProjectionView &layer_view,
           const XrSwapchainImageBaseHeader *swapchain_image, int64_t swapchain_format,
@@ -34,9 +33,11 @@ namespace nar {
       uint32_t GetSupportedSwapchainSampleCount(const XrViewConfigurationView &);
       void UpdateOptions();
 
-      ksGpuWindow window;
-
      private:
+      void InitializeResources();
+      uint32_t GetDepthTexture(uint32_t color_texture);
+
+      ksGpuWindow window_;
       XrGraphicsBindingOpenGLESAndroidKHR graphics_binding_ = {
           XR_TYPE_GRAPHICS_BINDING_OPENGL_ES_ANDROID_KHR};
       std::list<std::vector<XrSwapchainImageOpenGLESKHR>> swapchain_image_buffers_;

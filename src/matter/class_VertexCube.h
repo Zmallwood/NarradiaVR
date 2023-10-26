@@ -1,3 +1,11 @@
+/* Copyright (c) 2017-2023, The Khronos Group Inc.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * THIS FILE WAS MODIFIED FROM ITS ORIGINAL VERSION BY Zmallwood FOR Narradia. THE ORIGINAL
+ * LICENSE IS STATED IN LICENSE FILE.
+ */
+
 #pragma once
 
 namespace nar {
@@ -16,7 +24,8 @@ namespace nar {
      private:
       std::vector<Vertex> vertices_;
       std::vector<const unsigned short> indices_ = {
-          // Winding order is clockwise. Each side uses a different color.
+          /* Winding order is clockwise. Each side uses a different color.
+           */
           0,  1,  2,  3,  4,  5,  // -X
           6,  7,  8,  9,  10, 11, // +X
           12, 13, 14, 15, 16, 17, // -Y
