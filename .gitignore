@@ -1,6 +1,7 @@
 .gradle
 **/build/
 src/.design
+.cxx
 !src/**/build/
 
 # Ignore Gradle GUI config
