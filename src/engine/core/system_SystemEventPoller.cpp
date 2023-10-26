@@ -76,7 +76,7 @@ namespace nar {
       if (xr == XR_EVENT_UNAVAILABLE)
          return nullptr;
 
-      THROW_XR(xr, "xrPollEvent");
+      return nullptr;
    }
 
 }

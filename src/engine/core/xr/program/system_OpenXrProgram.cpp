@@ -158,7 +158,9 @@ namespace nar {
             return blend_mode;
       }
 
-      THROW("No acceptable blend mode returned from the xrEnumerateEnvironmentBlendModes");
+      __android_log_print(
+          ANDROID_LOG_ERROR, "Narradia",
+          "No acceptable blend mode returned from the xrEnumerateEnvironmentBlendModes.");
    }
 
    void OpenXrProgram::InitSystem() {
@@ -282,9 +284,10 @@ namespace nar {
       // Note: No other view configurations exist at the time this code was written. If
       // this condition is not met, the project will need to be audited to see how support
       // should be added.
-      CHECK_MSG(
-          options_->Parsed.view_config_type == XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO,
-          "Unsupported view configuration type");
+      if (options_->Parsed.view_config_type != XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO) {
+         __android_log_print(ANDROID_LOG_ERROR, "Narradia", "Unsupported view configuration type.");
+         return;
+      }
 
       // Query and cache view configuration views.
       uint32_t view_count;

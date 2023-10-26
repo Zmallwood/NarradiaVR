@@ -65,14 +65,13 @@ namespace nar {
       // Extension function must be loaded by name
       PFN_xrGetOpenGLESGraphicsRequirementsKHR pfn_get_open_gles_graphics_requirements_khr =
           nullptr;
-      CHECK_XRCMD(xrGetInstanceProcAddr(
+      xrGetInstanceProcAddr(
           instance, "xrGetOpenGLESGraphicsRequirementsKHR",
-          reinterpret_cast<PFN_xrVoidFunction *>(&pfn_get_open_gles_graphics_requirements_khr)));
+          reinterpret_cast<PFN_xrVoidFunction *>(&pfn_get_open_gles_graphics_requirements_khr));
 
       XrGraphicsRequirementsOpenGLESKHR graphics_requirements = {
           XR_TYPE_GRAPHICS_REQUIREMENTS_OPENGL_ES_KHR};
-      CHECK_XRCMD(
-          pfn_get_open_gles_graphics_requirements_khr(instance, system_id, &graphics_requirements));
+      pfn_get_open_gles_graphics_requirements_khr(instance, system_id, &graphics_requirements);
 
       // Initialize the gl extensions. Note we have to open a window.
       ksDriverInstance driver_instance = {};
@@ -80,10 +79,12 @@ namespace nar {
       ksGpuSurfaceColorFormat color_format = {KS_GPU_SURFACE_COLOR_FORMAT_B8G8R8A8};
       ksGpuSurfaceDepthFormat depth_format = {KS_GPU_SURFACE_DEPTH_FORMAT_D24};
       ksGpuSampleCount sample_count = {KS_GPU_SAMPLE_COUNT_1};
+
       if (!ksGpuWindow_Create(
               &window, &driver_instance, &queue_info, 0, color_format, depth_format, sample_count,
               640, 480, false)) {
-         THROW("Unable to create GL context");
+         __android_log_print(ANDROID_LOG_ERROR, "Narradia", "Unable to create GL context.");
+         return;
       }
 
       GLint major = 0;
@@ -93,16 +94,18 @@ namespace nar {
 
       const XrVersion desired_api_version = XR_MAKE_VERSION(major, minor, 0);
 
-      if (graphics_requirements.minApiVersionSupported > desired_api_version)
-         THROW("Runtime does not support desired Graphics API and/or version");
+      if (graphics_requirements.minApiVersionSupported > desired_api_version) {
+         __android_log_print(
+             ANDROID_LOG_ERROR, "Narradia",
+             "Runtime does not support desired Graphics API and/or version.");
+         return;
+      }
 
       context_api_major_version_ = major;
 
-#if defined(XR_USE_PLATFORM_ANDROID)
       graphics_binding_.display = window.display;
       graphics_binding_.config = (EGLConfig)0;
       graphics_binding_.context = window.context.context;
-#endif
 
       glEnable(GL_DEBUG_OUTPUT);
       glDebugMessageCallback(
@@ -178,7 +181,8 @@ namespace nar {
          GLchar msg[4096] = {};
          GLsizei length;
          glGetShaderInfoLog(shader, sizeof(msg), &length, msg);
-         THROW(Fmt("Compile shader failed: %s", msg));
+         __android_log_print(ANDROID_LOG_ERROR, "Narradia", "Compile shader failed: %s", msg);
+         return;
       }
    }
 
@@ -190,7 +194,8 @@ namespace nar {
          GLchar msg[4096] = {};
          GLsizei length;
          glGetProgramInfoLog(prog, sizeof(msg), &length, msg);
-         THROW(Fmt("Link program failed: %s", msg));
+         __android_log_print(ANDROID_LOG_ERROR, "Narradia", "Link program failed: %s", msg);
+         return;
       }
    }
 
@@ -208,8 +213,11 @@ namespace nar {
           runtime_formats.begin(), runtime_formats.end(), supported_color_swapchain_formats.begin(),
           supported_color_swapchain_formats.end());
 
-      if (swapchain_format_it == runtime_formats.end())
-         THROW("No runtime swapchain format supported for color swapchain");
+      if (swapchain_format_it == runtime_formats.end()) {
+         __android_log_print(
+             ANDROID_LOG_ERROR, "Narradia",
+             "No runtime swapchain format supported for color swapchain");
+      }
 
       return *swapchain_format_it;
    }

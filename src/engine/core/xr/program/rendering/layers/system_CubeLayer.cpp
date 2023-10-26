@@ -30,7 +30,8 @@ namespace nar {
       res = xrLocateViews(
           OpenXrProgram::Get()->session(), &view_locate_info, &view_state, view_capacity_input,
           &view_count_output, views.data());
-      CHECK_XRRESULT(res, "xrLocateViews");
+
+      CheckXrResult(res, "xrLocateViews", FILE_AND_LINE);
 
       OpenXrProgram::Get()->set_views(views);
 

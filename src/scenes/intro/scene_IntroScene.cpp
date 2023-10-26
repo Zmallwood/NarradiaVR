@@ -23,7 +23,6 @@ namespace nar {
          XrResult res = xrLocateSpace(
              visualized_space, OpenXrProgram::Get()->app_space(), predicted_display_time,
              &space_location);
-         // CHECK_XRRESULT(res, "xrLocateSpace");
 
          if (XR_UNQUALIFIED_SUCCESS(res)) {
             if ((space_location.locationFlags & XR_SPACE_LOCATION_POSITION_VALID_BIT) != 0 &&
@@ -45,7 +44,6 @@ namespace nar {
          XrResult res = xrLocateSpace(
              OpenXrProgram::Get()->input().hand_space[hand], OpenXrProgram::Get()->app_space(),
              predicted_display_time, &space_location);
-         // CHECK_XRRESULT(res, "xrLocateSpace");
 
          if (XR_UNQUALIFIED_SUCCESS(res)) {
             if ((space_location.locationFlags & XR_SPACE_LOCATION_POSITION_VALID_BIT) != 0 &&
