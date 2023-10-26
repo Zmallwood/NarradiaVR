@@ -13,13 +13,15 @@
  *   limitations under the License.
  */
 
-#include "Pch.h"
-#include "Game.h"
+#pragma once
 
-/** This is the main entry point of a native application that is using
- *  android_native_app_glue.  It runs in its own thread, with its own
- *  event loop for receiving input events and doing other things.
- */
-void android_main(struct android_app *app) {
-   nar::Game().Run(app);
+namespace nar {
+   /** Loads and provides images used in the rendering.
+    */
+   class ImageBank : public Singleton<ImageBank> {
+     public:
+      void LoadImages();
+
+     private:
+   };
 }

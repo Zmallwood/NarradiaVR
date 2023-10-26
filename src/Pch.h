@@ -30,13 +30,11 @@
 /**
  * Platform Headers
  */
-#ifdef XR_USE_PLATFORM_ANDROID
 #include <android/log.h>
 #include <android/native_window.h>
 #include <android_native_app_glue.h>
 #include <jni.h>
 #include <sys/system_properties.h>
-#endif
 
 /**
  * Graphics Headers
@@ -50,12 +48,15 @@
 #include <openxr/openxr_platform.h>
 #include <openxr/openxr_reflection.h>
 
+#include "common/gfxwrapper_opengl.h"
+
+
 /**
  * Narradia Headers
  */
-#include "common/class_Singleton.h"
-#include "engine/func_Utilities.h"
-#include "matter/struct_Vertex.h"
-#include "matter/class_VertexCube.h"
-#include "matter/struct_Point.h"
-#include "matter/const_Colors.h"
+#include "system/class_Singleton.h"
+#include "system/func_Utilities.h"
+#include "model/matter/struct_Vertex.h"
+#include "model/matter/class_VertexCube.h"
+#include "model/matter/struct_Point.h"
+#include "model/matter/const_Colors.h"

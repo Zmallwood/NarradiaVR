@@ -14,12 +14,22 @@
  */
 
 #include "Pch.h"
-#include "Game.h"
+#include "scene_MainMenuScene.h"
+#include "view/rendering/system_Renderer.h"
+#include "model/matter/struct_Cube.h"
+#include "controller/system_ControllerInput.h"
+#include "model/Engine.h"
 
-/** This is the main entry point of a native application that is using
- *  android_native_app_glue.  It runs in its own thread, with its own
- *  event loop for receiving input events and doing other things.
- */
-void android_main(struct android_app *app) {
-   nar::Game().Run(app);
+namespace nar {
+   void MainMenuScene::UpdateDerived() {
+      if (ControllerInput::Get()->right_input_controller()->HasBeenGrabbedPickResult()) {
+         Engine::Get()->scene_manager()->set_new_scene(SceneNames::Main);
+      }
+   }
+
+   void MainMenuScene::RenderDerived() {
+      std::vector<Cube> cubes;
+      Renderer::Get()->RenderFrame(cubes);
+      Renderer::Get()->RenderFrame(cubes);
+   }
 }
