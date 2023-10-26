@@ -1,1 +1,0 @@
-/home/andreas/Code/C++/VR/OpenXR/src/tests/Forradia/build/intermediates/cxx/Debug/57354i6q/obj/armeabi-v7a
