@@ -8,9 +8,9 @@
 
 #include "Pch.h"
 #include "Game.h"
-#include "model/Engine.h"
-#include "view/EngineView.h"
-#include "controller/EngineController.h"
+#include "engine/model/Engine.h"
+#include "engine/view/EngineView.h"
+#include "engine/controller/EngineController.h"
 
 namespace nar {
    /** Start new game instance.
