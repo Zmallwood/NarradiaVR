@@ -7,8 +7,8 @@
  */
 
 #include "Pch.h"
-#include "system_Options.h"
-#include "system_OpenXrProgram.h"
+#include "Options.h"
+#include "OpenXrProgram.h"
 
 namespace nar {
    void Options::ParseStrings() {

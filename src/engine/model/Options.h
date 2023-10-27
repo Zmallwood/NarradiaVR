@@ -13,10 +13,10 @@ namespace nar {
    class Options {
      public:
       std::string graphics_plugin;
-      std::string form_factor{"Hmd"};
-      std::string view_configuration{"Stereo"};
-      std::string environment_blend_mode{"Opaque"};
-      std::string app_space{"Local"};
+      std::string form_factor = "Hmd";
+      std::string view_configuration = "Stereo";
+      std::string environment_blend_mode = "Opaque";
+      std::string app_space = "Local";
 
       struct {
          XrFormFactor form_factor = {XR_FORM_FACTOR_HEAD_MOUNTED_DISPLAY};

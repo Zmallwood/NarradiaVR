@@ -10,7 +10,10 @@
 #include "Side.h"
 
 namespace nar {
-   struct InputState {
+   class InputState : public Singleton<InputState> {
+     public:
+      ~InputState();
+
       XrActionSet action_set = {XR_NULL_HANDLE};
       XrAction grab_action = {XR_NULL_HANDLE};
       XrAction pose_action = {XR_NULL_HANDLE};

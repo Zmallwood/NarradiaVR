@@ -7,13 +7,12 @@
  */
 
 #pragma once
-#include "engine/model/InputState.h"
-#include "engine/model/Swapchain.h"
+#include "InputState.h"
 
 namespace nar {
    struct Options;
    class AndroidPlatform;
-   class GraphicsGL;
+   class GraphicsGLView;
 
    class OpenXrProgram : public Singleton<OpenXrProgram> {
      public:
@@ -36,44 +35,12 @@ namespace nar {
          return session_;
       }
 
-      std::vector<XrView> views() {
-         return views_;
-      }
-
-      void set_views(std::vector<XrView> value) {
-         views_ = value;
-      }
-
       XrSpace app_space() {
          return app_space_;
       }
 
-      std::vector<XrViewConfigurationView> config_views() {
-         return config_views_;
-      }
-
-      std::vector<Swapchain> swapchains() {
-         return swapchains_;
-      }
-
       std::vector<XrSpace> visualized_spaces() {
          return visualized_spaces_;
-      }
-
-      InputState input() {
-         return input_;
-      }
-
-      void set_input(InputState value) {
-         input_ = value;
-      }
-
-      std::map<XrSwapchain, std::vector<XrSwapchainImageBaseHeader *>> swapchain_images() {
-         return swapchain_images_;
-      }
-
-      int64_t color_swapchain_format() {
-         return color_swapchain_format_;
       }
 
       XrInstance instance() {
@@ -92,6 +59,10 @@ namespace nar {
          return session_state_;
       }
 
+      std::shared_ptr<GraphicsGLView> graphics_plugin() {
+         return graphics_plugin_;
+      }
+
      private:
       void CreateInstanceInternal();
       void CreateInstance();
@@ -99,28 +70,21 @@ namespace nar {
       void InitDevice();
       void CreateVisualizedSpaces();
       void InitSession();
-      void CreateSwapchains();
       XrReferenceSpaceCreateInfo
       GetXrReferenceSpaceCreateInfo(const std::string &referenceSpaceTypeStr);
 
       const std::shared_ptr<const Options> options_;
       std::shared_ptr<AndroidPlatform> platform_plugin_;
-      std::shared_ptr<GraphicsGL> graphics_plugin_;
+      std::shared_ptr<GraphicsGLView> graphics_plugin_;
       XrInstance instance_ = {XR_NULL_HANDLE};
       XrSession session_ = {XR_NULL_HANDLE};
       XrSpace app_space_ = {XR_NULL_HANDLE};
       XrSystemId system_id_ = {XR_NULL_SYSTEM_ID};
-      std::vector<XrViewConfigurationView> config_views_;
-      std::vector<Swapchain> swapchains_;
-      std::map<XrSwapchain, std::vector<XrSwapchainImageBaseHeader *>> swapchain_images_;
-      std::vector<XrView> views_;
-      int64_t color_swapchain_format_ = {-1};
       std::vector<XrSpace> visualized_spaces_;
       // Application's current lifecycle state according to the runtime
       XrSessionState session_state_ = {XR_SESSION_STATE_UNKNOWN};
       bool session_running_ = {false};
       XrEventDataBuffer event_data_buffer_;
-      InputState input_;
       const std::set<XrEnvironmentBlendMode> kAcceptableBlendModes;
    };
 }

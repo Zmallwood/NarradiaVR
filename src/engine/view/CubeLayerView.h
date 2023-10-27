@@ -10,7 +10,7 @@
 #include "matter/model/Cube.h"
 
 namespace nar {
-   class CubeLayer {
+   class CubeLayerView {
      public:
       bool Render(
           XrTime predicted_display_time,

@@ -7,7 +7,7 @@
  */
 
 #pragma once
-#include "engine/model/AndroidAppState.h"
+#include "AndroidAppState.h"
 
 namespace nar {
    class AndroidVRAppManager : public Singleton<AndroidVRAppManager> {

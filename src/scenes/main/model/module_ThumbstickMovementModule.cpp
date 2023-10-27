@@ -25,14 +25,14 @@ namespace nar {
           static_cast<float>(clock() - Player::Get()->ticks_last_movement) / CLOCKS_PER_SEC;
 
       if (delta_t > Player::Get()->movement_speed) {
-         auto delta_x = GET(HandDeviceInput)->left_input_controller()->thumbstick_x();
-         auto delta_y = GET(HandDeviceInput)->left_input_controller()->thumbstick_y();
+         auto delta_x = HandDeviceInput::Get()->left_input_controller()->thumbstick_x();
+         auto delta_y = HandDeviceInput::Get()->left_input_controller()->thumbstick_y();
          auto x_sign = delta_x / std::abs(delta_x);
          auto y_sign = delta_y / std::abs(delta_y);
 
          if (delta_x != 0 || delta_y != 0) {
-            GET(Player)->x += GET(Player)->movement_step_size * x_sign;
-            GET(Player)->y += GET(Player)->movement_step_size * y_sign;
+            Player::Get()->x += Player::Get()->movement_step_size * x_sign;
+            Player::Get()->y += Player::Get()->movement_step_size * y_sign;
             Player::Get()->ticks_last_movement = clock();
          }
       }

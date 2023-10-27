@@ -49,6 +49,7 @@
 #include <openxr/openxr_reflection.h>
 
 #include "common/gfxwrapper_opengl.h"
+#include <common/xr_linear.h>
 
 /**
  * Narradia Headers

@@ -7,8 +7,8 @@
  */
 
 #include "Pch.h"
-#include "system_AndroidPlatform.h"
-#include "engine/model/AndroidVRAppManager.h"
+#include "AndroidPlatform.h"
+#include "AndroidVRAppManager.h"
 
 namespace nar {
    AndroidPlatform::AndroidPlatform() {

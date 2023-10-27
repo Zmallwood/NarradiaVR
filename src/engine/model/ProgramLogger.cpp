@@ -7,9 +7,9 @@
  */
 
 #include "Pch.h"
-#include "system_ProgramLogger.h"
-#include "system_OpenXrProgram.h"
-#include "system_OptionsManager.h"
+#include "ProgramLogger.h"
+#include "OpenXrProgram.h"
+#include "OptionsManager.h"
 
 namespace nar {
    void ProgramLogger::LogInstanceInfo() {

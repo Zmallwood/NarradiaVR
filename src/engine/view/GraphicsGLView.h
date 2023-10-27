@@ -8,16 +8,16 @@
 
 #pragma once
 #include "matter/model/Cube.h"
-#include "class_ShaderProgram.h"
+#include "ShaderProgramView.h"
 
 namespace nar {
    struct Options;
    class AndroidPlatform;
 
-   class GraphicsGL : public Singleton<GraphicsGL> {
+   class GraphicsGLView : public Singleton<GraphicsGLView> {
      public:
-      GraphicsGL();
-      ~GraphicsGL();
+      GraphicsGLView();
+      ~GraphicsGLView();
       std::vector<std::string> GetInstanceExtensions() const;
       void InitializeDevice(XrInstance instance, XrSystemId system_id);
       int64_t SelectColorSwapchainFormat(const std::vector<int64_t> &runtime_formats) const;
@@ -50,6 +50,6 @@ namespace nar {
       // Map color buffer to associated depth buffer. This map is populated on demand.
       std::map<uint32_t, uint32_t> color_to_depth_map_;
       std::array<float, 4> clear_color_;
-      ShaderProgram shader_program_;
+      ShaderProgramView shader_program_;
    };
 }

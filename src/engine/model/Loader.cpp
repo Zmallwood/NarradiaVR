@@ -7,8 +7,8 @@
  */
 
 #include "Pch.h"
-#include "system_Loader.h"
-#include "engine/model/AndroidVRAppManager.h"
+#include "Loader.h"
+#include "AndroidVRAppManager.h"
 
 namespace nar {
    void Loader::Init() {

@@ -7,8 +7,8 @@
  */
 
 #include "Pch.h"
-#include "system_OptionsManager.h"
-#include "system_Options.h"
+#include "OptionsManager.h"
+#include "Options.h"
 
 namespace nar {
    void OptionsManager::Init() {

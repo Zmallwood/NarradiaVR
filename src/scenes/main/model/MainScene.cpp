@@ -12,6 +12,6 @@
 
 namespace nar {
    void MainScene::UpdateGameLogic() {
-      GET(ThumbstickMovementModule)->Update();
+      ThumbstickMovementModule::Get()->Update();
    }
 }

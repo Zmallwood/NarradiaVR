@@ -7,15 +7,15 @@
  */
 
 #include "Pch.h"
-#include "class_ShaderProgram.h"
+#include "ShaderProgramView.h"
 
 namespace nar {
-   void ShaderProgram::Init() {
+   void ShaderProgramView::Init() {
       const char *vertex_shader_glsl = // The version statement has come on first line.
-#include "ShaderVertex.inc.cpp"
+#include "ShaderSourceVertex.inc.cpp"
           ;
       const char *fragment_shader_glsl = // The version statement has come on first line.
-#include "ShaderFragment.inc.cpp"
+#include "ShaderSourceFragment.inc.cpp"
           ;
 
       GLuint vertex_shader = glCreateShader(GL_VERTEX_SHADER);
@@ -38,12 +38,12 @@ namespace nar {
       glDeleteShader(fragment_shader);
    }
 
-   void ShaderProgram::Cleanup() {
+   void ShaderProgramView::Cleanup() {
       if (program_ != 0)
          glDeleteProgram(program_);
    }
 
-   void ShaderProgram::CheckShader(GLuint shader) {
+   void ShaderProgramView::CheckShader(GLuint shader) {
       GLint r = 0;
       glGetShaderiv(shader, GL_COMPILE_STATUS, &r);
 
@@ -56,7 +56,7 @@ namespace nar {
       }
    }
 
-   void ShaderProgram::CheckProgram(GLuint prog) {
+   void ShaderProgramView::CheckProgram(GLuint prog) {
       GLint r = 0;
       glGetProgramiv(prog, GL_LINK_STATUS, &r);
 

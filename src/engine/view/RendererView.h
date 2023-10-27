@@ -10,7 +10,7 @@
 #include "matter/model/Cube.h"
 
 namespace nar {
-   class Renderer : public Singleton<Renderer> {
+   class RendererView : public Singleton<RendererView> {
      public:
       void RenderFrame(std::vector<Cube> cubes_data);
 

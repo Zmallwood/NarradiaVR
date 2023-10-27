@@ -7,22 +7,21 @@
  */
 
 #pragma once
-#include "system_Options.h"
 
 namespace nar {
-   struct Options;
-
-   class OptionsManager : public Singleton<OptionsManager> {
+   class ShaderProgramView {
      public:
       void Init();
+      void Cleanup();
 
-      std::shared_ptr<Options> options() {
-         return options_;
+      GLuint program() {
+         return program_;
       }
 
      private:
-      void UpdateOptionsFromSystemProperties();
+      void CheckShader(GLuint shader);
+      void CheckProgram(GLuint prog);
 
-      std::shared_ptr<Options> options_ = std::make_shared<Options>();
+      GLuint program_ = 0;
    };
 }

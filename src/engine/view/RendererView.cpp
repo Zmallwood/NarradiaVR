@@ -7,15 +7,15 @@
  */
 
 #include "Pch.h"
-#include "system_Renderer.h"
-#include "engine/system/system_OpenXrProgram.h"
-#include "engine/view/system_GraphicsGL.h"
-#include "engine/system/system_OptionsManager.h"
+#include "RendererView.h"
+#include "engine/model/OpenXrProgram.h"
+#include "engine/view/GraphicsGLView.h"
+#include "engine/model/OptionsManager.h"
 #include "matter/model/Cube.h"
-#include "system_CubeLayer.h"
+#include "CubeLayerView.h"
 
 namespace nar {
-   void Renderer::RenderFrame(std::vector<Cube> cubes_data) {
+   void RendererView::RenderFrame(std::vector<Cube> cubes_data) {
       auto session = OpenXrProgram::Get()->session();
 
       XrFrameWaitInfo frame_wait_info = {XR_TYPE_FRAME_WAIT_INFO};
@@ -31,7 +31,7 @@ namespace nar {
       predicted_display_time_ = frame_state.predictedDisplayTime;
 
       if (frame_state.shouldRender == XR_TRUE) {
-         CubeLayer cube_layer;
+         CubeLayerView cube_layer;
          if (cube_layer.Render(
                  frame_state.predictedDisplayTime, projection_layer_views, cubes_data))
             layers.push_back(

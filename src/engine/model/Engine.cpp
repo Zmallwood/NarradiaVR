@@ -1,28 +1,42 @@
+/* Copyright 2023 Zmallwood
+ *
+ *   Licensed under the Apache License, Version 2.0 (the "License");
+ *   you may not use this file except in compliance with the License.
+ *   You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *   Unless required by applicable law or agreed to in writing, software
+ *   distributed under the License is distributed on an "AS IS" BASIS,
+ *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *   See the License for the specific language governing permissions and
+ *   limitations under the License.
+ */
+
 #include "Pch.h"
 #include "Engine.h"
-#include "engine/system/system_OpenXrProgram.h"
-#include "engine/view/system_GraphicsGL.h"
-#include "engine/system/system_Loader.h"
-#include "engine/system/system_OptionsManager.h"
+#include "OpenXrProgram.h"
+#include "engine/view/GraphicsGLView.h"
+#include "Loader.h"
+#include "OptionsManager.h"
 #include "AndroidVRAppManager.h"
-#include "engine/model/ImageBank.h"
+#include "ImageBank.h"
 
 namespace nar {
    void Engine::Init(android_app *app) {
       app_ = app;
-      GET(AndroidVRAppManager)->set_app(app);
-      GET(AndroidVRAppManager)->Init();
-      GET(Loader)->Init();
-      GET(OpenXrProgram)->Init();
-      GET(OptionsManager)->Init();
-      GET(GraphicsGL)->UpdateOptions();
-      //GET(SceneManagerOLD)->InitScenes();
-      GET(ImageBank)->LoadImages();
+      AndroidVRAppManager::Get()->set_app(app);
+      AndroidVRAppManager::Get()->Init();
+      Loader::Get()->Init();
+      OpenXrProgram::Get()->Init();
+      OptionsManager::Get()->Init();
+      GraphicsGLView::Get()->UpdateOptions();
+      ImageBank::Get()->LoadImages();
    }
 
    Engine::~Engine() {
-      GET(AndroidVRAppManager)->Cleanup();
-      nar::DisposeAllSingletons();
+      AndroidVRAppManager::Get()->Cleanup();
+      DisposeAllSingletons();
    }
 
    void Engine::UpdateGameLogic() {

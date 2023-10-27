@@ -7,14 +7,15 @@
  */
 
 #include "Pch.h"
-#include "system_CubeLayer.h"
-#include "engine/system/system_OpenXrProgram.h"
-#include "engine/system/system_OptionsManager.h"
+#include "CubeLayerView.h"
+#include "engine/model/OpenXrProgram.h"
+#include "engine/view/SwapchainManagerView.h"
+#include "engine/model/OptionsManager.h"
 #include "matter/model/Cube.h"
-#include "engine/view/system_GraphicsGL.h"
+#include "engine/view/GraphicsGLView.h"
 
 namespace nar {
-   bool CubeLayer::Render(
+   bool CubeLayerView::Render(
        XrTime predicted_display_time,
        std::vector<XrCompositionLayerProjectionView> &projection_layer_views,
        std::vector<Cube> cubes_data) {
@@ -23,7 +24,7 @@ namespace nar {
       XrResult res;
 
       XrViewState view_state = {XR_TYPE_VIEW_STATE};
-      uint32_t view_capacity_input = (uint32_t)OpenXrProgram::Get()->views().size();
+      uint32_t view_capacity_input = (uint32_t)SwapchainManagerView::Get()->views().size();
       uint32_t view_count_output;
 
       XrViewLocateInfo view_locate_info = {XR_TYPE_VIEW_LOCATE_INFO};
@@ -32,7 +33,7 @@ namespace nar {
       view_locate_info.displayTime = predicted_display_time;
       view_locate_info.space = OpenXrProgram::Get()->app_space();
 
-      std::vector<XrView> views = OpenXrProgram::Get()->views();
+      std::vector<XrView> views = SwapchainManagerView::Get()->views();
 
       res = xrLocateViews(
           OpenXrProgram::Get()->session(), &view_locate_info, &view_state, view_capacity_input,
@@ -40,11 +41,11 @@ namespace nar {
 
       if (XR_FAILED(res)) {
          __android_log_print(
-             ANDROID_LOG_ERROR, "Narradia", "XrResult failure: xrLocateViews in CubeLayer::Render");
+             ANDROID_LOG_ERROR, "Narradia", "XrResult failure: xrLocateViews in CubeLayerView::Render");
          return false;
       }
 
-      OpenXrProgram::Get()->set_views(views);
+      SwapchainManagerView::Get()->set_views(views);
 
       if ((view_state.viewStateFlags & XR_VIEW_STATE_POSITION_VALID_BIT) == 0 ||
           (view_state.viewStateFlags & XR_VIEW_STATE_ORIENTATION_VALID_BIT) == 0) {
@@ -57,7 +58,7 @@ namespace nar {
       for (uint32_t i = 0; i < view_count_output; i++) {
          // Each view has a separate swapchain which is acquired, rendered to, and
          // released.
-         const Swapchain view_swapchain = OpenXrProgram::Get()->swapchains()[i];
+         const Swapchain view_swapchain = SwapchainManagerView::Get()->swapchains()[i];
 
          XrSwapchainImageAcquireInfo acquire_info = {XR_TYPE_SWAPCHAIN_IMAGE_ACQUIRE_INFO};
 
@@ -70,18 +71,19 @@ namespace nar {
          xrWaitSwapchainImage(view_swapchain.handle, &wait_info);
 
          projection_layer_views[i] = {XR_TYPE_COMPOSITION_LAYER_PROJECTION_VIEW};
-         projection_layer_views[i].pose = OpenXrProgram::Get()->views()[i].pose;
-         projection_layer_views[i].fov = OpenXrProgram::Get()->views()[i].fov;
+         projection_layer_views[i].pose = SwapchainManagerView::Get()->views()[i].pose;
+         projection_layer_views[i].fov = SwapchainManagerView::Get()->views()[i].fov;
          projection_layer_views[i].subImage.swapchain = view_swapchain.handle;
          projection_layer_views[i].subImage.imageRect.offset = {0, 0};
          projection_layer_views[i].subImage.imageRect.extent = {
              view_swapchain.width, view_swapchain.height};
 
          const XrSwapchainImageBaseHeader *const swapchain_image =
-             OpenXrProgram::Get()->swapchain_images()[view_swapchain.handle][swapchain_image_index];
-         GraphicsGL::Get()->RenderView(
+             SwapchainManagerView::Get()
+                 ->swapchain_images()[view_swapchain.handle][swapchain_image_index];
+         GraphicsGLView::Get()->RenderView(
              projection_layer_views[i], swapchain_image,
-             OpenXrProgram::Get()->color_swapchain_format(), cubes_data);
+             SwapchainManagerView::Get()->color_swapchain_format(), cubes_data);
 
          XrSwapchainImageReleaseInfo release_info = {XR_TYPE_SWAPCHAIN_IMAGE_RELEASE_INFO};
          xrReleaseSwapchainImage(view_swapchain.handle, &release_info);

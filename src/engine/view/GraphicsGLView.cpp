@@ -7,18 +7,17 @@
  */
 
 #include "Pch.h"
-#include "system_GraphicsGL.h"
+#include "GraphicsGLView.h"
 #include "engine/model/ModelBank.h"
-#include "engine/system/system_Options.h"
-#include "engine/system/system_OptionsManager.h"
-#include <common/xr_linear.h>
+#include "engine/model/Options.h"
+#include "engine/model/OptionsManager.h"
 
 namespace nar {
-   GraphicsGL::GraphicsGL()
+   GraphicsGLView::GraphicsGLView()
        : clear_color_(OptionsManager::Get()->options()->GetBackgroundClearColor()) {
    }
 
-   GraphicsGL::~GraphicsGL() {
+   GraphicsGLView::~GraphicsGLView() {
       if (swapchain_framebuffer_ != 0)
          glDeleteFramebuffers(1, &swapchain_framebuffer_);
 
@@ -41,11 +40,11 @@ namespace nar {
       ksGpuWindow_Destroy(&window_);
    }
 
-   std::vector<std::string> GraphicsGL::GetInstanceExtensions() const {
+   std::vector<std::string> GraphicsGLView::GetInstanceExtensions() const {
       return {XR_KHR_OPENGL_ES_ENABLE_EXTENSION_NAME};
    }
 
-   void GraphicsGL::InitializeDevice(XrInstance instance, XrSystemId system_id) {
+   void GraphicsGLView::InitializeDevice(XrInstance instance, XrSystemId system_id) {
       // Extension function must be loaded by name
       PFN_xrGetOpenGLESGraphicsRequirementsKHR pfn_get_open_gles_graphics_requirements_khr =
           nullptr;
@@ -96,10 +95,10 @@ namespace nar {
       InitializeResources();
    }
 
-   void GraphicsGL::InitializeResources() {
+   void GraphicsGLView::InitializeResources() {
       shader_program_.Init();
 
-      auto vertex_cube = GET(ModelBank)->vertex_cube();
+      auto vertex_cube = ModelBank::Get()->vertex_cube();
 
       glGenFramebuffers(1, &swapchain_framebuffer_);
 
@@ -134,7 +133,7 @@ namespace nar {
    }
 
    int64_t
-   GraphicsGL::SelectColorSwapchainFormat(const std::vector<int64_t> &runtime_formats) const {
+   GraphicsGLView::SelectColorSwapchainFormat(const std::vector<int64_t> &runtime_formats) const {
       // List of supported color swapchain formats.
       std::vector<int64_t> supported_color_swapchain_formats = {GL_RGBA8, GL_RGBA8_SNORM};
 
@@ -156,11 +155,11 @@ namespace nar {
       return *swapchain_format_it;
    }
 
-   const XrBaseInStructure *GraphicsGL::GetGraphicsBinding() const {
+   const XrBaseInStructure *GraphicsGLView::GetGraphicsBinding() const {
       return reinterpret_cast<const XrBaseInStructure *>(&graphics_binding_);
    }
 
-   std::vector<XrSwapchainImageBaseHeader *> GraphicsGL::AllocateSwapchainImageStructs(
+   std::vector<XrSwapchainImageBaseHeader *> GraphicsGLView::AllocateSwapchainImageStructs(
        uint32_t capacity, const XrSwapchainCreateInfo & /*swapchainCreateInfo*/) {
       // Allocate and initialize the buffer of image structs (must be sequential in memory
       // for xrEnumerateSwapchainImages). Return back an array of pointers to each
@@ -178,7 +177,7 @@ namespace nar {
       return swapchain_image_base;
    }
 
-   uint32_t GraphicsGL::GetDepthTexture(uint32_t color_texture) {
+   uint32_t GraphicsGLView::GetDepthTexture(uint32_t color_texture) {
       // If a depth-stencil view has already been created for this back-buffer, use it.
       auto depth_buffer_it = color_to_depth_map_.find(color_texture);
 
@@ -210,11 +209,11 @@ namespace nar {
       return depth_texture;
    }
 
-   void GraphicsGL::RenderView(
+   void GraphicsGLView::RenderView(
        const XrCompositionLayerProjectionView &layer_view,
        const XrSwapchainImageBaseHeader *swapchain_image, int64_t swapchain_format,
        const std::vector<Cube> &cubes) {
-      auto vertex_cube = GET(ModelBank)->vertex_cube();
+      auto vertex_cube = ModelBank::Get()->vertex_cube();
 
       if (layer_view.subImage.imageArrayIndex != 0) {
          __android_log_print(ANDROID_LOG_ERROR, "Narradia", "Texture arrays not supported.");
@@ -290,11 +289,11 @@ namespace nar {
       glBindFramebuffer(GL_FRAMEBUFFER, 0);
    }
 
-   uint32_t GraphicsGL::GetSupportedSwapchainSampleCount(const XrViewConfigurationView &) {
+   uint32_t GraphicsGLView::GetSupportedSwapchainSampleCount(const XrViewConfigurationView &) {
       return 1;
    }
 
-   void GraphicsGL::UpdateOptions() {
+   void GraphicsGLView::UpdateOptions() {
       clear_color_ = OptionsManager::Get()->options()->GetBackgroundClearColor();
    }
 }

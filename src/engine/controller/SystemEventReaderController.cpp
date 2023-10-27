@@ -8,7 +8,7 @@
 
 #include "Pch.h"
 #include "SystemEventReaderController.h"
-#include "engine/system/system_OpenXrProgram.h"
+#include "engine/model/OpenXrProgram.h"
 #include "engine/model/AndroidVRAppManager.h"
 #include "engine/model/AndroidAppState.h"
 

@@ -1,14 +1,23 @@
+/* Copyright (c) 2017-2023, The Khronos Group Inc.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * THIS FILE WAS MODIFIED FROM ITS ORIGINAL VERSION BY Zmallwood FOR Narradia. THE ORIGINAL
+ * LICENSE IS STATED IN LICENSE FILE.
+ */
+
 #include "Pch.h"
 #include "SystemEventPollerController.h"
-#include "engine/system/system_OpenXrProgram.h"
-#include "engine/system/system_ProgramLogger.h"
+#include "engine/model/OpenXrProgram.h"
+#include "engine/model/ProgramLogger.h"
 #include "engine/model/Engine.h"
+#include "engine/model/InputState.h"
 
 namespace nar {
    void SystemEventPollerController::PollSystemEvents() {
-      auto input = OpenXrProgram::Get()->input();
+      auto input = InputState::Get();
 
-      GET(Engine)->set_exit_render_loop(false);
+      Engine::Get()->set_exit_render_loop(false);
 
       /* Process all pending messages.
        */
@@ -32,10 +41,10 @@ namespace nar {
             break;
          }
          case XR_TYPE_EVENT_DATA_INTERACTION_PROFILE_CHANGED:
-            ProgramLogger::Get()->LogActionSourceName(input.grab_action, "Grab");
-            ProgramLogger::Get()->LogActionSourceName(input.quit_action, "Quit");
-            ProgramLogger::Get()->LogActionSourceName(input.pose_action, "Pose");
-            ProgramLogger::Get()->LogActionSourceName(input.vibrate_action, "Vibrate");
+            ProgramLogger::Get()->LogActionSourceName(input->grab_action, "Grab");
+            ProgramLogger::Get()->LogActionSourceName(input->quit_action, "Quit");
+            ProgramLogger::Get()->LogActionSourceName(input->pose_action, "Pose");
+            ProgramLogger::Get()->LogActionSourceName(input->vibrate_action, "Vibrate");
             break;
          case XR_TYPE_EVENT_DATA_REFERENCE_SPACE_CHANGE_PENDING:
          default: {
