@@ -8,7 +8,7 @@
 
 #include "Pch.h"
 #include "MainScene.h"
-#include "module_ThumbstickMovementModule.h"
+#include "ThumbstickMovementModule.h"
 
 namespace nar {
    void MainScene::UpdateGameLogic() {

@@ -14,7 +14,7 @@
  */
 
 #include "Pch.h"
-#include "module_ThumbstickMovementModule.h"
+#include "ThumbstickMovementModule.h"
 #include "world/model/Player.h"
 #include "engine/model/HandDeviceInput.h"
 
