@@ -9,12 +9,12 @@
 #include "Pch.h"
 #include "SystemEventReaderController.h"
 #include "engine/system/system_OpenXrProgram.h"
-#include "engine/system/system_AndroidAppManager.h"
-#include "engine/model/struct_AndroidAppState.h"
+#include "engine/model/AndroidVRAppManager.h"
+#include "engine/model/AndroidAppState.h"
 
 namespace nar {
    void SystemEventReaderController::ReadSystemEvents() {
-      auto app = AndroidAppManager::Get()->app();
+      auto app = AndroidVRAppManager::Get()->app();
       auto app_state = static_cast<AndroidAppState *>(app->userData);
 
       /* Read all pending events.

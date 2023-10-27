@@ -8,7 +8,7 @@
 
 #include "Pch.h"
 #include "system_Loader.h"
-#include "system_AndroidAppManager.h"
+#include "engine/model/AndroidVRAppManager.h"
 
 namespace nar {
    void Loader::Init() {
@@ -22,9 +22,9 @@ namespace nar {
          XrLoaderInitInfoAndroidKHR loader_init_info_android = {
              XR_TYPE_LOADER_INIT_INFO_ANDROID_KHR};
 
-         loader_init_info_android.applicationVM = AndroidAppManager::Get()->app()->activity->vm;
+         loader_init_info_android.applicationVM = AndroidVRAppManager::Get()->app()->activity->vm;
          loader_init_info_android.applicationContext =
-             AndroidAppManager::Get()->app()->activity->clazz;
+             AndroidVRAppManager::Get()->app()->activity->clazz;
 
          initialize_loader((const XrLoaderInitInfoBaseHeaderKHR *)&loader_init_info_android);
       }

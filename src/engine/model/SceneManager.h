@@ -1,6 +1,6 @@
 #pragma once
 
-#include "engine/model/IScene.h"
+#include "IScene.h"
 #include "SceneNames.h"
 
 namespace nar {

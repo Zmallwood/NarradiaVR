@@ -7,10 +7,10 @@
  */
 
 #pragma once
-#include "engine/model/struct_AndroidAppState.h"
+#include "engine/model/AndroidAppState.h"
 
 namespace nar {
-   class AndroidAppManager : public Singleton<AndroidAppManager> {
+   class AndroidVRAppManager : public Singleton<AndroidVRAppManager> {
      public:
       void Init();
       void Cleanup();
@@ -24,6 +24,8 @@ namespace nar {
       }
 
      private:
+      static void HandleAppCmd(android_app *app, int32_t cmd);
+
       android_app *app_;
       AndroidAppState appState_;
    };

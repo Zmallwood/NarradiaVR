@@ -7,13 +7,23 @@
  */
 
 #include "Pch.h"
-#include "system_VRApp.h"
-#include "engine/model/struct_AndroidAppState.h"
+#include "AndroidVRAppManager.h"
 
 namespace nar {
+   void AndroidVRAppManager::Init() {
+      JNIEnv *env;
+      app_->activity->vm->AttachCurrentThread(&env, nullptr);
+      app_->userData = &appState_;
+      app_->onAppCmd = HandleAppCmd;
+   }
+
+   void AndroidVRAppManager::Cleanup() {
+      app_->activity->vm->DetachCurrentThread();
+   }
+
    /** Process the next main command.
     */
-   void VRApp::HandleAppCmd(struct android_app *app, int32_t cmd) {
+   void AndroidVRAppManager::HandleAppCmd(struct android_app *app, int32_t cmd) {
       AndroidAppState *app_state = (AndroidAppState *)app->userData;
 
       switch (cmd) {

@@ -7,8 +7,8 @@
  */
 
 #pragma once
-#include "engine/model/struct_InputState.h"
-#include "engine/model/struct_Swapchain.h"
+#include "engine/model/InputState.h"
+#include "engine/model/Swapchain.h"
 
 namespace nar {
    struct Options;
@@ -100,6 +100,8 @@ namespace nar {
       void CreateVisualizedSpaces();
       void InitSession();
       void CreateSwapchains();
+      XrReferenceSpaceCreateInfo
+      GetXrReferenceSpaceCreateInfo(const std::string &referenceSpaceTypeStr);
 
       const std::shared_ptr<const Options> options_;
       std::shared_ptr<AndroidPlatform> platform_plugin_;

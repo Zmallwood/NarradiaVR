@@ -50,13 +50,13 @@
 
 #include "common/gfxwrapper_opengl.h"
 
-
 /**
  * Narradia Headers
  */
-#include "engine/system/Singleton.h"
-#include "engine/system/func_Utilities.h"
+#include "common/Singleton.h"
 #include "matter/model/Vertex.h"
 #include "matter/model/VertexCube.h"
 #include "matter/model/Point.h"
 #include "matter/model/Colors.h"
+#include "utilities/model/Util.h"
+#include "utilities/view/UtilView.h"

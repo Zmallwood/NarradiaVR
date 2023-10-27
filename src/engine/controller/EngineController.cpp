@@ -1,6 +1,6 @@
 #include "Pch.h"
 #include "EngineController.h"
-#include "engine/system/system_AndroidAppManager.h"
+#include "engine/model/AndroidVRAppManager.h"
 #include "engine/system/system_OpenXrProgram.h"
 
 namespace nar {
@@ -17,14 +17,14 @@ namespace nar {
       else
          engine_.set_skip_frame(false);
 
-      engine_.set_game_is_running(GET(AndroidAppManager)->app()->destroyRequested == 0);
+      engine_.set_game_is_running(GET(AndroidVRAppManager)->app()->destroyRequested == 0);
 
       scene_manager_controller_.UpdateGameFlow();
    }
 
    bool EngineController::QuittingGameIfRequested() {
       if (engine_.exit_render_loop()) {
-         ANativeActivity_finish(GET(AndroidAppManager)->app()->activity);
+         ANativeActivity_finish(GET(AndroidVRAppManager)->app()->activity);
          return true;
       }
       return false;

@@ -41,10 +41,10 @@ namespace nar {
    }
 
    XrFormFactor Options::GetXrFormFactor(const std::string &form_factor_str) {
-      if (EqualsIgnoreCase(form_factor_str, "Hmd"))
+      if (Util::EqualsIgnoreCase(form_factor_str, "Hmd"))
          return XR_FORM_FACTOR_HEAD_MOUNTED_DISPLAY;
 
-      if (EqualsIgnoreCase(form_factor_str, "Handheld"))
+      if (Util::EqualsIgnoreCase(form_factor_str, "Handheld"))
          return XR_FORM_FACTOR_HANDHELD_DISPLAY;
 
       throw std::invalid_argument("Unknown form factor: " + form_factor_str);
@@ -52,10 +52,10 @@ namespace nar {
 
    XrViewConfigurationType
    Options::GetXrViewConfigurationType(const std::string &view_configuration_str) {
-      if (EqualsIgnoreCase(view_configuration_str, "Mono"))
+      if (Util::EqualsIgnoreCase(view_configuration_str, "Mono"))
          return XR_VIEW_CONFIGURATION_TYPE_PRIMARY_MONO;
 
-      if (EqualsIgnoreCase(view_configuration_str, "Stereo"))
+      if (Util::EqualsIgnoreCase(view_configuration_str, "Stereo"))
          return XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO;
 
       throw std::invalid_argument("Unknown view configuration: " + view_configuration_str);
@@ -63,13 +63,13 @@ namespace nar {
 
    XrEnvironmentBlendMode
    Options::GetXrEnvironmentBlendMode(const std::string &environment_blend_mode_str) {
-      if (EqualsIgnoreCase(environment_blend_mode_str, "Opaque"))
+      if (Util::EqualsIgnoreCase(environment_blend_mode_str, "Opaque"))
          return XR_ENVIRONMENT_BLEND_MODE_OPAQUE;
 
-      if (EqualsIgnoreCase(environment_blend_mode_str, "Additive"))
+      if (Util::EqualsIgnoreCase(environment_blend_mode_str, "Additive"))
          return XR_ENVIRONMENT_BLEND_MODE_ADDITIVE;
 
-      if (EqualsIgnoreCase(environment_blend_mode_str, "AlphaBlend"))
+      if (Util::EqualsIgnoreCase(environment_blend_mode_str, "AlphaBlend"))
          return XR_ENVIRONMENT_BLEND_MODE_ALPHA_BLEND;
 
       throw std::invalid_argument("Unknown environment blend mode: " + environment_blend_mode_str);

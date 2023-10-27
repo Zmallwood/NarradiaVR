@@ -8,14 +8,14 @@
 
 #include "Pch.h"
 #include "system_AndroidPlatform.h"
-#include "system_AndroidAppManager.h"
+#include "engine/model/AndroidVRAppManager.h"
 
 namespace nar {
    AndroidPlatform::AndroidPlatform() {
       instance_create_info_android_ = {XR_TYPE_INSTANCE_CREATE_INFO_ANDROID_KHR};
-      instance_create_info_android_.applicationVM = AndroidAppManager::Get()->app()->activity->vm;
+      instance_create_info_android_.applicationVM = AndroidVRAppManager::Get()->app()->activity->vm;
       instance_create_info_android_.applicationActivity =
-          AndroidAppManager::Get()->app()->activity->clazz;
+          AndroidVRAppManager::Get()->app()->activity->clazz;
    }
 
    std::vector<std::string> AndroidPlatform::GetInstanceExtensions() const {

@@ -13,7 +13,6 @@
 #include "engine/view/system_GraphicsGL.h"
 #include "system_AndroidPlatform.h"
 #include "engine/model/HandDeviceInput.h"
-#include "engine/model/func_GetXrReferenceSpaceCreateInfo.h"
 #include "system_ProgramLogger.h"
 #include "engine/controller/InputActionsController.h"
 #include <common/xr_linear.h>
@@ -168,22 +167,22 @@ namespace nar {
 
    void OpenXrProgram::CreateVisualizedSpaces() {
       std::string visualized_spaces[] = {"ViewFront",        "Local",      "Stage",
-                                        "StageLeft",        "StageRight", "StageLeftRotated",
-                                        "StageRightRotated"};
+                                         "StageLeft",        "StageRight", "StageLeftRotated",
+                                         "StageRightRotated"};
 
       for (const auto &visualized_space : visualized_spaces) {
-          XrReferenceSpaceCreateInfo reference_space_create_info =
-              GetXrReferenceSpaceCreateInfo(visualized_space);
-          XrSpace space;
-          XrResult res = xrCreateReferenceSpace(session_, &reference_space_create_info,
-          &space); if (XR_SUCCEEDED(res)) {
-              visualized_spaces_.push_back(space);
-          }
-          else {
-           __android_log_print(
-               ANDROID_LOG_WARN, "Narradia",
-               "Failed to create reference space for a tile with error %d", res);
-          }
+         XrReferenceSpaceCreateInfo reference_space_create_info =
+             GetXrReferenceSpaceCreateInfo(visualized_space);
+         XrSpace space;
+         XrResult res = xrCreateReferenceSpace(session_, &reference_space_create_info, &space);
+         if (XR_SUCCEEDED(res)) {
+            visualized_spaces_.push_back(space);
+         }
+         else {
+            __android_log_print(
+                ANDROID_LOG_WARN, "Narradia",
+                "Failed to create reference space for a tile with error %d", res);
+         }
       }
    }
 
@@ -294,5 +293,53 @@ namespace nar {
             swapchain_images_.insert(std::make_pair(swapchain.handle, std::move(swapchain_images)));
          }
       }
+   }
+
+   XrReferenceSpaceCreateInfo
+   OpenXrProgram::GetXrReferenceSpaceCreateInfo(const std::string &referenceSpaceTypeStr) {
+      XrReferenceSpaceCreateInfo reference_space_create_info = {
+          XR_TYPE_REFERENCE_SPACE_CREATE_INFO};
+      reference_space_create_info.poseInReferenceSpace = UtilView::Identity();
+
+      if (Util::EqualsIgnoreCase(referenceSpaceTypeStr, "View")) {
+         reference_space_create_info.referenceSpaceType = XR_REFERENCE_SPACE_TYPE_VIEW;
+      }
+      else if (Util::EqualsIgnoreCase(referenceSpaceTypeStr, "ViewFront")) {
+         // Render head-locked 2m in front of device.
+         reference_space_create_info.poseInReferenceSpace =
+             UtilView::Translation({0.f, 0.f, -2.f}),
+         reference_space_create_info.referenceSpaceType = XR_REFERENCE_SPACE_TYPE_VIEW;
+      }
+      else if (Util::EqualsIgnoreCase(referenceSpaceTypeStr, "Local")) {
+         reference_space_create_info.referenceSpaceType = XR_REFERENCE_SPACE_TYPE_LOCAL;
+      }
+      else if (Util::EqualsIgnoreCase(referenceSpaceTypeStr, "Stage")) {
+         reference_space_create_info.referenceSpaceType = XR_REFERENCE_SPACE_TYPE_STAGE;
+      }
+      else if (Util::EqualsIgnoreCase(referenceSpaceTypeStr, "StageLeft")) {
+         reference_space_create_info.poseInReferenceSpace =
+             UtilView::RotateCCWAboutYAxis(0.f, {-2.f, 0.f, -2.f});
+         reference_space_create_info.referenceSpaceType = XR_REFERENCE_SPACE_TYPE_STAGE;
+      }
+      else if (Util::EqualsIgnoreCase(referenceSpaceTypeStr, "StageRight")) {
+         reference_space_create_info.poseInReferenceSpace =
+             UtilView::RotateCCWAboutYAxis(0.f, {2.f, 0.f, -2.f});
+         reference_space_create_info.referenceSpaceType = XR_REFERENCE_SPACE_TYPE_STAGE;
+      }
+      else if (Util::EqualsIgnoreCase(referenceSpaceTypeStr, "StageLeftRotated")) {
+         reference_space_create_info.poseInReferenceSpace =
+             UtilView::RotateCCWAboutYAxis(3.14f / 3.f, {-2.f, 0.5f, -2.f});
+         reference_space_create_info.referenceSpaceType = XR_REFERENCE_SPACE_TYPE_STAGE;
+      }
+      else if (Util::EqualsIgnoreCase(referenceSpaceTypeStr, "StageRightRotated")) {
+         reference_space_create_info.poseInReferenceSpace =
+             UtilView::RotateCCWAboutYAxis(-3.14f / 3.f, {2.f, 0.5f, -2.f});
+         reference_space_create_info.referenceSpaceType = XR_REFERENCE_SPACE_TYPE_STAGE;
+      }
+      else {
+         throw std::invalid_argument("Unknown reference space type: " + referenceSpaceTypeStr);
+      }
+
+      return reference_space_create_info;
    }
 }
