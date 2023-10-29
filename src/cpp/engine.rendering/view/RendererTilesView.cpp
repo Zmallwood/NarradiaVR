@@ -45,13 +45,13 @@ namespace nar {
    }
 
    void RendererTilesView::DrawTile(
-       int image_name_hash, RenderId vao_id, XrMatrix4x4f viewProjectionMatrix,
+       std::string_view image_name, RenderId vao_id, XrMatrix4x4f viewProjectionMatrix,
        bool depth_test_off) {
-      DrawImagePolygon(image_name_hash, vao_id, 4, viewProjectionMatrix, depth_test_off);
+      DrawImagePolygon(image_name, vao_id, 4, viewProjectionMatrix, depth_test_off);
    }
 
    void RendererTilesView::UpdateDrawTile(
-       int image_name_hash, RenderId vao_id, Vertex3F &v0, Vertex3F &v1, Vertex3F &v2, Vertex3F &v3,
+       std::string_view image_name, RenderId vao_id, Vertex3F &v0, Vertex3F &v1, Vertex3F &v2, Vertex3F &v3,
        Point3F &normal00, Point3F &normal10, Point3F &normal11, Point3F &normal01,
        XrMatrix4x4f viewProjectionMatrix, bool depth_test_off) {
       std::vector<Vertex3F> vertices;
@@ -64,7 +64,7 @@ namespace nar {
       vertices.push_back(v2);
       vertices.push_back(v3);
       SetGeometryImagePolygon(vao_id, vertices);
-      DrawImagePolygon(image_name_hash, vao_id, 4, viewProjectionMatrix, depth_test_off);
+      DrawImagePolygon(image_name, vao_id, 4, viewProjectionMatrix, depth_test_off);
    }
 
    void RendererTilesView::StartBatchDrawing(XrMatrix4x4f viewProjectionMatrix) {
@@ -118,7 +118,7 @@ namespace nar {
    }
 
    void RendererTilesView::DrawImagePolygon(
-       int image_name_hash, RenderId vao_id, int vertex_count, XrMatrix4x4f viewProjectionMatrix,
+       std::string_view image_name, RenderId vao_id, int vertex_count, XrMatrix4x4f viewProjectionMatrix,
        bool depth_test_off) {
       if (depth_test_off)
          glDisable(GL_DEPTH_TEST);
@@ -164,7 +164,7 @@ namespace nar {
          glUniform3fv(location_fog_color_, 1, glm::value_ptr(fog_color_gl));
          glUseProgram(shader_program_view()->program_id());
       }
-      auto image_id = ImageBank::Get()->GetImage("ground_grass");
+      auto image_id = ImageBank::Get()->GetImage(image_name);
       glBindTexture(GL_TEXTURE_2D, image_id);
       glBindVertexArray(vao_id);
       glDrawElements(GL_TRIANGLE_FAN, vertex_count, GL_UNSIGNED_INT, NULL);

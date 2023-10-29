@@ -11,10 +11,10 @@ namespace nar {
           RenderId vao_id, Vertex3F &v0, Vertex3F &v1, Vertex3F &v2, Vertex3F &v3,
           Point3F &normal00, Point3F &normal10, Point3F &normal11, Point3F &normal01);
       void DrawTile(
-          int image_name_hash, RenderId vao_id, XrMatrix4x4f viewProjectionMatrix,
+          std::string_view image_name, RenderId vao_id, XrMatrix4x4f viewProjectionMatrix,
           bool depth_test_off = false);
       void UpdateDrawTile(
-          int image_name_hash, RenderId vao_id, Vertex3F &v0, Vertex3F &v1, Vertex3F &v2,
+          std::string_view image_name, RenderId vao_id, Vertex3F &v0, Vertex3F &v1, Vertex3F &v2,
           Vertex3F &v3, Point3F &normal00, Point3F &normal10, Point3F &normal11, Point3F &normal01,
           XrMatrix4x4f viewProjectionMatrix, bool depth_test_off = false);
       void StartBatchDrawing(XrMatrix4x4f viewProjectionMatrix);
@@ -22,7 +22,7 @@ namespace nar {
 
      private:
       void DrawImagePolygon(
-          int image_name_hash, RenderId vao_id, int vertex_count, XrMatrix4x4f viewProjectionMatrix,
+          std::string_view image_name, RenderId vao_id, int vertex_count, XrMatrix4x4f viewProjectionMatrix,
           bool depth_test_off = false);
       RenderId NewImagePolygon(int num_vertices);
       void SetGeometryImagePolygon(RenderId vao_id, std::vector<Vertex3F> &vertices);

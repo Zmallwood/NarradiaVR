@@ -13,11 +13,12 @@
 #include "engine/model/InputState.h"
 #include "world/model/Player.h"
 #include "engine.rendering/view/RendererTilesView.h"
+#include "world/model/World.h"
 
 namespace nar {
    MainSceneView::MainSceneView() {
-      for (auto y = -5; y <= 5; y++) {
-         for (auto x = -5; x <= 5; x++) {
+      for (auto y = -15; y < 15; y++) {
+         for (auto x = -15; x < 15; x++) {
             rendids_tiles[x][y] = RendererTilesView::Get()->NewTile();
          }
       }
@@ -83,8 +84,10 @@ namespace nar {
       // RendererView::Get()->RenderFrame(cubes);
 
       auto gl_code = [=](XrMatrix4x4f vp) {
-         for (auto y = -5; y <= 5; y++) {
-            for (auto x = -5; x <= 5; x++) {
+         auto map_area = World::Get()->current_map_area();
+
+         for (auto y = -15; y < 15; y++) {
+            for (auto x = -15; x < 15; x++) {
                Vertex3F v0;
                Vertex3F v1;
                Vertex3F v2;
@@ -115,8 +118,13 @@ namespace nar {
                Point3F normal11 = {0.0f, 1.0f, 0.0f};
                Point3F normal01 = {0.0f, 1.0f, 0.0f};
 
+               auto map_x = x + 50;
+               auto map_y = y + 50;
+
+               auto ground = map_area->tiles[map_x][map_y].ground;
+
                RendererTilesView::Get()->UpdateDrawTile(
-                   -99999999, rendids_tiles[x][y], v0, v1, v2, v3, normal00, normal10, normal11,
+                   ground, rendids_tiles[x][y], v0, v1, v2, v3, normal00, normal10, normal11,
                    normal01, vp);
             }
          }

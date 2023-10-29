@@ -21,6 +21,7 @@
 #include "OptionsManager.h"
 #include "AndroidVRAppManager.h"
 #include "ImageBank.h"
+#include "world.generation/model/MapGenerator.h"
 
 namespace nar {
    void Engine::Init(android_app *app) {
@@ -32,6 +33,7 @@ namespace nar {
       OptionsManager::Get()->Init();
       GraphicsGLView::Get()->UpdateOptions();
       ImageBank::Get()->LoadImages();
+      MapGenerator::Get()->GenerateMapArea();
    }
 
    Engine::~Engine() {
