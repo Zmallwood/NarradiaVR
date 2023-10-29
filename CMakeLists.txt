@@ -19,14 +19,14 @@ set(CMAKE_CXX_STANDARD 20)
 
 set(CMAKE_CXX_FLAGS "-Wfatal-errors -std=c++20")
 
-file(GLOB_RECURSE LOCAL_HEADERS "src/**.h")
-file(GLOB_RECURSE LOCAL_SOURCE "src/**.cpp")
-file(GLOB_RECURSE VULKAN_SHADERS "src/vulkan_shaders/**.glsl")
+file(GLOB_RECURSE LOCAL_HEADERS "src/cpp/**.h")
+file(GLOB_RECURSE LOCAL_SOURCE "src/cpp/**.cpp")
+file(GLOB_RECURSE VULKAN_SHADERS "src/cpp/vulkan_shaders/**.glsl")
 
 list(FILTER LOCAL_SOURCE EXCLUDE REGEX ".*inc.cpp$")
 
 # For including compiled shaders
-include_directories(${CMAKE_CURRENT_BINARY_DIR} "src")
+include_directories(${CMAKE_CURRENT_BINARY_DIR} "src/cpp")
 
 
 if(ANDROID)
@@ -35,7 +35,8 @@ if(ANDROID)
         ${LOCAL_HEADERS}
         ${VULKAN_SHADERS}
         $<TARGET_OBJECTS:android_native_app_glue>)
-    target_link_libraries(hello_xr ${ANDROID_LIBRARY} ${ANDROID_LOG_LIBRARY})
+
+    target_link_libraries(hello_xr ${ANDROID_LIBRARY} ${ANDROID_LOG_LIBRARY} ${CMAKE_CURRENT_SOURCE_DIR}/lib/libpng.a z)
 
     # Only for Android because it lacks a command line
     set(HELLOXR_DEFAULT_GRAPHICS_PLUGIN "OpenGLES" CACHE STRING "Which graphics plugin should be used by default for Hello XR artifacts?")
@@ -58,6 +59,7 @@ else()
         ${VULKAN_SHADERS})
 endif()
 set_target_properties(hello_xr PROPERTIES FOLDER ${SAMPLES_FOLDER})
+
 
 source_group("Headers" FILES ${LOCAL_HEADERS})
 source_group("Shaders" FILES ${VULKAN_SHADERS})

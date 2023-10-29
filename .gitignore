@@ -1,6 +1,8 @@
 .gradle
 **/build/
 src/.design
+src/main
+src/external
 .cxx
 !src/**/build/
 
