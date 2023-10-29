@@ -262,7 +262,9 @@ namespace nar {
       XrMatrix4x4f_CreateRotation(&rotation_mat, 0.0f, Player::Get()->facing_angle_degrees, 0.0f);
       XrQuaternionf rotation;
       XrMatrix4x4f_GetRotation(&rotation, &rotation_mat);
-      XrMatrix4x4f_CreateTranslationRotationScale(&to_view, &pose.position, &rotation, &scale);
+      XrQuaternionf result;
+      XrQuaternionf_Multiply(&result, &pose.orientation, &rotation);
+      XrMatrix4x4f_CreateTranslationRotationScale(&to_view, &pose.position, &result, &scale);
       XrMatrix4x4f view;
       XrMatrix4x4f_InvertRigidBody(&view, &to_view);
       XrMatrix4x4f vp;
