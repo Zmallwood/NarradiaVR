@@ -7,7 +7,7 @@
  */
 
 #include "Pch.h"
-#include "Genesis.h"
+#include "Game.h"
 #include "engine/model/Engine.h"
 #include "engine/view/EngineView.h"
 #include "engine/controller/EngineController.h"
@@ -15,7 +15,7 @@
 namespace nar {
    /** Start new game instance.
     */
-   void Genesis::Initiate(android_app *app) {
+   void Game::Run(android_app *app) {
       auto &engine = *Engine::Get(); // Cosmos
       engine.Init(app);
       EngineView engine_view(engine);

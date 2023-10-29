@@ -11,8 +11,8 @@
 namespace nar {
    /** Top most class in the project structure, called from android_main().
     */
-   class Genesis {
+   class Game {
      public:
-      void Initiate(android_app *app);
+      void Run(android_app *app);
    };
 }

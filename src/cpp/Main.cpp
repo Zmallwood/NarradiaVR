@@ -14,12 +14,12 @@
  */
 
 #include "Pch.h"
-#include "Genesis.h"
+#include "Game.h"
 
 /** This is the main entry point of a native application that is using
  *  android_native_app_glue.  It runs in its own thread, with its own
  *  event loop for receiving input events and doing other things.
  */
 void android_main(struct android_app *app) {
-   nar::Genesis().Initiate(app);
+   nar::Game().Run(app);
 }
