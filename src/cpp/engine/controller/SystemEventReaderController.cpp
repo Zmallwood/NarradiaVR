@@ -12,12 +12,11 @@ The original icense is stated in the LICENSE file. */
 #include "engine/model/AndroidAppState.h"
 
 namespace nar {
+   /// Read all pending events.
    void SystemEventReaderController::ReadSystemEvents() {
       auto app = AndroidVRAppManager::Get()->app();
       auto app_state = static_cast<AndroidAppState *>(app->userData);
 
-      /* Read all pending events.
-       */
       for (;;) {
          int events;
          struct android_poll_source *source;

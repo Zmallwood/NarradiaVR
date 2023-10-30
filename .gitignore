@@ -5,6 +5,8 @@ src/main
 src/external
 .cxx
 !src/**/build/
+BlenderModels
+lib
 
 # Ignore Gradle GUI config
 gradle-app.setting

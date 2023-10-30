@@ -1,7 +1,7 @@
 /* Copyright (c) 2017-2023, The Khronos Group Inc.
- 
-SPDX-License-Identifier: Apache-2.0 
- 
+
+SPDX-License-Identifier: Apache-2.0
+
 This file was modified from its original version by Zmallwood for Narradia.
 The original icense is stated in the LICENSE file. */
 
@@ -12,7 +12,7 @@ The original icense is stated in the LICENSE file. */
 #include "engine/view/GraphicsGLView.h"
 #include "AndroidPlatform.h"
 #include "HandDeviceInput.h"
-#include "engine/controller/InputActionsController.h"
+#include "engine/controller/InputActionsInitializerController.h"
 #include "Engine.h"
 #include "engine/view/SwapchainManagerView.h"
 
@@ -178,7 +178,8 @@ namespace nar {
          xrCreateSession(instance_, &create_info, &session_);
       }
 
-      InputActionsController::Get()->InitInputActions();
+      InputActionsInitializerController::Get()->InitInputActions();
+      //      InputActionsController::Get()->InitInputActions();
       CreateVisualizedSpaces();
 
       {
@@ -199,8 +200,7 @@ namespace nar {
       }
       else if (Util::EqualsIgnoreCase(referenceSpaceTypeStr, "ViewFront")) {
          // Render head-locked 2m in front of device.
-         reference_space_create_info.poseInReferenceSpace =
-             UtilView::Translation({0.f, 0.f, -2.f}),
+         reference_space_create_info.poseInReferenceSpace = UtilView::Translation({0.f, 0.f, -2.f}),
          reference_space_create_info.referenceSpaceType = XR_REFERENCE_SPACE_TYPE_VIEW;
       }
       else if (Util::EqualsIgnoreCase(referenceSpaceTypeStr, "Local")) {

@@ -26,7 +26,7 @@ file(GLOB_RECURSE VULKAN_SHADERS "src/cpp/vulkan_shaders/**.glsl")
 list(FILTER LOCAL_SOURCE EXCLUDE REGEX ".*inc.cpp$")
 
 # For including compiled shaders
-include_directories(${CMAKE_CURRENT_BINARY_DIR} "src/cpp")
+include_directories(${CMAKE_CURRENT_BINARY_DIR} "src/cpp" "src/external")
 
 
 if(ANDROID)
@@ -36,7 +36,7 @@ if(ANDROID)
         ${VULKAN_SHADERS}
         $<TARGET_OBJECTS:android_native_app_glue>)
 
-    target_link_libraries(hello_xr ${ANDROID_LIBRARY} ${ANDROID_LOG_LIBRARY} ${CMAKE_CURRENT_SOURCE_DIR}/lib/libpng.a z)
+    target_link_libraries(hello_xr ${ANDROID_LIBRARY} ${ANDROID_LOG_LIBRARY} ${CMAKE_CURRENT_SOURCE_DIR}/lib/libpng.a ${CMAKE_CURRENT_SOURCE_DIR}/lib/libassimp.a ${CMAKE_CURRENT_SOURCE_DIR}/lib/libandroid_jniiosystem.a z)
 
     # Only for Android because it lacks a command line
     set(HELLOXR_DEFAULT_GRAPHICS_PLUGIN "OpenGLES" CACHE STRING "Which graphics plugin should be used by default for Hello XR artifacts?")

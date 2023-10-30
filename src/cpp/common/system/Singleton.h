@@ -4,9 +4,7 @@ This code is licensed under Apache License, Version 2.0 (see LICENSE for details
 #pragma once
 
 namespace nar {
-
-   /** Singleton template class
-    */
+   /// Singleton template class.
    template <class T>
    class Singleton {
      public:
@@ -16,9 +14,7 @@ namespace nar {
      private:
       inline static std::shared_ptr<T> instance_;
    };
-
-   /** Create new instance if none exists
-    */
+   /// Create new instance of none exists.
    template <class T>
    void Singleton<T>::Touch() {
       if (!instance_) {
@@ -26,9 +22,7 @@ namespace nar {
          AddSingletonDisposeAction([&] { instance_.reset(); });
       }
    }
-
-   /** Get instance of object
-    */
+   /// Get instance of object.
    template <class T>
    std::shared_ptr<T> Singleton<T>::Get() {
       if (!instance_) // Create new instance if none exists

@@ -9,16 +9,18 @@ This code is licensed under Apache License, Version 2.0 (see LICENSE for details
 #include "SceneManagerController.h"
 #include "SystemEventReaderController.h"
 #include "SystemEventPollerController.h"
-#include "InputActionsController.h"
+#include "InputActionsPollerController.h"
 
 namespace nar {
+   /// Read and handle system events and player input actions.
    void EngineController::HandleInput() {
       SystemEventReaderController::Get()->ReadSystemEvents();
       SystemEventPollerController::Get()->PollSystemEvents();
-      InputActionsController::Get()->PollInputActions();
+      InputActionsPollerController::Get()->PollInputActions();
       SceneManagerController::Get()->HandleInput();
    }
 
+   /// Handle game flow regarding changing scenes and exiting the game.
    void EngineController::UpdateGameFlow() {
       if (QuittingGameIfRequested() || ThrottlingGameIfSessionNotRunning())
          Engine::Get()->set_skip_frame(true);
@@ -31,6 +33,7 @@ namespace nar {
       SceneManagerController::Get()->UpdateGameFlow();
    }
 
+   /// Check if has been requested to exit the game.
    bool EngineController::QuittingGameIfRequested() {
       if (Engine::Get()->exit_render_loop()) {
          ANativeActivity_finish(AndroidVRAppManager::Get()->app()->activity);
@@ -39,6 +42,7 @@ namespace nar {
       return false;
    }
 
+   /// Throttle game if session is not running.
    bool EngineController::ThrottlingGameIfSessionNotRunning() {
       if (!OpenXrProgram::Get()->IsSessionRunning()) {
          // Throttle loop since xrWaitFrame won't be called.

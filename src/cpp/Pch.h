@@ -49,18 +49,22 @@ The original icense is stated in the LICENSE file. */
 
 /* External headers
 */
-#include "../external/libpng/png.h"
-#include "../external/glm/glm.hpp"
-#include "../external/glm/gtc/matrix_transform.hpp"
-#include "../external/glm/gtc/type_ptr.hpp"
-#include "../external/glm/ext/matrix_projection.hpp"
-#include "../external/glm/gtx/closest_point.hpp"
+#include "libpng/png.h"
+#include "glm/glm.hpp"
+#include "glm/gtc/matrix_transform.hpp"
+#include "glm/gtc/type_ptr.hpp"
+#include "glm/ext/matrix_projection.hpp"
+#include "glm/gtx/closest_point.hpp"
+#include "assimp/Importer.hpp"
+#include "assimp/scene.h"
+#include "assimp/port/AndroidJNI/AndroidJNIIOSystem.h"
+//#include "assimp/postprocess.h"
 
 /* Narradia Headers
  */
-#include "common/Typedefs.h"
-#include "common/SingletonsCleanup.h"
-#include "common/Singleton.h"
+#include "common/system/Typedefs.h"
+#include "common/system/SingletonsCleanup.h"
+#include "common/system/Singleton.h"
 #include "matter/model/Color.h"
 #include "matter/model/PointF.h"
 #include "matter/model/Point3F.h"

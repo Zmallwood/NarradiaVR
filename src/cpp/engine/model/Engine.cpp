@@ -10,6 +10,7 @@ This code is licensed under Apache License, Version 2.0 (see LICENSE for details
 #include "AndroidVRAppManager.h"
 #include "ImageBank.h"
 #include "world.generation/model/MapGenerator.h"
+#include "ModelBank.h"
 
 namespace nar {
    void Engine::Init(android_app *app) {
@@ -22,6 +23,7 @@ namespace nar {
       OptionsManager::Get()->Init();
       GraphicsGLView::Get()->UpdateOptions();
       ImageBank::Get()->LoadImages();
+      ModelBank::Get()->LoadModels();
       MapGenerator::Get()->GenerateMapArea();
    }
 

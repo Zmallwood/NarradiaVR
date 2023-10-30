@@ -1,7 +1,7 @@
 /* Copyright (c) 2017-2023, The Khronos Group Inc.
- 
-SPDX-License-Identifier: Apache-2.0 
- 
+
+SPDX-License-Identifier: Apache-2.0
+
 This file was modified from its original version by Zmallwood for Narradia.
 The original icense is stated in the LICENSE file. */
 
@@ -12,13 +12,12 @@ The original icense is stated in the LICENSE file. */
 #include "engine/model/InputState.h"
 
 namespace nar {
+   /// Process all pending messages.
    void SystemEventPollerController::PollSystemEvents() {
       auto input = InputState::Get();
 
       Engine::Get()->set_exit_render_loop(false);
 
-      /* Process all pending messages.
-       */
       while (const XrEventDataBaseHeader *event = TryReadNextEvent()) {
          switch (event->type) {
          case XR_TYPE_EVENT_DATA_INSTANCE_LOSS_PENDING: {
@@ -47,9 +46,8 @@ namespace nar {
          }
       }
    }
-
-   /** Return event if one is available, otherwise return null.
-    */
+   
+   /// Return event if one is available, otherwise return null.
    const XrEventDataBaseHeader *SystemEventPollerController::TryReadNextEvent() {
       auto instance = OpenXrProgram::Get()->instance();
       auto event_data_buffer = OpenXrProgram::Get()->event_data_buffer();

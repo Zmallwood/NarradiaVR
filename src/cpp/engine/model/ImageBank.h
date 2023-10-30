@@ -2,14 +2,9 @@
 This code is licensed under Apache License, Version 2.0 (see LICENSE for details) */
 
 #pragma once
+#include "FileData.h"
 
 namespace nar {
-
-   struct FileData {
-      const long data_length;
-      const void *data;
-      const void *file_handle;
-   };
 
    struct RawImageData {
       const int width;

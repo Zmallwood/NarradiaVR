@@ -3,5 +3,42 @@ This code is licensed under Apache License, Version 2.0 (see LICENSE for details
 
 #include "Pch.h"
 #include "ModelBank.h"
+#include "AndroidVRAppManager.h"
+#include "engine.model_creation/model/ModelCreator.h"
+#include "engine.model_structure/model/Model.h"
 
-namespace nar {}
+namespace nar {
+
+   void ModelBank::LoadModels() {
+      auto asset_manager = AndroidVRAppManager::Get()->app()->activity->assetManager;
+      AAssetDir *dir = AAssetManager_openDir(asset_manager, "");
+      const char *file_name = AAssetDir_getNextFileName(dir);
+
+      while (file_name != nullptr) {
+         if (Util::GetFileExtension(file_name) == "dae") {
+            std::string_view file_name_with_ext = file_name;
+            LoadSingleModel(file_name);
+         }
+
+         file_name = AAssetDir_getNextFileName(dir);
+      }
+   }
+
+   std::shared_ptr<Model> ModelBank::LoadSingleModel(std::string_view file_name) {
+      Assimp::Importer importer;
+      Assimp::AndroidJNIIOSystem *ioSystem =
+          new Assimp::AndroidJNIIOSystem(AndroidVRAppManager::Get()->app()->activity);
+      if (nullptr != ioSystem) {
+         importer.SetIOHandler(ioSystem);
+      }
+      const aiScene *scene = importer.ReadFile(file_name.data(), 0);
+      return ModelCreator::Get()->CreateModel(scene);
+   }
+
+   FileData ModelBank::GetAssetData(const char *relative_path) {
+      auto asset_manager = AndroidVRAppManager::Get()->app()->activity->assetManager;
+      AAsset *asset = AAssetManager_open(asset_manager, relative_path, AASSET_MODE_STREAMING);
+
+      return (FileData){AAsset_getLength(asset), AAsset_getBuffer(asset), asset};
+   }
+}
