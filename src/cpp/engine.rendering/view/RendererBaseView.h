@@ -36,7 +36,7 @@ namespace nar {
       void UseVaoEnd();
       GLuint GetUniformLocation(std::string_view var_name);
 
-      std::shared_ptr<ShaderProgramView> shader_program_view() {
+      std::shared_ptr<ShaderProgramView> shader_program_view() const {
          return shader_program_view_;
       }
 

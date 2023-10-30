@@ -12,15 +12,21 @@ namespace nar {
    class ModelBank : public Singleton<ModelBank> {
      public:
       void LoadModels();
+      std::shared_ptr<Model> GetModel(std::string_view model_name);
+
+      std::map<std::string_view, std::shared_ptr<Model>> models() {
+         return models_;
+      }
 
       VertexCube vertex_cube() {
          return vertex_cube_;
       }
 
      private:
-      std::shared_ptr<Model> LoadSingleModel(std::string_view file_name);
+      void LoadSingleModel(std::string_view file_name);
       FileData GetAssetData(const char *relative_path);
 
+      std::map<std::string_view, std::shared_ptr<Model>> models_;
       VertexCube vertex_cube_ = VertexCube(1.0f);
    };
 }

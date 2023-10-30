@@ -13,6 +13,8 @@ The original icense is stated in the LICENSE file. */
 #include "world/model/Player.h"
 #include "engine.rendering/view/RendererTilesView.h"
 #include "world/model/World.h"
+#include "engine/model/ModelBank.h"
+#include "engine.rendering/view/RendererModelsView.h"
 
 namespace nar {
    MainSceneView::MainSceneView() {
@@ -74,6 +76,10 @@ namespace nar {
                 rendids_tiles[x][y], v0, v1, v2, v3, normal00, normal10, normal11, normal01);
          }
       }
+
+      auto all_models = ModelBank::Get()->models();
+      for (auto &model : all_models)
+         RendererModelsView::Get()->NewModel(model.first);
    }
 
    void MainSceneView::Render() {
@@ -157,6 +163,9 @@ namespace nar {
                }
 
                RendererTilesView::Get()->DrawTile(ground, rendids_tiles[x][y], vp);
+
+               RendererModelsView::Get()->DrawModel(
+                   "object_tree1", 0, {x + 0.5f, -2.0f, y + 0.5f}, 0.0f, 0.6f, 1.0f);
             }
          }
       };

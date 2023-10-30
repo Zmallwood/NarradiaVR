@@ -24,7 +24,7 @@ namespace nar {
       }
    }
 
-   std::shared_ptr<Model> ModelBank::LoadSingleModel(std::string_view file_name) {
+   void ModelBank::LoadSingleModel(std::string_view file_name) {
       Assimp::Importer importer;
       Assimp::AndroidJNIIOSystem *ioSystem =
           new Assimp::AndroidJNIIOSystem(AndroidVRAppManager::Get()->app()->activity);
@@ -32,7 +32,9 @@ namespace nar {
          importer.SetIOHandler(ioSystem);
       }
       const aiScene *scene = importer.ReadFile(file_name.data(), 0);
-      return ModelCreator::Get()->CreateModel(scene);
+      auto model = ModelCreator::Get()->CreateModel(scene);
+      auto file_name_no_ext = Util::GetFileNameNoExt(file_name);
+      models_.insert({file_name_no_ext, model});
    }
 
    FileData ModelBank::GetAssetData(const char *relative_path) {
@@ -40,5 +42,11 @@ namespace nar {
       AAsset *asset = AAssetManager_open(asset_manager, relative_path, AASSET_MODE_STREAMING);
 
       return (FileData){AAsset_getLength(asset), AAsset_getBuffer(asset), asset};
+   }
+
+   std::shared_ptr<Model> ModelBank::GetModel(std::string_view model_name) {
+      if (models_.count(model_name))
+         return models_.at(model_name);
+      return nullptr;
    }
 }
