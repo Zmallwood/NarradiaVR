@@ -10,22 +10,20 @@ The original icense is stated in the LICENSE file. */
 #include "engine/model/Engine.h"
 #include "engine/view/EngineView.h"
 #include "engine/controller/EngineController.h"
-#include "engine/model/SceneManager.h"
-#include "engine/view/SceneManagerView.h"
 
 namespace nar {
-   /** Start new game instance.
+   /** Initialize and start new game instance.
     */
    void Game::Run(android_app *app) {
       Engine::Get()->Init(app);
 
-      while (Engine::Get()->game_is_running()) {
-         EngineController::Get()->HandleInput();
-         EngineController::Get()->UpdateGameFlow();
-         Engine::Get()->UpdateGameLogic();
-         EngineView::Get()->Render();
+      while (Engine::Get()->game_is_running()) {    // Core game loop
+         EngineController::Get()->HandleInput();    // Controller
+         EngineController::Get()->UpdateGameFlow(); // Controller
+         Engine::Get()->UpdateGameLogic();          // Model
+         EngineView::Get()->Render();               // View
       }
 
-      DisposeAllSingletons();
+      DisposeAllSingletons(); // Required to be done manually on android
    }
 }

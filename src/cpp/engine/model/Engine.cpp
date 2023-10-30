@@ -12,12 +12,9 @@ This code is licensed under Apache License, Version 2.0 (see LICENSE for details
 #include "world.generation/model/MapGenerator.h"
 
 namespace nar {
-   Engine::Engine() {
-      srand(time(0));
-   }
-
    void Engine::Init(android_app *app) {
       app_ = app;
+      srand(time(0));
       AndroidVRAppManager::Get()->set_app(app);
       AndroidVRAppManager::Get()->Init();
       Loader::Get()->Init();

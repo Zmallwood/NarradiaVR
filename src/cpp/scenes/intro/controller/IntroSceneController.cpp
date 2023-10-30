@@ -11,7 +11,6 @@ namespace nar {
    }
 
    void IntroSceneController::UpdateGameFlow() {
-      __android_log_print(ANDROID_LOG_INFO, "Narradia", "intro controller");
       if (HandDeviceInput::Get()->right_input_device()->HasBeenGrabbedPickResult()) {
          SceneManager::Get()->set_new_scene(SceneNames::MainMenu);
       }

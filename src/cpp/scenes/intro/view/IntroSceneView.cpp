@@ -17,7 +17,6 @@
 
 namespace nar {
    void IntroSceneView::Render() {
-         __android_log_print(ANDROID_LOG_INFO, "Narradia", "intro view");
       auto predicted_display_time = RendererView::Get()->predicted_display_time();
       // For each locatable space that we want to visualize, render a 100cm cube.
       std::vector<Cube> cubes;

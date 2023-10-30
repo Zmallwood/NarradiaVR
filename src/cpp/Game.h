@@ -8,7 +8,7 @@ The original icense is stated in the LICENSE file. */
 #pragma once
 
 namespace nar {
-   /** Top most class in the project structure, called from android_main().
+   /** A complete game session, created and ran from android_main().
     */
    class Game {
      public:

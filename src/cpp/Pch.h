@@ -26,8 +26,7 @@ The original icense is stated in the LICENSE file. */
 #include <stddef.h>
 #include <cmath>
 
-/**
- * Platform Headers
+/* Platform Headers
  */
 #include <android/log.h>
 #include <android/native_window.h>
@@ -35,13 +34,11 @@ The original icense is stated in the LICENSE file. */
 #include <jni.h>
 #include <sys/system_properties.h>
 
-/**
- * Graphics Headers
+/* Graphics Headers
  */
 #include <EGL/egl.h>
 
-/**
- * OpenXR Headers
+/* OpenXR Headers
  */
 #include <openxr/openxr.h>
 #include <openxr/openxr_platform.h>
@@ -50,8 +47,7 @@ The original icense is stated in the LICENSE file. */
 #include "common/gfxwrapper_opengl.h"
 #include <common/xr_linear.h>
 
-/**
- * External headers
+/* External headers
 */
 #include "../external/libpng/png.h"
 #include "../external/glm/glm.hpp"
@@ -60,8 +56,7 @@ The original icense is stated in the LICENSE file. */
 #include "../external/glm/ext/matrix_projection.hpp"
 #include "../external/glm/gtx/closest_point.hpp"
 
-/**
- * Narradia Headers
+/* Narradia Headers
  */
 #include "common/Typedefs.h"
 #include "common/SingletonsCleanup.h"

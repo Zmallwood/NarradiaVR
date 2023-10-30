@@ -7,7 +7,7 @@ This code is licensed under Apache License, Version 2.0 (see LICENSE for details
 #include "engine/model/SceneNames.h"
 
 namespace nar {
-   class SceneManagerController {
+   class SceneManagerController : public Singleton<SceneManagerController> {
      public:
       SceneManagerController();
       void HandleInput();
