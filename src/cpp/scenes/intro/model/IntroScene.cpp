@@ -11,5 +11,6 @@
 
 namespace nar {
    void IntroScene::UpdateGameLogic() {
+         __android_log_print(ANDROID_LOG_INFO, "Narradia", "intro model");
    }
 }

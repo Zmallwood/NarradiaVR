@@ -37,15 +37,10 @@ namespace nar {
          skip_frame_ = value;
       }
 
-      std::shared_ptr<SceneManager> scene_manager() {
-         return scene_manager_;
-      }
-
      private:
       android_app *app_ = nullptr;
       bool game_is_running_ = true;
       bool exit_render_loop_ = false;
       bool skip_frame_ = false;
-      std::shared_ptr<SceneManager> scene_manager_ = std::make_shared<SceneManager>();
    };
 }

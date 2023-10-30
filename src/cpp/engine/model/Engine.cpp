@@ -30,7 +30,7 @@ namespace nar {
 
    void Engine::UpdateGameLogic() {
       if (!skip_frame_) {
-         scene_manager_->UpdateGameLogic();
+         SceneManager::Get()->UpdateGameLogic();
       }
    }
 }

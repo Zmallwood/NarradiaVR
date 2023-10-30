@@ -17,7 +17,8 @@ namespace nar {
    }
 
    void SceneManager::UpdateGameLogic() {
-      if (scenes_.count(current_scene_) != 0)
+      if (scenes_.count(current_scene_) != 0) {
          scenes_.at(current_scene_)->UpdateGameLogic();
+      }
    }
 }

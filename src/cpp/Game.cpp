@@ -1,7 +1,7 @@
 /* Copyright (c) 2017-2023, The Khronos Group Inc.
- 
-SPDX-License-Identifier: Apache-2.0 
- 
+
+SPDX-License-Identifier: Apache-2.0
+
 This file was modified from its original version by Zmallwood for Narradia.
 The original icense is stated in the LICENSE file. */
 
@@ -10,22 +10,26 @@ The original icense is stated in the LICENSE file. */
 #include "engine/model/Engine.h"
 #include "engine/view/EngineView.h"
 #include "engine/controller/EngineController.h"
+#include "engine/model/SceneManager.h"
+#include "engine/view/SceneManagerView.h"
 
 namespace nar {
    /** Start new game instance.
     */
    void Game::Run(android_app *app) {
       srand(time(0));
-      auto &engine = *Engine::Get(); // Cosmos
-      engine.Init(app);
-      EngineView engine_view(engine);
-      EngineController engine_controller(engine);
+      Engine::Touch();
+      Engine::Get()->Init(app);
+      SceneManager::Touch();
+      SceneManagerView::Touch();
+      EngineView::Touch();
+      EngineController::Touch();
 
-      while (engine.game_is_running()) {
-         engine_controller.HandleInput();
-         engine_controller.UpdateGameFlow();
-         engine.UpdateGameLogic();
-         engine_view.Render();
+      while (Engine::Get()->game_is_running()) {
+         EngineController::Get()->HandleInput();
+         EngineController::Get()->UpdateGameFlow();
+         Engine::Get()->UpdateGameLogic();
+         EngineView::Get()->Render();
       }
 
       DisposeAllSingletons();

@@ -5,40 +5,34 @@ This code is licensed under Apache License, Version 2.0 (see LICENSE for details
 
 namespace nar {
 
-   /**
-    * Singleton template class
+   /** Singleton template class
     */
    template <class T>
    class Singleton {
      public:
-      static void Create();
+      static void Touch();
       static std::shared_ptr<T> Get();
 
      private:
       inline static std::shared_ptr<T> instance_;
    };
 
-   /**
-    * Create new instance if none exists
+   /** Create new instance if none exists
     */
    template <class T>
-   void Singleton<T>::Create() {
+   void Singleton<T>::Touch() {
       if (!instance_) {
          instance_ = std::make_shared<T>();
          AddSingletonDisposeAction([&] { instance_.reset(); });
       }
    }
 
-   /*
-    * Get instance of object
+   /** Get instance of object
     */
    template <class T>
    std::shared_ptr<T> Singleton<T>::Get() {
       if (!instance_) // Create new instance if none exists
-         Create();
+         Touch();
       return std::weak_ptr<T>(instance_).lock(); // Return weak_ptr to not increase ref count
    }
-
-   void AddSingletonDisposeAction(std::function<void()> action);
-   void DisposeAllSingletons();
 }

@@ -5,13 +5,9 @@ This code is licensed under Apache License, Version 2.0 (see LICENSE for details
 #include "EngineController.h"
 #include "engine/model/AndroidVRAppManager.h"
 #include "engine/model/OpenXrProgram.h"
+#include "engine/model/Engine.h"
 
 namespace nar {
-   EngineController::EngineController(Engine &engine)
-       : engine_(engine),
-         scene_manager_controller_(engine.scene_manager()) {
-   }
-
    void EngineController::HandleInput() {
       system_event_reader_controller_.ReadSystemEvents();
       system_event_poller_controller_.PollSystemEvents();
@@ -20,18 +16,20 @@ namespace nar {
    }
 
    void EngineController::UpdateGameFlow() {
-      if (QuittingGameIfRequested() || ThrottlingGameIfSessionNotRunning())
-         engine_.set_skip_frame(true);
-      else
-         engine_.set_skip_frame(false);
+      if (QuittingGameIfRequested() || ThrottlingGameIfSessionNotRunning()) {
+         Engine::Get()->set_skip_frame(true);
+      }
+      else {
+         Engine::Get()->set_skip_frame(false);
+      }
 
-      engine_.set_game_is_running(AndroidVRAppManager::Get()->app()->destroyRequested == 0);
+      Engine::Get()->set_game_is_running(AndroidVRAppManager::Get()->app()->destroyRequested == 0);
 
       scene_manager_controller_.UpdateGameFlow();
    }
 
    bool EngineController::QuittingGameIfRequested() {
-      if (engine_.exit_render_loop()) {
+      if (Engine::Get()->exit_render_loop()) {
          ANativeActivity_finish(AndroidVRAppManager::Get()->app()->activity);
          return true;
       }

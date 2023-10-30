@@ -64,6 +64,7 @@ The original icense is stated in the LICENSE file. */
  * Narradia Headers
  */
 #include "common/Typedefs.h"
+#include "common/SingletonsCleanup.h"
 #include "common/Singleton.h"
 #include "matter/model/Color.h"
 #include "matter/model/PointF.h"

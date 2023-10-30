@@ -12,7 +12,6 @@ The original icense is stated in the LICENSE file. */
 #include "engine/view/GraphicsGLView.h"
 #include "AndroidPlatform.h"
 #include "HandDeviceInput.h"
-#include "ProgramLogger.h"
 #include "engine/controller/InputActionsController.h"
 #include "Engine.h"
 #include "engine/view/SwapchainManagerView.h"
@@ -115,9 +114,7 @@ namespace nar {
    }
 
    void OpenXrProgram::CreateInstance() {
-      ProgramLogger::Get()->LogLayersAndExtensions();
       CreateInstanceInternal();
-      ProgramLogger::Get()->LogInstanceInfo();
    }
 
    XrEnvironmentBlendMode OpenXrProgram::GetPreferredBlendMode() const {
@@ -147,8 +144,6 @@ namespace nar {
    }
 
    void OpenXrProgram::InitDevice() {
-      ProgramLogger::Get()->LogViewConfigurations();
-
       // The graphics API can initialize the graphics device now that the systemId and
       // instance handle are available.
       graphics_plugin_->InitializeDevice(instance_, system_id_);
@@ -183,7 +178,6 @@ namespace nar {
          xrCreateSession(instance_, &create_info, &session_);
       }
 
-      ProgramLogger::Get()->LogReferenceSpaces();
       InputActionsController::Get()->InitInputActions();
       CreateVisualizedSpaces();
 

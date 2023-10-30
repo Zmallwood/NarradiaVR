@@ -12,7 +12,7 @@ namespace nar {
 
    void MainMenuSceneController::UpdateGameFlow() {
       if (HandDeviceInput::Get()->right_input_device()->HasBeenGrabbedPickResult()) {
-         Engine::Get()->scene_manager()->set_new_scene(SceneNames::Main);
+         SceneManager::Get()->set_new_scene(SceneNames::Main);
       }
    }
 }

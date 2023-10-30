@@ -8,7 +8,6 @@ The original icense is stated in the LICENSE file. */
 #include "Pch.h"
 #include "SystemEventPollerController.h"
 #include "engine/model/OpenXrProgram.h"
-#include "engine/model/ProgramLogger.h"
 #include "engine/model/Engine.h"
 #include "engine/model/InputState.h"
 
@@ -40,10 +39,6 @@ namespace nar {
             break;
          }
          case XR_TYPE_EVENT_DATA_INTERACTION_PROFILE_CHANGED:
-            ProgramLogger::Get()->LogActionSourceName(input->grab_action, "Grab");
-            ProgramLogger::Get()->LogActionSourceName(input->quit_action, "Quit");
-            ProgramLogger::Get()->LogActionSourceName(input->pose_action, "Pose");
-            ProgramLogger::Get()->LogActionSourceName(input->vibrate_action, "Vibrate");
             break;
          case XR_TYPE_EVENT_DATA_REFERENCE_SPACE_CHANGE_PENDING:
          default: {
