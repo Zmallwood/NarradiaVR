@@ -1,3 +1,6 @@
+/* (c) 2023 Zmallwood
+This code is licensed under Apache License, Version 2.0 (see LICENSE for details) */
+
 #include "Pch.h"
 #include "ThumbstickRotationModule.h"
 #include "world/model/Player.h"
@@ -9,7 +12,7 @@ namespace nar {
           static_cast<float>(clock() - Player::Get()->ticks_last_rotation) / CLOCKS_PER_SEC;
 
       if (delta_t > Player::Get()->rotation_speed) {
-         auto delta_x = HandDeviceInput::Get()->right_input_controller()->thumbstick_x();
+         auto delta_x = HandDeviceInput::Get()->right_input_device()->thumbstick_x();
          auto x_sign = delta_x / std::abs(delta_x);
 
          if (std::abs(delta_x) > 0.7f) {

@@ -1,10 +1,9 @@
 /* Copyright (c) 2017-2023, The Khronos Group Inc.
- *
- * SPDX-License-Identifier: Apache-2.0
- *
- * THIS FILE WAS MODIFIED FROM ITS ORIGINAL VERSION BY Zmallwood FOR Narradia. THE ORIGINAL
- * LICENSE IS STATED IN LICENSE FILE.
- */
+ 
+SPDX-License-Identifier: Apache-2.0 
+ 
+This file was modified from its original version by Zmallwood for Narradia.
+The original icense is stated in the LICENSE file. */
 
 #include "Pch.h"
 #include "InputActionsController.h"
@@ -36,7 +35,6 @@ namespace nar {
       // paths.
 
       xrStringToPath(instance, "/user/hand/left", &input->hand_subaction_path[Side::kLeft]);
-
       xrStringToPath(instance, "/user/hand/right", &input->hand_subaction_path[Side::kRight]);
 
       /* Create actions.
@@ -82,13 +80,6 @@ namespace nar {
          strcpy(action_info.localizedActionName, "Use Throttle forward/backward");
 
          xrCreateAction(input->action_set, &action_info, &input->thumbstick_action_y);
-
-         // action_info.actionType = XR_ACTION_TYPE_POSE_INPUT;
-         // strcpy_s(action_info.actionName, "primary");
-         // strcpy_s(action_info.localizedActionName, "Joystick Orientation");
-         // action_info.countSubactionPaths = uint32_t(input->hand_subaction_path.size());
-         // action_info.subactionPaths = input->hand_subaction_path.data();
-         // xrCreateAction(input->action_set, &action_info, &input->thumbstick_action);
 
          // Create output actions for vibrating the left and right controller.
          action_info.actionType = XR_ACTION_TYPE_VIBRATION_OUTPUT;
@@ -236,10 +227,10 @@ namespace nar {
             if (grab_value.currentState > 0.9f) {
 
                if (hand == Side::kRight)
-                  HandDeviceInput::Get()->right_input_controller()->RegisterBeenGrabbed(true);
+                  HandDeviceInput::Get()->right_input_device()->RegisterBeenGrabbed(true);
 
                if (hand == Side::kLeft)
-                  HandDeviceInput::Get()->left_input_controller()->RegisterBeenGrabbed(true);
+                  HandDeviceInput::Get()->left_input_device()->RegisterBeenGrabbed(true);
 
                XrHapticVibration vibration = {XR_TYPE_HAPTIC_VIBRATION};
                vibration.amplitude = 0.5;
@@ -254,10 +245,10 @@ namespace nar {
             }
             else {
                if (hand == Side::kRight)
-                  HandDeviceInput::Get()->right_input_controller()->RegisterNotGrabbed();
+                  HandDeviceInput::Get()->right_input_device()->RegisterNotGrabbed();
 
                if (hand == Side::kLeft)
-                  HandDeviceInput::Get()->left_input_controller()->RegisterNotGrabbed();
+                  HandDeviceInput::Get()->left_input_device()->RegisterNotGrabbed();
             }
          }
 
@@ -276,11 +267,11 @@ namespace nar {
 
          if (thumbstick_x.isActive == XR_TRUE) {
             if (hand == Side::kRight)
-               HandDeviceInput::Get()->right_input_controller()->RegisterThumbstickX(
+               HandDeviceInput::Get()->right_input_device()->RegisterThumbstickX(
                    thumbstick_x.currentState);
 
             if (hand == Side::kLeft)
-               HandDeviceInput::Get()->left_input_controller()->RegisterThumbstickX(
+               HandDeviceInput::Get()->left_input_device()->RegisterThumbstickX(
                    thumbstick_x.currentState);
          }
 
@@ -292,11 +283,11 @@ namespace nar {
 
          if (thumbstick_y.isActive == XR_TRUE) {
             if (hand == Side::kRight)
-               HandDeviceInput::Get()->right_input_controller()->RegisterThumbstickY(
+               HandDeviceInput::Get()->right_input_device()->RegisterThumbstickY(
                    thumbstick_y.currentState);
 
             if (hand == Side::kLeft)
-               HandDeviceInput::Get()->left_input_controller()->RegisterThumbstickY(
+               HandDeviceInput::Get()->left_input_device()->RegisterThumbstickY(
                    thumbstick_y.currentState);
          }
 

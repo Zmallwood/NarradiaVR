@@ -1,17 +1,5 @@
-/* Copyright 2023 Zmallwood
- *
- *   Licensed under the Apache License, Version 2.0 (the "License");
- *   you may not use this file except in compliance with the License.
- *   You may obtain a copy of the License at
- *
- *       http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing, software
- *   distributed under the License is distributed on an "AS IS" BASIS,
- *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *   See the License for the specific language governing permissions and
- *   limitations under the License.
- */
+/* (c) 2023 Zmallwood
+This code is licensed under Apache License, Version 2.0 (see LICENSE for details) */
 
 #include "Pch.h"
 #include "ImageBank.h"
@@ -20,17 +8,10 @@
 namespace nar {
    void ImageBank::LoadImages() {
       auto asset_manager = AndroidVRAppManager::Get()->app()->activity->assetManager;
-
       AAssetDir *dir = AAssetManager_openDir(asset_manager, "");
-
       const char *file_name = AAssetDir_getNextFileName(dir);
 
-      __android_log_print(ANDROID_LOG_INFO, "Narradia", "Start iterate files");
-
       while (file_name != nullptr) {
-         __android_log_print(
-             ANDROID_LOG_INFO, "Narradia", "iterate over assetmanager files: %s", file_name);
-
          if (Util::GetFileExtension(file_name) == "png") {
             std::string_view file_name_with_ext = file_name;
             LoadSingleImage(file_name);

@@ -1,10 +1,9 @@
 /* Copyright (c) 2017-2023, The Khronos Group Inc.
- *
- * SPDX-License-Identifier: Apache-2.0
- *
- * THIS FILE WAS MODIFIED FROM ITS ORIGINAL VERSION BY Zmallwood FOR Narradia. THE ORIGINAL
- * LICENSE IS STATED IN LICENSE FILE.
- */
+ 
+SPDX-License-Identifier: Apache-2.0 
+ 
+This file was modified from its original version by Zmallwood for Narradia.
+The original icense is stated in the LICENSE file. */
 
 #include "Pch.h"
 #include "Util.h"

@@ -1,10 +1,9 @@
 /* Copyright (c) 2017-2023, The Khronos Group Inc.
- *
- * SPDX-License-Identifier: Apache-2.0
- *
- * THIS FILE WAS MODIFIED FROM ITS ORIGINAL VERSION BY Zmallwood FOR Narradia. THE ORIGINAL
- * LICENSE IS STATED IN LICENSE FILE.
- */
+ 
+SPDX-License-Identifier: Apache-2.0 
+ 
+This file was modified from its original version by Zmallwood for Narradia.
+The original icense is stated in the LICENSE file. */
 
 #include "Pch.h"
 #include "GraphicsGLView.h"
@@ -246,8 +245,9 @@ namespace nar {
       glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, depth_texture, 0);
 
       // Clear swapchain and depth buffer.
-      glClearColor(clear_color_[0], clear_color_[1], clear_color_[2], clear_color_[3]);
+      // glClearColor(clear_color_[0], clear_color_[1], clear_color_[2], clear_color_[3]);
       glClearDepthf(1.0f);
+      glClearColor(1.0f, 0.5f, 1.0f, 1.0f);
       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
       // Set shaders and uniform variables.
