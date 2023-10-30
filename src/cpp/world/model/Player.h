@@ -5,6 +5,11 @@ This code is licensed under Apache License, Version 2.0 (see LICENSE for details
 
 namespace nar {
    struct Player : public Singleton<Player> {
+      void MoveForward();
+      void MoveBackward();
+      void MoveRight();
+      void MoveLeft();
+
       float x = 0.0f;
       float y = 0.0f;
       float z = 0.0f;
@@ -15,5 +20,8 @@ namespace nar {
       float rotation_speed = 0.5f;
       float rotation_step_size = 5.0f;
       clock_t ticks_last_rotation = 0;
+
+     private:
+      void Move(float angle_degrees);
    };
 }

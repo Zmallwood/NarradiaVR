@@ -1,7 +1,7 @@
 /* Copyright (c) 2017-2023, The Khronos Group Inc.
- 
-SPDX-License-Identifier: Apache-2.0 
- 
+
+SPDX-License-Identifier: Apache-2.0
+
 This file was modified from its original version by Zmallwood for Narradia.
 The original icense is stated in the LICENSE file. */
 
@@ -19,6 +19,39 @@ namespace nar {
       for (auto y = -15; y < 15; y++) {
          for (auto x = -15; x < 15; x++) {
             rendids_tiles[x][y] = RendererTilesView::Get()->NewTile();
+
+            Vertex3F v0;
+            Vertex3F v1;
+            Vertex3F v2;
+            Vertex3F v3;
+
+            v0.position = {x * 1.0f, -2.0f, y * 1.0f};
+            v1.position = {x * 1.0f + 1.0f, -2.0f, y * 1.0f};
+            v2.position = {x * 1.0f + 1.0f, -2.0f, y * 1.0f + 1.0f};
+            v3.position = {x * 1.0f, -2.0f, y * 1.0f + 1.0f};
+
+            v0.color = {1.0f, 1.0f, 1.0f, 1.0f};
+            v1.color = {1.0f, 1.0f, 1.0f, 1.0f};
+            v2.color = {1.0f, 1.0f, 1.0f, 1.0f};
+            v3.color = {1.0f, 1.0f, 1.0f, 1.0f};
+
+            v0.normal = {0.0f, 1.0f, 0.0f};
+            v1.normal = {0.0f, 1.0f, 0.0f};
+            v2.normal = {0.0f, 1.0f, 0.0f};
+            v3.normal = {0.0f, 1.0f, 0.0f};
+
+            v0.uv = {0.0f, 0.0f};
+            v1.uv = {1.0f, 0.0f};
+            v2.uv = {1.0f, 1.0f};
+            v3.uv = {0.0f, 1.0f};
+
+            Point3F normal00 = {0.0f, 1.0f, 0.0f};
+            Point3F normal10 = {0.0f, 1.0f, 0.0f};
+            Point3F normal11 = {0.0f, 1.0f, 0.0f};
+            Point3F normal01 = {0.0f, 1.0f, 0.0f};
+
+            RendererTilesView::Get()->SetGeometryTile(
+                rendids_tiles[x][y], v0, v1, v2, v3, normal00, normal10, normal11, normal01);
          }
       }
    }
@@ -122,9 +155,7 @@ namespace nar {
 
                auto ground = map_area->tiles[map_x][map_y].ground;
 
-               RendererTilesView::Get()->UpdateDrawTile(
-                   ground, rendids_tiles[x][y], v0, v1, v2, v3, normal00, normal10, normal11,
-                   normal01, vp);
+               RendererTilesView::Get()->DrawTile(ground, rendids_tiles[x][y], vp);
             }
          }
       };

@@ -17,16 +17,22 @@ namespace nar {
          auto x_sign = delta_x / std::abs(delta_x);
          auto y_sign = delta_y / std::abs(delta_y);
 
-         if (std::abs(delta_x) > 0.9f || std::abs(delta_y) > 0.9f) {
+         if (std::abs(delta_x) > 0.7f || std::abs(delta_y) > 0.7f) {
             Player::Get()->ticks_last_movement = clock();
          }
 
-         if (std::abs(delta_x) > 0.7f) {
-            Player::Get()->x += Player::Get()->movement_step_size * x_sign;
+         if (delta_x > 0.7f) {
+            Player::Get()->MoveRight();
+         }
+         else if (delta_x < -0.7f) {
+            Player::Get()->MoveLeft();
          }
 
-         if (std::abs(delta_y) > 0.7f) {
-            Player::Get()->y += Player::Get()->movement_step_size * y_sign;
+         if (delta_y > 0.7f) {
+            Player::Get()->MoveForward();
+         }
+         else if (delta_y < -0.7f) {
+            Player::Get()->MoveBackward();
          }
       }
    }

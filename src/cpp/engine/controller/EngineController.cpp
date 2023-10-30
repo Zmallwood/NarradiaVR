@@ -25,7 +25,8 @@ namespace nar {
       else
          Engine::Get()->set_skip_frame(false);
 
-      Engine::Get()->set_game_is_running(AndroidVRAppManager::Get()->app()->destroyRequested == 0);
+      auto game_is_running = AndroidVRAppManager::Get()->app()->destroyRequested == 0;
+      Engine::Get()->set_game_is_running(game_is_running);
 
       SceneManagerController::Get()->UpdateGameFlow();
    }
