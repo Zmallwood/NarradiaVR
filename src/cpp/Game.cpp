@@ -17,13 +17,7 @@ namespace nar {
    /** Start new game instance.
     */
    void Game::Run(android_app *app) {
-      srand(time(0));
-      Engine::Touch();
       Engine::Get()->Init(app);
-      SceneManager::Touch();
-      SceneManagerView::Touch();
-      EngineView::Touch();
-      EngineController::Touch();
 
       while (Engine::Get()->game_is_running()) {
          EngineController::Get()->HandleInput();

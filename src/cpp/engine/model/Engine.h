@@ -9,6 +9,7 @@ struct android_app;
 namespace nar {
    class Engine : public Singleton<Engine> {
      public:
+      Engine();
       ~Engine();
       void Init(android_app *app);
       void UpdateGameLogic();

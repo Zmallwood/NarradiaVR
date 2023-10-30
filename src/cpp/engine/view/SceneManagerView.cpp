@@ -16,12 +16,7 @@ namespace nar {
    }
 
    void SceneManagerView::Render() {
-
-      __android_log_print(
-          ANDROID_LOG_INFO, "Narradia", "try render scene, curr_scene: %d",
-          SceneManager::Get()->current_scene());
       if (scene_views_.count(SceneManager::Get()->current_scene()) != 0) {
-         __android_log_print(ANDROID_LOG_INFO, "Narradia", "do render scene");
          scene_views_.at(SceneManager::Get()->current_scene())->Render();
       }
    }
