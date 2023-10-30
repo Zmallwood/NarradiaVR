@@ -8,19 +8,22 @@ namespace nar {
       RendererModelsView();
       void NewModel(std::string_view model_name);
       void DrawModel(
-          std::string_view model_name, float, Point3F, float = 0.0f, float = 1.0f, float = 1.0f,
-          glm::vec3 = {1.0f, 1.0f, 1.0f}, bool = false, bool = false) const;
+          std::string_view model_name, float, Point3F, XrMatrix4x4f viewProjectionMatrix,
+          float = 0.0f, float = 1.0f, float = 1.0f, glm::vec3 = {1.0f, 1.0f, 1.0f}, bool = false,
+          bool = false) const;
       void DrawModelsMany(
-          std::string_view model_name, float, std::vector<Point3F>, std::vector<float>, std::vector<float>,
-          std::vector<float>, std::vector<glm::vec3>) const;
-      void StartBatchDrawing();
+          std::string_view model_name, float, std::vector<Point3F>, std::vector<float>,
+          std::vector<float>, std::vector<float>, std::vector<glm::vec3>,
+          XrMatrix4x4f viewProjectionMatrix) const;
+      void StartBatchDrawing(XrMatrix4x4f viewProjectionMatrix);
       void StopBatchDrawing();
       void Cleanup();
 
      private:
       RenderId NewBodyKeyframe(std::string_view model_name, float, int);
-      void
-      NewBodyKeyframeGeometry(std::string_view model_name, float, RenderId, std::vector<Vertex3F>, std::vector<Point3F>);
+      void NewBodyKeyframeGeometry(
+          std::string_view model_name, float, RenderId, std::vector<Vertex3F>,
+          std::vector<Point3F>);
 
       const int kLocationPosition = 0;
       const int kLocationColor = 1;
@@ -31,6 +34,7 @@ namespace nar {
       int location_alpha_ = -1;
       int location_model_ = -1;
       int location_model_no_translation_ = -1;
+      int location_viewProjection_ = -1;
       int location_color_mod_ = -1;
       int location_view_pos_ = -1;
       int location_fog_color_ = -1;

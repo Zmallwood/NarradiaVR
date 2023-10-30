@@ -3,6 +3,7 @@
 #include "engine/model/ModelBank.h"
 #include "engine/model/ImageBank.h"
 #include "engine.model_structure/model/Model.h"
+#include "world/model/Player.h"
 
 namespace nar {
    RendererModelsView::RendererModelsView() {
@@ -18,6 +19,7 @@ namespace nar {
       location_alpha_ = GetUniformLocation("mAlpha");
       location_model_ = GetUniformLocation("model");
       location_model_no_translation_ = GetUniformLocation("modelNoTranslation");
+      location_viewProjection_ = GetUniformLocation("viewProjection");
       location_color_mod_ = GetUniformLocation("mColorMod");
       location_view_pos_ = GetUniformLocation("viewPos");
       location_fog_color_ = GetUniformLocation("fogColor");
@@ -126,19 +128,28 @@ namespace nar {
       UseVaoEnd();
    }
 
-   void RendererModelsView::StartBatchDrawing() {
+   void RendererModelsView::StartBatchDrawing(XrMatrix4x4f viewProjectionMatrix) {
       is_batch_drawing_ = true;
       glEnable(GL_DEPTH_TEST);
       glUseProgram(shader_program_view()->program_id());
-      auto perspective_matrix =
-          glm::perspective(glm::radians(110.0f / 2), 1600.0f / 900.0f, 0.1f, 1000.0f);
-      Point3F look_from = {0.0f, 0.0f, 0.0f};
-      Point3F look_at = {1.0f, 0.0f, 1.0f};
-      auto view_matrix = glm::lookAt(
-          glm::vec3(look_from.x, look_from.y, look_from.z),
-          glm::vec3(look_at.x, look_at.y, look_at.z), glm::vec3(0.0, 1.0, 0.0));
-      glUniformMatrix4fv(location_projection_, 1, GL_FALSE, value_ptr(perspective_matrix));
-      glUniformMatrix4fv(location_view_, 1, GL_FALSE, glm::value_ptr(view_matrix));
+      //      auto perspective_matrix =
+      //          glm::perspective(glm::radians(110.0f / 2), 1600.0f / 900.0f, 0.1f, 1000.0f);
+      //      Point3F look_from = {0.0f, 0.0f, 0.0f};
+      //      Point3F look_at = {1.0f, 0.0f, 1.0f};
+      //      auto view_matrix = glm::lookAt(
+      //          glm::vec3(look_from.x, look_from.y, look_from.z),
+      //          glm::vec3(look_at.x, look_at.y, look_at.z), glm::vec3(0.0, 1.0, 0.0));
+      //      glUniformMatrix4fv(location_projection_, 1, GL_FALSE, value_ptr(perspective_matrix));
+      //      glUniformMatrix4fv(location_view_, 1, GL_FALSE, glm::value_ptr(view_matrix));
+      XrMatrix4x4f model;
+      XrVector3f translation = {0.0f, 0.0f, 0.0f};
+      XrQuaternionf rotation = XrQuaternionf();
+      XrVector3f scaling = {1.0f, 1.0f, 1.0f};
+      XrMatrix4x4f_CreateTranslationRotationScale(&model, &translation, &rotation, &scaling);
+      XrMatrix4x4f mvp;
+      XrMatrix4x4f_Multiply(&mvp, &viewProjectionMatrix, &model);
+      glUniformMatrix4fv(
+          location_viewProjection_, 1, GL_FALSE, reinterpret_cast<const GLfloat *>(&mvp));
    }
 
    void RendererModelsView::StopBatchDrawing() {
@@ -146,22 +157,33 @@ namespace nar {
    }
 
    void RendererModelsView::DrawModel(
-       std::string_view model_name, float msTime, Point3F position, float rotation, float scaling,
-       float brightness, glm::vec3 colorMod, bool noFog, bool noLighting) const {
+       std::string_view model_name, float msTime, Point3F position,
+       XrMatrix4x4f viewProjectionMatrix, float rotation, float scaling, float brightness,
+       glm::vec3 colorMod, bool noFog, bool noLighting) const {
       if (model_ids_.count(model_name) == 0)
          return;
       if (!is_batch_drawing_) {
          glEnable(GL_DEPTH_TEST);
          glUseProgram(shader_program_view()->program_id());
-         auto perspective_matrix =
-             glm::perspective(glm::radians(110.0f / 2), 1600.0f / 900.0f, 0.1f, 1000.0f);
-         Point3F look_from = {0.0f, 0.0f, 0.0f};
-         Point3F look_at = {1.0f, 0.0f, 1.0f};
-         auto view_matrix = glm::lookAt(
-             glm::vec3(look_from.x, look_from.y, look_from.z),
-             glm::vec3(look_at.x, look_at.y, look_at.z), glm::vec3(0.0, 1.0, 0.0));
-         glUniformMatrix4fv(location_projection_, 1, GL_FALSE, value_ptr(perspective_matrix));
-         glUniformMatrix4fv(location_view_, 1, GL_FALSE, glm::value_ptr(view_matrix));
+         //         auto perspective_matrix =
+         //             glm::perspective(glm::radians(110.0f / 2), 1600.0f / 900.0f, 0.1f, 1000.0f);
+         //         Point3F look_from = {0.0f, 0.0f, 0.0f};
+         //         Point3F look_at = {1.0f, 0.0f, 1.0f};
+         //         auto view_matrix = glm::lookAt(
+         //             glm::vec3(look_from.x, look_from.y, look_from.z),
+         //             glm::vec3(look_at.x, look_at.y, look_at.z), glm::vec3(0.0, 1.0, 0.0));
+         //         glUniformMatrix4fv(location_projection_, 1, GL_FALSE,
+         //         value_ptr(perspective_matrix)); glUniformMatrix4fv(location_view_, 1, GL_FALSE,
+         //         glm::value_ptr(view_matrix));
+         XrMatrix4x4f model;
+         XrVector3f translation = {0.0f, 0.0f, 0.0f};
+         XrQuaternionf rotation = XrQuaternionf();
+         XrVector3f scaling = {1.0f, 1.0f, 1.0f};
+         XrMatrix4x4f_CreateTranslationRotationScale(&model, &translation, &rotation, &scaling);
+         XrMatrix4x4f mvp;
+         XrMatrix4x4f_Multiply(&mvp, &viewProjectionMatrix, &model);
+         glUniformMatrix4fv(
+             location_viewProjection_, 1, GL_FALSE, reinterpret_cast<const GLfloat *>(&mvp));
          //         glUniformMatrix4fv(
          //             location_projection_, 1, GL_FALSE,
          //             value_ptr(CameraGl::Get()->GetPerspectiveMatrix()));
@@ -170,7 +192,7 @@ namespace nar {
       }
       auto model_matrix = glm::rotate(
           glm::scale(
-              glm::translate(glm::mat4(1.0), glm::vec3(position.x, position.y, position.z)),
+              glm::translate(glm::mat4(1.0), glm::vec3(position.x - Player::Get()->x, position.y, position.z - Player::Get()->y)),
               glm::vec3(scaling, scaling, scaling)),
           glm::radians(rotation), glm::vec3(0, 1, 0));
       auto model_no_translation_matrix = glm::rotate(
@@ -223,21 +245,31 @@ namespace nar {
    void RendererModelsView::DrawModelsMany(
        std::string_view model_name, float msTime, std::vector<Point3F> positions,
        std::vector<float> rotations, std::vector<float> scalings, std::vector<float> brightnesses,
-       std::vector<glm::vec3> colorMods) const {
+       std::vector<glm::vec3> colorMods, XrMatrix4x4f viewProjectionMatrix) const {
       if (model_ids_.count(model_name) == 0)
          return;
       if (!is_batch_drawing_) {
          glEnable(GL_DEPTH_TEST);
          glUseProgram(shader_program_view()->program_id());
-         auto perspective_matrix =
-             glm::perspective(glm::radians(110.0f / 2), 1600.0f / 900.0f, 0.1f, 1000.0f);
-         Point3F look_from = {0.0f, 0.0f, 0.0f};
-         Point3F look_at = {1.0f, 0.0f, 1.0f};
-         auto view_matrix = glm::lookAt(
-             glm::vec3(look_from.x, look_from.y, look_from.z),
-             glm::vec3(look_at.x, look_at.y, look_at.z), glm::vec3(0.0, 1.0, 0.0));
-         glUniformMatrix4fv(location_projection_, 1, GL_FALSE, value_ptr(perspective_matrix));
-         glUniformMatrix4fv(location_view_, 1, GL_FALSE, glm::value_ptr(view_matrix));
+         //         auto perspective_matrix =
+         //             glm::perspective(glm::radians(110.0f / 2), 1600.0f / 900.0f, 0.1f, 1000.0f);
+         //         Point3F look_from = {0.0f, 0.0f, 0.0f};
+         //         Point3F look_at = {1.0f, 0.0f, 1.0f};
+         //         auto view_matrix = glm::lookAt(
+         //             glm::vec3(look_from.x, look_from.y, look_from.z),
+         //             glm::vec3(look_at.x, look_at.y, look_at.z), glm::vec3(0.0, 1.0, 0.0));
+         //         glUniformMatrix4fv(location_projection_, 1, GL_FALSE,
+         //         value_ptr(perspective_matrix)); glUniformMatrix4fv(location_view_, 1, GL_FALSE,
+         //         glm::value_ptr(view_matrix));
+         XrMatrix4x4f model;
+         XrVector3f translation = {0.0f, 0.0f, 0.0f};
+         XrQuaternionf rotation = XrQuaternionf();
+         XrVector3f scaling = {1.0f, 1.0f, 1.0f};
+         XrMatrix4x4f_CreateTranslationRotationScale(&model, &translation, &rotation, &scaling);
+         XrMatrix4x4f mvp;
+         XrMatrix4x4f_Multiply(&mvp, &viewProjectionMatrix, &model);
+         glUniformMatrix4fv(
+             location_viewProjection_, 1, GL_FALSE, reinterpret_cast<const GLfloat *>(&mvp));
          //         glUniformMatrix4fv(
          //             location_projection_, 1, GL_FALSE,
          //             value_ptr(CameraGl::Get()->GetPerspectiveMatrix()));
@@ -271,7 +303,7 @@ namespace nar {
             auto brightness = brightnesses.at(i);
             auto model_matrix = glm::rotate(
                 glm::scale(
-                    glm::translate(glm::mat4(1.0), glm::vec3(position.x, position.y, position.z)),
+                    glm::translate(glm::mat4(1.0), glm::vec3(position.x - Player::Get()->x, position.y, position.z - Player::Get()->y)),
                     glm::vec3(scaling, scaling, scaling)),
                 glm::radians(rotation), glm::vec3(0, 1, 0));
             auto model_no_translation_matrix = glm::rotate(
@@ -289,10 +321,7 @@ namespace nar {
             //                Player::Get()->GetSpaceCoord().x, Player::Get()->GetSpaceCoord().y,
             //                Player::Get()->GetSpaceCoord().z);
             glUniform3fv(location_view_pos_, 1, glm::value_ptr(viewPos));
-            glm::vec3 fogColorGl(
-                0.0f,
-                0.5f,
-                1.0f);
+            glm::vec3 fogColorGl(0.0f, 0.5f, 1.0f);
             glUniform3fv(location_fog_color_, 1, glm::value_ptr(fogColorGl));
             glUniform1f(location_alpha_, brightness);
             glUniform1f(location_no_fog_, 0.0f);

@@ -165,7 +165,7 @@ namespace nar {
                RendererTilesView::Get()->DrawTile(ground, rendids_tiles[x][y], vp);
 
                RendererModelsView::Get()->DrawModel(
-                   "object_tree1", 0, {x + 0.5f, -2.0f, y + 0.5f}, 0.0f, 0.6f, 1.0f);
+                   "object_tree1", 0, {x + 0.5f, -2.0f, y + 0.5f}, vp, 0.0f, 0.6f, 1.0f);
             }
          }
       };

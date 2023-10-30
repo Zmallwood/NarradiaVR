@@ -12,6 +12,7 @@ R"_(
     uniform mat4 view;
     uniform mat4 model;
     uniform mat4 modelNoTranslation;
+    uniform mat4 viewProjection;
     void main() {
         vec4 newVertex;
         vec4 newNormal;
@@ -20,7 +21,8 @@ R"_(
         newNormal.xyz = in_Normal;
         newNormal.w = 1.0;
         ex_Color = in_Color;
-        gl_Position = projection * view * model * newVertex;
+//        gl_Position = projection * view * model * newVertex;
+        gl_Position = viewProjection * model * newVertex;
         ex_TexCoord = in_TexCoord;
         ex_Normal = (modelNoTranslation * newNormal).xyz;
         FragPos = vec3(model * vec4(in_Position.x, in_Position.y, in_Position.z, 1.0));
