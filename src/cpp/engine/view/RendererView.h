@@ -11,7 +11,7 @@ The original icense is stated in the LICENSE file. */
 namespace nar {
    class RendererView : public Singleton<RendererView> {
      public:
-      void RenderFrame(std::function<void(XrMatrix4x4f)> gl_code);
+      void RenderFrame(std::function<void(XrMatrix4x4f)> gl_render_code);
 
       XrTime predicted_display_time() {
          return predicted_display_time_;

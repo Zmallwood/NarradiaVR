@@ -5,6 +5,7 @@ This code is licensed under Apache License, Version 2.0 (see LICENSE for details
 #include "MapGenerator.h"
 #include "world/model/World.h"
 #include "WaterGenerator.h"
+#include "ElevationGenerator.h"
 
 namespace nar {
    void MapGenerator::GenerateMapArea() {
@@ -17,5 +18,6 @@ namespace nar {
       }
 
       WaterGenerator::Get()->GenerateWater();
+      ElevationGenerator::Get()->GenerateElevation();
    }
 }

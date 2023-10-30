@@ -16,19 +16,39 @@ The original icense is stated in the LICENSE file. */
 
 namespace nar {
    MainSceneView::MainSceneView() {
-      for (auto y = -15; y < 15; y++) {
-         for (auto x = -15; x < 15; x++) {
+      auto map_area = World::Get()->current_map_area();
+      auto kElevAmount = 0.4f;
+
+      for (auto y = -25; y < 25; y++) {
+         for (auto x = -25; x < 25; x++) {
             rendids_tiles[x][y] = RendererTilesView::Get()->NewTile();
+
+            auto map_x = x + 50;
+            auto map_y = y + 50;
+
+            auto elev00 = map_area->tiles[map_x][map_y].elevation * kElevAmount;
+            auto elev10 = elev00;
+            auto elev11 = elev00;
+            auto elev01 = elev00;
+
+            if (map_x + 1 < 100)
+               elev10 = map_area->tiles[map_x + 1][map_y].elevation * kElevAmount;
+
+            if (map_x + 1 < 100 && map_y + 1 < 100)
+               elev11 = map_area->tiles[map_x + 1][map_y + 1].elevation * kElevAmount;
+
+            if (map_y + 1 < 100)
+               elev01 = map_area->tiles[map_x][map_y + 1].elevation * kElevAmount;
 
             Vertex3F v0;
             Vertex3F v1;
             Vertex3F v2;
             Vertex3F v3;
 
-            v0.position = {x * 1.0f, -2.0f, y * 1.0f};
-            v1.position = {x * 1.0f + 1.0f, -2.0f, y * 1.0f};
-            v2.position = {x * 1.0f + 1.0f, -2.0f, y * 1.0f + 1.0f};
-            v3.position = {x * 1.0f, -2.0f, y * 1.0f + 1.0f};
+            v0.position = {x * 1.0f, -2.0f + elev00, y * 1.0f};
+            v1.position = {x * 1.0f + 1.0f, -2.0f + elev10, y * 1.0f};
+            v2.position = {x * 1.0f + 1.0f, -2.0f + elev11, y * 1.0f + 1.0f};
+            v3.position = {x * 1.0f, -2.0f + elev01, y * 1.0f + 1.0f};
 
             v0.color = {1.0f, 1.0f, 1.0f, 1.0f};
             v1.color = {1.0f, 1.0f, 1.0f, 1.0f};
@@ -115,51 +135,32 @@ namespace nar {
 
       // RendererView::Get()->RenderFrame(cubes);
 
-      auto gl_code = [=](XrMatrix4x4f vp) {
+      auto gl_render_code = [=](XrMatrix4x4f vp) {
          auto map_area = World::Get()->current_map_area();
 
-         for (auto y = -15; y < 15; y++) {
-            for (auto x = -15; x < 15; x++) {
-               Vertex3F v0;
-               Vertex3F v1;
-               Vertex3F v2;
-               Vertex3F v3;
-
-               v0.position = {x * 1.0f, -2.0f, y * 1.0f};
-               v1.position = {x * 1.0f + 1.0f, -2.0f, y * 1.0f};
-               v2.position = {x * 1.0f + 1.0f, -2.0f, y * 1.0f + 1.0f};
-               v3.position = {x * 1.0f, -2.0f, y * 1.0f + 1.0f};
-
-               v0.color = {1.0f, 1.0f, 1.0f, 1.0f};
-               v1.color = {1.0f, 1.0f, 1.0f, 1.0f};
-               v2.color = {1.0f, 1.0f, 1.0f, 1.0f};
-               v3.color = {1.0f, 1.0f, 1.0f, 1.0f};
-
-               v0.normal = {0.0f, 1.0f, 0.0f};
-               v1.normal = {0.0f, 1.0f, 0.0f};
-               v2.normal = {0.0f, 1.0f, 0.0f};
-               v3.normal = {0.0f, 1.0f, 0.0f};
-
-               v0.uv = {0.0f, 0.0f};
-               v1.uv = {1.0f, 0.0f};
-               v2.uv = {1.0f, 1.0f};
-               v3.uv = {0.0f, 1.0f};
-
-               Point3F normal00 = {0.0f, 1.0f, 0.0f};
-               Point3F normal10 = {0.0f, 1.0f, 0.0f};
-               Point3F normal11 = {0.0f, 1.0f, 0.0f};
-               Point3F normal01 = {0.0f, 1.0f, 0.0f};
-
+         for (auto y = -25; y < 25; y++) {
+            for (auto x = -25; x < 25; x++) {
                auto map_x = x + 50;
                auto map_y = y + 50;
 
                auto ground = map_area->tiles[map_x][map_y].ground;
+
+               if (ground == "ground_water") {
+                  auto anim_index =
+                      ((static_cast<int>(static_cast<float>(clock()) / CLOCKS_PER_SEC * 1000) +
+                        map_x * map_y) %
+                       900) /
+                      300;
+
+                  if (anim_index > 0)
+                     ground = "ground_water_" + std::to_string(anim_index);
+               }
 
                RendererTilesView::Get()->DrawTile(ground, rendids_tiles[x][y], vp);
             }
          }
       };
 
-      RendererView::Get()->RenderFrame(gl_code);
+      RendererView::Get()->RenderFrame(gl_render_code);
    }
 }

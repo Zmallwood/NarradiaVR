@@ -4,9 +4,8 @@ This code is licensed under Apache License, Version 2.0 (see LICENSE for details
 #pragma once
 
 namespace nar {
-   class Tile {
+   class ElevationGenerator : public Singleton<ElevationGenerator> {
      public:
-      std::string_view ground = "";
-      float elevation = 0.0f;
+      void GenerateElevation();
    };
 }

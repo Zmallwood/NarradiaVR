@@ -17,7 +17,7 @@ namespace nar {
    bool CubeLayerView::Render(
        XrTime predicted_display_time,
        std::vector<XrCompositionLayerProjectionView> &projection_layer_views,
-       std::function<void(XrMatrix4x4f)> gl_code) {
+       std::function<void(XrMatrix4x4f)> gl_render_code) {
       *layer_ = {XR_TYPE_COMPOSITION_LAYER_PROJECTION};
 
       XrResult res;
@@ -82,7 +82,7 @@ namespace nar {
                  ->swapchain_images()[view_swapchain.handle][swapchain_image_index];
          GraphicsGLView::Get()->RenderView(
              projection_layer_views[i], swapchain_image,
-             SwapchainManagerView::Get()->color_swapchain_format(), gl_code);
+             SwapchainManagerView::Get()->color_swapchain_format(), gl_render_code);
 
          XrSwapchainImageReleaseInfo release_info = {XR_TYPE_SWAPCHAIN_IMAGE_RELEASE_INFO};
          xrReleaseSwapchainImage(view_swapchain.handle, &release_info);

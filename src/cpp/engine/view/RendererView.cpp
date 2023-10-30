@@ -14,7 +14,7 @@ The original icense is stated in the LICENSE file. */
 #include "CubeLayerView.h"
 
 namespace nar {
-   void RendererView::RenderFrame(std::function<void(XrMatrix4x4f)> gl_code) {
+   void RendererView::RenderFrame(std::function<void(XrMatrix4x4f)> gl_render_code) {
       auto session = OpenXrProgram::Get()->session();
 
       XrFrameWaitInfo frame_wait_info = {XR_TYPE_FRAME_WAIT_INFO};
@@ -32,7 +32,7 @@ namespace nar {
       if (frame_state.shouldRender == XR_TRUE) {
          CubeLayerView cube_layer;
          if (cube_layer.Render(
-                 frame_state.predictedDisplayTime, projection_layer_views, gl_code))
+                 frame_state.predictedDisplayTime, projection_layer_views, gl_render_code))
             layers.push_back(
                 reinterpret_cast<XrCompositionLayerBaseHeader *>(cube_layer.layer().get()));
       }

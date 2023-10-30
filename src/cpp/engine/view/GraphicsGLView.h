@@ -26,7 +26,7 @@ namespace nar {
       void RenderView(
           const XrCompositionLayerProjectionView &layer_view,
           const XrSwapchainImageBaseHeader *swapchain_image, int64_t swapchain_format,
-          std::function<void(XrMatrix4x4f)> gl_code);
+          std::function<void(XrMatrix4x4f)> gl_render_code);
       uint32_t GetSupportedSwapchainSampleCount(const XrViewConfigurationView &);
       void UpdateOptions();
 

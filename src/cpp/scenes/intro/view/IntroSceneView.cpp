@@ -72,7 +72,7 @@ namespace nar {
          }
       }
 
-      auto gl_code = [=](XrMatrix4x4f vp) {
+      auto gl_render_code = [=](XrMatrix4x4f vp) {
          // Set cube primitive data.
          auto vao = GraphicsGLView::Get()->vao();
          auto model_view_projection_uniform_location_ = glGetUniformLocation(
@@ -103,6 +103,6 @@ namespace nar {
          glUseProgram(0);
       };
 
-      RendererView::Get()->RenderFrame(gl_code);
+      RendererView::Get()->RenderFrame(gl_render_code);
    }
 }
