@@ -6,7 +6,6 @@ This file was modified from its original version by Zmallwood for Narradia.
 The original icense is stated in the LICENSE file. */
 
 #pragma once
-#include "Pch.h"
 
 namespace nar {
    class Options {

@@ -1,7 +1,7 @@
 ---
 Language:        Cpp
 # BasedOnStyle:  LLVM
-AccessModifierOffset: -1
+AccessModifierOffset: -2
 AlignAfterOpenBracket: AlwaysBreak
 AlignArrayOfStructures: None
 AlignConsecutiveMacros: None
@@ -104,7 +104,7 @@ IndentGotoLabels: true
 IndentPPDirectives: None
 IndentExternBlock: AfterExternBlock
 IndentRequires:  false
-IndentWidth:     3
+IndentWidth:     4
 IndentWrappedFunctionNames: false
 InsertTrailingCommas: None
 JavaScriptQuotes: Leave
@@ -137,7 +137,7 @@ ReflowComments:  true
 RemoveBracesLLVM: false
 SeparateDefinitionBlocks: Leave
 ShortNamespaceLines: 1
-SortIncludes:    false
+SortIncludes:    true
 SortJavaStaticImport: Before
 SortUsingDeclarations: true
 SpaceAfterCStyleCast: false
@@ -179,7 +179,7 @@ StatementAttributeLikeMacros:
 StatementMacros:
   - Q_UNUSED
   - QT_REQUIRE_VERSION
-TabWidth:        3
+TabWidth:        4
 UseCRLF:         false
 UseTab:          Never
 WhitespaceSensitiveMacros:

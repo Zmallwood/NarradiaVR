@@ -6,7 +6,6 @@
  * LICENSE IS STATED IN LICENSE FILE.
  */
 
-#include "Pch.h"
 #include "VertexCube.h"
 
 #define CUBE_SIDE(V1, V2, V3, V4, V5, V6, COLOR)                                                   \

@@ -6,7 +6,8 @@ This file was modified from its original version by Zmallwood for Narradia.
 The original icense is stated in the LICENSE file. */
 
 #pragma once
-#include "engine/view/ISceneView.h"
+#include "../../../engine/view/ISceneView.h"
+#include <map>
 
 namespace nar {
    class MainSceneView : public ISceneView {

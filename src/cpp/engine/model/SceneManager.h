@@ -4,6 +4,8 @@ This code is licensed under Apache License, Version 2.0 (see LICENSE for details
 #pragma once
 #include "IScene.h"
 #include "SceneNames.h"
+#include <memory>
+#include <map>
 
 namespace nar {
    class SceneManager : public Singleton<SceneManager> {

@@ -6,3 +6,4 @@ This code is licensed under Apache License, Version 2.0 (see LICENSE for details
 namespace nar {
    typedef GLuint RenderId;
 }
+

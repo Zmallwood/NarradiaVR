@@ -5,15 +5,14 @@ SPDX-License-Identifier: Apache-2.0
 This file was modified from its original version by Zmallwood for Narradia.
 The original icense is stated in the LICENSE file. */
 
-#include "Pch.h"
 #include "OpenXrProgram.h"
-#include "OptionsManager.h"
-#include "Options.h"
-#include "engine/view/GraphicsGLView.h"
 #include "AndroidPlatform.h"
-#include "HandDeviceInput.h"
-#include "engine/controller/InputActionsInitializerController.h"
 #include "Engine.h"
+#include "HandDeviceInput.h"
+#include "Options.h"
+#include "OptionsManager.h"
+#include "engine/controller/InputActionsInitController.h"
+#include "engine/view/GraphicsGLView.h"
 #include "engine/view/SwapchainManagerView.h"
 
 namespace nar {
@@ -178,7 +177,7 @@ namespace nar {
          xrCreateSession(instance_, &create_info, &session_);
       }
 
-      InputActionsInitializerController::Get()->InitInputActions();
+      InputActionsInitController::Get()->InitInputActions();
       //      InputActionsController::Get()->InitInputActions();
       CreateVisualizedSpaces();
 

@@ -7,6 +7,8 @@ The original icense is stated in the LICENSE file. */
 
 #pragma once
 
+struct android_app;
+
 namespace nar {
    /** A complete game session, created and ran from android_main().
     */

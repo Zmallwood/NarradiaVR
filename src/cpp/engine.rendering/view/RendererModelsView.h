@@ -1,6 +1,14 @@
+/* (c) 2023 Zmallwood
+This code is licensed under Apache License, Version 2.0 (see LICENSE for details) */
+
 #pragma once
 #include "RendererBaseView.h"
 #include "BodyData.h"
+#include <glm/glm.hpp>
+#include <string_view>
+#include <vector>
+#include <map>
+#include "../../common/system/Typedefs.h"
 
 namespace nar {
    class RendererModelsView : public RendererBaseView, public Singleton<RendererModelsView> {

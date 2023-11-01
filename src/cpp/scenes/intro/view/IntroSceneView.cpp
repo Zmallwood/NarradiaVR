@@ -6,7 +6,6 @@
  * LICENSE IS STATED IN LICENSE FILE.
  */
 
-#include "Pch.h"
 #include "IntroSceneView.h"
 #include "engine/view/RendererView.h"
 #include "engine/model/OpenXrProgram.h"

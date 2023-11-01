@@ -4,8 +4,8 @@ This code is licensed under Apache License, Version 2.0 (see LICENSE for details
 #pragma once
 
 namespace nar {
-   class InputActionsPollerController : public Singleton<InputActionsPollerController> {
+   class ObjectGenerator : public Singleton<ObjectGenerator> {
      public:
-      void PollInputActions();
+      void GenerateObjects();
    };
 }

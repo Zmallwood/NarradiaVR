@@ -5,7 +5,6 @@ SPDX-License-Identifier: Apache-2.0
 This file was modified from its original version by Zmallwood for Narradia.
 The original icense is stated in the LICENSE file. */
 
-#include "Pch.h"
 #include "CubeLayerView.h"
 #include "engine/model/OpenXrProgram.h"
 #include "engine/view/SwapchainManagerView.h"

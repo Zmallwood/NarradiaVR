@@ -6,7 +6,6 @@
  * LICENSE IS STATED IN LICENSE FILE.
  */
 
-#include "Pch.h"
 #include "IntroScene.h"
 
 namespace nar {

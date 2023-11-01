@@ -5,14 +5,14 @@ SPDX-License-Identifier: Apache-2.0
 This file was modified from its original version by Zmallwood for Narradia.
 The original icense is stated in the LICENSE file. */
 
-#include "Pch.h"
 #include "Game.h"
 #include "engine/model/Engine.h"
 #include "engine/view/EngineView.h"
 #include "engine/controller/EngineController.h"
 
 namespace nar {
-   /** Initialize and start new game instance.
+   /** 
+    * Initialize and start new game instance.
     */
    void Game::Run(android_app *app) {
       Engine::Get()->Init(app);

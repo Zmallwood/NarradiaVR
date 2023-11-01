@@ -4,6 +4,10 @@ This code is licensed under Apache License, Version 2.0 (see LICENSE for details
 #pragma once
 #include "BufferTypes.h"
 #include "ShaderProgramView.h"
+#include <map>
+#include <vector>
+#include <memory>
+#include <GLES2/gl2.h>
 
 namespace nar {
    class RendererBaseView {

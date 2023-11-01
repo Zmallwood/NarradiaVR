@@ -2,6 +2,7 @@
 This code is licensed under Apache License, Version 2.0 (see LICENSE for details) */
 
 #pragma once
+#include <GLES2/gl2.h>
 
 namespace nar {
    class ShaderProgramView {
