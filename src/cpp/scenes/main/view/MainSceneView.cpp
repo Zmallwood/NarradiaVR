@@ -7,6 +7,7 @@ The original icense is stated in the LICENSE file. */
 
 #include "MainSceneView.h"
 #include "../../../engine.rendering/view/RendererModelsView.h"
+#include "../../../engine/model/Config.h"
 #include "../../../engine/view/RendererView.h"
 #include "engine.rendering/view/RendererTilesView.h"
 #include "engine/model/InputState.h"
@@ -19,7 +20,8 @@ The original icense is stated in the LICENSE file. */
 namespace nar {
     MainSceneView::MainSceneView() {
         auto map_area = World::Get()->current_map_area();
-        auto kElevAmount = 0.4f;
+        auto elev_amount = Config::Get()->kElevAmount;
+        auto tile_size = Config::Get()->kTileSize;
 
         for (auto y = -35; y < 35; y++) {
             for (auto x = -35; x < 35; x++) {
@@ -30,7 +32,7 @@ namespace nar {
 
                 auto tile = &map_area->tiles[map_x][map_y];
 
-                auto elev00 = tile->elevation * kElevAmount;
+                auto elev00 = tile->elevation * elev_amount;
                 auto elev10 = elev00;
                 auto elev11 = elev00;
                 auto elev01 = elev00;
@@ -41,17 +43,17 @@ namespace nar {
                 auto normal01 = normal00;
 
                 if (map_x + 1 < 100) {
-                    elev10 = map_area->tiles[map_x + 1][map_y].elevation * kElevAmount;
+                    elev10 = map_area->tiles[map_x + 1][map_y].elevation * elev_amount;
                     normal10 = map_area->tiles[map_x + 1][map_y].normal;
                 }
 
                 if (map_x + 1 < 100 && map_y + 1 < 100) {
-                    elev11 = map_area->tiles[map_x + 1][map_y + 1].elevation * kElevAmount;
+                    elev11 = map_area->tiles[map_x + 1][map_y + 1].elevation * elev_amount;
                     normal11 = map_area->tiles[map_x + 1][map_y + 1].normal;
                 }
 
                 if (map_y + 1 < 100) {
-                    elev01 = map_area->tiles[map_x][map_y + 1].elevation * kElevAmount;
+                    elev01 = map_area->tiles[map_x][map_y + 1].elevation * elev_amount;
                     normal01 = map_area->tiles[map_x][map_y + 1].normal;
                 }
 
@@ -60,10 +62,11 @@ namespace nar {
                 Vertex3F v2;
                 Vertex3F v3;
 
-                v0.position = {x * 1.0f, -2.0f + elev00, y * 1.0f};
-                v1.position = {x * 1.0f + 1.0f, -2.0f + elev10, y * 1.0f};
-                v2.position = {x * 1.0f + 1.0f, -2.0f + elev11, y * 1.0f + 1.0f};
-                v3.position = {x * 1.0f, -2.0f + elev01, y * 1.0f + 1.0f};
+                v0.position = {x * tile_size, -2.0f + elev00, y * tile_size};
+                v1.position = {x * tile_size + tile_size, -2.0f + elev10, y * tile_size};
+                v2.position = {
+                    x * tile_size + tile_size, -2.0f + elev11, y * tile_size + tile_size};
+                v3.position = {x * tile_size, -2.0f + elev01, y * tile_size + tile_size};
 
                 v0.color = {1.0f, 1.0f, 1.0f, 1.0f};
                 v1.color = {1.0f, 1.0f, 1.0f, 1.0f};
@@ -158,9 +161,12 @@ namespace nar {
         }
 
         // RendererView::Get()->RenderFrame(cubes);
+        auto map_area = World::Get()->current_map_area();
 
         auto gl_render_code = [=](XrMatrix4x4f vp) {
-            auto map_area = World::Get()->current_map_area();
+            RendererModelsView::Get()->DrawModel(
+                "skybox", 0, {0.0f, 0.0f, 0.0f}, vp, 0.0f, 10.0f, 1.0f, {1.0f, 1.0f, 1.0f}, false,
+                false, true);
 
             for (auto y = -35; y < 35; y++) {
                 for (auto x = -35; x < 35; x++) {
@@ -207,7 +213,24 @@ namespace nar {
                 }
             }
         };
+        auto elev_amount = Config::Get()->kElevAmount;
+        auto p_x_int = static_cast<int>(Player::Get()->x) + 50;
+        auto p_y_int = static_cast<int>(Player::Get()->y) + 50;
+        auto elev00 = map_area->tiles[p_x_int][p_y_int].elevation * elev_amount;
+        auto elev10 = map_area->tiles[p_x_int + 1][p_y_int].elevation * elev_amount;
+        auto elev11 = map_area->tiles[p_x_int + 1][p_y_int + 1].elevation * elev_amount;
+        auto elev01 = map_area->tiles[p_x_int][p_y_int + 1].elevation * elev_amount;
+        auto dx = Player::Get()->x + 50 - p_x_int;
+        auto dy = Player::Get()->y + 50 - p_y_int;
+        auto player_elev = elev00 + (elev10 - elev00) * dx + (elev01 - elev00) * dy +
+                           (elev11 - elev00) * std::sqrt(dx * dx + dy * dy);
 
-        RendererView::Get()->RenderFrame(gl_render_code);
+        //        __android_log_print(
+        //            ANDROID_LOG_INFO, "Narradia",
+        //            "elev: %f, dx: %f, dy: %f, player_x: %f, player_y: %f, x_int: %d, y_int: %d",
+        //            player_elev, dx, dy, Player::Get()->x, Player::Get()->y, p_x_int, p_y_int);
+        auto player_translation = Point3F{0.0f, player_elev, 0.0f};
+
+        RendererView::Get()->RenderFrame(gl_render_code, player_translation);
     }
 }

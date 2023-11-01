@@ -1,4 +1,5 @@
 #include "NormalsCalculator.h"
+#include "../../engine/model/Config.h"
 #include "../../matter/model/Point.h"
 #include "../../world/model/World.h"
 
@@ -6,8 +7,8 @@ namespace nar {
     void NormalsCalculator::CalculateNormals() {
         auto map_area = World::Get()->current_map_area();
 
-        auto kTileSize = 1.0f;
-        auto kElevAmount = 0.4f;
+        auto elev_amount = Config::Get()->kElevAmount;
+        auto tile_size = Config::Get()->kTileSize;
 
         for (auto y = 0; y < 100; y++) {
             for (auto x = 0; x < 100; x++) {
@@ -26,18 +27,18 @@ namespace nar {
                     elev11 = map_area->tiles[x + 1][y + 1].elevation;
                 if (y + 1 < 100)
                     elev01 = map_area->tiles[x][y + 1].elevation;
-                auto x0 = tile_coord.x * kTileSize;
-                auto y0 = elev00 * kElevAmount;
-                auto z0 = tile_coord.y * kTileSize;
-                auto x1 = tile_coord.x * kTileSize + kTileSize;
-                auto y1 = elev10 * kElevAmount;
-                auto z1 = tile_coord.y * kTileSize;
-                auto x2 = tile_coord.x * kTileSize + kTileSize;
-                auto y2 = elev11 * kElevAmount;
-                auto z2 = tile_coord.y * kTileSize + kTileSize;
-                auto x3 = tile_coord.x * kTileSize;
-                auto y3 = elev01 * kElevAmount;
-                auto z3 = tile_coord.y * kTileSize + kTileSize;
+                auto x0 = tile_coord.x * tile_size;
+                auto y0 = elev00 * elev_amount;
+                auto z0 = tile_coord.y * tile_size;
+                auto x1 = tile_coord.x * tile_size + tile_size;
+                auto y1 = elev10 * elev_amount;
+                auto z1 = tile_coord.y * tile_size;
+                auto x2 = tile_coord.x * tile_size + tile_size;
+                auto y2 = elev11 * elev_amount;
+                auto z2 = tile_coord.y * tile_size + tile_size;
+                auto x3 = tile_coord.x * tile_size;
+                auto y3 = elev01 * elev_amount;
+                auto z3 = tile_coord.y * tile_size + tile_size;
                 auto p0 = Point3F{x0, y0, z0};
                 auto p1 = Point3F{x1, y1, z1};
                 auto p3 = Point3F{x3, y3, z3};

@@ -163,9 +163,10 @@ namespace nar {
     void RendererModelsView::DrawModel(
         std::string_view model_name, float msTime, Point3F position,
         XrMatrix4x4f viewProjectionMatrix, float rotation, float scaling, float brightness,
-        glm::vec3 colorMod, bool noFog, bool noLighting) const {
+        glm::vec3 colorMod, bool noFog, bool noLighting, bool cull_face_back) const {
         // glDisable(GL_CULL_FACE);
-        glCullFace(GL_FRONT);
+        if (!cull_face_back)
+            glCullFace(GL_FRONT);
         if (model_ids_.count(model_name) == 0)
             return;
         if (!is_batch_drawing_) {

@@ -14,7 +14,7 @@ namespace nar {
       bool Render(
           XrTime predicted_display_time,
           std::vector<XrCompositionLayerProjectionView> &projection_layer_views,
-          std::function<void(XrMatrix4x4f)> gl_render_code);
+          std::function<void(XrMatrix4x4f)> gl_render_code, Point3F player_translation = {0.0f, 0.0f, 0.0f});
 
       std::shared_ptr<XrCompositionLayerProjection> layer() {
          return layer_;
