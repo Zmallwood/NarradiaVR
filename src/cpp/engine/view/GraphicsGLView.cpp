@@ -246,7 +246,7 @@ namespace nar {
       // Clear swapchain and depth buffer.
       // glClearColor(clear_color_[0], clear_color_[1], clear_color_[2], clear_color_[3]);
       glClearDepthf(1.0f);
-      glClearColor(0.0f, 0.5f, 1.0f, 1.0f);
+      glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
       // Set shaders and uniform variables.

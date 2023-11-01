@@ -11,7 +11,7 @@ namespace nar
     class ModelPart {
       public:
         ModelPart();
-        std::string_view texName = "";
+        std::string texName;
         std::unique_ptr<ModelPartTimeline> timeline;
     };
 }

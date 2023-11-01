@@ -6,22 +6,23 @@ This file was modified from its original version by Zmallwood for Narradia.
 The original icense is stated in the LICENSE file. */
 
 #include "MainSceneView.h"
-#include "engine.rendering/view/RendererModelsView.h"
+#include "../../../engine.rendering/view/RendererModelsView.h"
+#include "../../../engine/view/RendererView.h"
 #include "engine.rendering/view/RendererTilesView.h"
 #include "engine/model/InputState.h"
 #include "engine/model/ModelBank.h"
 #include "engine/model/OpenXrProgram.h"
-#include "engine/view/RendererView.h"
 #include "world/model/Player.h"
 #include "world/model/World.h"
+#include <ctime>
 
 namespace nar {
     MainSceneView::MainSceneView() {
         auto map_area = World::Get()->current_map_area();
         auto kElevAmount = 0.4f;
 
-        for (auto y = -25; y < 25; y++) {
-            for (auto x = -25; x < 25; x++) {
+        for (auto y = -35; y < 35; y++) {
+            for (auto x = -35; x < 35; x++) {
                 rendids_tiles[x][y] = RendererTilesView::Get()->NewTile();
 
                 auto map_x = x + 50;
@@ -161,8 +162,8 @@ namespace nar {
         auto gl_render_code = [=](XrMatrix4x4f vp) {
             auto map_area = World::Get()->current_map_area();
 
-            for (auto y = -25; y < 25; y++) {
-                for (auto x = -25; x < 25; x++) {
+            for (auto y = -35; y < 35; y++) {
+                for (auto x = -35; x < 35; x++) {
                     auto map_x = x + 50;
                     auto map_y = y + 50;
 
@@ -185,8 +186,23 @@ namespace nar {
                     auto object = map_area->tiles[map_x][map_y].object;
 
                     if (nullptr != object) {
+                        auto scaling = 1.0f;
+                        if (object->type() != "object_tall_grass6")
+                            scaling = 2.6f;
                         RendererModelsView::Get()->DrawModel(
-                            object->type(), 0, {x + 0.5f, -2.0f, y + 0.5f}, vp, 0.0f, 0.6f, 1.0f);
+                            object->type(), static_cast<float>(clock()) / CLOCKS_PER_SEC * 10000,
+                            {x + 0.5f, -2.0f, y + 0.5f}, vp, 0.0f, scaling, 1.0f);
+                    }
+
+                    auto mob = map_area->tiles[map_x][map_y].mob;
+
+                    if (nullptr != mob) {
+                        auto mob_y_pos = 0.0f;
+                        if (mob->type() == "mob_bird1")
+                            mob_y_pos = 3.0f;
+                        RendererModelsView::Get()->DrawModel(
+                            mob->type(), static_cast<float>(clock()) / CLOCKS_PER_SEC * 10000,
+                            {x + 0.5f, -2.0f + mob_y_pos, y + 0.5f}, vp, 0.0f, 0.4f, 1.0f);
                     }
                 }
             }

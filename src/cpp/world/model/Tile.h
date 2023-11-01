@@ -4,6 +4,7 @@ This code is licensed under Apache License, Version 2.0 (see LICENSE for details
 #pragma once
 #include "../../matter/model/Point3F.h"
 #include "Object.h"
+#include "Mob.h"
 
 namespace nar {
     class Tile {
@@ -12,7 +13,8 @@ namespace nar {
 
         std::string_view ground = "";
         float elevation = 0.0f;
-        std::shared_ptr<Object> object = nullptr;
+        std::shared_ptr<Object> object;
+	std::shared_ptr<Mob> mob;
         Point3F normal = {0.0f, 1.0f, 0.0f};
     };
 }

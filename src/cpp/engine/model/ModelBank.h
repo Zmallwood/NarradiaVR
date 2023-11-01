@@ -3,10 +3,9 @@ This code is licensed under Apache License, Version 2.0 (see LICENSE for details
 
 #pragma once
 #include "FileData.h"
+#include "../../engine.model_structure/model/Model.h"
 
 namespace nar {
-   class Model;
-
    /** Loads and provides 3D models used in the rendering.
     */
    class ModelBank : public Singleton<ModelBank> {
