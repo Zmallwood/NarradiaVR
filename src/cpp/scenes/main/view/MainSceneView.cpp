@@ -9,11 +9,11 @@ The original icense is stated in the LICENSE file. */
 #include "../../../engine.rendering/view/RendererModelsView.h"
 #include "../../../engine/model/Config.h"
 #include "../../../engine/view/RendererView.h"
+#include "../../../world/model/Player.h"
 #include "engine.rendering/view/RendererTilesView.h"
 #include "engine/model/InputState.h"
 #include "engine/model/ModelBank.h"
 #include "engine/model/OpenXrProgram.h"
-#include "world/model/Player.h"
 #include "world/model/World.h"
 #include <ctime>
 
@@ -162,6 +162,28 @@ namespace nar {
 
         // RendererView::Get()->RenderFrame(cubes);
         auto map_area = World::Get()->current_map_area();
+        auto elev_amount = Config::Get()->kElevAmount;
+        auto p_x_int = static_cast<int>(Player::Get()->x) + 50;
+        auto p_y_int = static_cast<int>(Player::Get()->y) + 50;
+        auto elev00 = map_area->tiles[p_x_int][p_y_int].elevation * elev_amount;
+        auto elev10 = map_area->tiles[p_x_int + 1][p_y_int].elevation * elev_amount;
+        auto elev11 = map_area->tiles[p_x_int + 1][p_y_int + 1].elevation * elev_amount;
+        auto elev01 = map_area->tiles[p_x_int][p_y_int + 1].elevation * elev_amount;
+        auto dx = Player::Get()->x + 50 - p_x_int;
+        auto dy = Player::Get()->y + 50 - p_y_int;
+        auto player_elev = elev00 + (elev10 - elev00) * dx + (elev01 - elev00) * dy +
+                           (elev11 - elev00) * std::sqrt(dx * dx + dy * dy);
+
+        //        __android_log_print(
+        //            ANDROID_LOG_INFO, "Narradia",
+        //            "elev: %f, dx: %f, dy: %f, player_x: %f, player_y: %f, x_int: %d, y_int: %d",
+        //            player_elev, dx, dy, Player::Get()->x, Player::Get()->y, p_x_int, p_y_int);
+
+        auto cam_dist = 30.0f;
+        auto cam_dx = -std::cos(glm::radians(-Player::Get()->facing_angle_degrees - 90.0f));
+        auto cam_dy = -std::sin(glm::radians(-Player::Get()->facing_angle_degrees - 90.0f));
+
+        auto player_translation = Point3F{cam_dx, player_elev + 2.0f, cam_dy};
 
         auto gl_render_code = [=](XrMatrix4x4f vp) {
             RendererModelsView::Get()->DrawModel(
@@ -194,7 +216,7 @@ namespace nar {
                     if (nullptr != object) {
                         auto scaling = 1.0f;
                         if (object->type() != "object_tall_grass6")
-                            scaling = 2.6f;
+                            scaling = 1.6f;
                         RendererModelsView::Get()->DrawModel(
                             object->type(), static_cast<float>(clock()) / CLOCKS_PER_SEC * 10000,
                             {x + 0.5f, -2.0f, y + 0.5f}, vp, 0.0f, scaling, 1.0f);
@@ -206,30 +228,22 @@ namespace nar {
                         auto mob_y_pos = 0.0f;
                         if (mob->type() == "mob_bird1")
                             mob_y_pos = 3.0f;
+                        auto scale = 0.4f;
+                        if (mob->type() == "chk1") {
+                            scale = 0.6f;
+                            continue;
+                        }
                         RendererModelsView::Get()->DrawModel(
                             mob->type(), static_cast<float>(clock()) / CLOCKS_PER_SEC * 10000,
-                            {x + 0.5f, -2.0f + mob_y_pos, y + 0.5f}, vp, 0.0f, 0.4f, 1.0f);
+                            {x + 0.5f, -2.0f + mob_y_pos, y + 0.5f}, vp, 0.0f, scale, 1.0f);
                     }
                 }
             }
+            auto tile_size = Config::Get()->kTileSize;
+            RendererModelsView::Get()->DrawModel(
+                "player", static_cast<float>(clock()) / CLOCKS_PER_SEC * 10000,
+                {Player::Get()->x, -2.0f + player_elev, Player::Get()->y}, vp, 0.0f, 0.7f, 1.0f);
         };
-        auto elev_amount = Config::Get()->kElevAmount;
-        auto p_x_int = static_cast<int>(Player::Get()->x) + 50;
-        auto p_y_int = static_cast<int>(Player::Get()->y) + 50;
-        auto elev00 = map_area->tiles[p_x_int][p_y_int].elevation * elev_amount;
-        auto elev10 = map_area->tiles[p_x_int + 1][p_y_int].elevation * elev_amount;
-        auto elev11 = map_area->tiles[p_x_int + 1][p_y_int + 1].elevation * elev_amount;
-        auto elev01 = map_area->tiles[p_x_int][p_y_int + 1].elevation * elev_amount;
-        auto dx = Player::Get()->x + 50 - p_x_int;
-        auto dy = Player::Get()->y + 50 - p_y_int;
-        auto player_elev = elev00 + (elev10 - elev00) * dx + (elev01 - elev00) * dy +
-                           (elev11 - elev00) * std::sqrt(dx * dx + dy * dy);
-
-        //        __android_log_print(
-        //            ANDROID_LOG_INFO, "Narradia",
-        //            "elev: %f, dx: %f, dy: %f, player_x: %f, player_y: %f, x_int: %d, y_int: %d",
-        //            player_elev, dx, dy, Player::Get()->x, Player::Get()->y, p_x_int, p_y_int);
-        auto player_translation = Point3F{0.0f, player_elev, 0.0f};
 
         RendererView::Get()->RenderFrame(gl_render_code, player_translation);
     }
