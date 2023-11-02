@@ -6,24 +6,24 @@ This file was modified from its original version by Zmallwood for Narradia.
 The original icense is stated in the LICENSE file. */
 
 #include "Game.h"
+#include "engine/controller/EngineController.h"
 #include "engine/model/Engine.h"
 #include "engine/view/EngineView.h"
-#include "engine/controller/EngineController.h"
 
 namespace nar {
-   /** 
-    * Initialize and start new game instance.
-    */
-   void Game::Run(android_app *app) {
-      Engine::Get()->Init(app);
+    /**
+     * Initialize and start new game instance.
+     */
+    void Game::Run(android_app *app) {
+        Engine::Get()->Init(app);
 
-      while (Engine::Get()->game_is_running()) {    // Core game loop
-         EngineController::Get()->HandleInput();    // Controller
-         EngineController::Get()->UpdateGameFlow(); // Controller
-         Engine::Get()->UpdateGameLogic();          // Model
-         EngineView::Get()->Render();               // View
-      }
+        while (Engine::Get()->game_is_running()) {     // Core game loop
+            EngineController::Get()->HandleInput();    // Controller
+            EngineController::Get()->UpdateGameFlow(); // Controller
+            Engine::Get()->UpdateGameLogic();          // Model
+            EngineView::Get()->Render();               // View
+        }
 
-      DisposeAllSingletons(); // Required to be done manually on android
-   }
+        DisposeAllSingletons(); // Required to be done manually on android
+    }
 }

@@ -14,8 +14,8 @@ namespace nar {
       float y = 0.0f;
       float z = 0.0f;
       clock_t ticks_last_movement = 0;
-      float movement_speed = 0.05f;
-      float movement_step_size = 0.4f;
+      float movement_speed = 30.0f;
+      float movement_step_size = 1.0f;
       float facing_angle_degrees = 0.0f;
       float rotation_speed = 0.5f;
       float rotation_step_size = 5.0f;

@@ -11,12 +11,14 @@ The original icense is stated in the LICENSE file. */
 #include "engine/model/OpenXrProgram.h"
 
 namespace nar {
-    /// Read all pending events.
+    /**
+     * Read all pending events.
+     */
     void ReadSystemEvents() {
         auto app = AndroidVRAppManager::Get()->app();
         auto app_state = static_cast<AndroidAppState *>(app->userData);
 
-        for (;;) {
+        while (true) {
             int events;
             struct android_poll_source *source;
             // If the timeout is zero, returns immediately without blocking.

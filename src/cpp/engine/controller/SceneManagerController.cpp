@@ -2,6 +2,7 @@
 This code is licensed under Apache License, Version 2.0 (see LICENSE for details) */
 
 #include "SceneManagerController.h"
+#include "../../engine/model/SceneManager.h"
 #include "../../scenes/intro/controller/IntroSceneController.h"
 #include "../../scenes/main/controller/MainSceneController.h"
 #include "../../scenes/main_menu/controller/MainMenuSceneController.h"

@@ -2,7 +2,6 @@
 This code is licensed under Apache License, Version 2.0 (see LICENSE for details) */
 
 #pragma once
-#include "../../engine/model/SceneManager.h"
 #include "../../engine/model/SceneNames.h"
 #include "ISceneController.h"
 #include <map>

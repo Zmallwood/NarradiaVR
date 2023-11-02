@@ -2,12 +2,12 @@
 This code is licensed under Apache License, Version 2.0 (see LICENSE for details) */
 
 #include "EngineController.h"
+#include "InputPollController.h"
 #include "SceneManagerController.h"
 #include "SystemEventPollerController.h"
 #include "engine/model/AndroidVRAppManager.h"
 #include "engine/model/Engine.h"
 #include "engine/model/OpenXrProgram.h"
-#include "func/PollInputActions.h"
 #include "func/ReadSystemEvents.h"
 #include <thread>
 
@@ -18,7 +18,7 @@ namespace nar {
     void EngineController::HandleInput() {
         ReadSystemEvents();
         SystemEventPollerController::Get()->PollSystemEvents();
-        PollInputActions();
+        InputPollController::Get()->PollInputActions();
         SceneManagerController::Get()->HandleInput();
     }
 

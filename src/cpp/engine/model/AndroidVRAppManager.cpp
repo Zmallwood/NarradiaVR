@@ -1,60 +1,61 @@
 /* Copyright (c) 2017-2023, The Khronos Group Inc.
- 
-SPDX-License-Identifier: Apache-2.0 
- 
+
+SPDX-License-Identifier: Apache-2.0
+
 This file was modified from its original version by Zmallwood for Narradia.
 The original icense is stated in the LICENSE file. */
 
 #include "AndroidVRAppManager.h"
 
 namespace nar {
-   void AndroidVRAppManager::Init() {
-      JNIEnv *env;
-      app_->activity->vm->AttachCurrentThread(&env, nullptr);
-      app_->userData = &appState_;
-      app_->onAppCmd = HandleAppCmd;
-   }
+    /**
+     * Initialize at game start:
+     */
+    void AndroidVRAppManager::Init() {
+        JNIEnv *env;
+        app_->activity->vm->AttachCurrentThread(&env, nullptr);
+        app_->userData = &appState_;
+        app_->onAppCmd = HandleAppCmd;
+    }
 
-   void AndroidVRAppManager::Cleanup() {
-      app_->activity->vm->DetachCurrentThread();
-   }
+    /**
+     * Cleanup at game exit.
+     */
+    void AndroidVRAppManager::Cleanup() {
+        app_->activity->vm->DetachCurrentThread();
+    }
 
-   /** Process the next main command.
-    */
-   void AndroidVRAppManager::HandleAppCmd(struct android_app *app, int32_t cmd) {
-      AndroidAppState *app_state = (AndroidAppState *)app->userData;
+    /**
+     * Process the next main command.
+     */
+    void AndroidVRAppManager::HandleAppCmd(struct android_app *app, int32_t cmd) {
+        AndroidAppState *app_state = (AndroidAppState *)app->userData;
 
-      switch (cmd) {
-      /* There is no APP_CMD_CREATE. The ANativeActivity creates the
-       * application thread from onCreate(). The application thread
-       * then calls android_main().
-       */
-      case APP_CMD_START: {
-         break;
-      }
-      case APP_CMD_RESUME: {
-         app_state->resumed = true;
-         break;
-      }
-      case APP_CMD_PAUSE: {
-         app_state->resumed = false;
-         break;
-      }
-      case APP_CMD_STOP: {
-         break;
-      }
-      case APP_CMD_DESTROY: {
-         app_state->native_window = NULL;
-         break;
-      }
-      case APP_CMD_INIT_WINDOW: {
-         app_state->native_window = app->window;
-         break;
-      }
-      case APP_CMD_TERM_WINDOW: {
-         app_state->native_window = NULL;
-         break;
-      }
-      }
-   }
+        switch (cmd) {
+        /*
+         * There is no APP_CMD_CREATE. The ANativeActivity creates the
+         * application thread from onCreate(). The application thread
+         * then calls android_main().
+         */
+        case APP_CMD_START:
+            break;
+        case APP_CMD_RESUME:
+            app_state->resumed = true;
+            break;
+        case APP_CMD_PAUSE:
+            app_state->resumed = false;
+            break;
+        case APP_CMD_STOP:
+            break;
+        case APP_CMD_DESTROY:
+            app_state->native_window = NULL;
+            break;
+        case APP_CMD_INIT_WINDOW:
+            app_state->native_window = app->window;
+            break;
+        case APP_CMD_TERM_WINDOW:
+            app_state->native_window = NULL;
+            break;
+        }
+    }
 }

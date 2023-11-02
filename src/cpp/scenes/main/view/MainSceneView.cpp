@@ -194,6 +194,12 @@ namespace nar {
                     auto map_x = x + 50;
                     auto map_y = y + 50;
 
+                    auto elev00 = map_area->tiles[map_x][map_y].elevation * elev_amount;
+                    auto elev10 = map_area->tiles[map_x + 1][map_y].elevation * elev_amount;
+                    auto elev11 = map_area->tiles[map_x + 1][map_y + 1].elevation * elev_amount;
+                    auto elev01 = map_area->tiles[map_x][map_y + 1].elevation * elev_amount;
+                    auto avg_elev = (elev00 + elev10 + elev11 + elev01) / 4.0f;
+
                     auto ground = map_area->tiles[map_x][map_y].ground;
 
                     if (ground == "ground_water") {
@@ -213,12 +219,14 @@ namespace nar {
                     auto object = map_area->tiles[map_x][map_y].object;
 
                     if (nullptr != object) {
-                        auto scaling = 1.0f;
+                        auto scaling = 1.5f;
                         if (object->type() != "object_tall_grass6")
-                            scaling = 1.6f;
+                            scaling = 2.6f;
                         RendererModelsView::Get()->DrawModel(
                             object->type(), static_cast<float>(clock()) / CLOCKS_PER_SEC * 10000,
-                            {x + 0.5f, -2.0f, y + 0.5f}, vp, 0.0f, scaling, 1.0f);
+                            {x * tile_size + 0.5f * tile_size, -2.0f + avg_elev,
+                             y * tile_size + 0.5f * tile_size},
+                            vp, 0.0f, scaling, 1.0f);
                     }
 
                     auto mob = map_area->tiles[map_x][map_y].mob;
@@ -234,7 +242,9 @@ namespace nar {
                         }
                         RendererModelsView::Get()->DrawModel(
                             mob->type(), static_cast<float>(clock()) / CLOCKS_PER_SEC * 10000,
-                            {x + 0.5f, -2.0f + mob_y_pos, y + 0.5f}, vp, 0.0f, scale, 1.0f);
+                            {x * tile_size + 0.5f * tile_size, -2.0f + avg_elev + mob_y_pos,
+                             y * tile_size + 0.5f * tile_size},
+                            vp, 0.0f, scale, 1.0f);
                     }
                 }
             }

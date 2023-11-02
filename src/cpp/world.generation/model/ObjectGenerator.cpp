@@ -16,6 +16,14 @@ namespace nar {
                 map_area->tiles[x][y].object = std::make_shared<Object>("object_tree1");
         }
 
+        for (auto i = 0; i < 200; i++) {
+            auto x = rand() % 100;
+            auto y = rand() % 100;
+
+            if (map_area->tiles[x][y].ground != "ground_water")
+                map_area->tiles[x][y].object = std::make_shared<Object>("object_tree3");
+        }
+
         for (auto i = 0; i < 300; i++) {
             auto x = rand() % 100;
             auto y = rand() % 100;
