@@ -2,7 +2,9 @@
 This code is licensed under Apache License, Version 2.0 (see LICENSE for details) */
 
 #pragma once
+#include <functional>
 
 namespace nar {
-    typedef GLuint RenderId; //< Identifier type for all allocated rendering resources.
+    void AddSingletonDisposeAction(std::function<void()> action);
+    void DisposeAllSingletons();
 }

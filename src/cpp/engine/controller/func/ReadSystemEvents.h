@@ -8,8 +8,5 @@ The original icense is stated in the LICENSE file. */
 #pragma once
 
 namespace nar {
-   class SystemEventReaderController : public Singleton<SystemEventReaderController> {
-     public:
-      void ReadSystemEvents();
-   };
+    void ReadSystemEvents();
 }

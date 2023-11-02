@@ -172,7 +172,7 @@ set(PCH_FILES
 "src/external/assimp/port/AndroidJNI/AndroidJNIIOSystem.h"
 
 "src/cpp/common/system/Typedefs.h"
-"src/cpp/common/system/SingletonsCleanup.h"
+"src/cpp/common/system/func/SingletonsCleanup.h"
 "src/cpp/common/system/Singleton.h"
 "src/cpp/matter/model/Color.h"
 "src/cpp/matter/model/PointF.h"

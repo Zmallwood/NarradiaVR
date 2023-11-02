@@ -2,30 +2,30 @@
 This code is licensed under Apache License, Version 2.0 (see LICENSE for details) */
 
 #include "EngineController.h"
-#include "InputActionsPollerController.h"
 #include "SceneManagerController.h"
 #include "SystemEventPollerController.h"
-#include "SystemEventReaderController.h"
 #include "engine/model/AndroidVRAppManager.h"
 #include "engine/model/Engine.h"
 #include "engine/model/OpenXrProgram.h"
+#include "func/PollInputActions.h"
+#include "func/ReadSystemEvents.h"
 #include <thread>
 
 namespace nar {
     /**
      * Read and handle system events and player input actions.
      */
-    auto EngineController::HandleInput() -> void {
-        SystemEventReaderController::Get()->ReadSystemEvents();
+    void EngineController::HandleInput() {
+        ReadSystemEvents();
         SystemEventPollerController::Get()->PollSystemEvents();
-        InputActionsPollerController::Get()->PollInputActions();
+        PollInputActions();
         SceneManagerController::Get()->HandleInput();
     }
 
     /**
      * Handle game flow regarding changing scens and exiting the game.
      */
-    auto EngineController::UpdateGameFlow() -> void {
+    void EngineController::UpdateGameFlow() {
         if (QuittingGameIfRequested() || ThrottlingGameIfSessionNotRunning())
             Engine::Get()->set_skip_frame(true);
         else
@@ -40,7 +40,7 @@ namespace nar {
     /**
      * Check if has been requested to exit the game.
      */
-    auto EngineController::QuittingGameIfRequested() -> bool {
+    bool EngineController::QuittingGameIfRequested() {
         if (Engine::Get()->exit_render_loop()) {
             ANativeActivity_finish(AndroidVRAppManager::Get()->app()->activity);
             return true;
@@ -51,7 +51,7 @@ namespace nar {
     /**
      * Throttle game if session is not running.
      */
-    auto EngineController::ThrottlingGameIfSessionNotRunning() -> bool {
+    bool EngineController::ThrottlingGameIfSessionNotRunning() {
         if (!OpenXrProgram::Get()->IsSessionRunning()) {
             // Throttle loop since xrWaitFrame won't be called.
             std::this_thread::sleep_for(std::chrono::milliseconds(250));

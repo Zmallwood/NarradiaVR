@@ -5,22 +5,19 @@ This code is licensed under Apache License, Version 2.0 (see LICENSE for details
 #include <vector>
 
 namespace nar {
-
     static std::vector<std::function<void()>> gDisposeActions;
 
     /**
-     * Called everytime a singleton is created.
+     * Called every time a singleton is created.
      */
-    auto AddSingletonDisposeAction(std::function<void()> action) -> void {
-
+    void AddSingletonDisposeAction(std::function<void()> action) {
         gDisposeActions.push_back(action);
     }
 
     /**
      * Called at game exit.
      */
-    auto DisposeAllSingletons() -> void {
-
+    void DisposeAllSingletons() {
         for (auto &dispose_action : gDisposeActions)
             dispose_action();
     }

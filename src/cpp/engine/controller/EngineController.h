@@ -4,13 +4,16 @@ This code is licensed under Apache License, Version 2.0 (see LICENSE for details
 #pragma once
 
 namespace nar {
+    /**
+     * Top most controller object, executes the controllers below.
+     */
     class EngineController : public Singleton<EngineController> {
       public:
-        auto HandleInput() -> void;
-        auto UpdateGameFlow() -> void;
+        void HandleInput();
+        void UpdateGameFlow();
 
       private:
-        auto QuittingGameIfRequested() -> bool;
-        auto ThrottlingGameIfSessionNotRunning() -> bool;
+        bool QuittingGameIfRequested();
+        bool ThrottlingGameIfSessionNotRunning();
     };
 }

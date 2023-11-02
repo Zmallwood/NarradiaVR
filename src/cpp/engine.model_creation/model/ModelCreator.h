@@ -2,23 +2,27 @@
 This code is licensed under Apache License, Version 2.0 (see LICENSE for details) */
 
 #pragma once
-#include <memory>
-#include <vector>
-#include <map>
+
 #include "../../engine.model_structure/model/Model.h"
 #include <assimp/scene.h>
+#include <map>
+#include <memory>
+#include <vector>
 
 namespace nar {
-   class ModelPart;
+    class ModelPart;
 
-   class ModelCreator : public Singleton<ModelCreator> {
-     public:
-      auto CreateModel(const aiScene *) -> std::shared_ptr<Model>;
+    class ModelCreator : public Singleton<ModelCreator> {
+      public:
+        std::shared_ptr<Model> CreateModel(const aiScene *scene);
 
-     private:
-      auto GetModelParts(const aiScene *) const -> std::vector<std::shared_ptr<ModelPart>>;
-      auto GetModelMeshIds(const aiScene *) const
-          -> std::map<std::shared_ptr<std::string>, std::vector<int>>;
-      auto GetNodeMeshes(const aiScene *, std::vector<int>) const -> std::vector<aiMesh *>;
-   };
+      private:
+        std::vector<std::shared_ptr<ModelPart>> GetModelParts(const aiScene *scene) const;
+
+        std::map<std::shared_ptr<std::string>, std::vector<int>>
+        GetModelMeshIds(const aiScene *scene) const;
+
+        std::vector<aiMesh *>
+        GetNodeMeshes(const aiScene *scene, std::vector<int> node_mesh_ids) const;
+    };
 }

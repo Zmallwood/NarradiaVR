@@ -2,14 +2,14 @@
 This code is licensed under Apache License, Version 2.0 (see LICENSE for details) */
 
 #pragma once
+
+#include "../../matter/model/Point3F.h"
 #include <assimp/scene.h>
+#include <map>
 #include <memory>
 #include <vector>
-#include <map>
-#include "../../matter/model/Point3F.h"
 
-namespace nar
-{
+namespace nar {
     class ModelPart;
     class ModelPartKeyframe;
 

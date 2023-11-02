@@ -8,15 +8,14 @@ The original icense is stated in the LICENSE file. */
 #pragma once
 
 namespace nar {
-    class InputActionsInitController : public Singleton<InputActionsInitController> {
+    /**
+     * Creates bindings primarily to be able to read hand device input.
+     */
+    class BindingsCreateController : public Singleton<BindingsCreateController> {
       public:
-        auto InitInputActions() -> void;
+        void CreateBindings();
 
       private:
-        void CreateActions();
-        void CreateBindings();
         XrPath CreatePath(std::string path_str);
-        void SetCharArray64(char (&array)[64], std::string text);
-        void SetCharArray128(char (&array)[128], std::string text);
     };
 }
