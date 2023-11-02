@@ -163,27 +163,26 @@ namespace nar {
         // RendererView::Get()->RenderFrame(cubes);
         auto map_area = World::Get()->current_map_area();
         auto elev_amount = Config::Get()->kElevAmount;
-        auto p_x_int = static_cast<int>(Player::Get()->x) + 50;
-        auto p_y_int = static_cast<int>(Player::Get()->y) + 50;
+        auto tile_size = Config::Get()->kTileSize;
+        auto p_x_int = static_cast<int>(Player::Get()->x / tile_size + 50);
+        auto p_y_int = static_cast<int>(Player::Get()->y / tile_size + 50);
         auto elev00 = map_area->tiles[p_x_int][p_y_int].elevation * elev_amount;
         auto elev10 = map_area->tiles[p_x_int + 1][p_y_int].elevation * elev_amount;
         auto elev11 = map_area->tiles[p_x_int + 1][p_y_int + 1].elevation * elev_amount;
         auto elev01 = map_area->tiles[p_x_int][p_y_int + 1].elevation * elev_amount;
-        auto dx = Player::Get()->x + 50 - p_x_int;
-        auto dy = Player::Get()->y + 50 - p_y_int;
+        auto dx = (Player::Get()->x / tile_size + 50 - p_x_int);
+        auto dy = (Player::Get()->y / tile_size + 50 - p_y_int);
         auto player_elev = elev00 + (elev10 - elev00) * dx + (elev01 - elev00) * dy +
-                           (elev11 - elev00) * std::sqrt(dx * dx + dy * dy);
+                           //(elev11 - elev00) * std::sqrt(dx * dx + dy * dy);
+                           0;
 
-        //        __android_log_print(
-        //            ANDROID_LOG_INFO, "Narradia",
-        //            "elev: %f, dx: %f, dy: %f, player_x: %f, player_y: %f, x_int: %d, y_int: %d",
-        //            player_elev, dx, dy, Player::Get()->x, Player::Get()->y, p_x_int, p_y_int);
+        auto cam_dist = 8.0f;
+        auto cam_dx =
+            -cam_dist * std::cos(glm::radians(-Player::Get()->facing_angle_degrees - 90.0f));
+        auto cam_dy =
+            -cam_dist * std::sin(glm::radians(-Player::Get()->facing_angle_degrees - 90.0f));
 
-        auto cam_dist = 30.0f;
-        auto cam_dx = -std::cos(glm::radians(-Player::Get()->facing_angle_degrees - 90.0f));
-        auto cam_dy = -std::sin(glm::radians(-Player::Get()->facing_angle_degrees - 90.0f));
-
-        auto player_translation = Point3F{cam_dx, player_elev + 2.0f, cam_dy};
+        auto player_translation = Point3F{cam_dx, player_elev + 4.0f, cam_dy};
 
         auto gl_render_code = [=](XrMatrix4x4f vp) {
             RendererModelsView::Get()->DrawModel(
@@ -242,7 +241,8 @@ namespace nar {
             auto tile_size = Config::Get()->kTileSize;
             RendererModelsView::Get()->DrawModel(
                 "player", static_cast<float>(clock()) / CLOCKS_PER_SEC * 10000,
-                {Player::Get()->x, -2.0f + player_elev, Player::Get()->y}, vp, 0.0f, 0.7f, 1.0f);
+                {Player::Get()->x, -2.0f + player_elev, Player::Get()->y}, vp,
+                Player::Get()->facing_angle_degrees, 0.7f, 1.0f);
         };
 
         RendererView::Get()->RenderFrame(gl_render_code, player_translation);
