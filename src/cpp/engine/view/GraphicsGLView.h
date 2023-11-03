@@ -7,7 +7,7 @@ The original icense is stated in the LICENSE file. */
 
 #pragma once
 #include "matter/model/Cube.h"
-#include "ExampleShaderProgramView.h"
+#include "ExmplShaderProgView.h"
 
 namespace nar {
    struct Options;
@@ -26,7 +26,7 @@ namespace nar {
       void RenderView(
           const XrCompositionLayerProjectionView &layer_view,
           const XrSwapchainImageBaseHeader *swapchain_image, int64_t swapchain_format,
-          std::function<void(XrMatrix4x4f)> gl_render_code, Point3F player_translation = {0.0f, 0.0f, 0.0f});
+          std::function<void(XrMatrix4x4f)> gl_render_code, Point3F player_translation = {0.0f, 0.0f, 0.0f}, bool facelocked = false);
       uint32_t GetSupportedSwapchainSampleCount(const XrViewConfigurationView &);
       void UpdateOptions();
 
@@ -34,7 +34,7 @@ namespace nar {
          return vao_;
       }
 
-      ExampleShaderProgramView shader_program() {
+      ExmplShaderProgView shader_program() {
          return shader_program_;
       }
 
@@ -57,6 +57,6 @@ namespace nar {
       // Map color buffer to associated depth buffer. This map is populated on demand.
       std::map<uint32_t, uint32_t> color_to_depth_map_;
       std::array<float, 4> clear_color_;
-      ExampleShaderProgramView shader_program_;
+      ExmplShaderProgView shader_program_;
    };
 }

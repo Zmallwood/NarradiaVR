@@ -7,6 +7,7 @@ The original icense is stated in the LICENSE file. */
 
 #include "RendererView.h"
 #include "CubeLayerView.h"
+#include "FacelockedLayerView.h"
 #include "engine/model/OpenXrProgram.h"
 #include "engine/model/OptionsManager.h"
 #include "engine/view/GraphicsGLView.h"
@@ -14,7 +15,8 @@ The original icense is stated in the LICENSE file. */
 
 namespace nar {
     void RendererView::RenderFrame(
-        std::function<void(XrMatrix4x4f)> gl_render_code, Point3F player_translation) {
+        std::function<void(XrMatrix4x4f)> gl_render_code, Point3F player_translation,
+        std::function<void(XrMatrix4x4f)> gl_facelocked_render_code) {
         auto session = OpenXrProgram::Get()->session();
 
         XrFrameWaitInfo frame_wait_info = {XR_TYPE_FRAME_WAIT_INFO};
@@ -31,11 +33,17 @@ namespace nar {
 
         if (frame_state.shouldRender == XR_TRUE) {
             CubeLayerView cube_layer;
+            FacelockedLayerView facelocked_layer;
             if (cube_layer.Render(
                     frame_state.predictedDisplayTime, projection_layer_views, gl_render_code,
                     player_translation))
                 layers.push_back(
                     reinterpret_cast<XrCompositionLayerBaseHeader *>(cube_layer.layer().get()));
+            if (facelocked_layer.Render(
+                    frame_state.predictedDisplayTime, projection_layer_views,
+                    gl_facelocked_render_code))
+                layers.push_back(reinterpret_cast<XrCompositionLayerBaseHeader *>(
+                    facelocked_layer.layer().get()));
         }
 
         XrFrameEndInfo frame_end_info = {XR_TYPE_FRAME_END_INFO};

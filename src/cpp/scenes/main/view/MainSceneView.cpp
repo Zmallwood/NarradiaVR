@@ -7,6 +7,7 @@ The original icense is stated in the LICENSE file. */
 
 #include "MainSceneView.h"
 #include "../../../engine.input_actions/model/InputState.h"
+#include "../../../engine.rendering/view/RendererFacelockedView.h"
 #include "../../../engine.rendering/view/RendererModelsView.h"
 #include "../../../engine.rendering/view/RendererTilesView.h"
 #include "../../../engine/model/Config.h"
@@ -23,6 +24,58 @@ namespace nar {
         auto all_models = ModelBank::Get()->models();
         for (auto &model : all_models)
             RendererModelsView::Get()->NewModel(model.first);
+
+        auto tile_size = Config::Get()->kTileSize;
+        rendid_facelocked_0_ = RendererFacelockedView::Get()->NewRect();
+        rendid_facelocked_1_ = RendererFacelockedView::Get()->NewRect();
+        rendid_facelocked_2_ = RendererFacelockedView::Get()->NewRect();
+        rendid_facelocked_3_ = RendererFacelockedView::Get()->NewRect();
+        Vertex3F v0 = {49.0f*tile_size, 1.0f, 45.0f*tile_size};
+        Vertex3F v1 = {51.0f*tile_size, 1.0f, 45.0f*tile_size};
+        Vertex3F v2 = {51.0f*tile_size, -2.0f, 45.0f*tile_size};
+        Vertex3F v3 = {49.0f*tile_size, -2.0f, 45.0f*tile_size};
+        Point3F normal00 = {0.0f, 0.0f, 1.0f};
+        Point3F normal10 = {0.0f, 0.0f, 1.0f};
+        Point3F normal11 = {0.0f, 0.0f, 1.0f};
+        Point3F normal01 = {0.0f, 0.0f, 1.0f};
+        v0.color = {1.0f, 1.0f, 1.0f, 1.0f};
+        v1.color = {1.0f, 1.0f, 1.0f, 1.0f};
+        v2.color = {1.0f, 1.0f, 1.0f, 1.0f};
+        v3.color = {1.0f, 1.0f, 1.0f, 1.0f};
+        RendererFacelockedView::Get()->SetGeometryRect(
+            rendid_facelocked_0_, v0, v1, v2, v3, normal00, normal10, normal11, normal01);
+
+        v0 = {30.0f, 10.0f, 0.0f};
+        v1 = {30.0f, 10.0f, 10.0f};
+        v2 = {30.0f, -10.0f, 10.0f};
+        v3 = {30.0f, -10.0f, 0.0f};
+        normal00 = {0.0f, 0.0f, -1.0f};
+        normal10 = {0.0f, 0.0f, -1.0f};
+        normal11 = {0.0f, 0.0f, -1.0f};
+        normal01 = {0.0f, 0.0f, -1.0f};
+        RendererFacelockedView::Get()->SetGeometryRect(
+            rendid_facelocked_1_, v0, v1, v2, v3, normal00, normal10, normal11, normal01);
+
+        v0 = {-3.0f, 1.0f, 0.0f};
+        v1 = {-3.0f, 1.0f, 1.0f};
+        v2 = {-3.0f, -1.0f, 1.0f};
+        v3 = {-3.0f, -1.0f, 0.0f};
+        normal00 = {0.0f, 10.0f, 10.0f};
+        normal10 = {0.0f, 10.0f, 10.0f};
+        normal11 = {0.0f, 10.0f, 10.0f};
+        normal01 = {0.0f, 10.0f, 10.0f};
+        RendererFacelockedView::Get()->SetGeometryRect(
+            rendid_facelocked_2_, v0, v1, v2, v3, normal00, normal10, normal11, normal01);
+        v0 = {0.0f, -10.0f, 0.0f};
+        v1 = {0.0f, -10.0f, -10.0f};
+        v2 = {0.0f, 10.0f, -10.0f};
+        v3 = {0.0f, 10.0f, 0.0f};
+        normal00 = {0.0f, 0.0f, 1.0f};
+        normal10 = {0.0f, 0.0f, 1.0f};
+        normal11 = {0.0f, 0.0f, -1.0f};
+        normal01 = {0.0f, 0.0f, -1.0f};
+        RendererFacelockedView::Get()->SetGeometryRect(
+            rendid_facelocked_3_, v0, v1, v2, v3, normal00, normal10, normal11, normal01);
     }
 
     void MainSceneView::Render() {
@@ -138,7 +191,22 @@ namespace nar {
                 Player::Get()->facing_angle_degrees, 0.7f, 1.0f);
         };
 
-        RendererView::Get()->RenderFrame(gl_render_code, player_translation);
+        auto gl_facelocked_render_code = [=](XrMatrix4x4f vp) {
+            RendererFacelockedView::Get()->DrawRect("player_tex4", rendid_facelocked_0_, vp);
+            RendererFacelockedView::Get()->DrawRect("player_tex4", rendid_facelocked_1_, vp);
+            RendererFacelockedView::Get()->DrawRect("player_tex4", rendid_facelocked_2_, vp);
+            RendererFacelockedView::Get()->DrawRect("player_tex4", rendid_facelocked_3_, vp);
+            auto tile_size = Config::Get()->kTileSize;
+//            RendererModelsView::Get()->DrawModel(
+//                "player", static_cast<float>(clock()) / CLOCKS_PER_SEC * 10000,
+//                {Player::Get()->x, -2.0f + player_elev, Player::Get()->y}, vp,
+//                Player::Get()->facing_angle_degrees, 0.7f, 1.0f);
+        };
+
+        auto empty_gl_render_code = [](XrMatrix4x4f vp) {};
+
+        RendererView::Get()->RenderFrame(
+            gl_render_code, player_translation, gl_facelocked_render_code);
     }
 
     void MainSceneView::RenderTile(int map_x, int map_y, XrMatrix4x4f vp) {

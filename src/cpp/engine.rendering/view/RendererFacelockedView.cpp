@@ -1,17 +1,17 @@
 /* (c) 2023 Zmallwood
 This code is licensed under Apache License, Version 2.0 (see LICENSE for details) */
 
-#include "RendererTilesView.h"
+#include "RendererFacelockedView.h"
 #include "engine.assets/model/ImageBank.h"
 #include "world/model/Player.h"
 
 namespace nar {
-   RendererTilesView::RendererTilesView() {
+   RendererFacelockedView::RendererFacelockedView() {
       const GLchar *vertex_shader_source =
-#include "ShaderSrcRendererTileVertex.inc.cpp"
+#include "ShaderSrcRendererFacelockedVertex.inc.cpp"
           ;
       const GLchar *fragment_shader_source =
-#include "ShaderSrcRendererTileFragment.inc.cpp"
+#include "ShaderSrcRendererFacelockedFragment.inc.cpp"
           ;
       shader_program_view()->Create(vertex_shader_source, fragment_shader_source);
       location_projection_ = GetUniformLocation("projection");
@@ -23,15 +23,15 @@ namespace nar {
       location_fog_color_ = GetUniformLocation("fogColor");
    }
 
-   RendererTilesView::~RendererTilesView() {
+   RendererFacelockedView::~RendererFacelockedView() {
       CleanupBase();
    }
 
-   RenderId RendererTilesView::NewTile() {
+   RenderId RendererFacelockedView::NewRect() {
       return NewImagePolygon(4);
    }
 
-   void RendererTilesView::SetGeometryTile(
+   void RendererFacelockedView::SetGeometryRect(
        RenderId vao_id, Vertex3F &v0, Vertex3F &v1, Vertex3F &v2, Vertex3F &v3, Point3F &normal00,
        Point3F &normal10, Point3F &normal11, Point3F &normal01) {
       std::vector<Vertex3F> vertices;
@@ -46,80 +46,13 @@ namespace nar {
       SetGeometryImagePolygon(vao_id, vertices);
    }
 
-   void RendererTilesView::DrawTile(
+   void RendererFacelockedView::DrawRect(
        std::string_view image_name, RenderId vao_id, XrMatrix4x4f viewProjectionMatrix,
        bool depth_test_off) {
       DrawImagePolygon(image_name, vao_id, 4, viewProjectionMatrix, depth_test_off);
    }
 
-   void RendererTilesView::UpdateDrawTile(
-       std::string_view image_name, RenderId vao_id, Vertex3F &v0, Vertex3F &v1, Vertex3F &v2, Vertex3F &v3,
-       Point3F &normal00, Point3F &normal10, Point3F &normal11, Point3F &normal01,
-       XrMatrix4x4f viewProjectionMatrix, bool depth_test_off) {
-      std::vector<Vertex3F> vertices;
-      v0.normal = normal00;
-      v1.normal = normal10;
-      v2.normal = normal11;
-      v3.normal = normal01;
-      vertices.push_back(v0);
-      vertices.push_back(v1);
-      vertices.push_back(v2);
-      vertices.push_back(v3);
-      SetGeometryImagePolygon(vao_id, vertices);
-      DrawImagePolygon(image_name, vao_id, 4, viewProjectionMatrix, depth_test_off);
-   }
-
-   void RendererTilesView::StartBatchDrawing(XrMatrix4x4f viewProjectionMatrix) {
-      is_batch_drawing_ = true;
-
-      auto perspective_matrix =
-          glm::perspective(glm::radians(110.0f / 2), 1600.0f / 900.0f, 0.1f, 1000.0f);
-      Point3F look_from = {0.0f, 0.0f, 0.0f};
-      Point3F look_at = {1.0f, 0.0f, 1.0f};
-      auto view_matrix = glm::lookAt(
-          glm::vec3(look_from.x, look_from.y, look_from.z),
-          glm::vec3(look_at.x, look_at.y, look_at.z), glm::vec3(0.0, 1.0, 0.0));
-
-      glUseProgram(shader_program_view()->program_id());
-      // glUniformMatrix4fv(
-      //     location_modelViewProjection_, 1, GL_FALSE,
-      //     reinterpret_cast<const GLfloat *>(&viewProjectionMatrix));
-      XrMatrix4x4f model;
-      XrVector3f translation = {-Player::Get()->x, 0.0f, -Player::Get()->y};
-      XrQuaternionf rotation = XrQuaternionf();
-      XrVector3f scaling = {1.0f, 1.0f, 1.0f};
-      XrMatrix4x4f_CreateTranslationRotationScale(&model, &translation, &rotation, &scaling);
-      XrMatrix4x4f mvp;
-      XrMatrix4x4f_Multiply(&mvp, &viewProjectionMatrix, &model);
-      glUniformMatrix4fv(
-          location_modelViewProjection_, 1, GL_FALSE, reinterpret_cast<const GLfloat *>(&mvp));
-      // glUniformMatrix4fv(location_model_, 1, GL_FALSE, reinterpret_cast<const GLfloat
-      // *>(&model));
-      //  glm::mat4 model(1.0);
-      //  glUniformMatrix4fv(location_model_, 1, GL_FALSE, glm::value_ptr(model));
-      glUniform1f(location_alpha_, 1.0f);
-      glm::vec3 view_pos(0.0f, 0.0f, 0.0f);
-      // glm::vec3 view_pos(
-      //     Player::Get()->GetSpaceCoord().x, Player::Get()->GetSpaceCoord().y,
-      //     Player::Get()->GetSpaceCoord().z);
-      glUniform3fv(location_view_pos_, 1, glm::value_ptr(view_pos));
-      glm::vec3 fog_color_gl(0.0f, 0.5f, 1.0f);
-      // glm::vec3 fog_color_gl(
-      //     GraphicsGl::Get()->GetFogColorGround().r, GraphicsGl::Get()->GetFogColorGround().g,
-      //     GraphicsGl::Get()->GetFogColorGround().b);
-      glUniform3fv(location_fog_color_, 1, glm::value_ptr(fog_color_gl));
-      glUseProgram(shader_program_view()->program_id());
-      glEnable(GL_CULL_FACE);
-      glCullFace(GL_FRONT);
-   }
-
-   void RendererTilesView::StopBatchDrawing() {
-      is_batch_drawing_ = false;
-      glUseProgram(0);
-      glDisable(GL_CULL_FACE);
-   }
-
-   void RendererTilesView::DrawImagePolygon(
+   void RendererFacelockedView::DrawImagePolygon(
        std::string_view image_name, RenderId vao_id, int vertex_count, XrMatrix4x4f viewProjectionMatrix,
        bool depth_test_off) {
       if (depth_test_off)
@@ -175,7 +108,7 @@ namespace nar {
          glUseProgram(0);
    }
 
-   RenderId RendererTilesView::NewImagePolygon(int num_vertices) {
+   RenderId RendererFacelockedView::NewImagePolygon(int num_vertices) {
       auto vertex_array_id = GenerateNewVertexArrayId();
       auto index_buffer_id = GenerateNewBufferId(BufferTypes::Indices, vertex_array_id);
       auto position_buffer_id = GenerateNewBufferId(BufferTypes::Positions, vertex_array_id);
@@ -195,7 +128,7 @@ namespace nar {
    }
 
    void
-   RendererTilesView::SetGeometryImagePolygon(RenderId vao_id, std::vector<Vertex3F> &vertices) {
+   RendererFacelockedView::SetGeometryImagePolygon(RenderId vao_id, std::vector<Vertex3F> &vertices) {
       if (!is_batch_drawing_)
          glUseProgram(shader_program_view()->program_id());
       std::vector<int> indices(vertices.size());

@@ -6,13 +6,13 @@ This file was modified from its original version by Zmallwood for Narradia.
 The original icense is stated in the LICENSE file. */
 
 #include "OpenXrProgram.h"
+#include "../../engine.input_actions/controller/InputActionsCreateController.h"
+#include "../controller/BindingsCreateCtrlr.h"
 #include "AndroidPlatform.h"
 #include "Engine.h"
 #include "HandDeviceInput.h"
 #include "Options.h"
 #include "OptionsManager.h"
-#include "../../engine.input_actions/controller/InputActionsCreateController.h"
-#include "../controller/BindingsCreateCtrlr.h"
 #include "engine/view/GraphicsGLView.h"
 #include "engine/view/SwapchainManagerView.h"
 
@@ -32,6 +32,9 @@ namespace nar {
 
         if (app_space_ != XR_NULL_HANDLE)
             xrDestroySpace(app_space_);
+
+        if (app_space_facelocked_ != XR_NULL_HANDLE)
+            xrDestroySpace(app_space_facelocked_);
 
         if (session_ != XR_NULL_HANDLE)
             xrDestroySession(session_);
@@ -188,6 +191,11 @@ namespace nar {
             XrReferenceSpaceCreateInfo reference_space_create_info =
                 GetXrReferenceSpaceCreateInfo(options_->app_space);
             xrCreateReferenceSpace(session_, &reference_space_create_info, &app_space_);
+
+            XrReferenceSpaceCreateInfo reference_space_create_info_facelocked =
+                GetXrReferenceSpaceCreateInfo(options_->app_space_facelocked);
+            xrCreateReferenceSpace(
+                session_, &reference_space_create_info_facelocked, &app_space_facelocked_);
         }
     }
 

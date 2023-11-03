@@ -13,7 +13,8 @@ namespace nar {
       public:
         void RenderFrame(
             std::function<void(XrMatrix4x4f)> gl_render_code,
-            Point3F player_translation = {0.0f, 0.0f, 0.0f});
+            Point3F player_translation = {0.0f, 0.0f, 0.0f},
+            std::function<void(XrMatrix4x4f)> gl_facelocked_render_code = [](XrMatrix4x4f) {});
 
         XrTime predicted_display_time() {
             return predicted_display_time_;

@@ -4,7 +4,7 @@ This code is licensed under Apache License, Version 2.0 (see LICENSE for details
 #pragma once
 
 namespace nar {
-   class ElevationGenerator : public Singleton<ElevationGenerator> {
+   class ElevGenerator : public Singleton<ElevGenerator> {
      public:
       void GenerateElevation();
    };

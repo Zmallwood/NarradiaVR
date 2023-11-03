@@ -3,7 +3,7 @@ This code is licensed under Apache License, Version 2.0 (see LICENSE for details
 
 #pragma once
 #include "BufferTypes.h"
-#include "ShaderProgramView.h"
+#include "ShaderProgView.h"
 #include <map>
 #include <vector>
 #include <memory>
@@ -40,7 +40,7 @@ namespace nar {
       void UseVaoEnd();
       GLuint GetUniformLocation(std::string_view var_name);
 
-      std::shared_ptr<ShaderProgramView> shader_program_view() const {
+      std::shared_ptr<ShaderProgView> shader_program_view() const {
          return shader_program_view_;
       }
 
@@ -55,7 +55,7 @@ namespace nar {
       constexpr static int kNumFloatsPerNormal = 3;
       std::vector<GLuint> vao_ids_;
       std::map<BufferTypes, std::map<GLuint, GLuint>> vbo_ids_;
-      std::shared_ptr<ShaderProgramView> shader_program_view_ =
-          std::make_shared<ShaderProgramView>();
+      std::shared_ptr<ShaderProgView> shader_program_view_ =
+          std::make_shared<ShaderProgView>();
    };
 }

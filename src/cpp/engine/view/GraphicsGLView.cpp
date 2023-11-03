@@ -213,7 +213,11 @@ namespace nar {
     void GraphicsGLView::RenderView(
         const XrCompositionLayerProjectionView &layer_view,
         const XrSwapchainImageBaseHeader *swapchain_image, int64_t swapchain_format,
-        std::function<void(XrMatrix4x4f)> gl_render_code, Point3F player_translation) {
+        std::function<void(XrMatrix4x4f)> gl_render_code, Point3F player_translation,
+        bool facelocked) {
+        //facelocked = false;
+        //if (facelocked)
+        //    return;
         auto vertex_cube = ModelBank::Get()->vertex_cube();
 
         if (layer_view.subImage.imageArrayIndex != 0) {
@@ -234,11 +238,15 @@ namespace nar {
             static_cast<GLsizei>(layer_view.subImage.imageRect.extent.width),
             static_cast<GLsizei>(layer_view.subImage.imageRect.extent.height));
 
-        glFrontFace(GL_CW);
-        glCullFace(GL_BACK);
-        glEnable(GL_CULL_FACE);
-        glEnable(GL_DEPTH_TEST);
-
+        if (false == facelocked) {
+            glFrontFace(GL_CW);
+            glCullFace(GL_BACK);
+            glEnable(GL_CULL_FACE);
+            glEnable(GL_DEPTH_TEST);
+        }
+        else {
+            glDisable(GL_CULL_FACE);
+        }
         const uint32_t depth_texture = GetDepthTexture(color_texture);
 
         glFramebufferTexture2D(
@@ -248,10 +256,11 @@ namespace nar {
 
         // Clear swapchain and depth buffer.
         // glClearColor(clear_color_[0], clear_color_[1], clear_color_[2], clear_color_[3]);
-        glClearDepthf(1.0f);
-        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
-
+        if (false == facelocked) {
+            glClearDepthf(1.0f);
+            glClearColor(0.0f, 0.5f, 1.0f, 1.0f);
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+        }
         // Set shaders and uniform variables.
         glUseProgram(shader_program_.program());
 
@@ -266,12 +275,13 @@ namespace nar {
         XrMatrix4x4f_GetRotation(&rotation, &rotation_mat);
         XrQuaternionf result;
         XrQuaternionf_Multiply(&result, &pose.orientation, &rotation);
-//         XrMatrix4x4f_CreateTranslationRotationScale(&to_view, &pose.position, &result, &scale);
-	XrVector3f t = pose.position;
-	t.x += player_translation.x;
-	t.y += player_translation.y;
-	t.z += player_translation.z;
-       XrMatrix4x4f_CreateTranslationRotationScale(&to_view, &t, &result, &scale);
+        //         XrMatrix4x4f_CreateTranslationRotationScale(&to_view, &pose.position, &result,
+        //         &scale);
+        XrVector3f t = pose.position;
+        t.x += player_translation.x;
+        t.y += player_translation.y;
+        t.z += player_translation.z;
+        XrMatrix4x4f_CreateTranslationRotationScale(&to_view, &t, &result, &scale);
         XrMatrix4x4f view;
         XrMatrix4x4f_InvertRigidBody(&view, &to_view);
         XrMatrix4x4f vp;

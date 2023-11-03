@@ -8,7 +8,7 @@ The original icense is stated in the LICENSE file. */
 #pragma once
 
 namespace nar {
-   class ExampleShaderProgramView {
+   class ExmplShaderProgView {
      public:
       void Init();
       void Cleanup();

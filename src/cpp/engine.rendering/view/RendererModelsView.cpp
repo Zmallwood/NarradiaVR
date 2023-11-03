@@ -11,10 +11,10 @@ This code is licensed under Apache License, Version 2.0 (see LICENSE for details
 namespace nar {
     RendererModelsView::RendererModelsView() {
         const GLchar *vertex_shader_source =
-#include "ShaderSourceRendererModelsVertex.inc.cpp"
+#include "ShaderSrcRendererModelsVertex.inc.cpp"
             ;
         const GLchar *fragment_shader_source =
-#include "ShaderSourceRendererModelsFragment.inc.cpp"
+#include "ShaderSrcRendererModelsFragment.inc.cpp"
             ;
         shader_program_view()->Create(vertex_shader_source, fragment_shader_source);
         location_view_ = GetUniformLocation("view");

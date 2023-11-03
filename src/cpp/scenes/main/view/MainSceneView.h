@@ -19,5 +19,9 @@ namespace nar {
         void RenderTile(int map_x, int map_y, XrMatrix4x4f vp);
 
         std::map<int, std::map<int, RenderId>> rendids_tiles;
+        RenderId rendid_facelocked_0_;
+        RenderId rendid_facelocked_1_;
+        RenderId rendid_facelocked_2_;
+        RenderId rendid_facelocked_3_;
     };
 }

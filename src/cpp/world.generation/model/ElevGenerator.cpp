@@ -1,11 +1,11 @@
 /* (c) 2023 Zmallwood
 This code is licensed under Apache License, Version 2.0 (see LICENSE for details) */
 
-#include "ElevationGenerator.h"
+#include "ElevGenerator.h"
 #include "world/model/World.h"
 
 namespace nar {
-   void ElevationGenerator::GenerateElevation() {
+   void ElevGenerator::GenerateElevation() {
       auto map_area = World::Get()->current_map_area();
 
       for (auto i = 0; i < 30; i++) {

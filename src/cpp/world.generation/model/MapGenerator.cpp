@@ -3,7 +3,7 @@ This code is licensed under Apache License, Version 2.0 (see LICENSE for details
 
 #include "MapGenerator.h"
 #include "CityGenerator.h"
-#include "ElevationGenerator.h"
+#include "ElevGenerator.h"
 #include "MobGenerator.h"
 #include "NormalsCalculator.h"
 #include "ObjectGenerator.h"
@@ -19,7 +19,7 @@ namespace nar {
                 map_area->tiles[x][y].ground = "ground_grass";
 
         WaterGenerator::Get()->GenerateWater();
-        ElevationGenerator::Get()->GenerateElevation();
+        ElevGenerator::Get()->GenerateElevation();
         ObjectGenerator::Get()->GenerateObjects();
         MobGenerator::Get()->GenerateMobs();
         CityGenerator::Get()->GenerateCity();

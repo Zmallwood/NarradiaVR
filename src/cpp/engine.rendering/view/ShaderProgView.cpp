@@ -1,10 +1,10 @@
 /* (c) 2023 Zmallwood
 This code is licensed under Apache License, Version 2.0 (see LICENSE for details) */
 
-#include "ShaderProgramView.h"
+#include "ShaderProgView.h"
 
 namespace nar {
-   bool ShaderProgramView::Create(const GLchar *vertexShaderSrc, const GLchar *fragShaderSrc) {
+   bool ShaderProgView::Create(const GLchar *vertexShaderSrc, const GLchar *fragShaderSrc) {
       auto success = true;
       program_id_ = glCreateProgram();
       auto vertex_shader_compiled = InitVertexShader(vertexShaderSrc);
@@ -36,11 +36,11 @@ namespace nar {
       return success;
    }
 
-   void ShaderProgramView::Cleanup() const {
+   void ShaderProgView::Cleanup() const {
       glDeleteProgram(program_id_);
    }
 
-   GLuint ShaderProgramView::InitVertexShader(const GLchar *vertexShaderSource) {
+   GLuint ShaderProgView::InitVertexShader(const GLchar *vertexShaderSource) {
       vertex_shader_ = glCreateShader(GL_VERTEX_SHADER);
       glShaderSource(vertex_shader_, 1, &vertexShaderSource, NULL);
       glCompileShader(vertex_shader_);
@@ -49,7 +49,7 @@ namespace nar {
       return vertex_shader_compiled;
    }
 
-   GLuint ShaderProgramView::InitFragShader(const GLchar *fragmentShaderSource) {
+   GLuint ShaderProgView::InitFragShader(const GLchar *fragmentShaderSource) {
       fragment_shader_ = glCreateShader(GL_FRAGMENT_SHADER);
       glShaderSource(fragment_shader_, 1, &fragmentShaderSource, NULL);
       glCompileShader(fragment_shader_);

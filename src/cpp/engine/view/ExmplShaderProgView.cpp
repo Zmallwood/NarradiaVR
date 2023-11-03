@@ -5,15 +5,15 @@ SPDX-License-Identifier: Apache-2.0
 This file was modified from its original version by Zmallwood for Narradia.
 The original icense is stated in the LICENSE file. */
 
-#include "ExampleShaderProgramView.h"
+#include "ExmplShaderProgView.h"
 
 namespace nar {
-   void ExampleShaderProgramView::Init() {
+   void ExmplShaderProgView::Init() {
       const char *vertex_shader_glsl = // The version statement has come on first line.
-#include "ShaderSourceVertex.inc.cpp"
+#include "ShaderSrcVertex.inc.cpp"
           ;
       const char *fragment_shader_glsl = // The version statement has come on first line.
-#include "ShaderSourceFragment.inc.cpp"
+#include "ShaderSrcFragment.inc.cpp"
           ;
 
       GLuint vertex_shader = glCreateShader(GL_VERTEX_SHADER);
@@ -36,12 +36,12 @@ namespace nar {
       glDeleteShader(fragment_shader);
    }
 
-   void ExampleShaderProgramView::Cleanup() {
+   void ExmplShaderProgView::Cleanup() {
       if (program_ != 0)
          glDeleteProgram(program_);
    }
 
-   void ExampleShaderProgramView::CheckShader(GLuint shader) {
+   void ExmplShaderProgView::CheckShader(GLuint shader) {
       GLint r = 0;
       glGetShaderiv(shader, GL_COMPILE_STATUS, &r);
 
@@ -54,7 +54,7 @@ namespace nar {
       }
    }
 
-   void ExampleShaderProgramView::CheckProgram(GLuint prog) {
+   void ExmplShaderProgView::CheckProgram(GLuint prog) {
       GLint r = 0;
       glGetProgramiv(prog, GL_LINK_STATUS, &r);
 

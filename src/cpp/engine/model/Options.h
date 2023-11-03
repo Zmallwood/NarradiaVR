@@ -15,6 +15,7 @@ namespace nar {
       std::string view_configuration = "Stereo";
       std::string environment_blend_mode = "Opaque";
       std::string app_space = "Local";
+      std::string app_space_facelocked = "ViewFront";
 
       struct {
          XrFormFactor form_factor = {XR_FORM_FACTOR_HEAD_MOUNTED_DISPLAY};
