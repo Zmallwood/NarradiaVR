@@ -1,5 +1,6 @@
 #include "InputPollController.h"
-#include "../model/OpenXrProgram.h"
+#include "../../engine/model/OpenXrProgram.h"
+#include "../model/InputState.h"
 
 namespace nar {
     /**

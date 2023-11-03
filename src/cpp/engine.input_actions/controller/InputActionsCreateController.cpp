@@ -6,8 +6,9 @@ jhis file was modified from its original version by Zmallwood for Narradia.
 The original icense is stated in the LICENSE file. */
 
 #include "InputActionsCreateController.h"
-#include "../../engine/model/InputState.h"
-#include "engine/model/OpenXrProgram.h"
+#include "../model/InputState.h"
+#include "../../engine/model/OpenXrProgram.h"
+#include "../../engine/model/Constants.h"
 
 namespace nar {
     /**
@@ -52,7 +53,7 @@ namespace nar {
             .type = XR_TYPE_ACTION_CREATE_INFO,
             .next = NULL,
             .actionType = XR_ACTION_TYPE_FLOAT_INPUT,
-            .countSubactionPaths = Side::kCount,
+            .countSubactionPaths = kNumHandDevices,
             .subactionPaths = input->hand_subaction_path.data()};
         SetCharArray64(action_info.actionName, "throttle_x");
         SetCharArray128(action_info.localizedActionName, "Use Throttle left/right");
@@ -63,7 +64,7 @@ namespace nar {
             .type = XR_TYPE_ACTION_CREATE_INFO,
             .next = NULL,
             .actionType = XR_ACTION_TYPE_FLOAT_INPUT,
-            .countSubactionPaths = Side::kCount,
+            .countSubactionPaths = kNumHandDevices,
             .subactionPaths = input->hand_subaction_path.data()};
         SetCharArray64(action_info.actionName, "throttle_y");
         SetCharArray128(action_info.localizedActionName, "Use Throttle forward/backward");

@@ -10,7 +10,7 @@
 #include "engine/view/RendererView.h"
 #include "engine/model/OpenXrProgram.h"
 #include "world/model/Player.h"
-#include "engine/model/InputState.h"
+#include "../../../engine.input_actions/model/InputState.h"
 #include "engine.assets/model/ModelBank.h"
 #include "engine/view/GraphicsGLView.h"
 

@@ -12,7 +12,7 @@ The original icense is stated in the LICENSE file. */
 #include "../../../engine/view/RendererView.h"
 #include "../../../world/model/Player.h"
 #include "engine.assets/model/ModelBank.h"
-#include "engine/model/InputState.h"
+#include "../../../engine.input_actions/model/InputState.h"
 #include "engine/model/OpenXrProgram.h"
 #include "world/model/World.h"
 #include <ctime>

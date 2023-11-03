@@ -1,7 +1,7 @@
 #include "HandDeviceInputPollController.h"
-#include "../model/HandDeviceInput.h"
+#include "../../engine/model/HandDeviceInput.h"
 #include "../model/InputState.h"
-#include "../model/OpenXrProgram.h"
+#include "../../engine/model/OpenXrProgram.h"
 
 namespace nar {
     void HandDeviceInputPollController::PollInputActions() {

@@ -11,8 +11,8 @@ The original icense is stated in the LICENSE file. */
 #include "HandDeviceInput.h"
 #include "Options.h"
 #include "OptionsManager.h"
-#include "engine/controller/InputActionsCreateController.h"
-#include "engine/controller/BindingsCreateController.h"
+#include "../../engine.input_actions/controller/InputActionsCreateController.h"
+#include "../controller/BindingsCreateController.h"
 #include "engine/view/GraphicsGLView.h"
 #include "engine/view/SwapchainManagerView.h"
 

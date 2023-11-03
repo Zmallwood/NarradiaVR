@@ -2,7 +2,7 @@
 This code is licensed under Apache License, Version 2.0 (see LICENSE for details) */
 
 #include "BindingsCreateController.h"
-#include "../../engine/model/InputState.h"
+#include "../../engine.input_actions/model/InputState.h"
 #include "engine/model/OpenXrProgram.h"
 
 namespace nar {

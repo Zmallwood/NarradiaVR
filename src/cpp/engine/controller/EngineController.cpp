@@ -2,7 +2,7 @@
 This code is licensed under Apache License, Version 2.0 (see LICENSE for details) */
 
 #include "EngineController.h"
-#include "InputPollController.h"
+#include "../../engine.input_actions/controller/InputPollController.h"
 #include "SceneManagerController.h"
 #include "SystemEventPollerController.h"
 #include "engine/model/AndroidVRAppManager.h"

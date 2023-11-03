@@ -7,7 +7,6 @@ The original icense is stated in the LICENSE file. */
 
 #include "SystemEventPollerController.h"
 #include "engine/model/Engine.h"
-#include "engine/model/InputState.h"
 #include "engine/model/OpenXrProgram.h"
 
 namespace nar {
@@ -15,8 +14,6 @@ namespace nar {
      * Process all pending messages.
      */
     void SystemEventPollerController::PollSystemEvents() {
-        auto input = InputState::Get();
-
         Engine::Get()->set_exit_render_loop(false);
 
         while (const XrEventDataBaseHeader *event = TryReadNextEvent()) {
