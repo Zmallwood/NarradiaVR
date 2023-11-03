@@ -12,6 +12,9 @@ namespace nar {
             return type_;
         }
 
+        clock_t ticks_last_movement = 0;
+        float movement_speed = 5.0f;
+
       private:
         std::string_view type_;
     };

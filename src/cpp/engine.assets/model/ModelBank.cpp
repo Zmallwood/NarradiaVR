@@ -2,13 +2,13 @@
 This code is licensed under Apache License, Version 2.0 (see LICENSE for details) */
 
 #include "ModelBank.h"
-#include "../../engine/model/AndroidVRAppManager.h"
+#include "../../engine/model/AppManager.h"
 #include "../../engine.model_creation/model/ModelCreator.h"
 
 namespace nar {
 
    void ModelBank::LoadModels() {
-      auto asset_manager = AndroidVRAppManager::Get()->app()->activity->assetManager;
+      auto asset_manager = AppManager::Get()->app()->activity->assetManager;
       AAssetDir *dir = AAssetManager_openDir(asset_manager, "");
       const char *file_name = AAssetDir_getNextFileName(dir);
 
@@ -25,7 +25,7 @@ namespace nar {
    void ModelBank::LoadSingleModel(std::string_view file_name) {
       Assimp::Importer importer;
       Assimp::AndroidJNIIOSystem *ioSystem =
-          new Assimp::AndroidJNIIOSystem(AndroidVRAppManager::Get()->app()->activity);
+          new Assimp::AndroidJNIIOSystem(AppManager::Get()->app()->activity);
       if (nullptr != ioSystem) {
          importer.SetIOHandler(ioSystem);
       }
@@ -36,7 +36,7 @@ namespace nar {
    }
 
    FileData ModelBank::GetAssetData(const char *relative_path) {
-      auto asset_manager = AndroidVRAppManager::Get()->app()->activity->assetManager;
+      auto asset_manager = AppManager::Get()->app()->activity->assetManager;
       AAsset *asset = AAssetManager_open(asset_manager, relative_path, AASSET_MODE_STREAMING);
 
       return (FileData){AAsset_getLength(asset), AAsset_getBuffer(asset), asset};

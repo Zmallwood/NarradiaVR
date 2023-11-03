@@ -242,6 +242,9 @@ namespace nar {
             auto scaling = 1.5f;
             if (object->type() != "object_tall_grass6")
                 scaling = 2.6f;
+            if (object->type() == "object_wood_wall_n" || object->type() == "object_wood_wall_e" ||
+                object->type() == "object_wood_wall_s" || object->type() == "object_wood_wall_w")
+                scaling = 0.9f;
             RendererModelsView::Get()->DrawModel(
                 object->type(), static_cast<float>(clock()) / CLOCKS_PER_SEC * 10000,
                 {map_x * tile_size + 0.5f * tile_size, -2.0f + avg_elev,

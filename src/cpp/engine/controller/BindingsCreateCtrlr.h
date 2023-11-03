@@ -1,6 +1,6 @@
 /* Copyright (c) 2017-2023, The Khronos Group Inc.
 
-PDX-License-Identifier: Apache-2.0
+SPDX-License-Identifier: Apache-2.0
 
 This file was modified from its original version by Zmallwood for Narradia.
 The original icense is stated in the LICENSE file. */
@@ -9,13 +9,13 @@ The original icense is stated in the LICENSE file. */
 
 namespace nar {
     /**
-     * Responsible for polling the system events.
+     * Creates bindings primarily to be able to read hand device input.
      */
-    class SystemEventPollerController : public Singleton<SystemEventPollerController> {
+    class BindingsCreateCtrlr : public Singleton<BindingsCreateCtrlr> {
       public:
-        void PollSystemEvents();
+        void CreateBindings();
 
       private:
-        const XrEventDataBaseHeader *TryReadNextEvent();
+        XrPath CreatePath(std::string path_str);
     };
 }

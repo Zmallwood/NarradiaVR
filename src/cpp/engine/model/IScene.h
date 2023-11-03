@@ -4,8 +4,11 @@ This code is licensed under Apache License, Version 2.0 (see LICENSE for details
 #pragma once
 
 namespace nar {
-   class IScene {
-     public:
-      virtual void UpdateGameLogic() = 0;
-   };
+    /**
+     * Base class inherited by all the game scenes.
+     */
+    class IScene {
+      public:
+        virtual void UpdateGameLogic() = 0;
+    };
 }

@@ -12,7 +12,7 @@ The original icense is stated in the LICENSE file. */
 #include "Options.h"
 #include "OptionsManager.h"
 #include "../../engine.input_actions/controller/InputActionsCreateController.h"
-#include "../controller/BindingsCreateController.h"
+#include "../controller/BindingsCreateCtrlr.h"
 #include "engine/view/GraphicsGLView.h"
 #include "engine/view/SwapchainManagerView.h"
 
@@ -180,7 +180,7 @@ namespace nar {
         }
 
         InputActionsCreateController::Get()->CreateInputActions();
-        BindingsCreateController::Get()->CreateBindings();
+        BindingsCreateCtrlr::Get()->CreateBindings();
         //      InputActionsController::Get()->InitInputActions();
         CreateVisualizedSpaces();
 

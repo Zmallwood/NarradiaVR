@@ -7,7 +7,7 @@ namespace nar {
     /**
      * Base class to be inherited by all scene controllers.
      */
-    class ISceneController {
+    class ISceneCtrlr {
       public:
         virtual auto HandleInput() -> void = 0;
         virtual auto UpdateGameFlow() -> void = 0;

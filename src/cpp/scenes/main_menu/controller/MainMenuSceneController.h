@@ -2,10 +2,10 @@
 This code is licensed under Apache License, Version 2.0 (see LICENSE for details) */
 
 #pragma once
-#include "../../../engine/controller/ISceneController.h"
+#include "../../../engine/controller/ISceneCtrlr.h"
 
 namespace nar {
-   class MainMenuSceneController : public ISceneController {
+   class MainMenuSceneController : public ISceneCtrlr {
      public:
       void HandleInput() override;
       void UpdateGameFlow() override;

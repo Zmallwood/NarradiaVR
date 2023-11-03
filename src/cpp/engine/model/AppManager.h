@@ -6,13 +6,13 @@ This file was modified from its original version by Zmallwood for Narradia.
 The original icense is stated in the LICENSE file. */
 
 #pragma once
-#include "AndroidAppState.h"
+#include "AppState.h"
 
 namespace nar {
     /**
      * Primarily used to provide access to the android_app object during the games duration.
      */
-    class AndroidVRAppManager : public Singleton<AndroidVRAppManager> {
+    class AppManager : public Singleton<AppManager> {
       public:
         void Init();
         void Cleanup();
@@ -29,6 +29,6 @@ namespace nar {
         static void HandleAppCmd(android_app *app, int32_t cmd);
 
         android_app *app_;
-        AndroidAppState appState_;
+        AppState appState_;
     };
 }

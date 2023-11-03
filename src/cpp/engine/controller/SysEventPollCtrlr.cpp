@@ -5,7 +5,7 @@ SPDX-License-Identifier: Apache-2.0
 This file was modified from its original version by Zmallwood for Narradia.
 The original icense is stated in the LICENSE file. */
 
-#include "SystemEventPollerController.h"
+#include "SysEventPollCtrlr.h"
 #include "engine/model/Engine.h"
 #include "engine/model/OpenXrProgram.h"
 
@@ -13,7 +13,7 @@ namespace nar {
     /**
      * Process all pending messages.
      */
-    void SystemEventPollerController::PollSystemEvents() {
+    void SysEventPollCtrlr::PollSystemEvents() {
         Engine::Get()->set_exit_render_loop(false);
 
         while (const XrEventDataBaseHeader *event = TryReadNextEvent()) {
@@ -48,7 +48,7 @@ namespace nar {
     /**
      * Return event if one is available, otherwise return null.
      */
-    const XrEventDataBaseHeader *SystemEventPollerController::TryReadNextEvent() {
+    const XrEventDataBaseHeader *SysEventPollCtrlr::TryReadNextEvent() {
         auto instance = OpenXrProgram::Get()->instance();
         auto event_data_buffer = OpenXrProgram::Get()->event_data_buffer();
 

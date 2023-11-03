@@ -5,13 +5,13 @@ SPDX-License-Identifier: Apache-2.0
 This file was modified from its original version by Zmallwood for Narradia.
 The original icense is stated in the LICENSE file. */
 
-#include "AndroidVRAppManager.h"
+#include "AppManager.h"
 
 namespace nar {
     /**
-     * Initialize at game start:
+     * Initialize at game start, setting properties of app object:
      */
-    void AndroidVRAppManager::Init() {
+    void AppManager::Init() {
         JNIEnv *env;
         app_->activity->vm->AttachCurrentThread(&env, nullptr);
         app_->userData = &appState_;
@@ -21,15 +21,15 @@ namespace nar {
     /**
      * Cleanup at game exit.
      */
-    void AndroidVRAppManager::Cleanup() {
+    void AppManager::Cleanup() {
         app_->activity->vm->DetachCurrentThread();
     }
 
     /**
      * Process the next main command.
      */
-    void AndroidVRAppManager::HandleAppCmd(struct android_app *app, int32_t cmd) {
-        AndroidAppState *app_state = (AndroidAppState *)app->userData;
+    void AppManager::HandleAppCmd(struct android_app *app, int32_t cmd) {
+        AppState *app_state = (AppState *)app->userData;
 
         switch (cmd) {
         /*

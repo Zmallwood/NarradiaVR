@@ -6,8 +6,8 @@ This file was modified from its original version by Zmallwood for Narradia.
 The original icense is stated in the LICENSE file. */
 
 #include "ReadSystemEvents.h"
-#include "engine/model/AndroidAppState.h"
-#include "engine/model/AndroidVRAppManager.h"
+#include "engine/model/AppState.h"
+#include "engine/model/AppManager.h"
 #include "engine/model/OpenXrProgram.h"
 
 namespace nar {
@@ -15,8 +15,8 @@ namespace nar {
      * Read all pending events.
      */
     void ReadSystemEvents() {
-        auto app = AndroidVRAppManager::Get()->app();
-        auto app_state = static_cast<AndroidAppState *>(app->userData);
+        auto app = AppManager::Get()->app();
+        auto app_state = static_cast<AppState *>(app->userData);
 
         while (true) {
             int events;

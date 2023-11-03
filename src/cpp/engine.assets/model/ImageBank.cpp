@@ -2,11 +2,11 @@
 This code is licensed under Apache License, Version 2.0 (see LICENSE for details) */
 
 #include "ImageBank.h"
-#include "../../engine/model/AndroidVRAppManager.h"
+#include "../../engine/model/AppManager.h"
 
 namespace nar {
     void ImageBank::LoadImages() {
-        auto asset_manager = AndroidVRAppManager::Get()->app()->activity->assetManager;
+        auto asset_manager = AppManager::Get()->app()->activity->assetManager;
         AAssetDir *dir = AAssetManager_openDir(asset_manager, "");
         const char *file_name = AAssetDir_getNextFileName(dir);
 
@@ -48,7 +48,7 @@ namespace nar {
     }
 
     FileData ImageBank::GetAssetData(const char *relative_path) {
-        auto asset_manager = AndroidVRAppManager::Get()->app()->activity->assetManager;
+        auto asset_manager = AppManager::Get()->app()->activity->assetManager;
         AAsset *asset = AAssetManager_open(asset_manager, relative_path, AASSET_MODE_STREAMING);
 
         return (FileData){AAsset_getLength(asset), AAsset_getBuffer(asset), asset};

@@ -9,13 +9,10 @@ The original icense is stated in the LICENSE file. */
 
 namespace nar {
     /**
-     * Creates bindings primarily to be able to read hand device input.
+     * Holds essential data about the android app.
      */
-    class BindingsCreateController : public Singleton<BindingsCreateController> {
-      public:
-        void CreateBindings();
-
-      private:
-        XrPath CreatePath(std::string path_str);
+    struct AppState {
+        ANativeWindow *native_window = nullptr;
+        bool resumed = false;
     };
 }

@@ -6,7 +6,7 @@ This file was modified from its original version by Zmallwood for Narradia.
 The original icense is stated in the LICENSE file. */
 
 #include "Loader.h"
-#include "AndroidVRAppManager.h"
+#include "AppManager.h"
 
 namespace nar {
    void Loader::Init() {
@@ -20,9 +20,9 @@ namespace nar {
          XrLoaderInitInfoAndroidKHR loader_init_info_android = {
              XR_TYPE_LOADER_INIT_INFO_ANDROID_KHR};
 
-         loader_init_info_android.applicationVM = AndroidVRAppManager::Get()->app()->activity->vm;
+         loader_init_info_android.applicationVM = AppManager::Get()->app()->activity->vm;
          loader_init_info_android.applicationContext =
-             AndroidVRAppManager::Get()->app()->activity->clazz;
+             AppManager::Get()->app()->activity->clazz;
 
          initialize_loader((const XrLoaderInitInfoBaseHeaderKHR *)&loader_init_info_android);
       }

@@ -49,6 +49,13 @@ namespace nar {
         for (auto i = 0; i < num_houses; i++) {
             auto index = rand() % predef_houses.size();
             auto house_entry = predef_houses.at(index);
+            auto already_added = false;
+            for (auto house : used_houses)
+                if (house.center.x == house_entry.center.x &&
+                    house.center.y == house_entry.center.y)
+                    already_added = true;
+            if (already_added)
+                continue;
             used_houses.push_back(house_entry);
             auto entrance = house_entry.closest_node_index;
             auto entrance_node = predef_nodes.at(entrance);
@@ -138,6 +145,24 @@ namespace nar {
                 }
             }
 
+            for (auto x = entry.center.x - w / 2; x <= entry.center.x + w / 2; x++) {
+                if (entry.door_direction != Dir::N || x != entry.center.x)
+                    map_area->tiles[x][entry.center.y - h / 2].object =
+                        std::make_shared<Object>("object_wood_wall_n");
+                if (entry.door_direction != Dir::S || x != entry.center.x)
+                    map_area->tiles[x][entry.center.y + h / 2].object =
+                        std::make_shared<Object>("object_wood_wall_s");
+            }
+
+            for (auto y = entry.center.y - h / 2; y <= entry.center.y + h / 2; y++) {
+                if (entry.door_direction != Dir::W || y != entry.center.y)
+                    map_area->tiles[entry.center.x - w / 2][y].object =
+                        std::make_shared<Object>("object_wood_wall_w");
+                if (entry.door_direction != Dir::E || y != entry.center.y)
+                    map_area->tiles[entry.center.x + w / 2][y].object =
+                        std::make_shared<Object>("object_wood_wall_e");
+            }
+
             //            continue;
             Point door;
 
@@ -198,6 +223,28 @@ namespace nar {
                     map_area->tiles[curr_x][curr_y].ground = "ground_cobblestone";
                     map_area->tiles[curr_x][curr_y].object = nullptr;
                     curr_x += normx;
+                }
+            }
+        }
+
+        for (auto i = 0; i < 30; i++) {
+            auto x_center = rand() % 100;
+            auto y_center = rand() % 100;
+            auto r_max = 4 + rand() % 8;
+
+            for (auto r = r_max; r >= 0; r--) {
+                for (auto y = y_center - r; y <= y_center + r; y++) {
+                    for (auto x = x_center - r; x <= x_center + r; x++) {
+                        if (x < 0 || y < 0 || x >= 100 || y >= 100)
+                            continue;
+
+                        auto dx = x - x_center;
+                        auto dy = y - y_center;
+
+                        if (dx * dx + dy * dy < r * r) {
+                            map_area->tiles[x][y].elevation += 0.3f;
+                        }
+                    }
                 }
             }
         }

@@ -7,7 +7,7 @@ namespace nar {
     /**
      * Top most controller object, executes the controllers below.
      */
-    class EngineController : public Singleton<EngineController> {
+    class EngineCtrlr : public Singleton<EngineCtrlr> {
       public:
         void HandleInput();
         void UpdateGameFlow();

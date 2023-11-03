@@ -1,7 +1,7 @@
 /* (c) 2023 Zmallwood
 This code is licensed under Apache License, Version 2.0 (see LICENSE for details) */
 
-#include "BindingsCreateController.h"
+#include "BindingsCreateCtrlr.h"
 #include "../../engine.input_actions/model/InputState.h"
 #include "engine/model/OpenXrProgram.h"
 #include "../model/Constants.h"
@@ -10,7 +10,7 @@ namespace nar {
     /**
      * Create bindings that we want to use.
      */
-    void BindingsCreateController::CreateBindings() {
+    void BindingsCreateCtrlr::CreateBindings() {
         auto instance = OpenXrProgram::Get()->instance();
         auto session = OpenXrProgram::Get()->session();
         auto input = InputState::Get();
@@ -57,7 +57,7 @@ namespace nar {
     /**
      * Convert a string to a path object.
      */
-    XrPath BindingsCreateController::CreatePath(std::string path_str) {
+    XrPath BindingsCreateCtrlr::CreatePath(std::string path_str) {
         auto instance = OpenXrProgram::Get()->instance();
         XrPath path;
         xrStringToPath(instance, path_str.c_str(), &path);
