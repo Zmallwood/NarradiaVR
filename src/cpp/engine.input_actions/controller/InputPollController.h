@@ -1,5 +1,5 @@
 #pragma once
-#include "../model/Side.h"
+#include "../../engine/model/Constants.h"
 #include "HandDeviceInputPollController.h"
 
 namespace nar {
@@ -13,7 +13,7 @@ namespace nar {
         void PollInputActions();
 
       private:
-        HandDeviceInputPollController left_hand_device_input_poll_controller_{Side::kLeft};
-        HandDeviceInputPollController right_hand_device_input_poll_controller_{Side::kRight};
+        HandDeviceInputPollController left_hand_device_input_poll_controller_{kLeftHandDevice};
+        HandDeviceInputPollController right_hand_device_input_poll_controller_{kRightHandDevice};
     };
 }

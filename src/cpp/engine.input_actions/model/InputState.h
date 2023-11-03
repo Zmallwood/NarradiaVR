@@ -7,7 +7,6 @@ The original icense is stated in the LICENSE file. */
 
 #pragma once
 #include "../../engine/model/Constants.h"
-#include "Side.h"
 
 namespace nar {
     class InputState : public Singleton<InputState> {

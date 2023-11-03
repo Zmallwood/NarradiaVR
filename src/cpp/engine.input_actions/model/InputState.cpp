@@ -6,7 +6,7 @@ This code is licensed under Apache License, Version 2.0 (see LICENSE for details
 namespace nar {
    InputState::~InputState() {
       if (action_set != XR_NULL_HANDLE) {
-         for (auto hand : {Side::kLeft, Side::kRight})
+         for (auto hand : {kLeftHandDevice, kRightHandDevice})
             xrDestroySpace(hand_space[hand]);
 
          xrDestroyActionSet(action_set);

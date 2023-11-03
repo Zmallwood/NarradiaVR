@@ -128,35 +128,35 @@ namespace nar {
 
         for (auto entry : used_houses) {
 
-            auto w = 3 + rand() % 4;
-            auto h = 3 + rand() % 4;
+            auto w = 2 + (rand() % 2) * 2;
+            auto h = 2 + (rand() % 2) * 2;
 
-            for (auto y = entry.center.y - h/ 2; y < entry.center.y + h/ 2; y++) {
-                for (auto x = entry.center.x - w/ 2; x < entry.center.x + w/ 2; x++) {
+            for (auto y = entry.center.y - h / 2; y <= entry.center.y + h / 2; y++) {
+                for (auto x = entry.center.x - w / 2; x <= entry.center.x + w / 2; x++) {
                     map_area->tiles[x][y].ground = "ground_wood_floor";
                     map_area->tiles[x][y].object = nullptr;
                 }
             }
 
-            continue;
+            //            continue;
             Point door;
 
             switch (entry.door_direction) {
             case Dir::N:
-                door = {entry.center.x, entry.center.y - h/ 2 - 1};
+                door = {entry.center.x, entry.center.y - h / 2 - 1};
                 break;
             case Dir::E:
-                door = {entry.center.x + w/ 2 + 1, entry.center.y};
+                door = {entry.center.x + w / 2 + 1, entry.center.y};
                 break;
             case Dir::S:
-                door = {entry.center.x, entry.center.y + h/ 2 + 1};
+                door = {entry.center.x, entry.center.y + h / 2 + 1};
                 break;
             case Dir::W:
-                door = {entry.center.x - w/ 2 - 1, entry.center.y};
+                door = {entry.center.x - w / 2 - 1, entry.center.y};
                 break;
             }
 
-            auto closest_node = used_nodes.at(entry.closest_node_index);
+            auto closest_node = predef_nodes.at(entry.closest_node_index);
 
             auto dx = closest_node.x - door.x;
             auto dy = closest_node.y - door.y;
@@ -176,13 +176,13 @@ namespace nar {
             auto curr_x = door.x;
             auto curr_y = door.y;
 
-            if (dx < dy) {
+            if (entry.door_direction == Dir::E || entry.door_direction == Dir::W) {
                 for (auto x = 0; x < std::abs(dx); x++) {
                     map_area->tiles[curr_x][curr_y].ground = "ground_cobblestone";
                     map_area->tiles[curr_x][curr_y].object = nullptr;
                     curr_x += normx;
                 }
-                for (auto y = 0; y < std::abs(dy); y++) {
+                for (auto y = 0; y <= std::abs(dy); y++) {
                     map_area->tiles[curr_x][curr_y].ground = "ground_cobblestone";
                     map_area->tiles[curr_x][curr_y].object = nullptr;
                     curr_y += normy;
@@ -194,7 +194,7 @@ namespace nar {
                     map_area->tiles[curr_x][curr_y].object = nullptr;
                     curr_y += normy;
                 }
-                for (auto x = 0; x < std::abs(dx); x++) {
+                for (auto x = 0; x <= std::abs(dx); x++) {
                     map_area->tiles[curr_x][curr_y].ground = "ground_cobblestone";
                     map_area->tiles[curr_x][curr_y].object = nullptr;
                     curr_x += normx;

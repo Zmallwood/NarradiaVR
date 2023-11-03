@@ -28,8 +28,8 @@ namespace nar {
 
         // Get the XrPath for the left and right hands - we will use them as subaction
         // paths.
-        xrStringToPath(instance, "/user/hand/left", &input->hand_subaction_path[Side::kLeft]);
-        xrStringToPath(instance, "/user/hand/right", &input->hand_subaction_path[Side::kRight]);
+        xrStringToPath(instance, "/user/hand/left", &input->hand_subaction_path[kLeftHandDevice]);
+        xrStringToPath(instance, "/user/hand/right", &input->hand_subaction_path[kRightHandDevice]);
 
         // Create an input action for grabbing objects with the left and right hands.
         XrActionCreateInfo action_info = {XR_TYPE_ACTION_CREATE_INFO};

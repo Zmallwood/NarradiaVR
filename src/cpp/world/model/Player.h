@@ -2,6 +2,7 @@
 This code is licensed under Apache License, Version 2.0 (see LICENSE for details) */
 
 #pragma once
+#include "../../engine/model/Config.h"
 
 namespace nar {
    struct Player : public Singleton<Player> {
@@ -10,8 +11,8 @@ namespace nar {
       void MoveRight();
       void MoveLeft();
 
-      float x = 50.0f;
-      float y = 50.0f;
+      float x = 50.0f * Config::Get()->kTileSize;
+      float y = 50.0f * Config::Get()->kTileSize;
       float z = 0.0f;
       clock_t ticks_last_movement = 0;
       float movement_speed = 30.0f;

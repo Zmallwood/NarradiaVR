@@ -1,7 +1,7 @@
 #include "HandDeviceInputPollController.h"
 #include "../../engine/model/HandDeviceInput.h"
-#include "../model/InputState.h"
 #include "../../engine/model/OpenXrProgram.h"
+#include "../model/InputState.h"
 
 namespace nar {
     void HandDeviceInputPollController::PollInputActions() {
@@ -20,10 +20,10 @@ namespace nar {
             input->hand_scale[hand_] = 1.0f - 0.5f * grab_value.currentState;
 
             if (grab_value.currentState > 0.9f) {
-                if (hand_ == Side::kRight)
+                if (hand_ == kRightHandDevice)
                     HandDeviceInput::Get()->right_input_device()->RegisterBeenGrabbed(true);
 
-                if (hand_ == Side::kLeft)
+                if (hand_ == kLeftHandDevice)
                     HandDeviceInput::Get()->left_input_device()->RegisterBeenGrabbed(true);
 
                 XrHapticVibration vibration = {XR_TYPE_HAPTIC_VIBRATION};
@@ -35,13 +35,14 @@ namespace nar {
                 haptic_action_info.action = input->vibrate_action;
                 haptic_action_info.subactionPath = input->hand_subaction_path[hand_];
                 xrApplyHapticFeedback(
-                    session, &haptic_action_info, reinterpret_cast<XrHapticBaseHeader *>(&vibration));
+                    session, &haptic_action_info,
+                    reinterpret_cast<XrHapticBaseHeader *>(&vibration));
             }
             else {
-                if (hand_ == Side::kRight)
+                if (hand_ == kRightHandDevice)
                     HandDeviceInput::Get()->right_input_device()->RegisterNotGrabbed();
 
-                if (hand_ == Side::kLeft)
+                if (hand_ == kLeftHandDevice)
                     HandDeviceInput::Get()->left_input_device()->RegisterNotGrabbed();
             }
         }
@@ -60,11 +61,11 @@ namespace nar {
         xrGetActionStateFloat(session, &get_info, &thumbstick_x);
 
         if (thumbstick_x.isActive == XR_TRUE) {
-            if (hand_ == Side::kRight)
+            if (hand_ == kRightHandDevice)
                 HandDeviceInput::Get()->right_input_device()->RegisterThumbstickX(
                     thumbstick_x.currentState);
 
-            if (hand_ == Side::kLeft)
+            if (hand_ == kLeftHandDevice)
                 HandDeviceInput::Get()->left_input_device()->RegisterThumbstickX(
                     thumbstick_x.currentState);
         }
@@ -76,11 +77,11 @@ namespace nar {
         xrGetActionStateFloat(session, &get_info, &thumbstick_y);
 
         if (thumbstick_y.isActive == XR_TRUE) {
-            if (hand_ == Side::kRight)
+            if (hand_ == kRightHandDevice)
                 HandDeviceInput::Get()->right_input_device()->RegisterThumbstickY(
                     thumbstick_y.currentState);
 
-            if (hand_ == Side::kLeft)
+            if (hand_ == kLeftHandDevice)
                 HandDeviceInput::Get()->left_input_device()->RegisterThumbstickY(
                     thumbstick_y.currentState);
         }

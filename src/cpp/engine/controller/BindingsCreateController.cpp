@@ -4,6 +4,7 @@ This code is licensed under Apache License, Version 2.0 (see LICENSE for details
 #include "BindingsCreateController.h"
 #include "../../engine.input_actions/model/InputState.h"
 #include "engine/model/OpenXrProgram.h"
+#include "../model/Constants.h"
 
 namespace nar {
     /**
@@ -41,11 +42,11 @@ namespace nar {
         XrActionSpaceCreateInfo action_space_info = {XR_TYPE_ACTION_SPACE_CREATE_INFO};
         action_space_info.action = input->pose_action;
         action_space_info.poseInActionSpace.orientation.w = 1.f;
-        action_space_info.subactionPath = input->hand_subaction_path[Side::kLeft];
-        xrCreateActionSpace(session, &action_space_info, &input->hand_space[Side::kLeft]);
-        action_space_info.subactionPath = input->hand_subaction_path[Side::kRight];
+        action_space_info.subactionPath = input->hand_subaction_path[kLeftHandDevice];
+        xrCreateActionSpace(session, &action_space_info, &input->hand_space[kLeftHandDevice]);
+        action_space_info.subactionPath = input->hand_subaction_path[kRightHandDevice];
 
-        xrCreateActionSpace(session, &action_space_info, &input->hand_space[Side::kRight]);
+        xrCreateActionSpace(session, &action_space_info, &input->hand_space[kRightHandDevice]);
 
         XrSessionActionSetsAttachInfo attach_info = {XR_TYPE_SESSION_ACTION_SETS_ATTACH_INFO};
         attach_info.countActionSets = 1;

@@ -6,13 +6,14 @@ This file was modified from its original version by Zmallwood for Narradia.
 The original icense is stated in the LICENSE file. */
 
 #include "MainSceneView.h"
+#include "../../../engine.input_actions/model/InputState.h"
 #include "../../../engine.rendering/view/RendererModelsView.h"
 #include "../../../engine.rendering/view/RendererTilesView.h"
 #include "../../../engine/model/Config.h"
+#include "../../../engine/model/Constants.h"
 #include "../../../engine/view/RendererView.h"
 #include "../../../world/model/Player.h"
 #include "engine.assets/model/ModelBank.h"
-#include "../../../engine.input_actions/model/InputState.h"
 #include "engine/model/OpenXrProgram.h"
 #include "world/model/World.h"
 #include <ctime>
@@ -59,7 +60,7 @@ namespace nar {
 
         // Render a 10cm cube scaled by grab_action for each hand. Note renderHand will only
         // be true when the application has focus.
-        for (auto hand : {Side::kLeft, Side::kRight}) {
+        for (auto hand : {kLeftHandDevice, kRightHandDevice}) {
             XrSpaceLocation space_location = {XR_TYPE_SPACE_LOCATION};
             auto res = xrLocateSpace(
                 InputState::Get()->hand_space[hand], OpenXrProgram::Get()->app_space(),
