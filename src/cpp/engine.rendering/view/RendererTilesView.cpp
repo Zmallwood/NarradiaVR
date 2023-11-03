@@ -2,7 +2,7 @@
 This code is licensed under Apache License, Version 2.0 (see LICENSE for details) */
 
 #include "RendererTilesView.h"
-#include "engine/model/ImageBank.h"
+#include "engine.assets/model/ImageBank.h"
 #include "world/model/Player.h"
 
 namespace nar {

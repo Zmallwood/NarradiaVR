@@ -16,9 +16,10 @@ namespace nar {
         RendererModelsView();
         void NewModel(std::string_view model_name);
         void DrawModel(
-            std::string_view model_name, float, Point3F, XrMatrix4x4f viewProjectionMatrix,
-            float rotation = 0.0f, float scaling = 1.0f, float brightness = 1.0f,
-            glm::vec3 color_mod = {1.0f, 1.0f, 1.0f}, bool no_fog = false, bool no_lighting = false, bool cull_face_back = false) const;
+            std::string_view model_name, float ms_time, Point3F position,
+            XrMatrix4x4f view_projection_matrix, float rotation = 0.0f, float scaling = 1.0f,
+            float brightness = 1.0f, glm::vec3 color_mod = {1.0f, 1.0f, 1.0f}, bool no_fog = false,
+            bool no_lighting = false, bool cull_face_back = false) const;
         void DrawModelsMany(
             std::string_view model_name, float, std::vector<Point3F>, std::vector<float>,
             std::vector<float>, std::vector<float>, std::vector<glm::vec3>,

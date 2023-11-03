@@ -2,7 +2,7 @@
 This code is licensed under Apache License, Version 2.0 (see LICENSE for details) */
 
 #include "ImageBank.h"
-#include "AndroidVRAppManager.h"
+#include "../../engine/model/AndroidVRAppManager.h"
 
 namespace nar {
     void ImageBank::LoadImages() {

@@ -14,7 +14,6 @@ namespace nar {
             if (tile->mob == nullptr) {
                 if (tile->ground != "ground_water") {
                                         tile->mob = std::make_shared<Mob>("mob_bird1");
-//                    tile->mob = std::make_shared<Mob>("chk1");
                 }
             }
         }

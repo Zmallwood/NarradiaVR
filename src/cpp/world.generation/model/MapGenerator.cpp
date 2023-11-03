@@ -2,6 +2,7 @@
 This code is licensed under Apache License, Version 2.0 (see LICENSE for details) */
 
 #include "MapGenerator.h"
+#include "CityGenerator.h"
 #include "ElevationGenerator.h"
 #include "MobGenerator.h"
 #include "NormalsCalculator.h"
@@ -20,7 +21,8 @@ namespace nar {
         WaterGenerator::Get()->GenerateWater();
         ElevationGenerator::Get()->GenerateElevation();
         ObjectGenerator::Get()->GenerateObjects();
-        NormalsCalculator::Get()->CalculateNormals();
         MobGenerator::Get()->GenerateMobs();
+        CityGenerator::Get()->GenerateCity();
+        NormalsCalculator::Get()->CalculateNormals();
     }
 }

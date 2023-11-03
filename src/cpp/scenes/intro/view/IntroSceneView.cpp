@@ -11,7 +11,7 @@
 #include "engine/model/OpenXrProgram.h"
 #include "world/model/Player.h"
 #include "engine/model/InputState.h"
-#include "engine/model/ModelBank.h"
+#include "engine.assets/model/ModelBank.h"
 #include "engine/view/GraphicsGLView.h"
 
 namespace nar {

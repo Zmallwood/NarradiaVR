@@ -2,9 +2,9 @@
 This code is licensed under Apache License, Version 2.0 (see LICENSE for details) */
 
 #include "RendererModelsView.h"
-#include "../../engine/model/ModelBank.h"
+#include "../../engine.assets/model/ModelBank.h"
 #include "engine.model_structure/model/Model.h"
-#include "engine/model/ImageBank.h"
+#include "engine.assets/model/ImageBank.h"
 #include "world/model/Player.h"
 #include <GLES2/gl2.h>
 

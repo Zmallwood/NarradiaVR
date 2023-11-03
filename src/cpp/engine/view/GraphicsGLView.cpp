@@ -6,7 +6,7 @@ This file was modified from its original version by Zmallwood for Narradia.
 The original icense is stated in the LICENSE file. */
 
 #include "GraphicsGLView.h"
-#include "engine/model/ModelBank.h"
+#include "engine.assets/model/ModelBank.h"
 #include "engine/model/Options.h"
 #include "engine/model/OptionsManager.h"
 #include "world/model/Player.h"
