@@ -2,7 +2,7 @@
 This code is licensed under Apache License, Version 2.0 (see LICENSE for details) */
 
 #pragma once
-#include "engine/view/ISceneView.h"
+#include "core/view/ISceneView.h"
 
 namespace nar {
    class MainMenuSceneView : public ISceneView {

@@ -7,7 +7,7 @@
  */
 
 #pragma once
-#include "../../../engine/view/ISceneView.h"
+#include "../../../core/view/ISceneView.h"
 
 namespace nar {
    class IntroSceneView : public ISceneView {

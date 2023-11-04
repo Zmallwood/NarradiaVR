@@ -2,10 +2,10 @@
 This code is licensed under Apache License, Version 2.0 (see LICENSE for details) */
 
 #pragma once
-#include "../../engine/model/Config.h"
+#include "../../core/model/Config.h"
 
 namespace nar {
-   struct Player : public Singleton<Player> {
+   struct Player : public Ston<Player> {
       void MoveForward();
       void MoveBackward();
       void MoveRight();

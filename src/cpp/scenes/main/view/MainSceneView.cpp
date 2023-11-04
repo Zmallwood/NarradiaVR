@@ -6,16 +6,16 @@ This file was modified from its original version by Zmallwood for Narradia.
 The original icense is stated in the LICENSE file. */
 
 #include "MainSceneView.h"
-#include "../../../engine.input_actions/model/InputState.h"
-#include "../../../engine.rendering/view/RendererFacelockedView.h"
-#include "../../../engine.rendering/view/RendererModelsView.h"
-#include "../../../engine.rendering/view/RendererTilesView.h"
-#include "../../../engine/model/Config.h"
-#include "../../../engine/model/Constants.h"
-#include "../../../engine/view/RendererView.h"
+#include "../../../core.input_actions/model/InputState.h"
+#include "../../../core.render/view/RendererFacelockedView.h"
+#include "../../../core.render/view/RendererModelsView.h"
+#include "../../../core.render/view/RendererTilesView.h"
+#include "../../../core/model/Config.h"
+#include "../../../core/model/Constants.h"
+#include "../../../core/view/RendererView.h"
 #include "../../../world/model/Player.h"
-#include "engine.assets/model/ModelBank.h"
-#include "engine/model/OpenXrProgram.h"
+#include "core.assets/model/ModelBank.h"
+#include "core/model/OpenXrProgram.h"
 #include "world/model/World.h"
 #include <ctime>
 

@@ -6,9 +6,9 @@ This file was modified from its original version by Zmallwood for Narradia.
 The original icense is stated in the LICENSE file. */
 
 #include "Game.h"
-#include "engine/controller/EngineCtrlr.h"
-#include "engine/model/Engine.h"
-#include "engine/view/EngineView.h"
+#include "core/controller/EngineCtrlr.h"
+#include "core/model/Engine.h"
+#include "core/view/EngineView.h"
 
 namespace nar {
     /**

@@ -3,7 +3,7 @@ This code is licensed under Apache License, Version 2.0 (see LICENSE for details
 
 #include "ThumbstickRotationModule.h"
 #include "world/model/Player.h"
-#include "engine/model/HandDeviceInput.h"
+#include "core/model/HandDeviceInput.h"
 
 namespace nar {
    void ThumbstickRotationModule::Update() {

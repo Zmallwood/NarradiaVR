@@ -173,7 +173,7 @@ set(PCH_FILES
 
 "src/cpp/common/system/Typedefs.h"
 "src/cpp/common/system/func/StonsCleanup.h"
-"src/cpp/common/system/Singleton.h"
+"src/cpp/common/system/Ston.h"
 "src/cpp/matter/model/Color.h"
 "src/cpp/matter/model/PointF.h"
 "src/cpp/matter/model/Point3F.h"
@@ -182,8 +182,8 @@ set(PCH_FILES
 "src/cpp/matter/model/VertexCube.h"
 "src/cpp/matter/model/Point.h"
 "src/cpp/matter/model/Colors.h"
-"src/cpp/utilities/model/Util.h"
-"src/cpp/utilities/view/UtilView.h"
+"src/cpp/util/model/Util.h"
+"src/cpp/util/view/UtilView.h"
 )
 
 target_precompile_headers(hello_xr PRIVATE ${PCH_FILES})

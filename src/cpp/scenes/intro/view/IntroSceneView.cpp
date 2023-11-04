@@ -7,12 +7,12 @@
  */
 
 #include "IntroSceneView.h"
-#include "../../../engine.input_actions/model/InputState.h"
-#include "../../../engine/model/Constants.h"
-#include "engine.assets/model/ModelBank.h"
-#include "engine/model/OpenXrProgram.h"
-#include "engine/view/GraphicsGLView.h"
-#include "engine/view/RendererView.h"
+#include "../../../core.input_actions/model/InputState.h"
+#include "../../../core/model/Constants.h"
+#include "core.assets/model/ModelBank.h"
+#include "core/model/OpenXrProgram.h"
+#include "core/view/GraphicsGLView.h"
+#include "core/view/RendererView.h"
 #include "world/model/Player.h"
 
 namespace nar {

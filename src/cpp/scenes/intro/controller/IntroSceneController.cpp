@@ -2,9 +2,9 @@
 This code is licensed under Apache License, Version 2.0 (see LICENSE for details) */
 
 #include "IntroSceneController.h"
-#include "../../../engine/model/SceneManager.h"
-#include "engine/model/Engine.h"
-#include "engine/model/HandDeviceInput.h"
+#include "../../../core/model/SceneManager.h"
+#include "core/model/Engine.h"
+#include "core/model/HandDeviceInput.h"
 
 namespace nar {
     void IntroSceneController::HandleInput() {

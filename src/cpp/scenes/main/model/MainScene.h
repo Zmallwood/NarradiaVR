@@ -6,7 +6,7 @@ This file was modified from its original version by Zmallwood for Narradia.
 The original icense is stated in the LICENSE file. */
 
 #pragma once
-#include "../../../engine/model/IScene.h"
+#include "../../../core/model/IScene.h"
 
 namespace nar {
    class MainScene : public IScene {
