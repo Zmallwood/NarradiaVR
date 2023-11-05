@@ -3,7 +3,7 @@ This code is licensed under Apache License, Version 2.0 (see LICENSE for details
 
 #include "ModelBank.h"
 #include "../../core/model/AppManager.h"
-#include "../../core.model_creation/model/ModelCreator.h"
+#include "../../core.model.make/model/ModelCreator.h"
 
 namespace nar {
 

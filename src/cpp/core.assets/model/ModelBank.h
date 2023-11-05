@@ -3,7 +3,7 @@ This code is licensed under Apache License, Version 2.0 (see LICENSE for details
 
 #pragma once
 #include "FileData.h"
-#include "../../core.model_struct/model/Model.h"
+#include "../../core.model.struct/model/Model.h"
 
 namespace nar {
    /** Loads and provides 3D models used in the rendering.

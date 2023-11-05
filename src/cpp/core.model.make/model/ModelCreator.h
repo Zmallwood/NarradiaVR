@@ -3,7 +3,7 @@ This code is licensed under Apache License, Version 2.0 (see LICENSE for details
 
 #pragma once
 
-#include "../../core.model_struct/model/Model.h"
+#include "../../core.model.struct/model/Model.h"
 #include <assimp/scene.h>
 #include <map>
 #include <memory>

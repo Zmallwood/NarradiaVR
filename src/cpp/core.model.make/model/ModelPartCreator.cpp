@@ -3,7 +3,7 @@ This code is licensed under Apache License,
 Version 2.0 (see LICENSE for details) */
 
 #include "ModelPartCreator.h"
-#include "../../core.model_struct/model/ModelPart.h"
+#include "../../core.model.struct/model/ModelPart.h"
 #include "../../matter/model/Color.h"
 #include "../../matter/model/PointF.h"
 #include "ModelPartKeyframeCreator.h"

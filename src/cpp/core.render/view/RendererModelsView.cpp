@@ -3,7 +3,7 @@ This code is licensed under Apache License, Version 2.0 (see LICENSE for details
 
 #include "RendererModelsView.h"
 #include "../../core.assets/model/ModelBank.h"
-#include "core.model_struct/model/Model.h"
+#include "core.model.struct/model/Model.h"
 #include "core.assets/model/ImageBank.h"
 #include "world/model/Player.h"
 #include <GLES2/gl2.h>
